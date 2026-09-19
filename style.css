@@ -1,0 +1,234 @@
+/* =========================================================
+   CRYPTO ATLAS
+   First visual design
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1020;
+    color: #f4f7fb;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.site-header {
+    border-bottom: 1px solid #26314d;
+    background: #0f162b;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 24px;
+}
+
+.logo {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.tagline {
+    margin: 6px 0 0;
+    color: #aeb8cc;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.site-nav {
+    border-top: 1px solid #1e2942;
+    background: #0c1326;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 14px 16px;
+    color: #cdd6e6;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: #18233e;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 24px 70px;
+}
+
+.hero-label {
+    margin: 0 0 12px;
+    color: #7f8da8;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.hero-title {
+    margin: 0;
+    max-width: 850px;
+    font-size: 54px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero-text {
+    max-width: 760px;
+    margin-top: 24px;
+    color: #b7c1d4;
+    font-size: 18px;
+}
+
+/* =========================
+   ASSET CARDS
+   ========================= */
+
+.asset-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px 80px;
+}
+
+.section-title {
+    margin: 0 0 24px;
+    font-size: 26px;
+}
+
+.asset-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.asset-card {
+    padding: 24px;
+    border: 1px solid #26314d;
+    background: #111a31;
+    text-decoration: none;
+    color: #ffffff;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.asset-card:hover {
+    transform: translateY(-3px);
+    border-color: #52627f;
+    background: #14203a;
+}
+
+.asset-symbol {
+    margin: 0;
+    font-size: 14px;
+    color: #8f9db7;
+    letter-spacing: 2px;
+}
+
+.asset-name {
+    margin: 8px 0 0;
+    font-size: 24px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+    border-top: 1px solid #26314d;
+    background: #0f162b;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #8995ab;
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .asset-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-title {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header-inner,
+    .nav-inner,
+    .hero,
+    .asset-section,
+    .footer-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .asset-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-link {
+        padding-left: 8px;
+    }
+}
