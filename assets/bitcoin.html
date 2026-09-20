@@ -14,7 +14,7 @@
 
     <meta
         name="description"
-        content="Bitcoin — technology, economics, data and information. Crypto Atlas."
+        content="Bitcoin — technology, economics, market data and information. Crypto Atlas."
     >
 
     <link
@@ -102,8 +102,9 @@
         <section class="asset-section">
 
             <h2 class="section-title">
-                Bitcoin
+                Bitcoin market data
             </h2>
+
 
             <div class="asset-grid">
 
@@ -111,11 +112,14 @@
                 <div class="asset-card">
 
                     <p class="asset-symbol">
-                        SYMBOL
+                        PRICE
                     </p>
 
-                    <h3 class="asset-name">
-                        BTC
+                    <h3
+                        class="asset-name"
+                        id="btc-price"
+                    >
+                        —
                     </h3>
 
                 </div>
@@ -124,108 +128,105 @@
                 <div class="asset-card">
 
                     <p class="asset-symbol">
-                        NETWORK
+                        24H CHANGE
                     </p>
 
-                    <h3 class="asset-name">
-                        Bitcoin
-                   <section class="asset-section">
+                    <h3
+                        class="asset-name"
+                        id="btc-change"
+                    >
+                        —
+                    </h3>
 
-    <h2 class="section-title">
-        Bitcoin market data
-    </h2>
-
-
-    <div class="asset-grid">
+                </div>
 
 
-        <div class="asset-card">
+                <div class="asset-card">
 
-            <p class="asset-symbol">
-                PRICE
+                    <p class="asset-symbol">
+                        MARKET CAP
+                    </p>
+
+                    <h3
+                        class="asset-name"
+                        id="btc-market-cap"
+                    >
+                        —
+                    </h3>
+
+                </div>
+
+
+                <div class="asset-card">
+
+                    <p class="asset-symbol">
+                        24H VOLUME
+                    </p>
+
+                    <h3
+                        class="asset-name"
+                        id="btc-volume"
+                    >
+                        —
+                    </h3>
+
+                </div>
+
+
+                <div class="asset-card">
+
+                    <p class="asset-symbol">
+                        CIRCULATING SUPPLY
+                    </p>
+
+                    <h3
+                        class="asset-name"
+                        id="btc-circulating"
+                    >
+                        —
+                    </h3>
+
+                </div>
+
+
+                <div class="asset-card">
+
+                    <p class="asset-symbol">
+                        MAX SUPPLY
+                    </p>
+
+                    <h3
+                        class="asset-name"
+                        id="btc-max-supply"
+                    >
+                        —
+                    </h3>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="hero-text">
+
+                Market data is obtained from an external data source.
+                Values are not manually entered.
+
             </p>
 
-            <h3 class="asset-name" id="btc-price">
-                —
-            </h3>
 
-        </div>
+            <p class="hero-text">
 
+                Last updated:
+                <span id="btc-updated">
+                    —
+                </span>
 
-        <div class="asset-card">
-
-            <p class="asset-symbol">
-                24H CHANGE
             </p>
 
-            <h3 class="asset-name" id="btc-change">
-                —
-            </h3>
 
-        </div>
-
-
-        <div class="asset-card">
-
-            <p class="asset-symbol">
-                MARKET CAP
-            </p>
-
-            <h3 class="asset-name" id="btc-market-cap">
-                —
-            </h3>
-
-        </div>
-
-
-        <div class="asset-card">
-
-            <p class="asset-symbol">
-                24H VOLUME
-            </p>
-
-            <h3 class="asset-name" id="btc-volume">
-                —
-            </h3>
-
-        </div>
-
-
-        <div class="asset-card">
-
-            <p class="asset-symbol">
-                CIRCULATING SUPPLY
-            </p>
-
-            <h3 class="asset-name" id="btc-circulating">
-                —
-            </h3>
-
-        </div>
-
-
-        <div class="asset-card">
-
-            <p class="asset-symbol">
-                MAX SUPPLY
-            </p>
-
-            <h3 class="asset-name" id="btc-max-supply">
-                —
-            </h3>
-
-        </div>
-
-
-    </div>
-
-
-    <p class="hero-text">
-        Market data will be loaded from an external data source.
-    </p>
-
-
-</section>
+        </section>
 
 
     </main>
@@ -242,7 +243,10 @@
         </div>
 
     </footer>
-<script src="../js/bitcoin.js"></script>
+
+
+    <script src="../js/bitcoin.js"></script>
+
 
 </body>
 
