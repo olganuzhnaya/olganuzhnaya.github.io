@@ -1,12 +1,15 @@
-console.log("Crypto Atlas — начинаем сетевой запрос.");
+console.log("Crypto Atlas — Bitcoin data loading");
 
 
-async function loadTestData() {
+async function loadBitcoinData() {
 
-    const url = "https://jsonplaceholder.typicode.com/todos/1";
+
+    const url =
+        "https://api.coingecko.com/api/v3/coins/bitcoin";
 
 
     try {
+
 
         const response = await fetch(url);
 
@@ -23,37 +26,100 @@ async function loadTestData() {
         const data = await response.json();
 
 
-        console.log("Получен JSON:", data);
+        console.log(
+            "Bitcoin data:",
+            data
+        );
 
 
-        const priceElement =
-            document.getElementById("btc-price");
+        document.getElementById(
+            "btc-price"
+        ).textContent =
+            "$ " +
+            data.market_data.current_price.usd.toLocaleString();
 
 
-        priceElement.textContent =
-            data.title;
+        document.getElementById(
+            "btc-change"
+        ).textContent =
+            data.market_data
+            .price_change_percentage_24h
+            .toFixed(2)
+            + " %";
+
+
+        document.getElementById(
+            "btc-market-cap"
+        ).textContent =
+            "$ " +
+            data.market_data
+            .market_cap.usd
+            .toLocaleString();
+
+
+        document.getElementById(
+            "btc-volume"
+        ).textContent =
+            "$ " +
+            data.market_data
+            .total_volume.usd
+            .toLocaleString();
+
+
+        document.getElementById(
+            "btc-circulating"
+        ).textContent =
+            data.market_data
+            .circulating_supply
+            .toLocaleString()
+            +
+            " BTC";
+
+
+        document.getElementById(
+            "btc-max-supply"
+        ).textContent =
+            data.market_data
+            .max_supply
+            ?
+            data.market_data
+            .max_supply
+            .toLocaleString()
+            +
+            " BTC"
+            :
+            "Not available";
+
+
+        document.getElementById(
+            "btc-updated"
+        ).textContent =
+            new Date()
+            .toLocaleString();
+
 
     }
 
 
-    catch (error) {
+    catch(error) {
+
 
         console.error(
-            "Ошибка сетевого запроса:",
+            "Bitcoin data error:",
             error
         );
 
 
-        const priceElement =
-            document.getElementById("btc-price");
-
-
-        priceElement.textContent =
+        document.getElementById(
+            "btc-price"
+        ).textContent =
             "Data unavailable";
 
+
     }
+
 
 }
 
 
-loadTestData();
+loadBitcoinData();
