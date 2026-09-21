@@ -14,7 +14,7 @@
 
     <meta
         name="description"
-        content="Bitcoin — technology, economics, market data and information. Crypto Atlas."
+        content="Bitcoin — technology, history, market data and verified sources."
     >
 
     <link
@@ -27,238 +27,411 @@
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <header class="site-header">
 
-        <div class="header-inner">
+        <div class="container">
 
-            <h1 class="logo">
-                CRYPTO ATLAS
-            </h1>
+            <div class="site-brand">
 
-            <p class="tagline">
-                Data · Technology · Law · Economics · Knowledge
-            </p>
+                <a href="../index.html">
+                    CRYPTO ATLAS
+                </a>
+
+                <p>
+                    Data · Technology · Law · Economics · Knowledge
+                </p>
+
+            </div>
+
+
+            <nav class="main-navigation">
+
+                <a href="../index.html">
+                    HOME
+                </a>
+
+                <a href="../market.html">
+                    MARKET
+                </a>
+
+                <a href="../assets.html">
+                    ASSETS
+                </a>
+
+                <a href="../news.html">
+                    NEWS
+                </a>
+
+                <a href="../education.html">
+                    EDUCATION
+                </a>
+
+                <a href="../law.html">
+                    LAW
+                </a>
+
+            </nav>
 
         </div>
 
     </header>
 
 
-    <nav class="site-nav">
-
-        <div class="nav-inner">
-
-            <a class="nav-link" href="../index.html">
-                HOME
-            </a>
-
-            <a class="nav-link" href="#">
-                MARKET
-            </a>
-
-            <a class="nav-link" href="bitcoin.html">
-                ASSETS
-            </a>
-
-            <a class="nav-link" href="#">
-                NEWS
-            </a>
-
-            <a class="nav-link" href="#">
-                EDUCATION
-            </a>
-
-            <a class="nav-link" href="#">
-                LAW
-            </a>
-
-        </div>
-
-    </nav>
-
+    <!-- =========================
+         MAIN
+    ========================== -->
 
     <main>
 
 
-        <section class="hero">
+        <!-- =========================
+             HERO
+        ========================== -->
 
-            <p class="hero-label">
-                DIGITAL ASSET
-            </p>
-<div class="coin-icon">
+        <section class="asset-hero">
 
-    ₿
+            <div class="container">
 
-</div>
-            <h2 class="hero-title">
-                Bitcoin
-            </h2>
+                <div class="asset-symbol">
+                    ₿
+                </div>
 
-            <p class="hero-text">
+                <p class="asset-label">
+                    DIGITAL ASSET
+                </p>
 
-Bitcoin is a decentralized digital monetary network
-created in 2009. It uses blockchain technology,
-cryptographic verification and a limited supply model
-to enable peer-to-peer value transfer without a
-central issuing authority.
+                <h1>
+                    Bitcoin
+                </h1>
 
-</p>
+                <p class="asset-description">
+
+                    Bitcoin is a decentralized digital monetary
+                    network created in 2009. It uses cryptographic
+                    verification, a distributed ledger and
+                    Proof-of-Work consensus to enable peer-to-peer
+                    transfer of value without a central issuing
+                    authority.
+
+                </p>
+
+            </div>
 
         </section>
 
 
-        <section class="asset-section">
 
-            <h2 class="section-title">
-                Bitcoin market data
-            </h2>
+        <!-- =========================
+             MARKET DATA
+        ========================== -->
 
+        <section class="info-section">
 
-            <div class="asset-grid">
+            <div class="container">
 
-
-                <div class="asset-card">
-
-                    <p class="asset-symbol">
-                        PRICE
-                    </p>
-
-                    <h3
-                        class="asset-name"
-                        id="btc-price"
-                    >
-                        —
-                    </h3>
-
-                </div>
+                <h2>
+                    Bitcoin Market Data
+                </h2>
 
 
-                <div class="asset-card">
-
-                    <p class="asset-symbol">
-                        24H CHANGE
-                    </p>
-
-                    <h3
-                        class="asset-name"
-                        id="btc-change"
-                    >
-                        —
-                    </h3>
-
-                </div>
+                <div class="data-grid">
 
 
-                <div class="asset-card">
+                    <div class="data-card">
 
-                    <p class="asset-symbol">
-                        MARKET CAP
-                    </p>
+                        <span>
+                            PRICE
+                        </span>
 
-                    <h3
-                        class="asset-name"
-                        id="btc-market-cap"
-                    >
-                        —
-                    </h3>
+                        <strong id="btc-price">
+                            —
+                        </strong>
 
-                </div>
+                    </div>
 
 
-                <div class="asset-card">
+                    <div class="data-card">
 
-                    <p class="asset-symbol">
-                        24H VOLUME
-                    </p>
+                        <span>
+                            24H CHANGE
+                        </span>
 
-                    <h3
-                        class="asset-name"
-                        id="btc-volume"
-                    >
-                        —
-                    </h3>
+                        <strong id="btc-change">
+                            —
+                        </strong>
 
-                </div>
+                    </div>
 
 
-                <div class="asset-card">
+                    <div class="data-card">
 
-                    <p class="asset-symbol">
-                        CIRCULATING SUPPLY
-                    </p>
+                        <span>
+                            MARKET CAP
+                        </span>
 
-                    <h3
-                        class="asset-name"
-                        id="btc-circulating"
-                    >
-                        —
-                    </h3>
+                        <strong id="btc-market-cap">
+                            —
+                        </strong>
 
-                </div>
+                    </div>
 
 
-                <div class="asset-card">
+                    <div class="data-card">
 
-                    <p class="asset-symbol">
-                        MAX SUPPLY
-                    </p>
+                        <span>
+                            24H VOLUME
+                        </span>
 
-                    <h3
-                        class="asset-name"
-                        id="btc-max-supply"
-                    >
-                        —
-                    </h3>
+                        <strong id="btc-volume">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <span>
+                            CIRCULATING SUPPLY
+                        </span>
+
+                        <strong id="btc-circulating">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <span>
+                            MAX SUPPLY
+                        </span>
+
+                        <strong id="btc-max-supply">
+                            —
+                        </strong>
+
+                    </div>
 
                 </div>
 
+
+                <p class="data-note">
+
+                    Market data is obtained from an external
+                    data source. Values are not manually entered.
+
+                </p>
+
+
+                <p class="data-updated">
+
+                    Last updated:
+                    <span id="btc-updated">
+                        —
+                    </span>
+
+                </p>
 
             </div>
 
-
-            <p class="hero-text">
-
-                Market data is obtained from an external data source.
-                Values are not manually entered.
-<section class="info-section">
+        </section>
 
 
-<h2 class="section-title">
 
-Why Bitcoin has a maximum supply of 21 million
+        <!-- =========================
+             TECHNOLOGY
+        ========================== -->
 
-</h2>
+        <section class="info-section">
+
+            <div class="container">
+
+                <h2>
+                    Bitcoin Technology
+                </h2>
+
+                <p>
+
+                    Bitcoin is built around a distributed ledger
+                    commonly known as a blockchain. Transactions
+                    are grouped into blocks and linked
+                    cryptographically.
+
+                </p>
+
+                <p>
+
+                    The Bitcoin network uses
+                    <strong>Proof-of-Work</strong> as its
+                    consensus mechanism. Miners compete to find
+                    a valid block according to the network's
+                    difficulty rules.
+
+                </p>
+
+                <p>
+
+                    The security model combines cryptographic
+                    signatures, hashing, economic incentives
+                    and distributed verification.
+
+                </p>
+
+                <p>
+
+                    Bitcoin transactions are digitally signed.
+                    A private key is used to authorize spending,
+                    while the corresponding public information
+                    allows the network to verify the signature.
+
+                </p>
+
+            </div>
+
+        </section>
 
 
-<p class="hero-text">
 
-Bitcoin's protocol defines a maximum supply of
-21 million BTC.
+        <!-- =========================
+             21 MILLION
+        ========================== -->
 
-New bitcoins are created through mining rewards.
-The reward decreases over time through events
-known as halvings.
+        <section class="info-section">
 
-This mechanism creates a predictable issuance
-schedule built into the protocol.
+            <div class="container">
 
-</p>
+                <h2>
+                    Why Bitcoin Has a Maximum Supply of 21 Million
+                </h2>
+
+                <p>
+
+                    Bitcoin's protocol defines an issuance
+                    schedule that approaches a maximum supply
+                    of approximately 21 million BTC.
+
+                </p>
+
+                <p>
+
+                    New bitcoins are introduced through the
+                    block subsidy paid to miners. The subsidy
+                    decreases periodically through events
+                    commonly called <strong>halvings</strong>.
+
+                </p>
+
+                <p>
+
+                    This means that the rate at which new
+                    bitcoins enter circulation is determined
+                    by the protocol rather than by a central
+                    monetary authority.
+
+                </p>
+
+                <p>
+
+                    The exact amount of bitcoin in existence
+                    at any particular moment depends on the
+                    blocks that have been mined and the
+                    protocol's issuance rules.
+
+                </p>
+
+            </div>
+
+        </section>
 
 
-</section>
-            </p>
+
+        <!-- =========================
+             HISTORY
+        ========================== -->
+
+        <section class="info-section">
+
+            <div class="container">
+
+                <h2>
+                    History of Bitcoin
+                </h2>
+
+                <p>
+
+                    In October 2008, a person or group using
+                    the name <strong>Satoshi Nakamoto</strong>
+                    published the paper
+                    <em>
+                        Bitcoin: A Peer-to-Peer Electronic Cash System
+                    </em>.
+
+                </p>
+
+                <p>
+
+                    The Bitcoin network began operating in
+                    January 2009, when the first block,
+                    known as the <strong>Genesis Block</strong>,
+                    was created.
+
+                </p>
+
+                <p>
+
+                    Bitcoin introduced a system in which
+                    participants could verify transactions
+                    through a distributed network rather than
+                    relying on a central clearing institution.
+
+                </p>
+
+            </div>
+
+        </section>
 
 
-            <p class="hero-text">
 
-                Last updated:
-                <span id="btc-updated">
-                    —
-                </span>
+        <!-- =========================
+             SOURCES
+        ========================== -->
 
-            </p>
+        <section class="info-section">
 
+            <div class="container">
+
+                <h2>
+                    Sources
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Satoshi Nakamoto —
+                        Bitcoin: A Peer-to-Peer Electronic Cash System
+                    </li>
+
+                    <li>
+                        Bitcoin Developer Documentation
+                    </li>
+
+                    <li>
+                        Bitcoin Core
+                    </li>
+
+                    <li>
+                        CoinGecko Market Data API
+                    </li>
+
+                </ul>
+
+            </div>
 
         </section>
 
@@ -266,90 +439,33 @@ schedule built into the protocol.
     </main>
 
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer class="site-footer">
 
-        <div class="footer-inner">
+        <div class="container">
 
             <p>
                 Crypto Atlas — information, sources and data.
             </p>
 
         </div>
-<section class="info-section">
 
-
-<h2 class="section-title">
-
-Bitcoin Technology
-<section class="info-section">
-
-
-<h2 class="section-title">
-
-History of Bitcoin
-
-</h2>
-
-
-<p class="hero-text">
-
-In 2008, a person or group using the name
-Satoshi Nakamoto published the Bitcoin whitepaper
-"Bitcoin: A Peer-to-Peer Electronic Cash System".
-
-The first Bitcoin block, known as the Genesis Block,
-was mined in January 2009.
-
-</p>
-
-
-</section>
-</h2>
-
-
-<p class="hero-text">
-
-Bitcoin is based on a distributed ledger called
-blockchain. Transactions are grouped into blocks
-and secured through cryptographic methods.
-
-The Bitcoin network uses Proof-of-Work consensus,
-where miners compete to solve computational problems
-and add new blocks to the blockchain.
-
-</p>
-
-
-</section>
     </footer>
 
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script src="../js/crypto-api.js"></script>
-<script src="../js/bitcoin.js"></script>
-<section class="info-section">
 
+    <script src="../js/bitcoin.js"></script>
 
-<h2 class="section-title">
-
-Sources
-
-</h2>
-
-
-<p class="hero-text">
-
-Bitcoin Whitepaper — Satoshi Nakamoto (2008)
-
-Bitcoin Developer Documentation
-
-Bitcoin Core Repository
-
-CoinGecko Market Data API
-
-</p>
-
-
-</section>
 
 </body>
 
