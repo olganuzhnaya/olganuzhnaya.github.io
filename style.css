@@ -232,3 +232,16 @@ body {
         padding-left: 8px;
     }
 }
+/* 24H CHANGE COLORS */
+
+.positive {
+    color: #16a34a;
+}
+
+.negative {
+    color: #dc2626;
+}
+
+.neutral {
+    color: inherit;
+}
