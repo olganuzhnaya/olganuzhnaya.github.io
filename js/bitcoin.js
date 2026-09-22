@@ -1,7 +1,10 @@
 console.log(
 "Crypto Atlas — Bitcoin page"
 );
-
+console.log(
+    "getCryptoData:",
+    typeof getCryptoData
+);
 async function loadBitcoinData() {
 
 ```
