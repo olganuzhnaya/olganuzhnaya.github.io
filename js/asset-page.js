@@ -80,9 +80,9 @@ async function loadAssetData() {
 
     setText(
         "price",
-        "$ " +
-        market.current_price.usd
-            .toLocaleString()
+        formatPrice(
+            market.current_price.usd
+        )
     );
 
 
@@ -90,12 +90,13 @@ async function loadAssetData() {
      * 24H CHANGE
      */
 
+    const change =
+        market.price_change_percentage_24h;
+
+
     setText(
         "change",
-        market
-            .price_change_percentage_24h
-            .toFixed(2) +
-        " %"
+        formatPercent(change)
     );
 
 
@@ -105,9 +106,9 @@ async function loadAssetData() {
 
     setText(
         "market-cap",
-        "$ " +
-        market.market_cap.usd
-            .toLocaleString()
+        formatLargeNumber(
+            market.market_cap.usd
+        )
     );
 
 
@@ -117,9 +118,9 @@ async function loadAssetData() {
 
     setText(
         "volume",
-        "$ " +
-        market.total_volume.usd
-            .toLocaleString()
+        formatLargeNumber(
+            market.total_volume.usd
+        )
     );
 
 
@@ -129,8 +130,9 @@ async function loadAssetData() {
 
     setText(
         "circulating",
-        market.circulating_supply
-            .toLocaleString()
+        formatSupply(
+            market.circulating_supply
+        )
     );
 
 
@@ -145,8 +147,9 @@ async function loadAssetData() {
 
         setText(
             "max-supply",
-            market.max_supply
-                .toLocaleString()
+            formatSupply(
+                market.max_supply
+            )
         );
 
     } else {
@@ -168,6 +171,145 @@ async function loadAssetData() {
         new Date()
             .toLocaleString()
     );
+
+}
+
+
+
+/*
+ * PRICE FORMAT
+ */
+
+function formatPrice(
+    value
+) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "Data unavailable";
+    }
+
+
+    return (
+        "$ " +
+        Number(value)
+            .toLocaleString(
+                undefined,
+                {
+                    minimumFractionDigits:
+                        value < 1
+                            ? 2
+                            : 0,
+                    maximumFractionDigits:
+                        value < 1
+                            ? 8
+                            : 2
+                }
+            )
+    );
+
+}
+
+
+
+/*
+ * PERCENT FORMAT
+ */
+
+function formatPercent(
+    value
+) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "Data unavailable";
+    }
+
+
+    const number =
+        Number(value);
+
+
+    const sign =
+        number > 0
+            ? "+"
+            : "";
+
+
+    return (
+        sign +
+        number.toFixed(2) +
+        " %"
+    );
+
+}
+
+
+
+/*
+ * LARGE NUMBER FORMAT
+ */
+
+function formatLargeNumber(
+    value
+) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "Data unavailable";
+    }
+
+
+    return (
+        "$ " +
+        Number(value)
+            .toLocaleString(
+                undefined,
+                {
+                    maximumFractionDigits:
+                        0
+                }
+            )
+    );
+
+}
+
+
+
+/*
+ * SUPPLY FORMAT
+ */
+
+function formatSupply(
+    value
+) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "Data unavailable";
+    }
+
+
+    return Number(value)
+        .toLocaleString(
+            undefined,
+            {
+                maximumFractionDigits:
+                    0
+            }
+        );
 
 }
 
