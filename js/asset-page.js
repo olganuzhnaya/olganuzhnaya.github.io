@@ -91,13 +91,19 @@ async function loadAssetData() {
      */
 
     const change =
-        market.price_change_percentage_24h;
+    market.price_change_percentage_24h;
 
 
-    setText(
-        "change",
-        formatPercent(change)
-    );
+setText(
+    "change",
+    formatPercent(change)
+);
+
+
+setChangeColor(
+    "change",
+    change
+);
 
 
     /*
@@ -318,7 +324,54 @@ function formatSupply(
 /*
  * Helper function
  */
+/*
+ * CHANGE COLOR
+ */
 
+function setChangeColor(
+    elementId,
+    value
+) {
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if (!element) {
+
+        return;
+    }
+
+
+    element.classList.remove(
+        "positive",
+        "negative",
+        "neutral"
+    );
+
+
+    if (value > 0) {
+
+        element.classList.add(
+            "positive"
+        );
+
+    } else if (value < 0) {
+
+        element.classList.add(
+            "negative"
+        );
+
+    } else {
+
+        element.classList.add(
+            "neutral"
+        );
+    }
+
+}
 function setText(
     elementId,
     value
