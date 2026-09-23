@@ -102,18 +102,47 @@ async function loadEthereumData() {
 
 
         document.getElementById(
-            "market-cap"
-        ).textContent =
-            "$ " +
-            market.market_cap.usd
-                .toLocaleString();
+    "market-cap"
+).textContent =
+    "$ " +
+    market.market_cap.usd
+        .toLocaleString();
 
 
-        document.getElementById(
-            "updated"
-        ).textContent =
-            new Date()
-                .toLocaleString();
+document.getElementById(
+    "volume"
+).textContent =
+    "$ " +
+    market.total_volume.usd
+        .toLocaleString();
+
+
+document.getElementById(
+    "circulating"
+).textContent =
+    market.circulating_supply
+        .toLocaleString() +
+    " ETH";
+
+
+document.getElementById(
+    "max-supply"
+).textContent =
+    market.max_supply !== null &&
+    market.max_supply !== undefined
+        ?
+        market.max_supply
+            .toLocaleString() +
+        " ETH"
+        :
+        "Not available";
+
+
+document.getElementById(
+    "updated"
+).textContent =
+    new Date()
+        .toLocaleString();
 
 
         console.log(
