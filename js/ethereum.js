@@ -5,48 +5,157 @@ console.log(
 
 async function loadEthereumData() {
 
-    const data =
-        await getCryptoData("ethereum");
+    console.log(
+        "Loading Ethereum data..."
+    );
 
 
-    if (!data) {
+    try {
+
+        const data =
+            await getCryptoData("ethereum");
+
+
+        if (!data) {
+
+            throw new Error(
+                "No Ethereum data received."
+            );
+
+        }
+
+
+        console.log(
+            "Ethereum data received:",
+            data
+        );
+
+
+        const market =
+            data.market_data;
+
+
+        document.getElementById(
+            "price"
+        ).textContent =
+            "$ " +
+            market.current_price.usd
+                .toLocaleString();
+
+
+        const change =
+            market.price_change_percentage_24h;
+
+
+        const changeElement =
+            document.getElementById(
+                "change"
+            );
+
+
+        if (changeElement) {
+
+            const sign =
+                change > 0
+                    ? "+"
+                    : "";
+
+
+            changeElement.textContent =
+                sign +
+                change.toFixed(2) +
+                " %";
+
+
+            changeElement.classList.remove(
+                "positive",
+                "negative",
+                "neutral"
+            );
+
+
+            if (change > 0) {
+
+                changeElement.classList.add(
+                    "positive"
+                );
+
+            }
+
+            else if (change < 0) {
+
+                changeElement.classList.add(
+                    "negative"
+                );
+
+            }
+
+            else {
+
+                changeElement.classList.add(
+                    "neutral"
+                );
+
+            }
+
+        }
+
+
+        document.getElementById(
+            "market-cap"
+        ).textContent =
+            "$ " +
+            market.market_cap.usd
+                .toLocaleString();
+
+
+        document.getElementById(
+            "updated"
+        ).textContent =
+            new Date()
+                .toLocaleString();
+
+
+        console.log(
+            "Ethereum page updated successfully."
+        );
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Ethereum data error:",
+            error
+        );
+
 
         document.getElementById(
             "price"
         ).textContent =
             "Data unavailable";
 
-        return;
+
+        document.getElementById(
+            "change"
+        ).textContent =
+            "Data unavailable";
+
+
+        document.getElementById(
+            "market-cap"
+        ).textContent =
+            "Data unavailable";
+
+
+        document.getElementById(
+            "updated"
+        ).textContent =
+            "Data unavailable";
+
     }
 
-
-    const market =
-        data.market_data;
-
-
-    document.getElementById(
-        "price"
-    ).textContent =
-        "$ " +
-        market.current_price.usd
-        .toLocaleString();
-
-
-    document.getElementById(
-        "change"
-    ).textContent =
-        market
-        .price_change_percentage_24h
-        .toFixed(2) +
-        " %";
-
-
-    document.getElementById(
-        "market-cap"
-    ).textContent =
-        "$ " +
-        market.market_cap.usd
-        .toLocaleString();
 }
 
 
