@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Crypto API Test</title>
+
+</head>
+
+<body>
+
+    <h1>Crypto API Test</h1>
+
+    <p id="status">Testing...</p>
+
+    <script src="../js/crypto-api.js"></script>
+
+    <script>
+
+        async function testAPI() {
+
+            const status =
+                document.getElementById("status");
+
+            try {
+
+                console.log(
+                    "getCryptoData:",
+                    typeof getCryptoData
+                );
+
+                const data =
+                    await getCryptoData("bitcoin");
+
+                if (!data) {
+
+                    status.textContent =
+                        "ERROR: No data received.";
+
+                    return;
+                }
+
+                status.textContent =
+                    "SUCCESS: Bitcoin data received.";
+
+                console.log(
+                    "Bitcoin data:",
+                    data
+                );
+
+            }
+
+            catch (error) {
+
+                status.textContent =
+                    "ERROR: " +
+                    error.message;
+
+                console.error(
+                    "API test error:",
+                    error
+                );
+
+            }
+
+        }
+
+        testAPI();
+
+    </script>
+
+</body>
+
+</html>
