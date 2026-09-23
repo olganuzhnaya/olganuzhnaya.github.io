@@ -8,24 +8,17 @@ async function loadBitcoinData() {
         "Loading Bitcoin data..."
     );
 
-    const url =
-        "https://api.coingecko.com/api/v3/coins/bitcoin";
-
     try {
 
-        const response =
-            await fetch(url);
+        const data =
+            await getCryptoData("bitcoin");
 
-        if (!response.ok) {
+        if (!data) {
 
             throw new Error(
-                "HTTP error: " +
-                response.status
+                "No Bitcoin data received."
             );
         }
-
-        const data =
-            await response.json();
 
         console.log(
             "Bitcoin data received:",
@@ -35,21 +28,12 @@ async function loadBitcoinData() {
         const market =
             data.market_data;
 
-        /*
-         * PRICE
-         */
-
         document.getElementById(
             "btc-price"
         ).textContent =
             "$ " +
             market.current_price.usd
                 .toLocaleString();
-
-
-        /*
-         * 24H CHANGE
-         */
 
         const change =
             market.price_change_percentage_24h;
@@ -94,13 +78,10 @@ async function loadBitcoinData() {
                 changeElement.classList.add(
                     "neutral"
                 );
+
             }
+
         }
-
-
-        /*
-         * MARKET CAP
-         */
 
         document.getElementById(
             "btc-market-cap"
@@ -109,11 +90,6 @@ async function loadBitcoinData() {
             market.market_cap.usd
                 .toLocaleString();
 
-
-        /*
-         * 24H VOLUME
-         */
-
         document.getElementById(
             "btc-volume"
         ).textContent =
@@ -121,22 +97,12 @@ async function loadBitcoinData() {
             market.total_volume.usd
                 .toLocaleString();
 
-
-        /*
-         * CIRCULATING SUPPLY
-         */
-
         document.getElementById(
             "btc-circulating"
         ).textContent =
             market.circulating_supply
                 .toLocaleString() +
             " BTC";
-
-
-        /*
-         * MAX SUPPLY
-         */
 
         document.getElementById(
             "btc-max-supply"
@@ -150,17 +116,11 @@ async function loadBitcoinData() {
                 :
                 "Not available";
 
-
-        /*
-         * UPDATE TIME
-         */
-
         document.getElementById(
             "btc-updated"
         ).textContent =
             new Date()
                 .toLocaleString();
-
 
         console.log(
             "Bitcoin page updated successfully."
@@ -206,6 +166,7 @@ async function loadBitcoinData() {
             "Data unavailable";
 
     }
+
 }
 
 loadBitcoinData();
