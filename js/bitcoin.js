@@ -208,12 +208,19 @@ async function loadBitcoinChart(days = 30) {
         }
 
         const labels =
-            prices.map(
-                item =>
-                    new Date(
-                        item[0]
-                    ).toLocaleDateString()
-            );
+    prices.map(
+        item =>
+            new Date(
+                item[0]
+            ).toLocaleDateString(
+                "en-GB",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            )
+    );
 
         const values =
             prices.map(
