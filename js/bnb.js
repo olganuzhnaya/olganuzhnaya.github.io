@@ -394,3 +394,4 @@ async function loadBNBChart(days = 30) {
     }
 
 }
+loadBNBChart();
