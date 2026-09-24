@@ -188,3 +188,12 @@ document.getElementById(
 
 
 loadEthereumData();
+let ethereumChart = null;
+
+async function loadEthereumChart(days = 30) {
+
+    console.log(
+        "Loading Ethereum price history..."
+    );
+
+}
