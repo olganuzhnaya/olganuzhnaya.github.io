@@ -250,6 +250,135 @@ async function loadEthereumChart(days = 30) {
                 item =>
                     item[1]
             );
+                const canvas =
+            document.getElementById(
+                "ethereum-chart"
+            );
+
+        if (!canvas) {
+
+            throw new Error(
+                "Ethereum chart canvas not found."
+            );
+
+        }
+
+        if (ethereumChart) {
+
+            ethereumChart.destroy();
+
+        }
+
+        ethereumChart = new Chart(
+            canvas,
+            {
+                type: "line",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Ethereum Price (USD)",
+
+                            data: values,
+
+                            tension: 0.2,
+
+                            pointRadius: 0
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    interaction: {
+
+                        mode: "index",
+
+                        intersect: false
+
+                    },
+
+                    plugins: {
+
+                        tooltip: {
+
+                            callbacks: {
+
+                                label: function(context) {
+
+                                    return "$ " +
+                                        context.parsed.y.toLocaleString(
+                                            "en-US",
+                                            {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 2
+                                            }
+                                        );
+
+                                }
+
+                            }
+
+                        },
+
+                        legend: {
+
+                            display: true
+
+                        }
+
+                    },
+
+                    scales: {
+
+                        x: {
+
+                            ticks: {
+
+                                maxTicksLimit: 8
+
+                            }
+
+                        },
+
+                        y: {
+
+                            beginAtZero: false,
+
+                            ticks: {
+
+                                callback: function(value) {
+
+                                    return "$ " +
+                                        value.toLocaleString(
+                                            "en-US"
+                                        );
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
     }
 
     catch (error) {
