@@ -102,18 +102,47 @@ async function loadXRPData() {
 
 
         document.getElementById(
-            "market-cap"
-        ).textContent =
-            "$ " +
-            market.market_cap.usd
-                .toLocaleString();
+    "market-cap"
+).textContent =
+    "$ " +
+    market.market_cap.usd
+        .toLocaleString();
 
 
-        document.getElementById(
-            "updated"
-        ).textContent =
-            new Date()
-                .toLocaleString();
+document.getElementById(
+    "volume"
+).textContent =
+    "$ " +
+    market.total_volume.usd
+        .toLocaleString();
+
+
+document.getElementById(
+    "circulating"
+).textContent =
+    market.circulating_supply
+        .toLocaleString() +
+    " XRP";
+
+
+document.getElementById(
+    "max-supply"
+).textContent =
+    market.max_supply !== null &&
+    market.max_supply !== undefined
+        ?
+        market.max_supply
+            .toLocaleString() +
+        " XRP"
+        :
+        "Not available";
+
+
+document.getElementById(
+    "updated"
+).textContent =
+    new Date()
+        .toLocaleString();
 
 
         console.log(
