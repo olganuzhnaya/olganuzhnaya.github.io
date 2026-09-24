@@ -270,21 +270,83 @@ bitcoinChart = new Chart(
 
                 options: {
 
-                    responsive: true,
+    responsive: true,
 
-                    maintainAspectRatio: false,
+    maintainAspectRatio: false,
 
-                    scales: {
+    interaction: {
 
-                        y: {
+        mode: "index",
 
-                            beginAtZero: false
+        intersect: false
 
-                        }
+    },
 
-                    }
+    plugins: {
+
+        tooltip: {
+
+            callbacks: {
+
+                label: function(context) {
+
+                    return "$ " +
+                        context.parsed.y.toLocaleString(
+                            "en-US",
+                            {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            }
+                        );
 
                 }
+
+            }
+
+        },
+
+        legend: {
+
+            display: true
+
+        }
+
+    },
+
+    scales: {
+
+        x: {
+
+            ticks: {
+
+                maxTicksLimit: 8
+
+            }
+
+        },
+
+        y: {
+
+            beginAtZero: false,
+
+            ticks: {
+
+                callback: function(value) {
+
+                    return "$ " +
+                        value.toLocaleString(
+                            "en-US"
+                        );
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
 
             }
         );
