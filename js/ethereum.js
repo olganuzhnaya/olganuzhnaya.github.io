@@ -216,7 +216,40 @@ async function loadEthereumChart(days = 30) {
             "Ethereum history received:",
             history
         );
+        const prices =
+            history.prices;
 
+        if (
+            !prices ||
+            prices.length === 0
+        ) {
+
+            throw new Error(
+                "Ethereum history is empty."
+            );
+
+        }
+
+        const labels =
+            prices.map(
+                item =>
+                    new Date(
+                        item[0]
+                    ).toLocaleDateString(
+                        "en-GB",
+                        {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                        }
+                    )
+            );
+
+        const values =
+            prices.map(
+                item =>
+                    item[1]
+            );
     }
 
     catch (error) {
