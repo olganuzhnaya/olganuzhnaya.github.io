@@ -391,3 +391,4 @@ async function loadEthereumChart(days = 30) {
     }
 
 }
+loadEthereumChart();
