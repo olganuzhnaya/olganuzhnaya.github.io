@@ -170,7 +170,8 @@ async function loadBitcoinData() {
 }
 
 loadBitcoinData();
-async function loadBitcoinChart() {
+let bitcoinChart = null;
+async function loadBitcoinChart(days = 30) {
 
     console.log(
         "Loading Bitcoin price history..."
@@ -180,9 +181,9 @@ async function loadBitcoinChart() {
 
         const history =
             await getCryptoHistory(
-                "bitcoin",
-                30
-            );
+    "bitcoin",
+    days
+);
 
         if (!history) {
 
@@ -233,9 +234,15 @@ async function loadBitcoinChart() {
 
         }
 
-        new Chart(
-            canvas,
-            {
+        if (bitcoinChart) {
+
+    bitcoinChart.destroy();
+
+}
+
+bitcoinChart = new Chart(
+    canvas,
+    {
                 type: "line",
 
                 data: {
