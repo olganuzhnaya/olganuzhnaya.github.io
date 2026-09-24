@@ -245,3 +245,11 @@ body {
 .neutral {
     color: inherit;
 }
+/* =========================
+   ACTIVE CHART PERIOD
+========================= */
+
+.chart-periods button.active {
+    font-weight: 700;
+    transform: translateY(-1px);
+}
