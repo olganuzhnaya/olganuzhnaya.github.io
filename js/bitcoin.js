@@ -170,3 +170,133 @@ async function loadBitcoinData() {
 }
 
 loadBitcoinData();
+async function loadBitcoinChart() {
+
+    console.log(
+        "Loading Bitcoin price history..."
+    );
+
+    try {
+
+        const history =
+            await getCryptoHistory(
+                "bitcoin",
+                30
+            );
+
+        if (!history) {
+
+            throw new Error(
+                "No Bitcoin history received."
+            );
+
+        }
+
+        const prices =
+            history.prices;
+
+        if (
+            !prices ||
+            prices.length === 0
+        ) {
+
+            throw new Error(
+                "Bitcoin history is empty."
+            );
+
+        }
+
+        const labels =
+            prices.map(
+                item =>
+                    new Date(
+                        item[0]
+                    ).toLocaleDateString()
+            );
+
+        const values =
+            prices.map(
+                item =>
+                    item[1]
+            );
+
+        const canvas =
+            document.getElementById(
+                "bitcoin-chart"
+            );
+
+        if (!canvas) {
+
+            throw new Error(
+                "Bitcoin chart canvas not found."
+            );
+
+        }
+
+        new Chart(
+            canvas,
+            {
+                type: "line",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Bitcoin Price (USD)",
+
+                            data: values,
+
+                            tension: 0.2,
+
+                            pointRadius: 0
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero: false
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+        console.log(
+            "Bitcoin price history loaded successfully."
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Bitcoin chart error:",
+            error
+        );
+
+    }
+
+}
+
+loadBitcoinChart();
