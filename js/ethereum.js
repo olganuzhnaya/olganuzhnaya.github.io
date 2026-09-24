@@ -196,4 +196,36 @@ async function loadEthereumChart(days = 30) {
         "Loading Ethereum price history..."
     );
 
+    try {
+
+        const history =
+            await getCryptoHistory(
+                "ethereum",
+                days
+            );
+
+        if (!history) {
+
+            throw new Error(
+                "No Ethereum history received."
+            );
+
+        }
+
+        console.log(
+            "Ethereum history received:",
+            history
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Ethereum chart error:",
+            error
+        );
+
+    }
+
 }
