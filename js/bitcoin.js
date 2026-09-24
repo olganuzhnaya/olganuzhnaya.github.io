@@ -171,7 +171,7 @@ async function loadBitcoinData() {
 
 loadBitcoinData();
 let bitcoinChart = null;
-async function loadBitcoinChart(days = 30) {
+
 async function loadBitcoinChart(days = 30) {
 
     const periodButtons =
@@ -221,11 +221,8 @@ async function loadBitcoinChart(days = 30) {
     );
 
     console.log(
-        "Loading Bitcoin price history..."
-    );
-    console.log(
-        "Loading Bitcoin price history..."
-    );
+    "Loading Bitcoin price history..."
+);
 
     try {
 
