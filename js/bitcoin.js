@@ -181,9 +181,9 @@ async function loadBitcoinChart(days = 30) {
 
         const history =
             await getCryptoHistory(
-    "bitcoin",
-    days
-);
+                "bitcoin",
+                days
+            );
 
         if (!history) {
 
@@ -236,12 +236,12 @@ async function loadBitcoinChart(days = 30) {
 
         if (bitcoinChart) {
 
-    bitcoinChart.destroy();
+            bitcoinChart.destroy();
 
-}
+        }
 
-bitcoinChart = new Chart(
-    canvas,
+        bitcoinChart = new Chart(
+            canvas,
     {
                 type: "line",
 
