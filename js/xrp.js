@@ -395,3 +395,4 @@ async function loadXRPChart(days = 30) {
     }
 
 }
+loadXRPChart();
