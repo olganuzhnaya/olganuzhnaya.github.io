@@ -189,3 +189,275 @@ document.getElementById(
 
 
 loadCardanoData();
+let cardanoChart = null;
+
+
+async function loadCardanoChart(days = 30) {
+
+    console.log(
+        "Loading Cardano price history..."
+    );
+
+
+    try {
+
+        const history =
+            await getCryptoHistory(
+                "cardano",
+                days
+            );
+
+
+        const periodButtons =
+            document.querySelectorAll(
+                ".chart-periods button"
+            );
+
+
+        periodButtons.forEach(
+            button => {
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+        periodButtons.forEach(
+            button => {
+
+                const onclick =
+                    button.getAttribute(
+                        "onclick"
+                    );
+
+
+                if (
+                    (days === 7 &&
+                        onclick.includes("(7)")) ||
+
+                    (days === 30 &&
+                        onclick.includes("(30)")) ||
+
+                    (days === 90 &&
+                        onclick.includes("(90)")) ||
+
+                    (days === 365 &&
+                        onclick.includes("(365)"))
+                ) {
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+        if (!history) {
+
+            throw new Error(
+                "No Cardano history received."
+            );
+
+        }
+
+
+        console.log(
+            "Cardano history received:",
+            history
+        );
+
+
+        const prices =
+            history.prices;
+
+
+        if (
+            !prices ||
+            prices.length === 0
+        ) {
+
+            throw new Error(
+                "Cardano history is empty."
+            );
+
+        }
+
+
+        const labels =
+            prices.map(
+                item =>
+                    new Date(
+                        item[0]
+                    ).toLocaleDateString(
+                        "en-GB",
+                        {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                        }
+                    )
+            );
+
+
+        const values =
+            prices.map(
+                item =>
+                    item[1]
+            );
+
+
+        const canvas =
+            document.getElementById(
+                "cardano-chart"
+            );
+
+
+        if (!canvas) {
+
+            throw new Error(
+                "Cardano chart canvas not found."
+            );
+
+        }
+
+
+        if (cardanoChart) {
+
+            cardanoChart.destroy();
+
+        }
+
+
+        cardanoChart = new Chart(
+            canvas,
+            {
+                type: "line",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Cardano Price (USD)",
+
+                            data: values,
+
+                            tension: 0.2,
+
+                            pointRadius: 0
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    interaction: {
+
+                        mode: "index",
+
+                        intersect: false
+
+                    },
+
+                    plugins: {
+
+                        tooltip: {
+
+                            callbacks: {
+
+                                label: function(context) {
+
+                                    return "$ " +
+                                        context.parsed.y.toLocaleString(
+                                            "en-US",
+                                            {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 2
+                                            }
+                                        );
+
+                                }
+
+                            }
+
+                        },
+
+                        legend: {
+
+                            display: true
+
+                        }
+
+                    },
+
+                    scales: {
+
+                        x: {
+
+                            ticks: {
+
+                                maxTicksLimit: 8
+
+                            }
+
+                        },
+
+                        y: {
+
+                            beginAtZero: false,
+
+                            ticks: {
+
+                                callback: function(value) {
+
+                                    return "$ " +
+                                        value.toLocaleString(
+                                            "en-US"
+                                        );
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Cardano chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+loadCardanoChart();
