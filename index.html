@@ -376,7 +376,53 @@ async function loadSolanaCard() {
 
 }
 
-loadSolanaCard();        
+loadSolanaCard(); 
+async function loadXRPCard() {
+
+    const data =
+        await getCryptoData("ripple");
+
+    if (!data) {
+        return;
+    }
+
+    const market =
+        data.market_data;
+
+    document.getElementById("xrp-price")
+        .textContent =
+        "$ " +
+        market.current_price.usd.toLocaleString();
+
+    const change =
+        market.price_change_percentage_24h;
+
+    const changeElement =
+        document.getElementById("xrp-change");
+
+    changeElement.textContent =
+        "24H " +
+        (change >= 0 ? "+" : "") +
+        change.toFixed(2) +
+        " %";
+
+    if (change > 0) {
+
+        changeElement.classList.add("positive");
+
+    } else if (change < 0) {
+
+        changeElement.classList.add("negative");
+
+    } else {
+
+        changeElement.classList.add("neutral");
+
+    }
+
+}
+
+loadXRPCard();        
     </script>
 </body>
 </html>
