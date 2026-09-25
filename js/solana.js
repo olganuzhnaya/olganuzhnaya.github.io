@@ -394,3 +394,4 @@ async function loadSolanaChart(days = 30) {
     }
 
 }
+loadSolanaChart();
