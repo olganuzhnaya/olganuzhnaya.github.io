@@ -203,285 +203,125 @@
 
     </footer>
     <script src="js/crypto-api.js"></script>
+<script>
 
-    <script>
+    const assets = [
 
-        async function loadBitcoinCard() {
+        {
+            id: "bitcoin",
+            priceElement: "btc-price",
+            changeElement: "btc-change"
+        },
 
-            const data =
-                await getCryptoData("bitcoin");
+        {
+            id: "ethereum",
+            priceElement: "eth-price",
+            changeElement: "eth-change"
+        },
 
-            if (!data) {
-                return;
-            }
+        {
+            id: "binancecoin",
+            priceElement: "bnb-price",
+            changeElement: "bnb-change"
+        },
 
-            const market =
-                data.market_data;
+        {
+            id: "solana",
+            priceElement: "sol-price",
+            changeElement: "sol-change"
+        },
 
-            document.getElementById("btc-price")
-                .textContent =
-                "$ " +
-                market.current_price.usd.toLocaleString();
+        {
+            id: "ripple",
+            priceElement: "xrp-price",
+            changeElement: "xrp-change"
+        },
 
-            const change =
-                market.price_change_percentage_24h;
+        {
+            id: "cardano",
+            priceElement: "ada-price",
+            changeElement: "ada-change"
+        }
 
-            const changeElement =
-                document.getElementById("btc-change");
+    ];
 
-            changeElement.textContent =
-                "24H " +
-                (change >= 0 ? "+" : "") +
-                change.toFixed(2) +
-                " %";
 
-            if (change > 0) {
+    async function loadCryptoCard(asset) {
 
-                changeElement.classList.add("positive");
+        const data =
+            await getCryptoData(asset.id);
 
-            } else if (change < 0) {
+        if (!data) {
+            return;
+        }
 
-                changeElement.classList.add("negative");
 
-            } else {
+        const market =
+            data.market_data;
 
-                changeElement.classList.add("neutral");
 
-            }
+        const priceElement =
+            document.getElementById(asset.priceElement);
+
+
+        const changeElement =
+            document.getElementById(asset.changeElement);
+
+
+        priceElement.textContent =
+            "$ " +
+            market.current_price.usd.toLocaleString();
+
+
+        const change =
+            market.price_change_percentage_24h;
+
+
+        changeElement.textContent =
+            "24H " +
+            (change >= 0 ? "+" : "") +
+            change.toFixed(2) +
+            " %";
+
+
+        changeElement.classList.remove(
+            "positive",
+            "negative",
+            "neutral"
+        );
+
+
+        if (change > 0) {
+
+            changeElement.classList.add("positive");
+
+        } else if (change < 0) {
+
+            changeElement.classList.add("negative");
+
+        } else {
+
+            changeElement.classList.add("neutral");
 
         }
 
-        loadBitcoinCard();
-async function loadEthereumCard() {
-
-    const data =
-        await getCryptoData("ethereum");
-
-    if (!data) {
-        return;
     }
 
-    const market =
-        data.market_data;
 
-    document.getElementById("eth-price")
-        .textContent =
-        "$ " +
-        market.current_price.usd.toLocaleString();
+    async function loadAllAssets() {
 
-    const change =
-        market.price_change_percentage_24h;
+        for (const asset of assets) {
 
-    const changeElement =
-        document.getElementById("eth-change");
+            await loadCryptoCard(asset);
 
-    changeElement.textContent =
-        "24H " +
-        (change >= 0 ? "+" : "") +
-        change.toFixed(2) +
-        " %";
-
-    if (change > 0) {
-
-        changeElement.classList.add("positive");
-
-    } else if (change < 0) {
-
-        changeElement.classList.add("negative");
-
-    } else {
-
-        changeElement.classList.add("neutral");
+        }
 
     }
 
-}
 
-loadEthereumCard();
-async function loadBNBCard() {
+    loadAllAssets();
 
-    const data =
-        await getCryptoData("binancecoin");
-
-    if (!data) {
-        return;
-    }
-
-    const market =
-        data.market_data;
-
-    document.getElementById("bnb-price")
-        .textContent =
-        "$ " +
-        market.current_price.usd.toLocaleString();
-
-    const change =
-        market.price_change_percentage_24h;
-
-    const changeElement =
-        document.getElementById("bnb-change");
-
-    changeElement.textContent =
-        "24H " +
-        (change >= 0 ? "+" : "") +
-        change.toFixed(2) +
-        " %";
-
-    if (change > 0) {
-
-        changeElement.classList.add("positive");
-
-    } else if (change < 0) {
-
-        changeElement.classList.add("negative");
-
-    } else {
-
-        changeElement.classList.add("neutral");
-
-    }
-
-}
-
-loadBNBCard(); 
-async function loadSolanaCard() {
-
-    const data =
-        await getCryptoData("solana");
-
-    if (!data) {
-        return;
-    }
-
-    const market =
-        data.market_data;
-
-    document.getElementById("sol-price")
-        .textContent =
-        "$ " +
-        market.current_price.usd.toLocaleString();
-
-    const change =
-        market.price_change_percentage_24h;
-
-    const changeElement =
-        document.getElementById("sol-change");
-
-    changeElement.textContent =
-        "24H " +
-        (change >= 0 ? "+" : "") +
-        change.toFixed(2) +
-        " %";
-
-    if (change > 0) {
-
-        changeElement.classList.add("positive");
-
-    } else if (change < 0) {
-
-        changeElement.classList.add("negative");
-
-    } else {
-
-        changeElement.classList.add("neutral");
-
-    }
-
-}
-
-loadSolanaCard(); 
-async function loadXRPCard() {
-
-    const data =
-        await getCryptoData("ripple");
-
-    if (!data) {
-        return;
-    }
-
-    const market =
-        data.market_data;
-
-    document.getElementById("xrp-price")
-        .textContent =
-        "$ " +
-        market.current_price.usd.toLocaleString();
-
-    const change =
-        market.price_change_percentage_24h;
-
-    const changeElement =
-        document.getElementById("xrp-change");
-
-    changeElement.textContent =
-        "24H " +
-        (change >= 0 ? "+" : "") +
-        change.toFixed(2) +
-        " %";
-
-    if (change > 0) {
-
-        changeElement.classList.add("positive");
-
-    } else if (change < 0) {
-
-        changeElement.classList.add("negative");
-
-    } else {
-
-        changeElement.classList.add("neutral");
-
-    }
-
-}
-
-loadXRPCard(); 
-async function loadCardanoCard() {
-
-    const data =
-        await getCryptoData("cardano");
-
-    if (!data) {
-        return;
-    }
-
-    const market =
-        data.market_data;
-
-    document.getElementById("ada-price")
-        .textContent =
-        "$ " +
-        market.current_price.usd.toLocaleString();
-
-    const change =
-        market.price_change_percentage_24h;
-
-    const changeElement =
-        document.getElementById("ada-change");
-
-    changeElement.textContent =
-        "24H " +
-        (change >= 0 ? "+" : "") +
-        change.toFixed(2) +
-        " %";
-
-    if (change > 0) {
-
-        changeElement.classList.add("positive");
-
-    } else if (change < 0) {
-
-        changeElement.classList.add("negative");
-
-    } else {
-
-        changeElement.classList.add("neutral");
-
-    }
-
-}
-
-loadCardanoCard();        
-    </script>
+</script>
+   
 </body>
 </html>
