@@ -204,7 +204,49 @@ async function loadXRPChart(days = 30) {
                 "ripple",
                 days
             );
+const periodButtons =
+    document.querySelectorAll(
+        ".chart-periods button"
+    );
 
+periodButtons.forEach(
+    button => {
+        button.classList.remove(
+            "active"
+        );
+    }
+);
+
+periodButtons.forEach(
+    button => {
+
+        const onclick =
+            button.getAttribute(
+                "onclick"
+            );
+
+        if (
+            (days === 7 &&
+                onclick.includes("(7)")) ||
+
+            (days === 30 &&
+                onclick.includes("(30)")) ||
+
+            (days === 90 &&
+                onclick.includes("(90)")) ||
+
+            (days === 365 &&
+                onclick.includes("(365)"))
+        ) {
+
+            button.classList.add(
+                "active"
+            );
+
+        }
+
+    }
+);
         if (!history) {
 
             throw new Error(
