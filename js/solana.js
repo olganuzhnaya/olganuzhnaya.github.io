@@ -188,3 +188,209 @@ document.getElementById(
 
 
 loadSolanaData();
+let solanaChart = null;
+
+async function loadSolanaChart(days = 30) {
+
+    console.log(
+        "Loading Solana price history..."
+    );
+
+    try {
+
+        const history =
+            await getCryptoHistory(
+                "solana",
+                days
+            );
+
+        if (!history) {
+
+            throw new Error(
+                "No Solana history received."
+            );
+
+        }
+
+        console.log(
+            "Solana history received:",
+            history
+        );
+
+        const prices =
+            history.prices;
+
+        if (
+            !prices ||
+            prices.length === 0
+        ) {
+
+            throw new Error(
+                "Solana history is empty."
+            );
+
+        }
+
+        const labels =
+            prices.map(
+                item =>
+                    new Date(
+                        item[0]
+                    ).toLocaleDateString(
+                        "en-GB",
+                        {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                        }
+                    )
+            );
+
+        const values =
+            prices.map(
+                item =>
+                    item[1]
+            );
+
+        const canvas =
+            document.getElementById(
+                "solana-chart"
+            );
+
+        if (!canvas) {
+
+            throw new Error(
+                "Solana chart canvas not found."
+            );
+
+        }
+
+        if (solanaChart) {
+
+            solanaChart.destroy();
+
+        }
+
+        solanaChart = new Chart(
+            canvas,
+            {
+                type: "line",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Solana Price (USD)",
+
+                            data: values,
+
+                            tension: 0.2,
+
+                            pointRadius: 0
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    interaction: {
+
+                        mode: "index",
+
+                        intersect: false
+
+                    },
+
+                    plugins: {
+
+                        tooltip: {
+
+                            callbacks: {
+
+                                label: function(context) {
+
+                                    return "$ " +
+                                        context.parsed.y.toLocaleString(
+                                            "en-US",
+                                            {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 2
+                                            }
+                                        );
+
+                                }
+
+                            }
+
+                        },
+
+                        legend: {
+
+                            display: true
+
+                        }
+
+                    },
+
+                    scales: {
+
+                        x: {
+
+                            ticks: {
+
+                                maxTicksLimit: 8
+
+                            }
+
+                        },
+
+                        y: {
+
+                            beginAtZero: false,
+
+                            ticks: {
+
+                                callback: function(value) {
+
+                                    return "$ " +
+                                        value.toLocaleString(
+                                            "en-US"
+                                        );
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Solana chart error:",
+            error
+        );
+
+    }
+
+}
