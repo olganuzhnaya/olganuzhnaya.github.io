@@ -253,3 +253,18 @@ body {
     font-weight: 700;
     transform: translateY(-1px);
 }
+/* =========================
+   ASSET CARD MARKET DATA
+========================= */
+
+.asset-price {
+    margin: 16px 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.asset-change {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
