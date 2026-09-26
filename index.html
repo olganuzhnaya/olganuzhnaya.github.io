@@ -537,11 +537,11 @@ const maxSupplyElement =
   
 async function loadAllAssets() {
 
-    for (const asset of assets) {
-
-        await loadCryptoCard(asset);
-
-    }
+    await Promise.all(
+        assets.map(
+            asset => loadCryptoCard(asset)
+        )
+    );
 
 }
 
