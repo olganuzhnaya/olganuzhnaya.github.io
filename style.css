@@ -274,3 +274,13 @@ body {
     color: #aeb8cc;
     line-height: 1.5;
 }
+/* =========================
+   DATA UPDATED
+========================= */
+
+.asset-updated {
+    margin: 8px 0 0;
+    font-size: 11px;
+    color: #8f9bb3;
+    letter-spacing: 0.3px;
+}
