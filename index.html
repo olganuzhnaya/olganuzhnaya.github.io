@@ -394,7 +394,9 @@ const updatedElement =
             ? "btc-updated"
             : asset.id === "ethereum"
                 ? "eth-updated"
-                : ""
+                : asset.id === "binancecoin"
+                    ? "bnb-updated"
+                    : ""
     );
 
 if (updatedElement) {
