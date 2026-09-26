@@ -123,7 +123,21 @@
     <p class="asset-change" id="eth-change">
         Loading...
     </p>
+<p class="asset-market-data" id="eth-market-cap">
+    MARKET CAP Loading...
+</p>
 
+<p class="asset-market-data" id="eth-volume">
+    24H VOLUME Loading...
+</p>
+
+<p class="asset-market-data" id="eth-circulating">
+    CIRCULATING SUPPLY Loading...
+</p>
+
+<p class="asset-market-data" id="eth-max-supply">
+    MAX SUPPLY Loading...
+</p>
 </a>
 
                 <a class="asset-card" href="assets/bnb.html">
@@ -232,10 +246,14 @@
 },
 
         {
-            id: "ethereum",
-            priceElement: "eth-price",
-            changeElement: "eth-change"
-        },
+    id: "ethereum",
+    priceElement: "eth-price",
+    changeElement: "eth-change",
+    marketCapElement: "eth-market-cap",
+    volumeElement: "eth-volume",
+    circulatingElement: "eth-circulating",
+    maxSupplyElement: "eth-max-supply"
+},
 
         {
             id: "binancecoin",
