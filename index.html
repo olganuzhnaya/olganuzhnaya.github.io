@@ -540,6 +540,23 @@ const maxSupplyElement =
 
     loadAllAssets();
 
+async function loadAllAssets() {
+
+    for (const asset of assets) {
+
+        await loadCryptoCard(asset);
+
+    }
+
+}
+
+loadAllAssets();
+
+setInterval(
+    loadAllAssets,
+    5 * 60 * 1000
+);
+    
 </script>
    
 </body>
