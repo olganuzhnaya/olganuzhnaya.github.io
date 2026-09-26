@@ -379,7 +379,22 @@
 
         const market =
             data.market_data;
+const updatedElement =
+    document.getElementById(
+        asset.id === "bitcoin"
+            ? "btc-updated"
+            : ""
+    );
 
+if (updatedElement) {
+
+    updatedElement.textContent =
+        "DATA UPDATED: " +
+        new Date(
+            data.last_updated
+        ).toLocaleTimeString();
+
+}
 
         const priceElement =
             document.getElementById(asset.priceElement);
