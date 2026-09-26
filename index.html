@@ -513,7 +513,7 @@ const maxSupplyElement =
     }
 
 
-    if (maxSupplyElement) {
+        if (maxSupplyElement) {
 
         maxSupplyElement.textContent =
             "MAX SUPPLY " +
@@ -525,21 +525,9 @@ const maxSupplyElement =
 
     }
 
+}
 
-    }        
-
-        async function loadAllAssets() {
-
-        for (const asset of assets) {
-
-            await loadCryptoCard(asset);
-
-        }
-
-    }
-
-    loadAllAssets();
-
+  
 async function loadAllAssets() {
 
     for (const asset of assets) {
