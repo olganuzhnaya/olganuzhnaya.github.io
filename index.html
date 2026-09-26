@@ -510,21 +510,17 @@ const maxSupplyElement =
 
 
         if (marketCapElement) {
-
-        marketCapElement.textContent =
-            "MARKET CAP $ " +
-            market.market_cap.usd.toLocaleString();
-
-    }
+    marketCapElement.textContent =
+        "MARKET CAP $ " +
+        formatCompactNumber(market.market_cap.usd);
+}
 
 
     if (volumeElement) {
-
-        volumeElement.textContent =
-            "24H VOLUME $ " +
-            market.total_volume.usd.toLocaleString();
-
-    }
+    volumeElement.textContent =
+        "24H VOLUME $ " +
+        formatCompactNumber(market.total_volume.usd);
+}
 
 
     if (circulatingElement) {
