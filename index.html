@@ -406,7 +406,9 @@ const updatedElement =
                     ? "bnb-updated"
                     : asset.id === "solana"
                         ? "sol-updated"
-                        : ""
+                        : asset.id === "ripple"
+                            ? "xrp-updated"
+                            : ""
     );
 
 if (updatedElement) {
