@@ -412,7 +412,9 @@ const updatedElement =
                         ? "sol-updated"
                         : asset.id === "ripple"
                             ? "xrp-updated"
-                            : ""
+                            : asset.id === "cardano"
+                                ? "ada-updated"
+                                : ""
     );
 
 if (updatedElement) {
