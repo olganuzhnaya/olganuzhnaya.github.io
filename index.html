@@ -391,11 +391,36 @@
     async function loadCryptoCard(asset) {
 
         const data =
-            await getCryptoData(asset.id);
+    await getCryptoData(asset.id);
 
-        if (!data) {
-            return;
-        }
+if (!data) {
+
+    const updatedElement =
+        document.getElementById(
+            asset.id === "bitcoin"
+                ? "btc-updated"
+                : asset.id === "ethereum"
+                    ? "eth-updated"
+                    : asset.id === "binancecoin"
+                        ? "bnb-updated"
+                        : asset.id === "solana"
+                            ? "sol-updated"
+                            : asset.id === "ripple"
+                                ? "xrp-updated"
+                                : asset.id === "cardano"
+                                    ? "ada-updated"
+                                    : ""
+        );
+
+    if (updatedElement) {
+
+        updatedElement.textContent =
+            "DATA UPDATE: TEMPORARILY UNAVAILABLE";
+
+    }
+
+    return;
+}
 
 
         const market =
