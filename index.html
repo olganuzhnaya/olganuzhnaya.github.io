@@ -456,9 +456,14 @@ const maxSupplyElement =
     document.getElementById(asset.maxSupplyElement);
 
         priceElement.textContent =
-            "$ " +
-            market.current_price.usd.toLocaleString();
-
+    "$ " +
+    market.current_price.usd.toLocaleString(
+        "en-US",
+        {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 8
+        }
+    );
 
         const change =
             market.price_change_percentage_24h;
