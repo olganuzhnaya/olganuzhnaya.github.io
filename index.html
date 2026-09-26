@@ -400,7 +400,9 @@ const updatedElement =
                 ? "eth-updated"
                 : asset.id === "binancecoin"
                     ? "bnb-updated"
-                    : ""
+                    : asset.id === "solana"
+                        ? "sol-updated"
+                        : ""
     );
 
 if (updatedElement) {
