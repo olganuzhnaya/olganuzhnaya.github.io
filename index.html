@@ -402,21 +402,9 @@
 if (!data) {
 
     const updatedElement =
-        document.getElementById(
-            asset.id === "bitcoin"
-                ? "btc-updated"
-                : asset.id === "ethereum"
-                    ? "eth-updated"
-                    : asset.id === "binancecoin"
-                        ? "bnb-updated"
-                        : asset.id === "solana"
-                            ? "sol-updated"
-                            : asset.id === "ripple"
-                                ? "xrp-updated"
-                                : asset.id === "cardano"
-                                    ? "ada-updated"
-                                    : ""
-        );
+    document.getElementById(
+        asset.updatedElement
+    );
 
     if (updatedElement) {
 
