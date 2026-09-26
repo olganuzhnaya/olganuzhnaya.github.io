@@ -337,29 +337,47 @@ const maxSupplyElement =
         }
 
 
-    marketCapElement.textContent =
-        "MARKET CAP $ " +
-        market.market_cap.usd.toLocaleString();
+        if (marketCapElement) {
+
+        marketCapElement.textContent =
+            "MARKET CAP $ " +
+            market.market_cap.usd.toLocaleString();
+
+    }
 
 
-    volumeElement.textContent =
-        "24H VOLUME $ " +
-        market.total_volume.usd.toLocaleString();
+    if (volumeElement) {
+
+        volumeElement.textContent =
+            "24H VOLUME $ " +
+            market.total_volume.usd.toLocaleString();
+
+    }
 
 
-    circulatingElement.textContent =
-        "CIRCULATING SUPPLY " +
-        market.circulating_supply.toLocaleString();
+    if (circulatingElement) {
+
+        circulatingElement.textContent =
+            "CIRCULATING SUPPLY " +
+            market.circulating_supply.toLocaleString();
+
+    }
 
 
-    maxSupplyElement.textContent =
-        "MAX SUPPLY " +
-        (
-            market.max_supply !== null
-                ? market.max_supply.toLocaleString()
-                : "—"
-        );
+    if (maxSupplyElement) {
 
+        maxSupplyElement.textContent =
+            "MAX SUPPLY " +
+            (
+                market.max_supply !== null
+                    ? market.max_supply.toLocaleString()
+                    : "—"
+            );
+
+    }
+
+
+    }        
 
         async function loadAllAssets() {
 
