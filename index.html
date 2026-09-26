@@ -388,7 +388,9 @@ const updatedElement =
     document.getElementById(
         asset.id === "bitcoin"
             ? "btc-updated"
-            : ""
+            : asset.id === "ethereum"
+                ? "eth-updated"
+                : ""
     );
 
 if (updatedElement) {
