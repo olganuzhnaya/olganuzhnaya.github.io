@@ -268,3 +268,9 @@ body {
     font-size: 14px;
     font-weight: 600;
 }
+.asset-market-data {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: #aeb8cc;
+    line-height: 1.5;
+}
