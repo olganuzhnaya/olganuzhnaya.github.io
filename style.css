@@ -284,3 +284,9 @@ body {
     color: #8f9bb3;
     letter-spacing: 0.3px;
 }
+.market-source {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.65;
+}
