@@ -405,6 +405,19 @@ function formatCompactNumber(value) {
     }).format(value);
 
 }
+function formatSupply(value) {
+
+    if (value === null || value === undefined) {
+        return "—";
+    }
+
+    return new Intl.NumberFormat("en-US", {
+        notation: "compact",
+        maximumFractionDigits: 2
+    }).format(value);
+
+}
+    
     async function loadCryptoCard(asset) {
 
         const data =
