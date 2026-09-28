@@ -551,8 +551,8 @@ const maxSupplyElement =
             "MAX SUPPLY " +
             (
                 market.max_supply !== null
-                    formatSupply(market.max_supply)
-                    : "—"
+    ? formatSupply(market.max_supply)
+    : "—"
             );
 
     }
