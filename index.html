@@ -551,7 +551,7 @@ const maxSupplyElement =
             "MAX SUPPLY " +
             (
                 market.max_supply !== null
-                    ? market.max_supply.toLocaleString()
+                    formatSupply(market.max_supply)
                     : "—"
             );
 
