@@ -562,11 +562,23 @@ const maxSupplyElement =
   
 async function loadAllAssets() {
 
-    await Promise.all(
-        assets.map(
-            asset => loadCryptoCard(asset)
-        )
-    );
+    for (const asset of assets) {
+
+        try {
+
+            await loadCryptoCard(asset);
+
+        } catch (error) {
+
+            console.error(
+                "Asset loading error:",
+                asset.id,
+                error
+            );
+
+        }
+
+    }
 
 }
 
