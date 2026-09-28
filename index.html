@@ -407,13 +407,16 @@ function formatCompactNumber(value) {
 }
 function formatSupply(value) {
 
+   function formatSupply(value) {
+
     if (value === null || value === undefined) {
         return "—";
     }
 
     return new Intl.NumberFormat("en-US", {
         notation: "compact",
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 0
     }).format(value);
 
 }
