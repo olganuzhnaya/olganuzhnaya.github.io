@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>What Is a Crypto Transaction? — Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="A beginner's guide to crypto transactions, digital signatures, fees, confirmations, blocks, mempools and blockchain settlement."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="container">
+
+        <h1>CRYPTO ATLAS</h1>
+
+        <p>
+            Data · Technology · Law · Economics · Knowledge
+        </p>
+
+        <nav>
+
+            <a class="nav-link" href="../index.html">
+                HOME
+            </a>
+
+            <a class="nav-link" href="../assets/bitcoin.html">
+                ASSETS
+            </a>
+
+            <a class="nav-link" href="../index.html#market">
+                MARKET
+            </a>
+
+            <a class="nav-link" href="../index.html#news">
+                NEWS
+            </a>
+
+            <a class="nav-link" href="index.html">
+                EDUCATION
+            </a>
+
+            <a class="nav-link" href="../index.html#law">
+                LAW
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <div class="container">
+
+        <article>
+
+            <p>
+                CRYPTO ATLAS · EDUCATION
+            </p>
+
+            <h2>
+                What Is a Crypto Transaction?
+            </h2>
+
+            <p>
+                <strong>
+                    How Digital Assets Move on a Blockchain
+                </strong>
+            </p>
+
+
+            <h3>
+                What Is a Crypto Transaction?
+            </h3>
+
+            <p>
+                A cryptocurrency transaction is a digitally
+                authorized instruction that changes the state of a
+                blockchain according to the rules of that network.
+            </p>
+
+            <p>
+                The simplest example is sending a digital asset from
+                one blockchain address or account to another.
+            </p>
+
+            <p>
+                But a transaction can involve much more than a simple
+                transfer. On programmable blockchains such as Ethereum,
+                a transaction can also interact with a smart contract
+                and cause code to execute.
+            </p>
+
+
+            <h3>
+                A Transaction Is Not the Same as a Bank Transfer
+            </h3>
+
+            <p>
+                A traditional bank transfer is processed through a
+                financial institution or payment system that maintains
+                accounts and controls the transfer process.
+            </p>
+
+            <p>
+                A blockchain transaction is processed according to
+                the protocol rules of a distributed network.
+            </p>
+
+            <p>
+                Instead of asking a bank to authorize the payment,
+                the sender uses cryptographic authorization and the
+                network verifies the transaction.
+            </p>
+
+            <p>
+                The exact process differs between blockchains.
+                Bitcoin, Ethereum and other networks do not all use
+                the same transaction model.
+            </p>
+
+
+            <h3>
+                What Happens When You Press "Send"?
+            </h3>
+
+            <p>
+                Although the technical details differ between
+                networks, a simplified transaction process usually
+                looks like this:
+            </p>
+
+            <ol>
+
+                <li>
+                    The user enters the recipient and transaction
+                    details.
+                </li>
+
+                <li>
+                    The wallet constructs a transaction.
+                </li>
+
+                <li>
+                    The transaction is authorized with the
+                    appropriate cryptographic key.
+                </li>
+
+                <li>
+                    The transaction is broadcast to the network.
+                </li>
+
+                <li>
+                    Network participants verify it according to the
+                    protocol rules.
+                </li>
+
+                <li>
+                    A block producer includes the transaction in a
+                    block.
+                </li>
+
+                <li>
+                    The network continues to confirm or finalize
+                    the resulting state according to its consensus
+                    mechanism.
+                </li>
+
+            </ol>
+
+
+            <h3>
+                The Role of the Wallet
+            </h3>
+
+            <p>
+                The wallet provides the interface through which a
+                user can create and authorize a transaction.
+            </p>
+
+            <p>
+                It can calculate or suggest transaction fees, display
+                the destination address, prepare the transaction data,
+                and use the appropriate cryptographic key to sign it.
+            </p>
+
+            <p>
+                The wallet itself does not decide whether the
+                blockchain will accept the transaction.
+            </p>
+
+            <p>
+                The network's rules determine whether the transaction
+                is valid.
+            </p>
+
+
+            <h3>
+                Digital Signatures
+            </h3>
+
+            <p>
+                Cryptographic signatures are fundamental to blockchain
+                transactions.
+            </p>
+
+            <p>
+                A wallet uses a private key to create a signature
+                proving that the transaction was authorized by the
+                holder of the corresponding key.
+            </p>
+
+            <p>
+                Other participants can verify the signature without
+                receiving the private key itself.
+            </p>
+
+            <p>
+                This allows a user to authorize a transaction without
+                revealing the secret key used to create the signature.
+            </p>
+
+
+            <h3>
+                What Information Does a Transaction Contain?
+            </h3>
+
+            <p>
+                The exact structure depends on the blockchain.
+            </p>
+
+            <p>
+                A transaction may contain information such as:
+            </p>
+
+            <ul>
+
+                <li>
+                    sender information;
+                </li>
+
+                <li>
+                    recipient information;
+                </li>
+
+                <li>
+                    the amount being transferred;
+                </li>
+
+                <li>
+                    a digital signature;
+                </li>
+
+                <li>
+                    transaction data;
+                </li>
+
+                <li>
+                    network-specific parameters;
+                </li>
+
+                <li>
+                    fee information.
+                </li>
+
+            </ul>
+
+            <p>
+                Ethereum transactions, for example, can contain
+                fields such as the sender, recipient, value, nonce,
+                input data, gas limit and fee parameters.
+            </p>
+
+
+            <h3>
+                What Is a Transaction Hash?
+            </h3>
+
+            <p>
+                A transaction hash is a cryptographic identifier
+                associated with a particular transaction.
+            </p>
+
+            <p>
+                It can be used to locate and inspect transaction
+                information on a blockchain explorer when the network
+                and explorer support that information.
+            </p>
+
+            <p>
+                A transaction hash is sometimes called a transaction
+                ID or TXID.
+            </p>
+
+            <p>
+                It should not be confused with a private key.
+            </p>
+
+            <p>
+                A transaction hash can normally be shared. A private
+                key must remain secret.
+            </p>
+
+
+            <h3>
+                What Is a Mempool?
+            </h3>
+
+            <p>
+                A mempool, short for memory pool, is a collection of
+                transactions that have been received by network
+                participants but have not yet been included in a
+                confirmed block.
+            </p>
+
+            <p>
+                The exact implementation of transaction pools differs
+                between blockchain networks and individual nodes.
+            </p>
+
+            <p>
+                A transaction being visible in a mempool does not
+                mean that it has already been included in a block.
+            </p>
+
+
+            <h3>
+                What Is a Block?
+            </h3>
+
+            <p>
+                A block is a collection of transactions and other
+                network-specific information that is added to a
+                blockchain according to the protocol's rules.
+            </p>
+
+            <p>
+                Blocks create an ordered history of state changes.
+            </p>
+
+            <p>
+                Once a transaction is included in a block, users can
+                generally see that inclusion through a blockchain
+                explorer.
+            </p>
+
+
+            <h3>
+                What Is Confirmation?
+            </h3>
+
+            <p>
+                A confirmation generally refers to the inclusion of a
+                transaction in a block and, depending on the network,
+                the additional blocks or consensus progress that
+                follow it.
+            </p>
+
+            <p>
+                The meaning of "confirmed" is not identical across
+                every blockchain.
+            </p>
+
+            <p>
+                Bitcoin and Ethereum use different consensus systems,
+                so the way users think about transaction finality is
+                also different.
+            </p>
+
+
+            <h3>
+                Bitcoin Transactions
+            </h3>
+
+            <p>
+                Bitcoin uses a transaction model based on inputs and
+                outputs.
+            </p>
+
+            <p>
+                Inputs refer to previous transaction outputs that are
+                being spent.
+            </p>
+
+            <p>
+                Outputs specify where bitcoin can be spent next and
+                how much value is assigned to each output.
+            </p>
+
+            <p>
+                Bitcoin transactions are authorized using digital
+                signatures and are validated by the Bitcoin network.
+            </p>
+
+            <p>
+                This model is different from the account-based model
+                used by Ethereum.
+            </p>
+
+
+            <h3>
+                Bitcoin Transaction Fees
+            </h3>
+
+            <p>
+                Bitcoin transactions normally include transaction
+                fees paid to miners through the transaction's fee
+                mechanism.
+            </p>
+
+            <p>
+                The fee is generally related to the amount of data
+                required by the transaction and market demand for
+                block space.
+            </p>
+
+            <p>
+                When demand for block space is high, users may need
+                to offer higher fees to improve the likelihood of
+                timely inclusion.
+            </p>
+
+
+            <h3>
+                Ethereum Transactions
+            </h3>
+
+            <p>
+                Ethereum uses an account-based model.
+            </p>
+
+            <p>
+                The simplest Ethereum transaction transfers ETH from
+                one account to another.
+            </p>
+
+            <p>
+                Ethereum transactions can also interact with smart
+                contracts.
+            </p>
+
+            <p>
+                A transaction can therefore trigger operations on
+                the Ethereum Virtual Machine, change blockchain
+                state, or interact with decentralized applications.
+            </p>
+
+
+            <h3>
+                What Is Gas?
+            </h3>
+
+            <p>
+                On Ethereum, gas is the unit used to measure the
+                computational work required to perform operations.
+            </p>
+
+            <p>
+                Transactions require computational resources, and
+                those resources must be paid for.
+            </p>
+
+            <p>
+                Ethereum gas fees are paid in ETH.
+            </p>
+
+            <p>
+                Gas is not simply another word for a transaction.
+                It is a measurement and fee mechanism associated with
+                computation on the Ethereum network.
+            </p>
+
+
+            <h3>
+                Why Does Ethereum Use Gas?
+            </h3>
+
+            <p>
+                Gas helps prevent unlimited or abusive computation
+                from consuming network resources.
+            </p>
+
+            <p>
+                Because computation has a cost, users and applications
+                have an economic reason to avoid unnecessary use of
+                network resources.
+            </p>
+
+            <p>
+                More complex operations, such as interacting with
+                smart contracts, can require more computational work
+                than a simple ETH transfer.
+            </p>
+
+
+            <h3>
+                Base Fee and Priority Fee
+            </h3>
+
+            <p>
+                Modern Ethereum transactions use a fee structure that
+                includes a base fee and a priority fee.
+            </p>
+
+            <p>
+                The base fee is determined by the protocol and is
+                burned when the transaction is included in a block.
+            </p>
+
+            <p>
+                The priority fee is a tip intended to incentivize
+                validators to include a transaction.
+            </p>
+
+            <p>
+                The amount users pay depends on the transaction's
+                actual gas usage and the applicable fee parameters.
+            </p>
+
+
+            <h3>
+                Why Can a Transaction Take Time?
+            </h3>
+
+            <p>
+                A transaction may remain pending before it is included
+                in a block.
+            </p>
+
+            <p>
+                Possible reasons include:
+            </p>
+
+            <ul>
+
+                <li>
+                    high network demand;
+                </li>
+
+                <li>
+                    insufficient or unattractive fee parameters;
+                </li>
+
+                <li>
+                    temporary network conditions;
+                </li>
+
+                <li>
+                    transaction ordering rules;
+                </li>
+
+                <li>
+                    technical problems affecting the wallet or
+                    network connection.
+                </li>
+
+            </ul>
+
+            <p>
+                The exact reason depends on the blockchain and the
+                specific transaction.
+            </p>
+
+
+            <h3>
+                Can a Blockchain Transaction Be Cancelled?
+            </h3>
+
+            <p>
+                Blockchain transactions do not generally work like
+                traditional card payments with a simple universal
+                chargeback mechanism.
+            </p>
+
+            <p>
+                Once a transaction has been accepted into the
+                blockchain's finalized or sufficiently confirmed
+                history, reversing it is generally not a normal user
+                operation.
+            </p>
+
+            <p>
+                Some networks and wallet systems may provide
+                mechanisms for replacing or accelerating certain
+                pending transactions, but these mechanisms depend on
+                the protocol and transaction state.
+            </p>
+
+            <p>
+                This is why users should carefully check the recipient,
+                network and transaction details before signing.
+            </p>
+
+
+            <h3>
+                What Happens If You Send to the Wrong Address?
+            </h3>
+
+            <p>
+                A blockchain generally cannot determine that a
+                recipient address was entered by mistake.
+            </p>
+
+            <p>
+                If a transaction is valid according to the protocol,
+                the network can process it even when the sender made
+                a human error.
+            </p>
+
+            <p>
+                Recovery may be impossible if the recipient does not
+                control the destination address or is unwilling or
+                unable to return the assets.
+            </p>
+
+            <p>
+                This is one reason transaction verification is an
+                essential part of self-custody.
+            </p>
+
+
+            <h3>
+                Blockchain Explorers
+            </h3>
+
+            <p>
+                A blockchain explorer is a website or application
+                that allows users to inspect publicly available
+                blockchain information.
+            </p>
+
+            <p>
+                Depending on the network, an explorer may display:
+            </p>
+
+            <ul>
+
+                <li>
+                    transaction hashes;
+                </li>
+
+                <li>
+                    block information;
+                </li>
+
+                <li>
+                    sender and recipient addresses;
+                </li>
+
+                <li>
+                    transferred amounts;
+                </li>
+
+                <li>
+                    transaction fees;
+                </li>
+
+                <li>
+                    timestamps;
+                </li>
+
+                <li>
+                    confirmation or finality information.
+                </li>
+
+            </ul>
+
+            <p>
+                Explorers are useful educational tools because they
+                allow users to see how blockchain data is recorded.
+            </p>
+
+
+            <h3>
+                Public Does Not Mean Completely Anonymous
+            </h3>
+
+            <p>
+                Many public blockchains make transaction data visible
+                to anyone who can access the network or a blockchain
+                explorer.
+            </p>
+
+            <p>
+                A blockchain address does not necessarily contain a
+                person's real-world name, but transactions associated
+                with an address can often be analyzed.
+            </p>
+
+            <p>
+                Therefore, public blockchain systems should not
+                automatically be described as completely anonymous.
+            </p>
+
+
+            <h3>
+                Transactions and Smart Contracts
+            </h3>
+
+            <p>
+                On programmable blockchains, transactions can do more
+                than transfer a native cryptocurrency.
+            </p>
+
+            <p>
+                A transaction can call a smart contract function.
+            </p>
+
+            <p>
+                For example, interacting with a decentralized exchange,
+                transferring a token or using a decentralized
+                application may require a transaction that executes
+                smart-contract code.
+            </p>
+
+            <p>
+                Such operations can require more computation and
+                therefore more gas than a simple transfer.
+            </p>
+
+
+            <h3>
+                Transaction Costs Are Not the Same Everywhere
+            </h3>
+
+            <p>
+                There is no universal cryptocurrency transaction fee.
+            </p>
+
+            <p>
+                Different networks use different transaction models,
+                consensus mechanisms, fee markets and block-space
+                rules.
+            </p>
+
+            <p>
+                Even within the same network, fees can change over
+                time as demand for network resources changes.
+            </p>
+
+            <p>
+                A statement such as "crypto transactions are expensive"
+                or "crypto transactions are free" is therefore too
+                general to describe the entire ecosystem.
+            </p>
+
+
+            <h3>
+                A Simple Mental Model
+            </h3>
+
+            <p>
+                A useful way for beginners to think about a blockchain
+                transaction is:
+            </p>
+
+            <ol>
+
+                <li>
+                    <strong>Instruction</strong> — what action should
+                    the network perform?
+                </li>
+
+                <li>
+                    <strong>Authorization</strong> — who is allowed
+                    to make that request?
+                </li>
+
+                <li>
+                    <strong>Broadcast</strong> — how does the request
+                    reach the network?
+                </li>
+
+                <li>
+                    <strong>Validation</strong> — does it follow the
+                    protocol rules?
+                </li>
+
+                <li>
+                    <strong>Inclusion</strong> — is it included in a
+                    block?
+                </li>
+
+                <li>
+                    <strong>Confirmation or finality</strong> — how
+                    certain is the resulting state according to the
+                    network's consensus rules?
+                </li>
+
+            </ol>
+
+
+            <h3>
+                What Beginners Should Remember
+            </h3>
+
+            <ul>
+
+                <li>
+                    A blockchain transaction is an instruction that
+                    changes blockchain state according to network rules.
+                </li>
+
+                <li>
+                    A wallet prepares and authorizes transactions but
+                    does not control the blockchain.
+                </li>
+
+                <li>
+                    Private keys are used to authorize transactions
+                    and must remain secret.
+                </li>
+
+                <li>
+                    A transaction hash can identify a transaction and
+                    is not the same thing as a private key.
+                </li>
+
+                <li>
+                    A pending transaction has not necessarily been
+                    included in a block.
+                </li>
+
+                <li>
+                    Different blockchains use different transaction
+                    models.
+                </li>
+
+                <li>
+                    Bitcoin and Ethereum handle transactions and fees
+                    differently.
+                </li>
+
+                <li>
+                    Ethereum uses gas to measure computational work.
+                </li>
+
+                <li>
+                    Transaction fees can change according to network
+                    conditions.
+                </li>
+
+                <li>
+                    Users should carefully verify transaction details
+                    before signing.
+                </li>
+
+            </ul>
+
+
+            <h3>
+                Conclusion
+            </h3>
+
+            <p>
+                A cryptocurrency transaction is much more than a
+                digital message saying that one person sent coins to
+                another.
+            </p>
+
+            <p>
+                It is a cryptographically authorized instruction that
+                enters a distributed network and is processed according
+                to the rules of a particular blockchain.
+            </p>
+
+            <p>
+                Understanding the journey from wallet to signature,
+                from broadcast to block, and from confirmation to
+                finality makes the architecture of digital assets much
+                easier to understand.
+            </p>
+
+            <p>
+                Bitcoin and Ethereum demonstrate two important
+                approaches to blockchain transactions, while other
+                networks use their own designs.
+            </p>
+
+            <p>
+                <strong>
+                    Understand the transaction before you sign it.
+                </strong>
+            </p>
+
+
+            <h3>
+                Sources and Further Reading
+            </h3>
+
+            <p>
+                Bitcoin.org — How Bitcoin Works:
+                <br>
+                <a
+                    href="https://bitcoin.org/en/how-it-works"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    https://bitcoin.org/en/how-it-works
+                </a>
+            </p>
+
+            <p>
+                Bitcoin Developer Documentation:
+                <br>
+                <a
+                    href="https://developer.bitcoin.org/devguide/transactions.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    https://developer.bitcoin.org/devguide/transactions.html
+                </a>
+            </p>
+
+            <p>
+                Ethereum.org — Transactions:
+                <br>
+                <a
+                    href="https://ethereum.org/developers/docs/transactions/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    https://ethereum.org/developers/docs/transactions/
+                </a>
+            </p>
+
+            <p>
+                Ethereum.org — Gas and Fees:
+                <br>
+                <a
+                    href="https://ethereum.org/developers/docs/gas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    https://ethereum.org/developers/docs/gas/
+                </a>
+            </p>
+
+
+            <h3>
+                Disclaimer
+            </h3>
+
+            <p>
+                This article is provided for educational and
+                informational purposes only. It is not financial,
+                investment, legal or tax advice. Cryptocurrency
+                involves technological, operational, market and
+                security risks. Readers should conduct their own
+                research and consult qualified professionals where
+                appropriate.
+            </p>
+
+        </article>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            Crypto Atlas — information, sources and data.
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
