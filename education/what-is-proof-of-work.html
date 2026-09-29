@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Is Proof-of-Work? — Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="Learn what Proof-of-Work is, how Bitcoin mining works, why miners compete to create blocks, and how Proof-of-Work contributes to blockchain security."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container">
+
+        <div class="site-title">
+            <a href="../index.html">CRYPTO ATLAS</a>
+        </div>
+
+        <nav class="main-nav">
+            <a class="nav-link" href="../index.html">HOME</a>
+            <a class="nav-link" href="../assets/bitcoin.html">ASSETS</a>
+            <a class="nav-link" href="../index.html#market">MARKET</a>
+            <a class="nav-link" href="../index.html#news">NEWS</a>
+            <a class="nav-link" href="index.html">EDUCATION</a>
+            <a class="nav-link" href="../index.html#law">LAW</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="article-page">
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">
+            ← EDUCATION
+        </a>
+
+        <article class="article-content">
+
+            <header class="article-header">
+
+                <p class="article-label">
+                    LEVEL 6 — DEEPER TECHNOLOGY
+                </p>
+
+                <h1>What Is Proof-of-Work?</h1>
+
+                <p class="article-subtitle">
+                    Understanding Bitcoin Mining, Consensus and Network Security
+                </p>
+
+            </header>
+
+
+            <section>
+
+                <h2>What Is Proof-of-Work?</h2>
+
+                <p>
+                    Proof-of-Work, commonly abbreviated as PoW, is a consensus
+                    mechanism used by blockchain networks to coordinate the
+                    addition of new blocks.
+                </p>
+
+                <p>
+                    Bitcoin is the most prominent example of a blockchain that
+                    uses Proof-of-Work.
+                </p>
+
+                <p>
+                    The system requires participants called miners to perform
+                    computational work before a proposed block can be accepted
+                    according to the network's rules.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Does Bitcoin Need Consensus?</h2>
+
+                <p>
+                    Bitcoin does not rely on a central bank, payment company or
+                    central database to decide which transactions should be
+                    included in the ledger.
+                </p>
+
+                <p>
+                    Thousands of independent computers participate in maintaining
+                    and verifying the network.
+                </p>
+
+                <p>
+                    The network therefore needs rules that allow participants to
+                    agree on the valid history of transactions.
+                </p>
+
+                <p>
+                    Proof-of-Work is part of the mechanism Bitcoin uses to make
+                    this possible.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>What Is a Miner?</h2>
+
+                <p>
+                    A miner is a participant operating specialized computer
+                    hardware that performs the computational work required by
+                    Bitcoin's Proof-of-Work system.
+                </p>
+
+                <p>
+                    Miners collect valid transactions, construct candidate
+                    blocks and compete to produce a block that satisfies the
+                    network's Proof-of-Work requirement.
+                </p>
+
+                <p>
+                    Mining is therefore both a technical process and a
+                    competitive activity.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>How Does Proof-of-Work Work?</h2>
+
+                <p>
+                    Bitcoin miners repeatedly calculate cryptographic hash values
+                    while changing information in the candidate block.
+                </p>
+
+                <p>
+                    The goal is to find a hash that satisfies the difficulty
+                    requirement established by the Bitcoin protocol.
+                </p>
+
+                <p>
+                    Because the result of a cryptographic hash is difficult to
+                    predict, miners generally have to perform many attempts before
+                    finding a valid result.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>What Is a Hash?</h2>
+
+                <p>
+                    A cryptographic hash function transforms input data into a
+                    fixed-size output.
+                </p>
+
+                <p>
+                    Bitcoin uses the SHA-256 cryptographic hash function in its
+                    Proof-of-Work process.
+                </p>
+
+                <p>
+                    A small change in the input produces a substantially different
+                    hash output.
+                </p>
+
+                <p>
+                    This property allows the network to use computational work as
+                    part of its block-production mechanism.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Do Miners Make So Many Attempts?</h2>
+
+                <p>
+                    Finding a valid Proof-of-Work result is intentionally
+                    computationally difficult.
+                </p>
+
+                <p>
+                    There is no practical shortcut that allows miners to simply
+                    calculate the correct answer in advance.
+                </p>
+
+                <p>
+                    Instead, miners repeatedly try different values until one
+                    produces a hash that satisfies the required condition.
+                </p>
+
+                <p>
+                    Verifying the successful result is much easier than producing
+                    it.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work and Difficulty</h2>
+
+                <p>
+                    Bitcoin adjusts its mining difficulty periodically so that
+                    blocks continue to be produced at approximately the intended
+                    rate despite changes in the amount of computing power
+                    participating in mining.
+                </p>
+
+                <p>
+                    If more computational power joins the network, the difficulty
+                    can increase. If computational power decreases, the protocol
+                    can adjust in the opposite direction.
+                </p>
+
+                <p>
+                    This adjustment helps maintain the rhythm of Bitcoin's block
+                    production.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Is It Called "Proof" of Work?</h2>
+
+                <p>
+                    A valid block contains evidence that the required computational
+                    work has been performed.
+                </p>
+
+                <p>
+                    Other participants do not need to repeat the entire mining
+                    process to verify the result.
+                </p>
+
+                <p>
+                    They can efficiently check whether the block satisfies the
+                    required Proof-of-Work condition.
+                </p>
+
+                <p>
+                    The system therefore creates a publicly verifiable connection
+                    between computational effort and block production.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work and Block Production</h2>
+
+                <p>
+                    A Bitcoin block contains transactions together with other
+                    information required by the protocol.
+                </p>
+
+                <p>
+                    Miners construct candidate blocks and attempt to find a valid
+                    Proof-of-Work result for them.
+                </p>
+
+                <p>
+                    When a valid block is found and propagated through the network,
+                    other nodes independently verify it.
+                </p>
+
+                <p>
+                    If the block follows the protocol rules, it can become part of
+                    the blockchain history.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work Does Not Mean Trusting Miners</h2>
+
+                <p>
+                    Bitcoin miners do not have unlimited authority over the
+                    blockchain.
+                </p>
+
+                <p>
+                    Full nodes independently verify transactions and blocks
+                    according to Bitcoin's consensus rules.
+                </p>
+
+                <p>
+                    A miner cannot make an invalid transaction valid simply by
+                    spending more computational power.
+                </p>
+
+                <p>
+                    Computational work and transaction validity are therefore
+                    separate concepts.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>What Prevents Someone From Changing a Block?</h2>
+
+                <p>
+                    Blocks are linked through cryptographic hashes.
+                </p>
+
+                <p>
+                    Changing information in an earlier block would change its
+                    hash and affect the chain of subsequent blocks.
+                </p>
+
+                <p>
+                    An attacker attempting to rewrite a substantial part of the
+                    blockchain would therefore need to reproduce the required
+                    Proof-of-Work for the altered history while competing with
+                    the continuing network.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Proof-of-Work Makes History Expensive to Rewrite</h2>
+
+                <p>
+                    Proof-of-Work does not make historical changes mathematically
+                    impossible.
+                </p>
+
+                <p>
+                    Instead, it makes rewriting sufficiently established
+                    blockchain history computationally expensive.
+                </p>
+
+                <p>
+                    The deeper a block is buried under subsequent blocks, the
+                    greater the amount of accumulated Proof-of-Work associated
+                    with the chain.
+                </p>
+
+                <p>
+                    This is one reason users generally consider additional block
+                    confirmations when assessing transaction finality.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>What Is a 51% Attack?</h2>
+
+                <p>
+                    A commonly discussed threat to Proof-of-Work networks is a
+                    situation in which an entity or coordinated group controls a
+                    majority of the network's relevant mining power.
+                </p>
+
+                <p>
+                    Such control could increase the ability to reorganize recent
+                    transaction history or perform double-spending attacks under
+                    certain conditions.
+                </p>
+
+                <p>
+                    It does not automatically give the attacker the ability to
+                    create arbitrary valid transactions or change the rules of
+                    the network.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work and Double Spending</h2>
+
+                <p>
+                    Double spending occurs when the same digital asset is
+                    attempted to be spent more than once.
+                </p>
+
+                <p>
+                    Bitcoin's consensus rules and Proof-of-Work-based chain
+                    selection mechanism help the network converge on one
+                    accepted transaction history.
+                </p>
+
+                <p>
+                    As additional blocks are added after a transaction, changing
+                    that history generally requires increasing amounts of
+                    computational work.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Mining Rewards</h2>
+
+                <p>
+                    Bitcoin miners can receive rewards for successfully producing
+                    blocks according to the protocol's rules.
+                </p>
+
+                <p>
+                    The block reward consists of newly created bitcoin together
+                    with transaction fees included in the block.
+                </p>
+
+                <p>
+                    The amount of newly created bitcoin is governed by Bitcoin's
+                    issuance rules and decreases through scheduled halvings.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Do Miners Spend Money on Mining?</h2>
+
+                <p>
+                    Mining requires hardware, electricity, infrastructure,
+                    maintenance and other operating resources.
+                </p>
+
+                <p>
+                    Miners participate because successful block production can
+                    generate protocol rewards and transaction fees.
+                </p>
+
+                <p>
+                    The economic competition between miners creates incentives
+                    to provide computational resources to the network.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work and Energy</h2>
+
+                <p>
+                    Proof-of-Work requires real-world computational resources and
+                    therefore consumes electricity.
+                </p>
+
+                <p>
+                    The energy requirement is an important part of the mechanism,
+                    because producing valid blocks requires expenditure of
+                    computational resources.
+                </p>
+
+                <p>
+                    Bitcoin's energy consumption has therefore become an important
+                    subject of economic, technological and environmental debate.
+                </p>
+
+                <p>
+                    Assessments of Bitcoin's environmental impact depend on factors
+                    such as electricity sources, mining hardware, geographic
+                    distribution and the methodology used to measure energy use
+                    and emissions.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Energy Is Not the Same as Emissions</h2>
+
+                <p>
+                    Electricity consumption and greenhouse-gas emissions are
+                    related but are not identical measurements.
+                </p>
+
+                <p>
+                    The environmental effect of electricity use depends partly on
+                    how that electricity is generated.
+                </p>
+
+                <p>
+                    For this reason, discussions of Bitcoin mining should
+                    distinguish between electricity consumption, energy sources
+                    and resulting emissions.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work vs Proof-of-Stake</h2>
+
+                <p>
+                    Proof-of-Work and Proof-of-Stake are different approaches to
+                    blockchain consensus.
+                </p>
+
+                <p>
+                    Proof-of-Work uses computational work and specialized hardware
+                    as part of block production.
+                </p>
+
+                <p>
+                    Proof-of-Stake uses economic value placed at stake by
+                    validators as part of its consensus mechanism.
+                </p>
+
+                <p>
+                    Ethereum changed from Proof-of-Work to Proof-of-Stake in
+                    September 2022.
+                </p>
+
+                <p>
+                    Bitcoin continues to use Proof-of-Work.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Proof-of-Work Is More Than "Mining"</h2>
+
+                <p>
+                    Mining is the practical activity performed by miners.
+                </p>
+
+                <p>
+                    Proof-of-Work is the underlying consensus mechanism that uses
+                    computational work as part of the process for selecting and
+                    securing blocks.
+                </p>
+
+                <p>
+                    Understanding this distinction helps explain why mining is
+                    important to Bitcoin's architecture.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Proof-of-Work Matters for Bitcoin</h2>
+
+                <p>
+                    Bitcoin was designed to operate without a central institution
+                    deciding which transactions form the accepted ledger.
+                </p>
+
+                <p>
+                    Proof-of-Work contributes to this design by making block
+                    production competitive, publicly verifiable and costly in
+                    computational terms.
+                </p>
+
+                <p>
+                    It also creates an economic relationship between mining,
+                    electricity, hardware and the security of the network.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Why Crypto Atlas Covers Proof-of-Work</h2>
+
+                <p>
+                    Understanding Proof-of-Work is essential for understanding
+                    Bitcoin itself.
+                </p>
+
+                <p>
+                    Price charts show the market value of bitcoin, but they do not
+                    explain the mechanism that helps secure the Bitcoin network.
+                </p>
+
+                <p>
+                    Proof-of-Work connects several subjects that Crypto Atlas
+                    examines separately: technology, economics, energy, incentives,
+                    security and digital scarcity.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>A Simple Mental Model</h2>
+
+                <p>
+                    A simplified way to think about Proof-of-Work is:
+                </p>
+
+                <p>
+                    <strong>Transactions → Candidate block → Computational work → Valid block → Network verification</strong>
+                </p>
+
+                <p>
+                    The model is simplified, but it captures the central idea:
+                    miners compete to produce blocks by performing computational
+                    work, while other network participants independently verify
+                    the result.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Beginner's Checklist</h2>
+
+                <ul>
+                    <li>Understand that Proof-of-Work is a consensus mechanism.</li>
+                    <li>Know that Bitcoin uses Proof-of-Work.</li>
+                    <li>Understand the role of miners.</li>
+                    <li>Know what a cryptographic hash is.</li>
+                    <li>Understand that mining requires computational work.</li>
+                    <li>Understand why Bitcoin adjusts mining difficulty.</li>
+                    <li>Know that nodes independently verify blocks.</li>
+                    <li>Understand the relationship between mining and network security.</li>
+                    <li>Distinguish electricity consumption from emissions.</li>
+                    <li>Know that Proof-of-Work and Proof-of-Stake are different mechanisms.</li>
+                </ul>
+
+            </section>
+
+
+            <section>
+
+                <h2>Conclusion</h2>
+
+                <p>
+                    Proof-of-Work is a consensus mechanism in which computational
+                    work is used as part of the process of producing and securing
+                    blockchain blocks.
+                </p>
+
+                <p>
+                    Bitcoin uses Proof-of-Work to coordinate decentralized block
+                    production without relying on a central authority.
+                </p>
+
+                <p>
+                    Its design connects cryptography, computing, economic
+                    incentives and real-world resource consumption.
+                </p>
+
+                <p>
+                    Understanding these connections provides an important
+                    foundation for understanding Bitcoin and blockchain security.
+                </p>
+
+            </section>
+
+
+            <section class="article-sources">
+
+                <h2>Sources and Further Reading</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="https://bitcoin.org/bitcoin.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Bitcoin.org — Bitcoin: A Peer-to-Peer Electronic Cash System
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://developer.bitcoin.org/devguide/block_chain.html"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Bitcoin Developer Documentation — The Blockchain
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://developer.bitcoin.org/devguide/mining.html"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Bitcoin Developer Documentation — Mining
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://developer.bitcoin.org/reference/rpc/getblockchaininfo.html"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Bitcoin Developer Reference — Blockchain Information
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://ethereum.org/developers/docs/consensus-mechanisms/pos/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ethereum.org — Proof-of-Stake
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.eia.gov/energyexplained/electricity/electricity-in-the-us.php"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            U.S. Energy Information Administration — Electricity
+                        </a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <section class="article-disclaimer">
+
+                <h2>Disclaimer</h2>
+
+                <p>
+                    This article is provided for educational and informational
+                    purposes only. It does not constitute financial, investment,
+                    legal, environmental or tax advice.
+                </p>
+
+                <p>
+                    Technical specifications, network conditions, energy use and
+                    regulatory treatment can change over time. Readers should
+                    consult current primary sources when making decisions based
+                    on this information.
+                </p>
+
+            </section>
+
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <p>
+            Crypto Atlas — information, sources and data.
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
