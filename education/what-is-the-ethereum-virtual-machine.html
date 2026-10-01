@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Is the Ethereum Virtual Machine (EVM)? — Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="What is the Ethereum Virtual Machine (EVM)? Learn how Ethereum executes smart contracts, uses gas, and processes blockchain transactions."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>CRYPTO ATLAS</h1>
+
+    <p>
+        Data · Technology · Law · Economics · Knowledge
+    </p>
+
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../index.html#assets">ASSETS</a>
+        <a href="../index.html#market">MARKET</a>
+        <a href="../index.html#news">NEWS</a>
+        <a href="index.html">EDUCATION</a>
+        <a href="../index.html#law">LAW</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <article class="education-article">
+
+        <p>
+            <a href="index.html">← Back to Education</a>
+        </p>
+
+        <h1>What Is the Ethereum Virtual Machine (EVM)?</h1>
+
+        <p>
+            The Ethereum Virtual Machine, commonly known as the EVM, is the
+            computing environment that executes smart contracts and processes
+            transactions on Ethereum.
+        </p>
+
+        <p>
+            To understand Ethereum beyond its cryptocurrency, it is important
+            to understand the EVM. It is one of the fundamental components that
+            allows Ethereum to function as a programmable blockchain.
+        </p>
+
+
+        <h2>What Is the EVM?</h2>
+
+        <p>
+            The Ethereum Virtual Machine is a virtual computing environment
+            shared by the computers participating in the Ethereum network.
+        </p>
+
+        <p>
+            Unlike a traditional computer, the EVM is not a physical machine.
+            It is a set of rules and software specifications that define how
+            Ethereum executes programs and changes the state of the blockchain.
+        </p>
+
+        <p>
+            These programs are called smart contracts. When a transaction
+            interacts with a smart contract, Ethereum nodes use the EVM rules
+            to determine what the contract should do.
+        </p>
+
+
+        <h2>Why Does Ethereum Need a Virtual Machine?</h2>
+
+        <p>
+            A blockchain needs a way for thousands of independent computers
+            to reach the same result when processing transactions.
+        </p>
+
+        <p>
+            If different computers interpreted a smart contract differently,
+            the network could no longer maintain a consistent blockchain state.
+        </p>
+
+        <p>
+            The EVM provides a common execution environment. Every participating
+            node follows the same computational rules, allowing the network to
+            verify the results of smart contract execution.
+        </p>
+
+
+        <h2>Smart Contracts and the EVM</h2>
+
+        <p>
+            Developers usually write Ethereum smart contracts using programming
+            languages such as Solidity.
+        </p>
+
+        <p>
+            The source code written by a developer is not executed directly by
+            the EVM. It is compiled into bytecode that the EVM can execute.
+        </p>
+
+        <p>
+            This creates an important distinction:
+        </p>
+
+        <ul>
+            <li>Source code is written by developers.</li>
+            <li>The compiler converts the source code into EVM bytecode.</li>
+            <li>The EVM executes that bytecode.</li>
+        </ul>
+
+
+        <h2>What Is EVM Bytecode?</h2>
+
+        <p>
+            Bytecode is a machine-readable representation of a smart contract.
+            It consists of instructions that the EVM can execute.
+        </p>
+
+        <p>
+            The EVM operates using a set of low-level instructions known as
+            opcodes. Each opcode represents a particular operation, such as
+            arithmetic, data manipulation, comparison, or interaction with
+            blockchain state.
+        </p>
+
+        <p>
+            Developers normally do not need to write these low-level
+            instructions manually. Programming languages and compilers
+            translate higher-level code into the form required by the EVM.
+        </p>
+
+
+        <h2>What Is Gas?</h2>
+
+        <p>
+            Executing computation on Ethereum requires resources from the
+            network. Ethereum measures the computational work required by an
+            operation using a unit called gas.
+        </p>
+
+        <p>
+            Different operations require different amounts of gas. A simple
+            operation may require relatively little computation, while a more
+            complex transaction can require substantially more.
+        </p>
+
+        <p>
+            Gas therefore provides a mechanism for measuring and pricing the
+            computational resources used by transactions and smart contracts.
+        </p>
+
+        <p>
+            The total transaction fee depends on the amount of gas used and
+            the applicable gas price.
+        </p>
+
+
+        <h2>Why Does Gas Matter?</h2>
+
+        <p>
+            Gas serves more than an economic purpose. It also helps protect
+            the network from unlimited or excessively expensive computation.
+        </p>
+
+        <p>
+            Without a mechanism limiting computational work, a malicious or
+            poorly designed program could potentially consume excessive network
+            resources.
+        </p>
+
+        <p>
+            By assigning a computational cost to operations, Ethereum makes
+            computation measurable and creates an economic constraint on the
+            resources consumed by transactions.
+        </p>
+
+
+        <h2>Ethereum State and the EVM</h2>
+
+        <p>
+            Ethereum maintains a global state containing information such as
+            account balances, contract data, and other information required
+            by the protocol.
+        </p>
+
+        <p>
+            When a transaction is executed, the EVM processes the relevant
+            instructions and produces changes to this state.
+        </p>
+
+        <p>
+            In simplified terms, the process can be understood as:
+        </p>
+
+        <ol>
+            <li>A transaction is submitted to the Ethereum network.</li>
+            <li>Ethereum nodes process the transaction.</li>
+            <li>The EVM executes the required contract code.</li>
+            <li>Gas is consumed during computation.</li>
+            <li>The resulting state changes are verified and recorded as part
+                of Ethereum's blockchain state.</li>
+        </ol>
+
+
+        <h2>Memory, Storage and the Stack</h2>
+
+        <p>
+            The EVM uses several types of computational data areas.
+        </p>
+
+        <p>
+            The stack is used for temporary computational operations. The EVM
+            uses a stack-based architecture, meaning many operations work with
+            values placed on this stack.
+        </p>
+
+        <p>
+            Memory provides temporary space during the execution of a
+            transaction or contract call.
+        </p>
+
+        <p>
+            Storage is different. It is associated with a smart contract and
+            is used for persistent data that must remain available after
+            execution ends.
+        </p>
+
+        <p>
+            These distinctions are important because persistent blockchain
+            storage is a scarce resource and operations involving it have
+            associated gas costs.
+        </p>
+
+
+        <h2>The EVM Is Deterministic</h2>
+
+        <p>
+            One of the most important characteristics of the EVM is
+            determinism.
+        </p>
+
+        <p>
+            Given the same initial blockchain state, transaction input, and
+            execution rules, the EVM should produce the same result.
+        </p>
+
+        <p>
+            This property is essential for a decentralized network. Ethereum
+            nodes must be able to independently execute and verify transactions
+            without relying on a central computer to tell them what the result
+            should be.
+        </p>
+
+
+        <h2>EVM Compatibility</h2>
+
+        <p>
+            The importance of the EVM extends beyond Ethereum itself.
+        </p>
+
+        <p>
+            Some other blockchain networks implement environments that are
+            compatible with Ethereum's execution model. This can make it
+            easier to deploy or adapt applications originally developed for
+            Ethereum.
+        </p>
+
+        <p>
+            EVM compatibility can therefore reduce some technical barriers for
+            developers who already work with Ethereum tools, smart contracts,
+            and programming languages.
+        </p>
+
+        <p>
+            However, EVM compatibility does not mean that every blockchain is
+            identical to Ethereum. Networks can differ in consensus mechanisms,
+            economics, governance, security assumptions, performance, and other
+            technical characteristics.
+        </p>
+
+
+        <h2>Why the EVM Matters for Crypto Users</h2>
+
+        <p>
+            Users do not normally interact with the EVM directly. They interact
+            with wallets, decentralized applications, exchanges, and other
+            interfaces.
+        </p>
+
+        <p>
+            Behind those interfaces, however, the EVM can be responsible for
+            executing the smart contract operations requested by the user.
+        </p>
+
+        <p>
+            Understanding the EVM helps explain several concepts that appear
+            throughout the crypto ecosystem:
+        </p>
+
+        <ul>
+            <li>smart contracts;</li>
+            <li>gas fees;</li>
+            <li>decentralized applications;</li>
+            <li>tokens;</li>
+            <li>Ethereum-compatible networks;</li>
+            <li>on-chain computation.</li>
+        </ul>
+
+
+        <h2>The Bigger Picture</h2>
+
+        <p>
+            Bitcoin demonstrated how a blockchain could maintain a
+            decentralized monetary system without a central issuer.
+        </p>
+
+        <p>
+            Ethereum expanded the concept by providing a programmable
+            environment in which decentralized applications and smart
+            contracts could operate.
+        </p>
+
+        <p>
+            The EVM is one of the mechanisms that makes this programmability
+            possible.
+        </p>
+
+        <p>
+            It can therefore be viewed not simply as a technical component,
+            but as part of the infrastructure that transformed blockchain
+            networks from systems primarily focused on transferring digital
+            value into programmable platforms.
+        </p>
+
+
+        <h2>Key Takeaways</h2>
+
+        <ul>
+            <li>The EVM is the execution environment of Ethereum.</li>
+            <li>It executes smart contract bytecode.</li>
+            <li>Ethereum nodes follow the same EVM execution rules.</li>
+            <li>Gas measures the computational resources required by operations.</li>
+            <li>The EVM is deterministic, which supports network-wide verification.</li>
+            <li>Different data areas, including stack, memory, and storage, serve
+                different purposes.</li>
+            <li>EVM compatibility can make Ethereum-based applications easier
+                to adapt to other compatible networks.</li>
+        </ul>
+
+
+        <h2>Sources and Further Reading</h2>
+
+        <ul>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/evm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Ethereum Virtual Machine (EVM)
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/smart-contracts/compiling/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Compiling Smart Contracts
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/gas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Gas and Fees
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/accounts/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Accounts
+                </a>
+            </li>
+
+        </ul>
+
+
+        <h2>Disclaimer</h2>
+
+        <p>
+            This article is provided for educational and informational
+            purposes only. It does not constitute financial, investment,
+            legal, tax, or other professional advice.
+        </p>
+
+        <p>
+            Blockchain technology and digital assets involve technical,
+            financial, regulatory, and security risks. Readers should conduct
+            their own research and consult qualified professionals where
+            appropriate.
+        </p>
+
+    </article>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Crypto Atlas — information, sources and data.
+    </p>
+
+</footer>
+
+</body>
+</html>
