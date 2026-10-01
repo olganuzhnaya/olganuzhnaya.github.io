@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Are Layer-2 Networks? — Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="What are Layer-2 networks? Learn how Ethereum Layer-2 solutions improve scalability, reduce transaction costs, and work with Layer-1."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>CRYPTO ATLAS</h1>
+
+    <p>
+        Data · Technology · Law · Economics · Knowledge
+    </p>
+
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../index.html#assets">ASSETS</a>
+        <a href="../index.html#market">MARKET</a>
+        <a href="../index.html#news">NEWS</a>
+        <a href="index.html">EDUCATION</a>
+        <a href="../index.html#law">LAW</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <article class="education-article">
+
+        <p>
+            <a href="index.html">← Back to Education</a>
+        </p>
+
+        <h1>What Are Layer-2 Networks?</h1>
+
+        <p>
+            Layer-2 networks, often called L2s, are blockchain systems designed
+            to process transactions and computation while using an existing
+            blockchain, such as Ethereum, as an important part of their
+            underlying security and settlement infrastructure.
+        </p>
+
+        <p>
+            Layer-2 technology has become an important part of the effort to
+            scale Ethereum. Instead of requiring every transaction to be
+            processed directly on Ethereum's main network, some activity can
+            be handled by a Layer-2 system and later represented or settled
+            on Layer-1.
+        </p>
+
+
+        <h2>What Is Layer-1?</h2>
+
+        <p>
+            Layer-1 refers to the underlying blockchain itself. In the case of
+            Ethereum, the Ethereum mainnet is Layer-1.
+        </p>
+
+        <p>
+            Layer-1 provides the core blockchain infrastructure, including
+            consensus, transaction settlement, accounts, and the execution
+            environment provided by the Ethereum Virtual Machine.
+        </p>
+
+        <p>
+            The term Layer-2 describes systems built on top of or in connection
+            with Layer-1 that are designed to process activity more efficiently.
+        </p>
+
+
+        <h2>Why Does Ethereum Need Layer-2 Networks?</h2>
+
+        <p>
+            A public blockchain has finite computational and data resources.
+            As more people use a network, competition for those resources can
+            increase.
+        </p>
+
+        <p>
+            On Ethereum, increased demand can result in higher transaction fees
+            and greater competition for block space.
+        </p>
+
+        <p>
+            Layer-2 networks are one approach to this scalability problem.
+            They can process many transactions away from the Ethereum mainnet
+            execution environment and then use Ethereum for settlement and
+            security-related functions.
+        </p>
+
+
+        <h2>How Does Layer-2 Scaling Work?</h2>
+
+        <p>
+            The exact design depends on the Layer-2 system, but the basic idea
+            is to move some transaction processing away from Layer-1.
+        </p>
+
+        <p>
+            Instead of sending every individual transaction directly through
+            Ethereum, users can interact with a Layer-2 network.
+        </p>
+
+        <p>
+            The Layer-2 processes transactions and organizes the resulting
+            information. The system then communicates relevant information or
+            proofs back to Ethereum.
+        </p>
+
+        <p>
+            In simplified terms:
+        </p>
+
+        <ol>
+            <li>A user sends a transaction to a Layer-2 network.</li>
+            <li>The Layer-2 processes the transaction.</li>
+            <li>Multiple transactions can be grouped together.</li>
+            <li>Relevant transaction data or a proof is submitted to Ethereum.</li>
+            <li>Ethereum provides the Layer-1 settlement and verification framework.</li>
+        </ol>
+
+        <p>
+            Real systems can be considerably more sophisticated than this
+            simplified description.
+        </p>
+
+
+        <h2>Rollups</h2>
+
+        <p>
+            Rollups are a major category of Layer-2 scaling technology.
+        </p>
+
+        <p>
+            A rollup executes transactions outside the main Ethereum execution
+            environment and then posts information to Ethereum that allows the
+            resulting state to be verified or reconstructed according to the
+            rollup's design.
+        </p>
+
+        <p>
+            Rollups are generally divided into two major categories:
+            optimistic rollups and zero-knowledge rollups.
+        </p>
+
+
+        <h2>Optimistic Rollups</h2>
+
+        <p>
+            Optimistic rollups generally assume that submitted transaction
+            results are valid unless someone challenges them within the
+            applicable dispute process.
+        </p>
+
+        <p>
+            A fraud-proof or fault-proof mechanism can be used to challenge an
+            invalid result.
+        </p>
+
+        <p>
+            This approach allows large numbers of transactions to be processed
+            while relying on a mechanism through which incorrect results can
+            be disputed.
+        </p>
+
+
+        <h2>Zero-Knowledge Rollups</h2>
+
+        <p>
+            Zero-knowledge rollups use cryptographic proofs to demonstrate that
+            transactions have been processed according to the rules of the
+            system.
+        </p>
+
+        <p>
+            Rather than relying primarily on a later challenge period, a
+            zero-knowledge system can submit a validity proof that Ethereum or
+            another verification system can check.
+        </p>
+
+        <p>
+            The underlying cryptography can be technically complex, but the
+            central idea is relatively simple: a proof can demonstrate that a
+            computation was performed correctly without requiring every
+            observer to reproduce the entire computation in the same way.
+        </p>
+
+
+        <h2>What Does "Rollup" Mean?</h2>
+
+        <p>
+            The word "rollup" refers to the idea of processing many
+            transactions together and representing their results in a more
+            compact form for settlement on the underlying blockchain.
+        </p>
+
+        <p>
+            The details vary between implementations. Different rollups can
+            make different choices about data availability, execution,
+            sequencing, proof systems, and other technical components.
+        </p>
+
+
+        <h2>Layer-2 and Transaction Fees</h2>
+
+        <p>
+            One of the main reasons users interact with Layer-2 networks is
+            transaction cost.
+        </p>
+
+        <p>
+            By processing many transactions together, a Layer-2 can distribute
+            certain costs across a larger number of transactions.
+        </p>
+
+        <p>
+            This can make transactions less expensive than performing the same
+            activity directly on a congested Layer-1 network.
+        </p>
+
+        <p>
+            However, Layer-2 transactions are not automatically free or
+            guaranteed to remain cheaper under every condition. Fees depend on
+            the particular network, its architecture, demand, and the costs
+            associated with interacting with Layer-1.
+        </p>
+
+
+        <h2>Layer-2 and Ethereum Security</h2>
+
+        <p>
+            A key question when evaluating a Layer-2 network is how it uses
+            Ethereum and what assumptions its security model requires.
+        </p>
+
+        <p>
+            Some Layer-2 systems are designed to inherit important security
+            properties from Ethereum by posting transaction data and proofs
+            to Ethereum.
+        </p>
+
+        <p>
+            But "built on Ethereum" does not mean that every Layer-2 has
+            exactly the same security model as Ethereum itself.
+        </p>
+
+        <p>
+            Users should consider the specific architecture of a network,
+            including its proof system, bridges, upgrade mechanisms,
+            sequencing arrangements, data availability model, and other
+            technical assumptions.
+        </p>
+
+
+        <h2>The Sequencer</h2>
+
+        <p>
+            Many Layer-2 systems use a sequencer to organize and order
+            transactions before they are settled on Layer-1.
+        </p>
+
+        <p>
+            The sequencer can play an important operational role in the
+            network's performance and user experience.
+        </p>
+
+        <p>
+            The degree of decentralization and the design of the sequencer
+            can vary between Layer-2 systems.
+        </p>
+
+
+        <h2>Layer-2 Is Not the Same as a Sidechain</h2>
+
+        <p>
+            Layer-2 networks and sidechains are sometimes discussed together,
+            but they are not necessarily the same thing.
+        </p>
+
+        <p>
+            A sidechain is generally an independent blockchain with its own
+            consensus and security model.
+        </p>
+
+        <p>
+            A Layer-2 is designed to use an underlying Layer-1 in a more
+            integrated way, particularly for settlement and security
+            according to its architecture.
+        </p>
+
+        <p>
+            The distinction matters because moving assets or transactions
+            between systems with different security assumptions can introduce
+            additional risks.
+        </p>
+
+
+        <h2>Bridges and Layer-2 Networks</h2>
+
+        <p>
+            Bridges are mechanisms that allow assets or information to move
+            between blockchain environments.
+        </p>
+
+        <p>
+            When users move assets between Ethereum and a Layer-2, a bridge
+            mechanism is typically involved.
+        </p>
+
+        <p>
+            Bridge architecture can vary considerably. Smart contracts,
+            validators, proof systems, and other mechanisms can all play roles
+            depending on the design.
+        </p>
+
+        <p>
+            For this reason, users should understand that interacting with a
+            bridge introduces its own technical considerations and potential
+            risks.
+        </p>
+
+
+        <h2>Why Are There Many Layer-2 Networks?</h2>
+
+        <p>
+            Scaling Ethereum is not a single engineering problem with only one
+            possible solution.
+        </p>
+
+        <p>
+            Different Layer-2 projects can make different design choices about
+            execution, data availability, proof systems, decentralization,
+            interoperability, fees, and user experience.
+        </p>
+
+        <p>
+            This has resulted in a broader ecosystem of Layer-2 networks,
+            each with its own technical architecture and development model.
+        </p>
+
+
+        <h2>What Does Layer-2 Mean for Users?</h2>
+
+        <p>
+            For an ordinary user, the most visible difference can be the
+            network selected when sending a transaction or using a
+            decentralized application.
+        </p>
+
+        <p>
+            A wallet may allow a user to choose between Ethereum and one or
+            more Layer-2 networks.
+        </p>
+
+        <p>
+            Before sending assets, users should check the selected network,
+            the destination address, supported assets, transaction fees, and
+            whether the receiving service supports that particular network.
+        </p>
+
+        <p>
+            Sending an asset using an unsupported network can create serious
+            operational problems and, depending on the circumstances, may
+            result in loss of access to the asset.
+        </p>
+
+
+        <h2>The Bigger Picture</h2>
+
+        <p>
+            Layer-2 networks illustrate an important principle in blockchain
+            engineering: scalability often involves dividing responsibilities
+            between different layers of a system.
+        </p>
+
+        <p>
+            Ethereum can serve as a settlement and security foundation while
+            additional systems process larger amounts of activity.
+        </p>
+
+        <p>
+            This creates a broader architecture in which users, applications,
+            Layer-2 networks, bridges, smart contracts, and Layer-1
+            infrastructure interact with one another.
+        </p>
+
+        <p>
+            Understanding this architecture makes it easier to understand why
+            the modern crypto ecosystem is no longer organized around a single
+            blockchain performing every task directly.
+        </p>
+
+
+        <h2>Key Takeaways</h2>
+
+        <ul>
+            <li>Layer-2 networks are designed to scale blockchain activity.</li>
+            <li>They operate in connection with an underlying Layer-1 blockchain.</li>
+            <li>Ethereum is the Layer-1 foundation for many Layer-2 systems.</li>
+            <li>Rollups are an important category of Layer-2 technology.</li>
+            <li>Optimistic rollups and zero-knowledge rollups use different
+                approaches to verifying transaction results.</li>
+            <li>Layer-2 networks can reduce transaction costs by processing
+                activity more efficiently.</li>
+            <li>Different Layer-2 networks have different technical and
+                security assumptions.</li>
+            <li>Bridges and network selection are important considerations
+                for users moving assets between blockchain environments.</li>
+        </ul>
+
+
+        <h2>Sources and Further Reading</h2>
+
+        <ul>
+
+            <li>
+                <a
+                    href="https://ethereum.org/layer-2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Layer 2
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/scaling/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Scaling
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/scaling/optimistic-rollups/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Optimistic Rollups
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://ethereum.org/developers/docs/scaling/zk-rollups/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ethereum.org — Zero-Knowledge Rollups
+                </a>
+            </li>
+
+        </ul>
+
+
+        <h2>Disclaimer</h2>
+
+        <p>
+            This article is provided for educational and informational
+            purposes only. It does not constitute financial, investment,
+            legal, tax, or other professional advice.
+        </p>
+
+        <p>
+            Blockchain technology and digital assets involve technical,
+            financial, regulatory, and security risks. Readers should conduct
+            their own research and consult qualified professionals where
+            appropriate.
+        </p>
+
+    </article>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Crypto Atlas — information, sources and data.
+    </p>
+
+</footer>
+
+</body>
+</html>
