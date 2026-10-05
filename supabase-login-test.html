@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supabase Login Test — Crypto Atlas</title>
+
+</head>
+
+
+<body>
+
+    <h1>Crypto Atlas — Login Test</h1>
+
+    <p>
+        This page is for testing Supabase authentication.
+    </p>
+
+
+    <form id="login-form">
+
+        <label for="email">Email</label><br>
+
+        <input
+            type="email"
+            id="email"
+            required
+        >
+
+        <br><br>
+
+
+        <label for="password">Password</label><br>
+
+        <input
+            type="password"
+            id="password"
+            required
+        >
+
+        <br><br>
+
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+
+    <p id="status"></p>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+
+    <script>
+
+        const form =
+            document.getElementById("login-form");
+
+        const status =
+            document.getElementById("status");
+
+
+        form.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+
+            status.textContent =
+                "Logging in...";
+
+
+            const { data, error } =
+                await supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+
+            if (error) {
+
+                console.error(error);
+
+                status.textContent =
+                    "ERROR: " + error.message;
+
+                return;
+
+            }
+
+
+            console.log(data);
+
+
+            status.textContent =
+                "SUCCESS: Login completed.";
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
