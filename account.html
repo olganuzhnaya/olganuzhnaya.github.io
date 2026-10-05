@@ -17,9 +17,7 @@
 
 </head>
 
-
 <body>
-
 
 <header class="site-header">
 
@@ -36,7 +34,6 @@
     </div>
 
 </header>
-
 
 
 <nav class="site-nav">
@@ -72,24 +69,23 @@
 </nav>
 
 
-
 <main>
-
 
 <section class="education-article">
 
-
     <h1>My Account</h1>
-
 
     <p>
         Welcome to your Crypto Atlas account.
     </p>
 
 
+    <h2>Profile</h2>
 
-    <h2>Account</h2>
-
+    <p>
+        Name:
+        <strong id="user-name">Loading...</strong>
+    </p>
 
     <p>
         Email:
@@ -97,27 +93,28 @@
     </p>
 
 
-
     <h2>Membership</h2>
 
-
     <p>
-        Free Member
+        <strong id="user-membership">Loading...</strong>
     </p>
 
 
+    <h2>Language</h2>
+
+    <p>
+        <strong id="user-language">Loading...</strong>
+    </p>
+
 
     <h2>Saved Articles</h2>
-
 
     <p>
         No saved articles yet.
     </p>
 
 
-
     <h2>Subscription</h2>
-
 
     <p>
         Upgrade to Crypto Atlas Premium for full access
@@ -125,26 +122,7 @@
     </p>
 
 
-
-    <h2>Language</h2>
-
-
-    <p>
-        English
-    </p>
-
-    <p>
-        Türkçe
-    </p>
-
-    <p>
-        Русский
-    </p>
-
-
-
     <h2>Account Actions</h2>
-
 
     <p>
 
@@ -154,15 +132,11 @@
 
     </p>
 
-
     <p id="status"></p>
-
 
 </section>
 
-
 </main>
-
 
 
 <footer class="site-footer">
@@ -178,7 +152,6 @@
 </footer>
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase-config.js"></script>
@@ -186,8 +159,17 @@
 
 <script>
 
+    const userName =
+        document.getElementById("user-name");
+
     const userEmail =
         document.getElementById("user-email");
+
+    const userMembership =
+        document.getElementById("user-membership");
+
+    const userLanguage =
+        document.getElementById("user-language");
 
     const logoutButton =
         document.getElementById("logout-button");
@@ -196,15 +178,15 @@
         document.getElementById("status");
 
 
-    async function checkSession() {
+    async function loadAccount() {
 
-        const { data, error } =
+        const { data: sessionData, error: sessionError } =
             await supabaseClient.auth.getSession();
 
 
-        if (error) {
+        if (sessionError) {
 
-            console.error(error);
+            console.error(sessionError);
 
             window.location.href =
                 "login.html";
@@ -215,7 +197,7 @@
 
 
         const session =
-            data.session;
+            sessionData.session;
 
 
         if (!session) {
@@ -230,6 +212,38 @@
 
         userEmail.textContent =
             session.user.email;
+
+
+        const { data: profile, error: profileError } =
+            await supabaseClient
+                .from("profiles")
+                .select("name, membership, language")
+                .eq("id", session.user.id)
+                .single();
+
+
+        if (profileError) {
+
+            console.error(profileError);
+
+            status.textContent =
+                "ERROR: Could not load profile.";
+
+            return;
+
+        }
+
+
+        userName.textContent =
+            profile.name || "Not specified";
+
+
+        userMembership.textContent =
+            profile.membership || "free";
+
+
+        userLanguage.textContent =
+            profile.language || "en";
 
     }
 
@@ -265,10 +279,9 @@
     );
 
 
-    checkSession();
+    loadAccount();
 
 </script>
-
 
 </body>
 
