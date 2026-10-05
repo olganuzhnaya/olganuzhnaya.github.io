@@ -53,7 +53,7 @@
     </p>
 
 
-    <form>
+    <form id="login-form">
 
 
         <label for="email">
@@ -65,6 +65,7 @@
             id="email"
             name="email"
             placeholder="Enter your email"
+            required
         >
 
 
@@ -79,6 +80,7 @@
             id="password"
             name="password"
             placeholder="Enter your password"
+            required
         >
 
 
@@ -89,6 +91,9 @@
 
 
     </form>
+
+
+    <p id="status"></p>
 
 
 
@@ -120,6 +125,69 @@
     </p>
 
 </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+
+<script>
+
+    const loginForm =
+        document.getElementById("login-form");
+
+    const status =
+        document.getElementById("status");
+
+
+    loginForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+
+        status.textContent =
+            "Logging in...";
+
+
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+
+                email: email,
+
+                password: password
+
+            });
+
+
+        if (error) {
+
+            console.error(error);
+
+            status.textContent =
+                "ERROR: " + error.message;
+
+            return;
+
+        }
+
+
+        console.log("Logged in:", data.user);
+
+        status.textContent =
+            "SUCCESS: Login successful.";
+
+    });
+
+</script>
 
 
 </body>
