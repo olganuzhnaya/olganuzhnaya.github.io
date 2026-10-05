@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,33 +10,66 @@
 
     <meta
         name="description"
-        content="Manage your Crypto Atlas account, saved articles and subscription."
+        content="Manage your Crypto Atlas account."
     >
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 
 <body>
 
 
-<header>
+<header class="site-header">
 
-    <div class="logo">
-        CRYPTO ATLAS
+    <div class="header-inner">
+
+        <h1 class="logo">
+            CRYPTO ATLAS
+        </h1>
+
+        <p class="tagline">
+            Data · Technology · Law · Economics · Knowledge
+        </p>
+
     </div>
 
-
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="index.html#assets">ASSETS</a>
-        <a href="index.html#market">MARKET</a>
-        <a href="index.html#news">NEWS</a>
-        <a href="education/index.html">EDUCATION</a>
-        <a href="index.html#law">LAW</a>
-    </nav>
-
 </header>
+
+
+
+<nav class="site-nav">
+
+    <div class="nav-inner">
+
+        <a class="nav-link" href="index.html">
+            HOME
+        </a>
+
+        <a class="nav-link" href="index.html#assets">
+            ASSETS
+        </a>
+
+        <a class="nav-link" href="index.html#market">
+            MARKET
+        </a>
+
+        <a class="nav-link" href="index.html#news">
+            NEWS
+        </a>
+
+        <a class="nav-link" href="education/index.html">
+            EDUCATION
+        </a>
+
+        <a class="nav-link" href="index.html#law">
+            LAW
+        </a>
+
+    </div>
+
+</nav>
 
 
 
@@ -54,7 +88,18 @@
 
 
 
+    <h2>Account</h2>
+
+
+    <p>
+        Email:
+        <strong id="user-email">Loading...</strong>
+    </p>
+
+
+
     <h2>Membership</h2>
+
 
     <p>
         Free Member
@@ -64,6 +109,7 @@
 
     <h2>Saved Articles</h2>
 
+
     <p>
         No saved articles yet.
     </p>
@@ -72,14 +118,16 @@
 
     <h2>Subscription</h2>
 
+
     <p>
-        Upgrade to Crypto Atlas Premium
-        for full access to advanced educational content.
+        Upgrade to Crypto Atlas Premium for full access
+        to advanced educational content.
     </p>
 
 
 
     <h2>Language</h2>
+
 
     <p>
         English
@@ -97,12 +145,17 @@
 
     <h2>Account Actions</h2>
 
+
     <p>
-        <a href="login.html">
+
+        <button id="logout-button">
             Logout
-        </a>
+        </button>
+
     </p>
 
+
+    <p id="status"></p>
 
 
 </section>
@@ -112,13 +165,109 @@
 
 
 
-<footer>
+<footer class="site-footer">
 
-    <p>
-        Crypto Atlas — information, sources and data.
-    </p>
+    <div class="footer-inner">
+
+        <p>
+            Crypto Atlas — information, sources and data.
+        </p>
+
+    </div>
 
 </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+
+<script>
+
+    const userEmail =
+        document.getElementById("user-email");
+
+    const logoutButton =
+        document.getElementById("logout-button");
+
+    const status =
+        document.getElementById("status");
+
+
+    async function checkSession() {
+
+        const { data, error } =
+            await supabaseClient.auth.getSession();
+
+
+        if (error) {
+
+            console.error(error);
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        const session =
+            data.session;
+
+
+        if (!session) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        userEmail.textContent =
+            session.user.email;
+
+    }
+
+
+    logoutButton.addEventListener(
+        "click",
+        async function() {
+
+            status.textContent =
+                "Logging out...";
+
+
+            const { error } =
+                await supabaseClient.auth.signOut();
+
+
+            if (error) {
+
+                console.error(error);
+
+                status.textContent =
+                    "ERROR: " + error.message;
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "login.html";
+
+        }
+    );
+
+
+    checkSession();
+
+</script>
 
 
 </body>
