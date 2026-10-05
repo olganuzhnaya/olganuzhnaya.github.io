@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supabase Test — Crypto Atlas</title>
+
+</head>
+
+
+<body>
+
+    <h1>Crypto Atlas — Supabase Test</h1>
+
+    <p id="status">Testing Supabase connection...</p>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+
+    <script>
+
+        const status = document.getElementById("status");
+
+
+        if (typeof supabaseClient !== "undefined") {
+
+            status.textContent =
+                "SUCCESS: Supabase client initialized.";
+
+        } else {
+
+            status.textContent =
+                "ERROR: Supabase client was not initialized.";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
