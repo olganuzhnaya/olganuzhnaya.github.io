@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,6 +14,7 @@
     >
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 
@@ -27,12 +29,31 @@
 
 
     <nav>
-        <a href="index.html">HOME</a>
-        <a href="index.html#assets">ASSETS</a>
-        <a href="index.html#market">MARKET</a>
-        <a href="index.html#news">NEWS</a>
-        <a href="education/index.html">EDUCATION</a>
-        <a href="index.html#law">LAW</a>
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="index.html#assets">
+            ASSETS
+        </a>
+
+        <a href="index.html#market">
+            MARKET
+        </a>
+
+        <a href="index.html#news">
+            NEWS
+        </a>
+
+        <a href="education/index.html">
+            EDUCATION
+        </a>
+
+        <a href="index.html#law">
+            LAW
+        </a>
+
     </nav>
 
 </header>
@@ -45,7 +66,9 @@
 <section class="education-article">
 
 
-    <h1>Create Your Account</h1>
+    <h1>
+        Create Your Account
+    </h1>
 
 
     <p>
@@ -55,7 +78,7 @@
 
 
 
-    <form>
+    <form id="register-form">
 
 
         <label for="name">
@@ -68,6 +91,7 @@
             id="name"
             name="name"
             placeholder="Enter your name"
+            required
         >
 
 
@@ -82,6 +106,7 @@
             id="email"
             name="email"
             placeholder="Enter your email"
+            required
         >
 
 
@@ -96,6 +121,8 @@
             id="password"
             name="password"
             placeholder="Create a password"
+            required
+            minlength="6"
         >
 
 
@@ -110,6 +137,8 @@
             id="confirm-password"
             name="confirm-password"
             placeholder="Confirm your password"
+            required
+            minlength="6"
         >
 
 
@@ -120,6 +149,10 @@
 
 
     </form>
+
+
+
+    <p id="status"></p>
 
 
 
@@ -150,6 +183,97 @@
     </p>
 
 </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+
+<script>
+
+    const registerForm =
+        document.getElementById("register-form");
+
+    const status =
+        document.getElementById("status");
+
+
+    registerForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirm-password").value;
+
+
+            if (password !== confirmPassword) {
+
+                status.textContent =
+                    "ERROR: Passwords do not match.";
+
+                return;
+
+            }
+
+
+            status.textContent =
+                "Creating account...";
+
+
+            const { data, error } =
+                await supabaseClient.auth.signUp({
+
+                    email: email,
+
+                    password: password,
+
+                    options: {
+
+                        data: {
+                            name: name
+                        }
+
+                    }
+
+                });
+
+
+            if (error) {
+
+                console.error(error);
+
+                status.textContent =
+                    "ERROR: " + error.message;
+
+                return;
+
+            }
+
+
+            console.log("Registration:", data);
+
+
+            status.textContent =
+                "SUCCESS: Account created. Please check your email to confirm your account.";
+
+        }
+    );
+
+</script>
 
 
 </body>
