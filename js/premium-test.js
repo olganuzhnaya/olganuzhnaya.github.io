@@ -1,14 +1,18 @@
-const { data: { session } } = await supabaseClient.auth.getSession();
+async function checkPremiumAccess() {
 
-const status = document.getElementById("access-status");
-const content = document.getElementById("premium-content");
+    const status = document.getElementById("access-status");
+    const content = document.getElementById("premium-content");
 
-if (!session) {
+    const { data: { session } } =
+        await supabaseClient.auth.getSession();
 
-    status.innerHTML =
-        "Please login to access Crypto Atlas Premium.";
+    if (!session) {
 
-} else {
+        status.innerHTML =
+            "Please login to access Crypto Atlas Premium.";
+
+        return;
+    }
 
     const userId = session.user.id;
 
@@ -20,10 +24,15 @@ if (!session) {
 
     if (error) {
 
+        console.error("Premium access error:", error);
+
         status.innerHTML =
             "Could not check membership.";
 
-    } else if (data.membership === "premium") {
+        return;
+    }
+
+    if (data.membership === "premium") {
 
         status.innerHTML =
             "Premium access confirmed.";
@@ -34,6 +43,7 @@ if (!session) {
 
         status.innerHTML =
             "This content is available for Crypto Atlas Premium Members.";
-
     }
 }
+
+checkPremiumAccess();
