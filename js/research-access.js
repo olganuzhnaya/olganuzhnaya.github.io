@@ -1,4 +1,4 @@
-async function checkResearchAccess() {
+document.addEventListener("DOMContentLoaded", async function () {
 
     const status = document.getElementById("access-status");
     const content = document.getElementById("premium-content");
@@ -53,6 +53,4 @@ async function checkResearchAccess() {
 
         content.style.display = "none";
     }
-}
-
-checkResearchAccess();
+});
