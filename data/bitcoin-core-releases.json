@@ -1,0 +1,86 @@
+{
+  "source": "Bitcoin Core official releases",
+  "source_url": "https://github.com/bitcoin/bitcoin/releases",
+  "items": [
+    {
+      "title": "Bitcoin Core 29.4",
+      "version": "v29.4",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v29.4",
+      "published_at": "2026-07-10T14:25:37Z",
+      "description": "Bitcoin Core version 29.4 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-29.4/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.4.md\r\n\r\nDo not use the links provided by GitHub, rather use the above download links, they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 31.1",
+      "version": "v31.1",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v31.1",
+      "published_at": "2026-07-08T09:14:15Z",
+      "description": "Bitcoin Core version 31.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-31.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.1.md\r\n\r\nDo not use the links provided by GitHub. Use the above download links instead, as they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 30.3",
+      "version": "v30.3",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v30.3",
+      "published_at": "2026-07-10T09:34:59Z",
+      "description": "Bitcoin Core version 30.3 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-30.3/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.3.md\r\n\r\nDo not use the links provided by GitHub, rather use the above download links, they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 31.0",
+      "version": "v31.0",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v31.0",
+      "published_at": "2026-04-20T13:21:17Z",
+      "description": "Bitcoin Core version 31.0 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-31.0/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-31.0.md\r\n\r\nDo not use the links provided by GitHub. Use the above download links instead, as they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 28.4",
+      "version": "v28.4",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v28.4",
+      "published_at": "2026-04-06T06:37:17Z",
+      "description": "Bitcoin Core version 28.4 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-28.4/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.4.md\r\n\r\nDo not use the links provided by GitHub. Use the above download links instead, as they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": " Bitcoin Core 29.3",
+      "version": "v29.3",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v29.3",
+      "published_at": "2026-02-11T11:04:13Z",
+      "description": "Bitcoin Core version 29.3 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-29.3/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.3.md\r\n\r\nDo not use the links provided by GitHub. Use the above download links instead, as they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 30.2",
+      "version": "v30.2",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v30.2",
+      "published_at": "2026-01-13T09:36:00Z",
+      "description": "Bitcoin Core version 30.2 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-30.2/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.2.md\r\n\r\nDo not use the links provided by GitHub, rather use the above download links, they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 30.1",
+      "version": "v30.1",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v30.1",
+      "published_at": "2026-01-02T16:15:41Z",
+      "description": "Bitcoin Core version 30.1 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-30.1/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-30.1.md\r\n\r\nDo not use the links provided by GitHub, rather use the above download links, they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core 28.3",
+      "version": "v28.3",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v28.3",
+      "published_at": "2025-10-30T13:46:35Z",
+      "description": "Bitcoin Core version 28.3 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-28.3/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-28.3.md\r\n\r\nDo not use the links provided by GitHub. Instead, use the above download links, as they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    },
+    {
+      "title": "Bitcoin Core v29.2",
+      "version": "v29.2",
+      "url": "https://github.com/bitcoin/bitcoin/releases/tag/v29.2",
+      "published_at": "2025-10-14T18:30:41Z",
+      "description": "Bitcoin Core version 29.2 is now available from:\r\n\r\nhttps://bitcoincore.org/bin/bitcoin-core-29.2/\r\n\r\nFor the release notes please see the git repository:\r\n\r\nhttps://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-29.2.md\r\n\r\nDo not use the links provided by GitHub. Instead, use the above download links, as they are guaranteed to be generated deterministically and signed.",
+      "prerelease": false
+    }
+  ]
+}
