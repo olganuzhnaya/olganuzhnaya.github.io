@@ -73,14 +73,16 @@ jobs:
           print(f"Successfully collected {len(items)} releases.")
           PY
 
+      
       - name: Save changes if needed
         run: |
-          if git diff --quiet -- data/bitcoin-core-releases.json; then
-            echo "No new or changed release data."
-          else
+          if [ -n "$(git status --porcelain -- data/bitcoin-core-releases.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add data/bitcoin-core-releases.json
             git commit -m "Update Bitcoin Core releases feed"
             git push
+          else
+            echo "No new or changed release data."
           fi
+
