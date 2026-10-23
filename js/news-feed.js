@@ -130,8 +130,13 @@ const summaryText = description
     )
     : "Official software release announcement from the Bitcoin Core project.";
 
-const summary = createElement("p", "", summaryText);
-
+const summary = createElement(
+    "p",
+    "",
+    "Official Bitcoin Core software release. " +
+    "Read the original announcement for verified details " +
+    "about this version."
+);
 
                 const link = createElement(
                     "a",
