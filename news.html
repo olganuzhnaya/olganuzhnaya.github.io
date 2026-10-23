@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crypto Atlas News</title>
+
+    <meta
+        name="description"
+        content="Crypto Atlas News — cryptocurrency technology, digital economy, security and regulation, with links to primary sources."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .news-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .news-intro {
+            margin-bottom: 40px;
+        }
+
+        .news-label {
+            color: #6488c7;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .news-title {
+            margin: 12px 0;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.15;
+        }
+
+        .news-description {
+            max-width: 750px;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .news-notice {
+            margin: 28px 0;
+            padding: 18px 20px;
+            border-left: 4px solid #6488c7;
+            background: rgba(100, 136, 199, 0.10);
+            border-radius: 4px;
+            line-height: 1.7;
+        }
+
+        .news-section-title {
+            margin: 36px 0 20px;
+            font-size: 1.6rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .news-category {
+            padding: 24px;
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            border-radius: 12px;
+            background: rgba(128, 128, 128, 0.04);
+        }
+
+        .news-category h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .news-category p {
+            margin-bottom: 0;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .news-feed {
+            margin-top: 40px;
+            padding: 28px;
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            border-radius: 12px;
+        }
+
+        .news-feed h2 {
+            margin-top: 0;
+        }
+
+        .news-feed p {
+            line-height: 1.8;
+        }
+
+        .news-home-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: inherit;
+            font-weight: 600;
+            text-underline-offset: 4px;
+        }
+
+        @media (max-width: 650px) {
+            .news-page {
+                padding: 28px 16px 40px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-category,
+            .news-feed {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="logo">CRYPTO ATLAS</h1>
+
+            <p class="tagline">
+                Data · Technology · Law · Economics · Knowledge
+            </p>
+        </div>
+    </header>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-link" href="index.html">HOME</a>
+            <a class="nav-link" href="index.html#assets">ASSETS</a>
+            <a class="nav-link" href="index.html#market">MARKET</a>
+            <a class="nav-link" href="news.html" aria-current="page">NEWS</a>
+            <a class="nav-link" href="education/index.html">EDUCATION</a>
+            <a class="nav-link" href="index.html#law">LAW</a>
+            <a class="nav-link" href="login.html">LOGIN</a>
+            <a class="nav-link" href="register.html">REGISTER</a>
+        </div>
+    </nav>
+
+    <main class="news-page">
+
+        <section class="news-intro">
+            <p class="news-label">CRYPTO ATLAS EDITORIAL</p>
+
+            <h2 class="news-title">
+                Crypto Atlas News
+            </h2>
+
+            <p class="news-description">
+                Understand what is changing in the world of digital
+                assets, blockchain technology, financial infrastructure
+                and regulation.
+            </p>
+
+            <p class="news-description">
+                Our goal is to connect important developments with
+                reliable sources and explain why they matter.
+            </p>
+        </section>
+
+        <div class="news-notice">
+            <strong>Editorial principle</strong>
+            <p>
+                Facts first. Every published news item should identify
+                its source, distinguish confirmed information from
+                unverified claims, and provide context without
+                presenting speculation as fact.
+            </p>
+        </div>
+
+        <section aria-labelledby="news-categories-title">
+            <h2
+                class="news-section-title"
+                id="news-categories-title"
+            >
+                News categories
+            </h2>
+
+            <div class="news-grid">
+
+                <article class="news-category">
+                    <h3>Crypto &amp; Technology</h3>
+                    <p>
+                        Bitcoin, Ethereum, BNB Chain, Solana,
+                        XRP Ledger and Cardano. Protocol upgrades,
+                        ecosystem developments and technical changes.
+                    </p>
+                </article>
+
+                <article class="news-category">
+                    <h3>Law &amp; Regulation</h3>
+                    <p>
+                        Official legal developments from the European
+                        Union, the United States, the United Kingdom,
+                        Turkey, the UAE and other jurisdictions.
+                    </p>
+                </article>
+
+                <article class="news-category">
+                    <h3>Digital Economy</h3>
+                    <p>
+                        Stablecoins, tokenisation, digital payments,
+                        financial infrastructure and cross-border
+                        transfers.
+                    </p>
+                </article>
+
+                <article class="news-category">
+                    <h3>Development &amp; Security</h3>
+                    <p>
+                        Software releases, open-source development,
+                        security advisories, vulnerabilities and
+                        confirmed incident reports.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="news-feed" aria-labelledby="latest-news-title">
+            <h2 id="latest-news-title">Latest News</h2>
+
+            <p>
+                The live news feed is being prepared.
+                No live articles have been published in this section yet.
+            </p>
+
+            <p>
+                News will be added after the source-monitoring system
+                and editorial verification process have been tested.
+            </p>
+
+            <a class="news-home-link" href="index.html">
+                Return to Crypto Atlas homepage →
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>
+                Crypto Atlas — information, sources and data.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
