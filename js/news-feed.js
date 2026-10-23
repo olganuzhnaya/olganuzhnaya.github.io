@@ -116,17 +116,22 @@
                     "Published: " + formatDate(release.published_at)
                 );
 
-                const description = (
-                    release.description || ""
-                ).replace(/\s+/g, " ").trim();
+                
+const description = (release.description || "")
+    .replace(/https?:\/\/\S+/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
-                const summary = createElement(
-                    "p",
-                    "",
-                    description.length > 260
-                        ? description.slice(0, 257) + "..."
-                        : description
-                );
+const summaryText = description
+    ? (
+        description.length > 220
+            ? description.slice(0, 217).trimEnd() + "..."
+            : description
+    )
+    : "Official software release announcement from the Bitcoin Core project.";
+
+const summary = createElement("p", "", summaryText);
+
 
                 const link = createElement(
                     "a",
