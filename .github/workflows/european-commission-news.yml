@@ -1,0 +1,155 @@
+
+name: European Commission News
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch and filter official news
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from datetime import timezone
+          from email.utils import parsedate_to_datetime
+          from html import unescape
+          from html.parser import HTMLParser
+
+          RSS_URL = "https://finance.ec.europa.eu/node/2/rss_en"
+          OUTPUT = "data/european-commission-news.json"
+
+          KEYWORDS = [
+              "crypto", "crypto-asset", "crypto asset",
+              "mica", "markets in crypto-assets",
+              "tokenisation", "tokenization",
+              "digital finance", "digital financial",
+              "distributed ledger", "dlt",
+              "blockchain", "stablecoin", "stable coin",
+              "digital asset", "digital assets",
+              "crypto-asset service provider",
+              "crypto asset service provider", "casp",
+              "digital euro", "fintech",
+              "financial technology", "financial technologies"
+          ]
+
+          class TextExtractor(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.parts = []
+
+              def handle_data(self, data):
+                  self.parts.append(data)
+
+          def clean_html(value):
+              parser = TextExtractor()
+              parser.feed(value or "")
+              return re.sub(
+                  r"\s+", " ",
+                  unescape(" ".join(parser.parts))
+              ).strip()
+
+          request = urllib.request.Request(
+              RSS_URL,
+              headers={"User-Agent": "CryptoAtlasNews/1.0"}
+          )
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              xml_data = response.read()
+
+          root = ET.fromstring(xml_data)
+          results = []
+          seen = set()
+
+          for item in root.findall(".//item"):
+              title = clean_html(item.findtext("title", ""))
+              description = clean_html(
+                  item.findtext("description", "")
+              )
+              link = item.findtext("link", "").strip()
+
+              if not title or not link:
+                  continue
+
+              match = re.match(
+                  r"^https://finance\.ec\.europa\.eu/",
+                  link
+              )
+              if not match:
+                  continue
+
+              categories = [
+                  clean_html(category.text or "")
+                  for category in item.findall("category")
+              ]
+
+              searchable = " ".join(
+                  [title, description] + categories
+              ).lower()
+
+              if not any(word in searchable for word in KEYWORDS):
+                  continue
+
+              if link in seen:
+                  continue
+              seen.add(link)
+
+              raw_date = item.findtext("pubDate", "").strip()
+              date = raw_date
+
+              if raw_date:
+                  try:
+                      parsed = parsedate_to_datetime(raw_date)
+                      if parsed.tzinfo is None:
+                          parsed = parsed.replace(tzinfo=timezone.utc)
+                      date = parsed.strftime("%Y-%m-%d")
+                  except (ValueError, TypeError, OverflowError):
+                      pass
+
+              results.append({
+                  "title": title,
+                  "link": link,
+                  "pubDate": date,
+                  "description": description
+              })
+
+          results.sort(key=lambda article: article["pubDate"],
+                       reverse=True)
+          results = results[:20]
+
+          os.makedirs("data", exist_ok=True)
+
+          with open(OUTPUT, "w", encoding="utf-8") as file:
+              json.dump(
+                  results, file, ensure_ascii=False, indent=2
+              )
+              file.write("\n")
+
+          print(f"Saved {len(results)} relevant articles.")
+          PY
+
+      - name: Commit updated news
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/european-commission-news.json
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "Update European Commission news"
+            git push
+          fi
