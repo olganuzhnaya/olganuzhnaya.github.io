@@ -1,0 +1,114 @@
+
+name: Crypto Atlas - Ethereum Foundation News
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ethereum-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Ethereum Foundation RSS
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from html import unescape
+
+          feed_url = "https://blog.ethereum.org/en/feed.xml"
+          output_file = "data/ethereum-news.json"
+
+          request = urllib.request.Request(
+              feed_url,
+              headers={"User-Agent": "Crypto-Atlas-News/1.0"}
+          )
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              xml_data = response.read()
+
+          root = ET.fromstring(xml_data)
+          channel = root.find("channel")
+
+          if channel is None:
+              raise RuntimeError("RSS channel was not found.")
+
+          items = []
+
+          for item in channel.findall("item")[:20]:
+              title = item.findtext("title", default="").strip()
+              url = item.findtext("link", default="").strip()
+              published_at = item.findtext("pubDate", default="").strip()
+              description = item.findtext("description", default="").strip()
+              category = item.findtext("category", default="").strip()
+
+              if not title or not url.startswith(
+                  "https://blog.ethereum.org/"
+              ):
+                  continue
+
+              description = unescape(
+                  re.sub(r"<[^>]*>", " ", description)
+              )
+              description = re.sub(r"\s+", " ", description).strip()
+
+              enclosure = item.find("enclosure")
+              image_url = ""
+
+              if enclosure is not None:
+                  image_url = enclosure.attrib.get("url", "")
+
+              items.append({
+                  "title": title,
+                  "url": url,
+                  "published_at": published_at,
+                  "description": description[:500],
+                  "category": category,
+                  "image": image_url,
+                  "source": "Ethereum Foundation",
+                  "source_url": feed_url
+              })
+
+          if not items:
+              raise RuntimeError(
+                  "No valid Ethereum Foundation articles were found."
+              )
+
+          os.makedirs("data", exist_ok=True)
+
+          with open(output_file, "w", encoding="utf-8") as file:
+              json.dump(
+                  items,
+                  file,
+                  ensure_ascii=False,
+                  indent=2
+              )
+              file.write("\n")
+
+          print(f"Saved {len(items)} Ethereum Foundation articles.")
+          PY
+
+      - name: Commit updated news data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/ethereum-news.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Ethereum Foundation news feed"
+            git push
+          else
+            echo "Ethereum news data has not changed."
+          fi
