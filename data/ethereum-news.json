@@ -1,0 +1,202 @@
+[
+  {
+    "title": "Glamsterdam on Hoodi Postponed",
+    "url": "https://blog.ethereum.org/en/2026/10/22/glamsterdam-hoodi-delay",
+    "published_at": "Thu, 22 Oct 2026 00:00:00 GMT",
+    "description": "The Glamsterdam upgrade on Hoodi, previously scheduled for October 26, 2026 at 17:42:48 UTC (epoch 132,352), has been postponed. A new activation date has not been set. This update supersedes the schedule and activation instructions in the Hoodi testnet announcement....",
+    "category": "Protocol Announcements",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Glamsterdam Hoodi Testnet Announcement",
+    "url": "https://blog.ethereum.org/en/2026/10/16/glamsterdam-hoodi-announcement",
+    "published_at": "Fri, 16 Oct 2026 00:00:00 GMT",
+    "description": "Update — October 22, 2026: The October 26 Hoodi activation has been postponed, including the scheduled gas-limit increase to 200M. The schedule and activation instructions below have been superseded. See Glamsterdam on Hoodi Postponed for details and operator guidance. Following its activation on Sepolia on October 6, the Glamsterdam...",
+    "category": "Protocol Announcements",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "How native transaction assertions could enforce a transaction's final outcome",
+    "url": "https://blog.ethereum.org/en/2026/10/05/transaction-assertions",
+    "published_at": "Mon, 05 Oct 2026 00:00:00 GMT",
+    "description": "The Ethereum Foundation's Trillion Dollar Security initiative has identified blind signing and transaction uncertainty as a user experience risk, and is exploring native transaction assertions as a next step to enforce a transaction’s final outcome, alongside Clear Signing. This post covers why a valid signature doesn't always guarantee the...",
+    "category": "Research & Development",
+    "image": "https://blog.ethereum.org/images/posts/2026/accesslayer2.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Introducing zkAPI: private usage credits for any API",
+    "url": "https://blog.ethereum.org/en/2026/10/01/introducing-zkapi",
+    "published_at": "Thu, 01 Oct 2026 00:00:00 GMT",
+    "description": "tl;dr: zkAPI lets you pay for a metered API without being known. Deposit credits into an Ethereum vault once, then authorize bounded usage with zero-knowledge proofs instead of an identity. The provider sees the requests, and the payment layer sees the spend. Neither learns the link between them. The...",
+    "category": "Research & Development",
+    "image": "https://blog.ethereum.org/images/posts/2026/accesslayer.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Glamsterdam Testnet Announcement",
+    "url": "https://blog.ethereum.org/en/2026/09/17/glamsterdam-testnet-announcement",
+    "published_at": "Mon, 28 Sep 2026 00:00:00 GMT",
+    "description": "Glamsterdam follows the Fusaka upgrade, advancing Ethereum's L1 scaling roadmap with enshrined proposer-builder separation, block-level access lists, and changes to gas pricing that better reflect the cost of execution and state growth. The Glamsterdam network upgrade is scheduled to activate on Sepolia at epoch 353,024, slot 11,296,768 (October 6,...",
+    "category": "Protocol Announcements",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Join Us: EF Protocol Reddit AMA - September 16th, 2026",
+    "url": "https://blog.ethereum.org/en/2026/09/09/reddit-ama",
+    "published_at": "Wed, 09 Sep 2026 00:00:00 GMT",
+    "description": "Every year since January 2019, teams from the Ethereum Foundation have spent an afternoon or two on r/ethereum answering questions from the community. The format hasn’t really changed: one thread, technical debates, detailed explanations, and community members asking whatever is on their mind. By now it is a tradition, and...",
+    "category": "Research & Development",
+    "image": "https://blog.ethereum.org/images/posts/2026/protocol-post-3.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "EF Protocol: The Hegotá EIP Opinion Post and Tier List",
+    "url": "https://blog.ethereum.org/en/2026/09/07/protocol-hegota-eips",
+    "published_at": "Mon, 07 Sep 2026 00:00:00 GMT",
+    "description": "This is the EF Protocol cluster’s tier list for Hegotá. We evaluated the 62 EIPs proposed for inclusion, each with a tier and a short note on the grade. It is the first time the cluster has published one unified view rather than per-team opinions. Geth, of course, being...",
+    "category": "Research & Development",
+    "image": "https://blog.ethereum.org/images/posts/2026/protocol-post-1.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "EF Protocol: Current and Emerging Priorities",
+    "url": "https://blog.ethereum.org/en/2026/09/07/protocol-priorities",
+    "published_at": "Mon, 07 Sep 2026 00:00:00 GMT",
+    "description": "In May, the Protocol cluster welcomed a trio of new cluster coordinators and promised updates to follow. After months of settling in and aligning with contributors cluster-wide, across the EF and across the Ethereum ecosystem, we are now happy to share Protocol's priorities: what Protocol is for, the commitments...",
+    "category": "Research & Development",
+    "image": "https://blog.ethereum.org/images/posts/2026/protocol-post-2.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Glamsterdam Repricing Impact for Smart Contract Developers",
+    "url": "https://blog.ethereum.org/en/2026/08/24/glamsterdam-repricing-testing",
+    "published_at": "Mon, 24 Aug 2026 00:00:00 GMT",
+    "description": "...",
+    "category": "Research & Development",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_558cc2161e0fdd518bbcc61368cd0368.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Raising machine-checked security benchmarks to advance hash-based SNARKs through agentic collaboration",
+    "url": "https://blog.ethereum.org/en/2026/08/20/better-codes-challenge",
+    "published_at": "Thu, 20 Aug 2026 00:00:00 GMT",
+    "description": "better.codes, an open autoresearch challenge built by the Ethereum Foundation Formal Verification team in collaboration with Yukon and zkSecurity, is now live. better.codes takes a self-contained problem from the Proximity Prize research, formalized in Lean, and puts its soundness bound on a public leaderboard that anyone can push forward....",
+    "category": "Research & Development",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Allocation Update - Q2 2026",
+    "url": "https://blog.ethereum.org/en/2026/08/18/allocation-q2-26",
+    "published_at": "Tue, 18 Aug 2026 00:00:00 GMT",
+    "description": "Q2 2026 carried forward our focus on advancing Ethereum’s resilience and capabilities, supporting key work in zero-knowledge proofs, client diversity, formal verification, and open-source tooling. See the list below of the projects and ecosystem efforts supported this quarter as builders build and strengthen the network. Explore the full list...",
+    "category": "Ecosystem Support Program",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_fd63dc334e72e1c2885cb7969adc1faf.jpg",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Announcing the Platåberget Testnet",
+    "url": "https://blog.ethereum.org/en/2026/08/17/plataberget-testnet",
+    "published_at": "Mon, 17 Aug 2026 00:00:00 GMT",
+    "description": "tl;dr: Meet Platåberget: Glamsterdam's (Gloas + Amsterdam) early testing ground open to public participation. This upgrade comes with breaking changes for application developers. Notably, any tool that relies on a hardcapped maximum gas limit (think wallets, indexers and gas estimators) will break and needs to be updated. Please use this...",
+    "category": "Protocol Announcements",
+    "image": "https://blog.ethereum.org/images/posts/2026/plataberget.webp",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Announcing a Trillion Dollar Security grant for WEBCAT",
+    "url": "https://blog.ethereum.org/en/2026/08/05/1ts-grant",
+    "published_at": "Wed, 05 Aug 2026 00:00:00 GMT",
+    "description": "The Ethereum Foundation’s Trillion Dollar Security (1TS) initiative is proud to announce a grant allocation to Freedom of the Press Foundation (FPF) to support the continued development of WEBCAT. WEBCAT is an open source tool that lets browsers verify that code served by an enrolled website matches what its developers...",
+    "category": "Funding Coordination",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Ethereum Foundation Board Update",
+    "url": "https://blog.ethereum.org/en/2026/07/29/ef-board-update",
+    "published_at": "Wed, 29 Jul 2026 00:00:00 GMT",
+    "description": "We are pleased to share that pcaversaccio (pc) has joined the Ethereum Foundation Board. pc is a long time contributor to the Ethereum ecosystem, a co-founder and lead of SEAL 911, and has been a member of the EF's Silviculture Society, which provides informal counsel to EF aimed at...",
+    "category": "Organizational",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_1b9690e36ff9d806d7645288a806e10e.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Devcon 8 Tickets Are Live: Find Your Path to Mumbai",
+    "url": "https://blog.ethereum.org/en/2026/07/14/devcon8-tickets",
+    "published_at": "Tue, 14 Jul 2026 00:00:00 GMT",
+    "description": "Devcon 8 tickets are live! 🇮🇳 This November, the Ethereum community will gather in Mumbai for a more focused and intimate Devcon. Devcon gathers minds from across Ethereum and beyond: builders, researchers, maintainers, organizers, and anyone curious about the future of open technology. Across four days, you can...",
+    "category": "Events",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_8ecdef046d526e026f90ca3c38b34c2c.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "The triage is the product: running AI agents against Ethereum's protocol code",
+    "url": "https://blog.ethereum.org/en/2026/07/09/triage-is-the-product",
+    "published_at": "Thu, 09 Jul 2026 00:00:00 GMT",
+    "description": "Notes from the Ethereum Foundation's Protocol Security team on running coordinated AI agents against real protocol code, including how we organize the work, what holds up under scrutiny, and what client teams and security researchers can take from it. This post stands on its own; later posts will go deeper...",
+    "category": "Research & Development",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_1308f6baa08e4ef93223642f77ca329f.jpg",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Ethereum for Governments and Institutions: Why neutral infrastructure matters now",
+    "url": "https://blog.ethereum.org/en/2026/07/01/ethereum-for-institutions",
+    "published_at": "Wed, 01 Jul 2026 00:00:00 GMT",
+    "description": "Current global shifts clearly signal a critical need for shared, neutral digital public infrastructure outside the control of any single centralized actor. As a public, programmable network designed to operate without reliance on any single party, Ethereum was built to address precisely these needs. Today, the Ethereum Foundation Global...",
+    "category": "Ecosystem Development",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_8584695c96f9a8856689d22eed9cec78.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "The EF’s new structure",
+    "url": "https://blog.ethereum.org/en/2026/06/23/ef-structure",
+    "published_at": "Tue, 23 Jun 2026 00:00:00 GMT",
+    "description": "Today, the EF is changing shape, concluding a months-long process of reorganization as part of the implementation of the Mandate and the Treasury Management Policy. We come out of this process with the structure, activities, and people necessary for execution on the critical tasks ahead of us, but also...",
+    "category": "Organizational",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_558cc2161e0fdd518bbcc61368cd0368.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Clear Signing: Making Transaction Approvals Safer on Ethereum",
+    "url": "https://blog.ethereum.org/en/2026/05/12/clear-signing-announcement",
+    "published_at": "Tue, 12 May 2026 00:00:00 GMT",
+    "description": "An Ethereum Working Group consisting of wallet developers, security firms and the Ethereum Foundation’s Trillion Dollar Security Initiative today launched an open standard designed to end blind signing — a structural flaw that has contributed to billions in user losses, including the Bybit hack. Ethereum Foundation’s Trillion Dollar Security Initiative...",
+    "category": "Security",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
+    "title": "Protocol Cluster Updates: May 2026",
+    "url": "https://blog.ethereum.org/en/2026/05/11/protocol-update-may-26",
+    "published_at": "Mon, 11 May 2026 00:00:00 GMT",
+    "description": "A semi-regular gathering of Ethereum core devs from various client teams, or interop, recently took place in Svalbard, Norway. Over the week-long event, teams focused on hardening and preparation for the next upgrade, Glamsterdam. Several important milestones came out of the week, including: 200M gas limit floor established:...",
+    "category": "Research & Development",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_270c7c873d5994bd4e47958030e3599c.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  }
+]
