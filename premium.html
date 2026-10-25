@@ -1,418 +1,223 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Crypto Atlas Premium Research</title>
-    
+
     <meta
-    name="description"
-    content="Crypto Atlas Premium Research explores digital assets, blockchain technology, economics, law and the future of digital capital."
->
+        name="description"
+        content="Crypto Atlas Premium Research explores digital assets, blockchain technology, economics, law and the future of digital capital."
+    >
 
     <link rel="stylesheet" href="style.css">
-    <style>
-    .premium-page .header-inner,
-    .premium-page .nav-inner {
-        margin-left: 0;
-        margin-right: auto;
-    }
-</style>
 
     <style>
-    .premium-page .education-article {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 70px 24px 90px;
-    }
+        .premium-page .research-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 70px 24px 90px;
+        }
 
-    .premium-page .education-article h1 {
-        margin: 0 0 24px;
-        font-size: 44px;
-        line-height: 1.15;
-        letter-spacing: -0.5px;
-    }
+        .premium-page .research-content h1 {
+            margin: 0 0 24px;
+            font-size: 44px;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+        }
 
-    .premium-page .education-article h2 {
-        margin: 48px 0 16px;
-        font-size: 24px;
-        letter-spacing: 0.5px;
-    }
+        .premium-page .research-content h2 {
+            margin: 54px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #26314d;
+            font-size: 25px;
+            letter-spacing: 0.4px;
+        }
 
-    .premium-page .education-article p {
-        max-width: 760px;
-        color: #b7c1d4;
-        font-size: 17px;
-    }
+        .premium-page .research-content p {
+            max-width: 760px;
+            color: #b7c1d4;
+            font-size: 17px;
+            line-height: 1.8;
+        }
 
-    .premium-page .education-article ul {
-        max-width: 760px;
-        padding-left: 24px;
-        color: #cdd6e6;
-    }
+        .premium-page .research-content ul {
+            max-width: 760px;
+            padding-left: 24px;
+            color: #cdd6e6;
+            line-height: 1.8;
+        }
 
-    .premium-page .education-article li {
-        margin-bottom: 8px;
-    }
+        .premium-page .research-content li {
+            margin-bottom: 8px;
+        }
 
-.premium-page .education-article h2 {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #26314d;
-}
+        .premium-page .research-card {
+            margin-top: 28px;
+            padding: 24px;
+            border: 1px solid #26314d;
+            background: #111a31;
+        }
 
-.premium-page .education-article h2:nth-of-type(1) {
-    margin-top: 56px;
-}
+        .premium-page .research-card h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
 
-.premium-page .education-article h2:nth-of-type(2) {
-    margin-top: 56px;
-}
+        .premium-page .research-content a:not(.nav-link) {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            border: 1px solid #52627f;
+            color: #cdd6e6;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.4px;
+            transition: 0.2s ease;
+        }
 
-.premium-page .education-article h2:nth-of-type(3) {
-    margin-top: 64px;
-}
+        .premium-page .research-content a:not(.nav-link):hover {
+            color: #ffffff;
+            background: #18233e;
+            border-color: #6b7d9e;
+        }
 
-.premium-page .education-article h2:nth-of-type(2) {
-    font-size: 26px;
-    letter-spacing: 1px;
-}
+        .premium-page .research-note {
+            color: #8995ab;
+            font-size: 15px;
+        }
 
-.premium-page .education-article h2:nth-of-type(2)::after {
-    content: "PREMIUM";
-    display: inline-block;
-    margin-left: 12px;
-    padding: 3px 7px;
-    border: 1px solid #52627f;
-    color: #aeb8cc;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    vertical-align: middle;
-} 
+        @media (max-width: 600px) {
+            .premium-page .research-content {
+                padding: 45px 20px 65px;
+            }
 
- .premium-page .education-article h2:nth-of-type(1),
-.premium-page .education-article h2:nth-of-type(2) {
-    padding: 20px 22px 10px;
-    border: 1px solid #26314d;
-    border-bottom: none;
-    background: #111a31;
-    margin-bottom: 0;
-}
-
-.premium-page .education-article h2:nth-of-type(1) + p,
-.premium-page .education-article h2:nth-of-type(2) + p {
-    padding: 0 22px;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-left: 1px solid #26314d;
-    border-right: 1px solid #26314d;
-    background: #111a31;
-}
-
-.premium-page .education-article h2:nth-of-type(1) + p + ul,
-.premium-page .education-article h2:nth-of-type(2) + p + ul {
-    padding: 10px 22px 22px 46px;
-    margin-top: 0;
-    border: 1px solid #26314d;
-    border-top: none;
-    background: #111a31;
-}       
-
-.premium-page .education-article h2:nth-of-type(3) {
-    margin-top: 70px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #52627f;
-}
-
-.premium-page .education-article h2:nth-of-type(3) + p {
-    max-width: 760px;
-    color: #b7c1d4;
-}
-
-.premium-page .education-article h2:nth-of-type(3) + p + p {
-    max-width: 760px;
-    margin-top: 24px;
-    color: #8995ab;
-    font-size: 15px;
-}
-
- .premium-page .education-article a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 18px;
-    border: 1px solid #52627f;
-    color: #cdd6e6;
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    transition: 0.2s ease;
-}
-
-.premium-page .education-article a:hover {
-    color: #ffffff;
-    background: #18233e;
-    border-color: #6b7d9e;
-}
-
-.premium-page .education-article h2:last-of-type {
-    margin-top: 70px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #26314d;
-}        
-        
-</style>
-
+            .premium-page .research-content h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
 </head>
-
 
 <body class="premium-page">
 
-
 <header class="site-header">
-
     <div class="header-inner">
-
         <h1 class="logo">CRYPTO ATLAS</h1>
-
         <p class="tagline">
             Data · Technology · Law · Economics · Knowledge
         </p>
-
     </div>
-
 </header>
 
-
 <nav class="site-nav">
-
     <div class="nav-inner">
-
         <a class="nav-link" href="index.html">HOME</a>
         <a class="nav-link" href="index.html#assets">ASSETS</a>
         <a class="nav-link" href="index.html#market">MARKET</a>
         <a class="nav-link" href="index.html#news">NEWS</a>
         <a class="nav-link" href="education/index.html">EDUCATION</a>
+        <a class="nav-link" href="research/index.html">RESEARCH</a>
+        <a class="nav-link" href="premium.html">PREMIUM</a>
         <a class="nav-link" href="index.html#law">LAW</a>
-
         <a class="nav-link" href="login.html">LOGIN</a>
         <a class="nav-link" href="register.html">REGISTER</a>
-
     </div>
-
 </nav>
 
-
-
 <main>
-
-
-<section class="education-article">
-
-
-    <h1>Crypto Atlas Research</h1>
-
-
-    <p>
-    Premium Research Access for advanced studies in digital assets,
-    blockchain technology, economics, law and the future of digital capital.
-</p>
-
-<h2>Featured Research</h2>
-
-<p>
-The Internet of Capital
-</p>
-
-<p>
-Chapter 1 — From the Internet of Information to the Internet of Capital
-</p>
-
-<p>
-Research Preview
-</p>
-
-<p>
-<a href="research/internet-of-capital.html">
-    Read Research
-</a>
-</p>
-
-
-    <p class="hero-label">CRYPTO ATLAS RESEARCH</p>
-    <h2>Research Library</h2>
-
-    <p>
-        A collection of research projects exploring digital assets,
-        blockchain technology, economics, law and the architecture
-        of digital capital.
-    </p>
-
-    <h3>01. The Internet of Capital</h3>
-    <p><strong>RESEARCH PROJECT · IN DEVELOPMENT</strong></p>
-    <p>
-        An exploration of digital scarcity, ownership, tokenisation
-        and programmable financial infrastructure.
-    </p>
-    <p>
-        <a href="research/internet-of-capital.html">
-            Chapter 1 — From the Internet of Information to the Internet of Capital
-        </a>
-    </p>
-    <p>Research Preview</p>
-
-    <h3>02. Bitcoin Research</h3>
-    <p><strong>PLANNED RESEARCH</strong></p>
-    <p>
-        Bitcoin, digital scarcity, monetary economics, mining
-        and network security.
-    </p>
-
-    <h3>03. Ethereum &amp; Programmable Networks</h3>
-    <p><strong>PLANNED RESEARCH</strong></p>
-    <p>
-        Smart contracts, decentralised applications, Layer 2 scaling
-        and programmable infrastructure.
-    </p>
-
-    <h3>04. Digital Finance &amp; Tokenisation</h3>
-    <p><strong>PLANNED RESEARCH</strong></p>
-    <p>
-        Tokenised assets, stablecoins, digital payments
-        and the evolution of financial markets.
-    </p>
-
-        <h3>05. Law, Regulation &amp; Institutions</h3>
-    <p><strong>PLANNED RESEARCH</strong></p>
-    <p>
-        Digital ownership, custody, legal responsibility
-        and the regulation of digital assets.
-    </p>
-
-
-    <h2>Free Member</h2>
-
-
-    <p>
-        Free members can explore introductory educational materials,
-        basic explanations and selected Crypto Atlas content.
-    </p>
-
-
-
-    <ul>
-
-        <li>
-            Introduction to blockchain technology
-        </li>
-
-        <li>
-            Basic crypto concepts
-        </li>
-
-        <li>
-            Educational articles for beginners
-        </li>
-
-        <li>
-            Access to selected public content
-        </li>
-
-    </ul>
-
-
-
-
-    <h2>Premium Member</h2>
-
-
-    <p>
-        Premium members receive access to advanced educational materials
-        and deeper analysis of the digital economy.
-    </p>
-
-
-
-    <ul>
-
-        <li>
-            Extended educational articles
-        </li>
-
-        <li>
-            Advanced blockchain analysis
-        </li>
-
-        <li>
-            Deeper economic and technological research
-        </li>
-
-        <li>
-            Premium educational content
-        </li>
-
-    </ul>
-
-
-
-
-    <h2>Why Crypto Atlas Premium Research?</h2>
-
-
-    <p>
-        Crypto Atlas is designed as a knowledge platform focused on
-        understanding digital assets, technology, economics and the
-        transformation of the global financial system.
-    </p>
-
-
-    <p>
-        Premium membership supports the creation of independent,
-        research-based educational content.
-    </p>
-
-
-
-
-    <h2>Future Access Model</h2>
-
-<p>
-    Crypto Atlas is developing future research access options.
-</p>
-
-<p>
-    Any future membership model will be designed with attention
-    to security, transparency and responsible user protection.
-</p>
-
-
-
-    <p>
-        <a href="register.html">
-            Create an account
-        </a>
-    </p>
-
-
-
-</section>
-
-
+    <section class="research-content">
+
+        <h1>Crypto Atlas Premium Research</h1>
+
+        <p>
+            An independent research initiative exploring digital assets,
+            blockchain technology, monetary economics, law and the
+            architecture of digital capital.
+        </p>
+
+        <section class="research-card">
+            <h2>Research Library</h2>
+
+            <p>
+                Explore the Crypto Atlas research collection, including
+                The Internet of Capital and studies of Bitcoin, Ethereum,
+                digital finance, tokenisation and regulation.
+            </p>
+
+            <p>
+                <a href="research/index.html">Explore Research Library</a>
+            </p>
+        </section>
+
+        <h2>Free Member</h2>
+
+        <p>
+            Free members can explore introductory educational materials
+            and selected public Crypto Atlas content.
+        </p>
+
+        <ul>
+            <li>Introduction to blockchain technology</li>
+            <li>Basic cryptocurrency concepts</li>
+            <li>Educational articles for beginners</li>
+            <li>Access to selected public content</li>
+        </ul>
+
+        <h2>Premium Member</h2>
+
+        <p>
+            Crypto Atlas is developing a future premium research offering
+            for readers seeking more detailed analysis of the digital economy.
+        </p>
+
+        <ul>
+            <li>Planned extended research articles</li>
+            <li>Deeper blockchain and technology analysis</li>
+            <li>Economic, legal and institutional research</li>
+            <li>In-depth studies of digital capital</li>
+        </ul>
+
+        <p class="research-note">
+            Premium research access is still in development.
+            Membership availability and access conditions will be announced
+            when the service is ready.
+        </p>
+
+        <h2>Why Crypto Atlas Premium Research?</h2>
+
+        <p>
+            Crypto Atlas aims to help readers understand digital assets
+            through reliable sources, clear explanations and analysis of
+            technology, economics, law and institutions.
+        </p>
+
+        <p>
+            The research project focuses on understanding how digital
+            networks, assets and financial systems work, rather than
+            providing investment promises or price predictions.
+        </p>
+
+        <h2>Future Access Model</h2>
+
+        <p>
+            Future research access options are being considered with
+            attention to security, transparency and responsible user protection.
+        </p>
+
+        <p>
+            <a href="register.html">Create an Account</a>
+            <a href="login.html">Log In</a>
+        </p>
+
+    </section>
 </main>
 
-
-
 <footer>
-
-    <p>
-        Crypto Atlas — information, sources and data.
-    </p>
-
+    <p>Crypto Atlas — information, sources and data.</p>
 </footer>
 
-
-
 </body>
-
 </html>
