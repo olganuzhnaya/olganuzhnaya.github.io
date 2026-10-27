@@ -63,6 +63,36 @@ jobs:
               "fintech", "financial technology",
               "financial technologies"
           ]
+          
+          class MetaExtractor(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.description = ""
+                  self.in_description = False
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() != "meta":
+                      return
+
+                  attrs = {
+                      key.lower(): value
+                      for key, value in attrs
+                  }
+
+                  name = (
+                      attrs.get("name")
+                      or attrs.get("property")
+                      or ""
+                  ).lower()
+
+                  if name in (
+                      "description",
+                      "og:description",
+                      "twitter:description"
+                  ) and not self.description:
+                      self.description = (
+                          attrs.get("content") or ""
+                      ).strip()
 
           class TextExtractor(HTMLParser):
               def __init__(self):
@@ -79,7 +109,7 @@ jobs:
                   r"\s+", " ",
                   unescape(" ".join(parser.parts))
               ).strip()
-
+         
           def fetch_feed(url):
               request = urllib.request.Request(
                   url,
@@ -90,6 +120,49 @@ jobs:
                   request, timeout=30
               ) as response:
                   return ET.fromstring(response.read())
+
+          def fetch_page_description(url):
+              try:
+                  request = urllib.request.Request(
+                      url,
+                      headers={
+                          "User-Agent": "CryptoAtlasNews/1.0"
+                      }
+                  )
+
+                  with urllib.request.urlopen(
+                      request, timeout=8
+                  ) as response:
+                      final_url = response.geturl()
+                      parsed = urlparse(final_url)
+
+                      if (
+                          parsed.scheme != "https"
+                          or parsed.hostname not in ALLOWED_HOSTS
+                      ):
+                          return ""
+
+                      content_type = response.headers.get(
+                          "Content-Type", ""
+                      ).lower()
+
+                      if "text/html" not in content_type:
+                          return ""
+
+                      html = response.read(500_000).decode(
+                          "utf-8", errors="replace"
+                      )
+
+                  parser = MetaExtractor()
+                  parser.feed(html)
+
+                  return clean_html(parser.description)[:1000]
+
+              except Exception as error:
+                  print(
+                      f"Could not retrieve page description: {error}"
+                  )
+                  return ""
 
           results = []
           seen = set()
@@ -150,6 +223,9 @@ jobs:
 
                   if link in seen:
                       continue
+                  
+                  if not description:
+                      description = fetch_page_description(link)
 
                   seen.add(link)
 
