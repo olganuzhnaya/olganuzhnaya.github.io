@@ -29,11 +29,19 @@ jobs:
           from email.utils import parsedate_to_datetime
           from html import unescape
           from html.parser import HTMLParser
+          from urllib.parse import urlparse
 
           RSS_URLS = [
               "https://finance.ec.europa.eu/node/2/rss_en",
-              "https://finance.ec.europa.eu/node/1408/rss_en"
+              "https://finance.ec.europa.eu/node/1408/rss_en",
+              "https://www.ecb.europa.eu/rss/press.html"
           ]
+
+          ALLOWED_HOSTS = {
+              "finance.ec.europa.eu",
+              "www.ecb.europa.eu",
+              "ecb.europa.eu"
+          }
 
           OUTPUT = "data/european-commission-news.json"
 
@@ -46,7 +54,8 @@ jobs:
               "digital asset", "digital assets",
               "crypto-asset service provider",
               "crypto asset service provider", "casp",
-              "digital euro"
+              "digital euro",
+              "pontes", "appia"
           ]
 
           TITLE_ONLY_KEYWORDS = [
@@ -80,9 +89,7 @@ jobs:
               with urllib.request.urlopen(
                   request, timeout=30
               ) as response:
-                  xml_data = response.read()
-
-              return ET.fromstring(xml_data)
+                  return ET.fromstring(response.read())
 
           results = []
           seen = set()
@@ -110,9 +117,11 @@ jobs:
                   if not title or not link:
                       continue
 
-                  if not re.match(
-                      r"^https://finance\.ec\.europa\.eu/",
-                      link
+                  parsed_link = urlparse(link)
+
+                  if (
+                      parsed_link.scheme != "https"
+                      or parsed_link.hostname not in ALLOWED_HOSTS
                   ):
                       continue
 
@@ -148,7 +157,7 @@ jobs:
                       "pubDate", ""
                   ).strip()
                   date = raw_date
-                  sort_date = ""
+                  sort_date = 0
 
                   if raw_date:
                       try:
@@ -177,15 +186,11 @@ jobs:
 
           if successful_feeds == 0:
               raise RuntimeError(
-                  "Both European Commission RSS feeds failed."
+                  "All European Commission and ECB RSS feeds failed."
               )
 
           results.sort(
-              key=lambda article: (
-                  article["_sort_date"]
-                  if article["_sort_date"] != ""
-                  else 0
-              ),
+              key=lambda article: article["_sort_date"],
               reverse=True
           )
 
