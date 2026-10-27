@@ -45,11 +45,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            // Only display links to the official Commission website.
-            if (url.protocol !== "https:" ||
-                url.hostname !== "finance.ec.europa.eu") {
-                return;
-            }
+     // Only display links to approved official sources.
+     const allowedHosts = [
+         "finance.ec.europa.eu",
+         "www.ecb.europa.eu",
+         "ecb.europa.eu"
+     ];
+
+     if (
+        url.protocol !== "https:" ||
+        !allowedHosts.includes(url.hostname)
+     ) {
+        return;
+     }
 
             const article = document.createElement("article");
             const heading = document.createElement("h3");
