@@ -30,10 +30,13 @@ jobs:
           from html import unescape
           from html.parser import HTMLParser
 
-          RSS_URL = "https://finance.ec.europa.eu/node/2/rss_en"
+          RSS_URLS = [
+              "https://finance.ec.europa.eu/node/2/rss_en",
+              "https://finance.ec.europa.eu/node/1408/rss_en"
+          ]
+
           OUTPUT = "data/european-commission-news.json"
 
-          # Strong indicators: suitable in titles, descriptions or categories.
           CORE_KEYWORDS = [
               "crypto", "crypto-asset", "crypto asset",
               "mica", "markets in crypto-assets",
@@ -46,7 +49,6 @@ jobs:
               "digital euro"
           ]
 
-          # Broader topics: accept only when mentioned in the title.
           TITLE_ONLY_KEYWORDS = [
               "digital finance", "digital financial",
               "fintech", "financial technology",
@@ -69,85 +71,128 @@ jobs:
                   unescape(" ".join(parser.parts))
               ).strip()
 
-          request = urllib.request.Request(
-              RSS_URL,
-              headers={"User-Agent": "CryptoAtlasNews/1.0"}
-          )
+          def fetch_feed(url):
+              request = urllib.request.Request(
+                  url,
+                  headers={"User-Agent": "CryptoAtlasNews/1.0"}
+              )
 
-          with urllib.request.urlopen(request, timeout=30) as response:
-              xml_data = response.read()
+              with urllib.request.urlopen(
+                  request, timeout=30
+              ) as response:
+                  xml_data = response.read()
 
-          root = ET.fromstring(xml_data)
+              return ET.fromstring(xml_data)
+
           results = []
           seen = set()
+          successful_feeds = 0
 
-          for item in root.findall(".//item"):
-              title = clean_html(item.findtext("title", ""))
-              description = clean_html(
-                  item.findtext("description", "")
-              )
-              link = item.findtext("link", "").strip()
+          for rss_url in RSS_URLS:
+              try:
+                  root = fetch_feed(rss_url)
+                  successful_feeds += 1
+                  print(f"Successfully fetched: {rss_url}")
 
-              if not title or not link:
+              except Exception as error:
+                  print(f"WARNING: Could not fetch {rss_url}: {error}")
                   continue
 
-              match = re.match(
-                  r"^https://finance\.ec\.europa\.eu/",
-                  link
+              for item in root.findall(".//item"):
+                  title = clean_html(
+                      item.findtext("title", "")
+                  )
+                  description = clean_html(
+                      item.findtext("description", "")
+                  )
+                  link = item.findtext("link", "").strip()
+
+                  if not title or not link:
+                      continue
+
+                  if not re.match(
+                      r"^https://finance\.ec\.europa\.eu/",
+                      link
+                  ):
+                      continue
+
+                  categories = [
+                      clean_html(category.text or "")
+                      for category in item.findall("category")
+                  ]
+
+                  title_search = title.lower()
+                  searchable = " ".join(
+                      [title, description] + categories
+                  ).lower()
+
+                  core_match = any(
+                      word in searchable
+                      for word in CORE_KEYWORDS
+                  )
+
+                  broad_title_match = any(
+                      word in title_search
+                      for word in TITLE_ONLY_KEYWORDS
+                  )
+
+                  if not (core_match or broad_title_match):
+                      continue
+
+                  if link in seen:
+                      continue
+
+                  seen.add(link)
+
+                  raw_date = item.findtext(
+                      "pubDate", ""
+                  ).strip()
+                  date = raw_date
+                  sort_date = ""
+
+                  if raw_date:
+                      try:
+                          parsed = parsedate_to_datetime(raw_date)
+
+                          if parsed.tzinfo is None:
+                              parsed = parsed.replace(
+                                  tzinfo=timezone.utc
+                              )
+
+                          sort_date = parsed.timestamp()
+                          date = parsed.strftime("%Y-%m-%d")
+
+                      except (
+                          ValueError, TypeError, OverflowError
+                      ):
+                          pass
+
+                  results.append({
+                      "title": title,
+                      "link": link,
+                      "pubDate": date,
+                      "description": description,
+                      "_sort_date": sort_date
+                  })
+
+          if successful_feeds == 0:
+              raise RuntimeError(
+                  "Both European Commission RSS feeds failed."
               )
-              if not match:
-                  continue
 
-              
-              categories = [
-                  clean_html(category.text or "")
-                  for category in item.findall("category")
-              ]
+          results.sort(
+              key=lambda article: (
+                  article["_sort_date"]
+                  if article["_sort_date"] != ""
+                  else 0
+              ),
+              reverse=True
+          )
 
-              title_search = title.lower()
-              searchable = " ".join(
-                  [title, description] + categories
-              ).lower()
-
-              core_match = any(
-                  word in searchable for word in CORE_KEYWORDS
-              )
-
-              broad_title_match = any(
-                  word in title_search
-                  for word in TITLE_ONLY_KEYWORDS
-              )
-
-              if not (core_match or broad_title_match):
-                  continue
-
-
-              if link in seen:
-                  continue
-              seen.add(link)
-
-              raw_date = item.findtext("pubDate", "").strip()
-              date = raw_date
-
-              if raw_date:
-                  try:
-                      parsed = parsedate_to_datetime(raw_date)
-                      if parsed.tzinfo is None:
-                          parsed = parsed.replace(tzinfo=timezone.utc)
-                      date = parsed.strftime("%Y-%m-%d")
-                  except (ValueError, TypeError, OverflowError):
-                      pass
-
-              results.append({
-                  "title": title,
-                  "link": link,
-                  "pubDate": date,
-                  "description": description
-              })
-
-          results.sort(key=lambda article: article["pubDate"],
-                       reverse=True)
           results = results[:20]
+
+          for article in results:
+              article.pop("_sort_date", None)
 
           os.makedirs("data", exist_ok=True)
 
@@ -157,7 +202,9 @@ jobs:
               )
               file.write("\n")
 
+          print(f"Feeds successfully fetched: {successful_feeds}")
           print(f"Saved {len(results)} relevant articles.")
+
           PY
 
       - name: Commit updated news
