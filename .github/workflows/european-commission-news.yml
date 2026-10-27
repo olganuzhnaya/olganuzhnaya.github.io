@@ -33,18 +33,24 @@ jobs:
           RSS_URL = "https://finance.ec.europa.eu/node/2/rss_en"
           OUTPUT = "data/european-commission-news.json"
 
-          KEYWORDS = [
+          # Strong indicators: suitable in titles, descriptions or categories.
+          CORE_KEYWORDS = [
               "crypto", "crypto-asset", "crypto asset",
               "mica", "markets in crypto-assets",
               "tokenisation", "tokenization",
-              "digital finance", "digital financial",
               "distributed ledger", "dlt",
               "blockchain", "stablecoin", "stable coin",
               "digital asset", "digital assets",
               "crypto-asset service provider",
               "crypto asset service provider", "casp",
-              "digital euro", "fintech",
-              "financial technology", "financial technologies"
+              "digital euro"
+          ]
+
+          # Broader topics: accept only when mentioned in the title.
+          TITLE_ONLY_KEYWORDS = [
+              "digital finance", "digital financial",
+              "fintech", "financial technology",
+              "financial technologies"
           ]
 
           class TextExtractor(HTMLParser):
@@ -92,17 +98,29 @@ jobs:
               if not match:
                   continue
 
+              
               categories = [
                   clean_html(category.text or "")
                   for category in item.findall("category")
               ]
 
+              title_search = title.lower()
               searchable = " ".join(
                   [title, description] + categories
               ).lower()
 
-              if not any(word in searchable for word in KEYWORDS):
+              core_match = any(
+                  word in searchable for word in CORE_KEYWORDS
+              )
+
+              broad_title_match = any(
+                  word in title_search
+                  for word in TITLE_ONLY_KEYWORDS
+              )
+
+              if not (core_match or broad_title_match):
                   continue
+
 
               if link in seen:
                   continue
