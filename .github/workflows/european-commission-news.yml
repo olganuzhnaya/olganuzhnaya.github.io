@@ -227,6 +227,20 @@ jobs:
                   if not description:
                       description = fetch_page_description(link)
 
+                  if (
+                      not description
+                      and title == (
+                          "Piero Cipollone: Pontes and Appia: "
+                          "unlocking opportunities for banks"
+                      )
+                  ):
+                      description = (
+                          "Presentation by Piero Cipollone, Member "
+                          "of the Executive Board of the ECB, to the "
+                          "Executive Committee of the Italian Banking "
+                          "Association."
+                      )
+
                   seen.add(link)
 
                   raw_date = item.findtext(
