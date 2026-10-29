@@ -163,7 +163,14 @@ jobs:
                       f"Could not retrieve page description: {error}"
                   )
                   return ""
-
+          def contains_keyword(text, keyword):
+              pattern = (
+                  r"(?<![a-z0-9])"
+                  + re.escape(keyword.lower()).replace(" ", r"\s+")
+                  + r"(?![a-z0-9])"
+              )
+              return re.search(pattern, text.lower()) is not None
+              
           results = []
           seen = set()
           successful_feeds = 0
@@ -208,15 +215,17 @@ jobs:
                       [title, description] + categories
                   ).lower()
 
+                  
                   core_match = any(
-                      word in searchable
+                      contains_keyword(searchable, word)
                       for word in CORE_KEYWORDS
                   )
 
                   broad_title_match = any(
-                      word in title_search
+                      contains_keyword(title_search, word)
                       for word in TITLE_ONLY_KEYWORDS
                   )
+
 
                   if not (core_match or broad_title_match):
                       continue
