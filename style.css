@@ -290,3 +290,118 @@ body {
     font-size: 0.85rem;
     opacity: 0.65;
 }
+
+/* =========================
+   CRYPTO ATLAS ECOSYSTEM
+========================= */
+
+.ecosystem-promo {
+    position: relative;
+    max-width: 1152px;
+    margin: 20px auto 90px;
+    padding: 65px 35px;
+    text-align: center;
+    overflow: hidden;
+
+    border: 1px solid #b99a61;
+    border-radius: 14px;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(45, 126, 116, 0.35),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #173b3d,
+            #0c1b2b 65%,
+            #142b35
+        );
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.ecosystem-label {
+    margin: 0 0 14px;
+    color: #d6b775;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.ecosystem-promo h2 {
+    margin: 0;
+    color: #f2d49a;
+    font-size: clamp(25px, 4vw, 38px);
+    letter-spacing: 3px;
+}
+
+.ecosystem-promo h3 {
+    margin: 12px 0;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.ecosystem-promo > p:not(.ecosystem-label) {
+    max-width: 720px;
+    margin: 18px auto 28px;
+    color: #c2d2d3;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.ecosystem-button {
+    display: inline-block;
+    padding: 14px 28px;
+
+    border: 1px solid #d6b775;
+    border-radius: 5px;
+
+    background: #c19b59;
+    color: #102b30;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.ecosystem-button:hover {
+    background: #e2c58a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .ecosystem-promo {
+        margin: 10px 16px 60px;
+        padding: 42px 20px;
+    }
+
+    .ecosystem-promo h2 {
+        font-size: 25px;
+        letter-spacing: 1.5px;
+    }
+
+    .ecosystem-promo h3 {
+        font-size: 19px;
+    }
+
+    .ecosystem-promo > p:not(.ecosystem-label) {
+        font-size: 14px;
+    }
+
+    .ecosystem-button {
+        padding: 13px 18px;
+        font-size: 12px;
+    }
+}
