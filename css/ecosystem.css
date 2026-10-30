@@ -928,3 +928,38 @@
         text-align: center;
     }
 }
+
+/* =========================================
+   BITCOIN WORLD — ACTIVE RESEARCH TERRITORY
+========================================= */
+
+.bitcoin-territory-available {
+    border-color: #d6b775;
+    box-shadow: 0 0 15px rgba(105, 230, 208, .12);
+}
+
+.bitcoin-territory-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.bitcoin-territory-link h3 {
+    transition: color .2s ease;
+}
+
+.bitcoin-territory-link:hover h3 {
+    color: #f2d49a;
+}
+
+.bitcoin-territory-link:focus-visible {
+    outline: 2px solid #69e6d0;
+    outline-offset: 5px;
+    border-radius: 4px;
+}
+
+.bitcoin-territory-available .territory-status {
+    color: #83d9cf;
+    letter-spacing: 1px;
+}
