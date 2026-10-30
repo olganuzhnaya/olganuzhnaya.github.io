@@ -426,3 +426,243 @@
         padding: 15px;
     }
 }
+
+/* =========================
+   BITCOIN WORLD PAGE
+========================= */
+
+.bitcoin-world-page {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 35px 24px 70px;
+    color: #e9e5d9;
+}
+
+/* INTRODUCTION */
+
+.bitcoin-world-intro {
+    position: relative;
+    overflow: hidden;
+    margin: 25px 0 65px;
+    padding: 75px 35px;
+    border: 1px solid #b99a61;
+    border-radius: 14px;
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(67, 150, 133, 0.25),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #173b3d,
+            #0c1b2b 65%,
+            #142b35
+        );
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.bitcoin-world-label {
+    margin: 0 0 18px;
+    color: #d6b775;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.bitcoin-world-intro h1 {
+    margin: 0;
+    color: #f2d49a;
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 6vw, 65px);
+    letter-spacing: 4px;
+}
+
+.bitcoin-world-intro h2 {
+    margin: 18px 0;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: clamp(19px, 3vw, 27px);
+    font-weight: 400;
+}
+
+.bitcoin-world-intro > p:not(.bitcoin-world-label) {
+    max-width: 760px;
+    margin: 20px auto;
+    color: #c2d2d3;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.bitcoin-world-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.bitcoin-world-meta span {
+    padding: 9px 15px;
+    border: 1px solid #b99a61;
+    border-radius: 4px;
+    color: #e7cc94;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+/* TERRITORIES */
+
+.bitcoin-world-overview {
+    margin: 0 0 65px;
+    text-align: center;
+}
+
+.bitcoin-world-overview > h2,
+.bitcoin-world-research h2 {
+    margin-bottom: 15px;
+    color: #d6b775;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    letter-spacing: 3px;
+}
+
+.bitcoin-world-overview > p {
+    margin-bottom: 35px;
+    color: #b9c8c8;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.bitcoin-territories {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.bitcoin-territory {
+    position: relative;
+    overflow: hidden;
+    min-height: 205px;
+    padding: 30px;
+    border: 1px solid #9c8250;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 73, 72, 0.96),
+            rgba(15, 29, 43, 0.98)
+        );
+    text-align: left;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.bitcoin-territory:hover {
+    transform: translateY(-5px);
+    border-color: #e0bd77;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.territory-number {
+    display: block;
+    margin-bottom: 18px;
+    color: #d6b775;
+    font-family: Georgia, serif;
+    font-size: 28px;
+}
+
+.bitcoin-territory h3 {
+    margin: 0 0 12px;
+    color: #f2d49a;
+    font-family: Georgia, serif;
+    font-size: 21px;
+}
+
+.bitcoin-territory p {
+    margin: 0 0 20px;
+    color: #c2d2d3;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.territory-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid rgba(214, 183, 117, 0.55);
+    border-radius: 3px;
+    color: #d6b775;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* RESEARCH PRINCIPLES */
+
+.bitcoin-world-research {
+    margin-top: 60px;
+    padding: 35px;
+    border: 1px solid #9c8250;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #173b3d,
+        #102333
+    );
+    text-align: center;
+}
+
+.bitcoin-world-research p {
+    max-width: 850px;
+    margin: 16px auto;
+    color: #c2d2d3;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .bitcoin-world-page {
+        padding: 20px 14px 45px;
+    }
+
+    .bitcoin-world-intro {
+        margin: 15px 0 45px;
+        padding: 48px 20px;
+    }
+
+    .bitcoin-world-intro h1 {
+        letter-spacing: 2px;
+    }
+
+    .bitcoin-world-meta {
+        gap: 8px;
+    }
+
+    .bitcoin-world-meta span {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+
+    .bitcoin-territories {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .bitcoin-territory {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .bitcoin-world-overview > h2,
+    .bitcoin-world-research h2 {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .bitcoin-world-research {
+        padding: 25px 18px;
+    }
+}
