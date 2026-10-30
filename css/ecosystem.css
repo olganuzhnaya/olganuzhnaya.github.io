@@ -240,3 +240,54 @@
         font-size: 22px;
     }
 }
+
+/* =========================
+   ECOSYSTEM MAP TOOLTIPS
+========================= */
+
+.ecosystem-map-tooltip {
+    display: block;
+    min-height: 24px;
+    padding: 16px 22px;
+    background: linear-gradient(
+        135deg,
+        #f4e8cb,
+        #e6d2a7
+    );
+    border-bottom: 2px solid #b99a61;
+    color: #263b3b;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: center;
+    box-shadow: inset 0 1px 5px rgba(120, 85, 35, 0.12);
+    transition: opacity 0.2s ease;
+}
+
+.ecosystem-map-tooltip[hidden] {
+    display: none;
+}
+
+.ecosystem-map-tooltip:not([hidden]) {
+    animation: ecosystem-tooltip-appear 0.25s ease;
+}
+
+@keyframes ecosystem-tooltip-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .ecosystem-map-tooltip {
+        padding: 12px 14px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
