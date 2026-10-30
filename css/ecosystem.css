@@ -173,3 +173,70 @@
     }
 
 }
+
+/* =========================
+   ECOSYSTEM MAP CONTROLS
+========================= */
+
+.ecosystem-map-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: linear-gradient(
+        135deg,
+        #173b3d,
+        #0c1b2b
+    );
+    border-bottom: 1px solid #b99a61;
+}
+
+.ecosystem-map-controls button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #c69b55;
+    border-radius: 8px;
+    background: #173b3d;
+    color: #f2d49a;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.ecosystem-map-controls button:hover {
+    background: #c19b59;
+    color: #102b30;
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(105, 230, 208, 0.35);
+}
+
+.ecosystem-map-controls button:focus-visible {
+    outline: 2px solid #69e6d0;
+    outline-offset: 4px;
+}
+
+.ecosystem-map-controls button:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+    .ecosystem-map-controls {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .ecosystem-map-controls button {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+}
