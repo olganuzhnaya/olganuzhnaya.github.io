@@ -85,3 +85,91 @@
     }
 
 }
+
+/* =====================================
+   CRYPTO ATLAS — SVG DIGITAL MAP
+===================================== */
+
+.ecosystem-map {
+    max-width: 1250px;
+    margin: 60px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+.ecosystem-map h2 {
+    color: #b18a43;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.ecosystem-map > p {
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.ecosystem-map-container {
+    width: 100%;
+    overflow: hidden;
+    border: 3px solid #b99a61;
+    border-radius: 18px;
+    background: #173b3d;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.ecosystem-map-container svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Map regions */
+
+.ecosystem-map-container svg a {
+    cursor: pointer;
+    outline: none;
+}
+
+.ecosystem-map-container svg a path {
+    transition:
+        fill 0.25s ease,
+        stroke-width 0.25s ease,
+        filter 0.25s ease;
+}
+
+.ecosystem-map-container svg a:hover path {
+    fill: #e8cb8d;
+    stroke: #ffffff;
+    stroke-width: 7;
+    filter: drop-shadow(0 0 9px #69e6d0);
+}
+
+.ecosystem-map-container svg a:focus-visible path {
+    stroke: #ffffff;
+    stroke-width: 8;
+    filter: drop-shadow(0 0 8px #69e6d0);
+}
+
+/* Map labels */
+
+.ecosystem-map-container svg a text {
+    pointer-events: none;
+    font-family: Georgia, serif;
+    transition: fill 0.25s ease;
+}
+
+/* Mobile layout */
+
+@media (max-width: 650px) {
+
+    .ecosystem-map {
+        margin: 35px auto;
+        padding: 12px;
+    }
+
+    .ecosystem-map-container {
+        border-radius: 10px;
+        border-width: 2px;
+    }
+
+}
