@@ -666,3 +666,265 @@
         padding: 25px 18px;
     }
 }
+
+/* =========================================
+   BITCOIN NETWORK — RESEARCH PAGE
+========================================= */
+
+.bitcoin-network-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #e5eeee;
+}
+
+
+/* INTRODUCTION */
+
+.bitcoin-network-intro {
+    padding: 55px 35px;
+    text-align: center;
+    border: 1px solid #c69b55;
+    border-radius: 14px;
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(45, 126, 116, .3),
+            transparent 60%
+        ),
+        linear-gradient(
+            135deg,
+            #173b3d,
+            #0c1b2b 70%,
+            #142b35
+        );
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+}
+
+.bitcoin-network-label {
+    color: #d6b775;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.bitcoin-network-intro h1 {
+    margin: 20px 0;
+    color: #f2d49a;
+    font-size: clamp(30px, 5vw, 48px);
+    letter-spacing: 3px;
+}
+
+.bitcoin-network-intro h2 {
+    color: #ffffff;
+    font-size: clamp(19px, 3vw, 25px);
+    font-weight: 400;
+}
+
+.bitcoin-network-intro > p:not(.bitcoin-network-label) {
+    max-width: 780px;
+    margin: 25px auto;
+    color: #c2d2d3;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.bitcoin-network-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.bitcoin-network-meta span {
+    padding: 9px 15px;
+    border: 1px solid #b99a61;
+    border-radius: 4px;
+    color: #f2d49a;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+
+/* RESEARCH CONTENT */
+
+.bitcoin-network-content {
+    display: grid;
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.bitcoin-network-section {
+    padding: 30px;
+    border: 1px solid rgba(198, 155, 85, .65);
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #173b3d,
+        #102a32
+    );
+    box-shadow: 0 7px 20px rgba(0, 0, 0, .13);
+}
+
+.bitcoin-network-section h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #f2d49a;
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+.bitcoin-network-section h3 {
+    margin-top: 25px;
+    color: #d6b775;
+    font-size: 18px;
+}
+
+.bitcoin-network-section p,
+.bitcoin-network-section li {
+    color: #d0dddd;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.bitcoin-network-section p {
+    margin: 14px 0;
+}
+
+.bitcoin-network-section ul {
+    padding-left: 24px;
+}
+
+.bitcoin-network-section li {
+    margin-bottom: 12px;
+}
+
+.bitcoin-network-section strong {
+    color: #f2d49a;
+}
+
+
+/* OFFICIAL SOURCES */
+
+.bitcoin-network-sources {
+    list-style: none;
+    padding: 0 !important;
+}
+
+.bitcoin-network-sources li {
+    margin: 12px 0;
+    padding: 13px 16px;
+    border-left: 3px solid #c69b55;
+    background: rgba(255, 255, 255, .04);
+}
+
+.bitcoin-network-sources a {
+    color: #83d9cf;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.bitcoin-network-sources a:hover {
+    color: #f2d49a;
+    text-decoration: underline;
+}
+
+
+/* RESEARCH NOTE */
+
+.bitcoin-network-note {
+    margin-top: 40px;
+    padding: 35px;
+    border: 1px solid #b99a61;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #e9d6ad,
+        #f4e8cb
+    );
+    color: #263b3b;
+}
+
+.bitcoin-network-note h2 {
+    color: #80602d;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.bitcoin-network-note p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* PAGE NAVIGATION */
+
+.bitcoin-network-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 35px 0;
+}
+
+.bitcoin-network-navigation a {
+    display: inline-block;
+    padding: 13px 18px;
+    border: 1px solid #c69b55;
+    border-radius: 5px;
+    background: #173b3d;
+    color: #f2d49a;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.bitcoin-network-navigation a:hover {
+    background: #285b58;
+    transform: translateY(-2px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .bitcoin-network-page {
+        margin: 25px auto;
+        padding: 12px;
+    }
+
+    .bitcoin-network-intro {
+        padding: 35px 20px;
+    }
+
+    .bitcoin-network-intro h1 {
+        letter-spacing: 1.5px;
+    }
+
+    .bitcoin-network-section {
+        padding: 22px 18px;
+    }
+
+    .bitcoin-network-section h2 {
+        font-size: 20px;
+    }
+
+    .bitcoin-network-section p,
+    .bitcoin-network-section li {
+        font-size: 14px;
+    }
+
+    .bitcoin-network-note {
+        padding: 25px 20px;
+    }
+
+    .bitcoin-network-navigation {
+        flex-direction: column;
+    }
+
+    .bitcoin-network-navigation a {
+        text-align: center;
+    }
+}
