@@ -9,12 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Save the original map dimensions.
-    const originalViewBox = map.viewBox.baseVal;
     const original = {
-        x: originalViewBox.x,
-        y: originalViewBox.y,
-        width: originalViewBox.width,
-        height: originalViewBox.height
+        x: 0,
+        y: 0,
+        width: 1000,
+        height: 650
     };
 
     const minWidth = 500;
@@ -39,19 +38,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mapContainer.insertBefore(controls, map);
 
-    // Apply a new viewBox while keeping the map centered.
-    function setZoom(newWidth) {
-        const width = Math.max(minWidth, Math.min(maxWidth, newWidth));
-        const scale = width / original.width;
-        const height = original.height * scale;
+    // Read the current visible map area.
+    function getViewBox() {
+        const values = map.getAttribute("viewBox").split(/\s+/).map(Number);
 
-        const x = original.x + (original.width - width) / 2;
-        const y = original.y + (original.height - height) / 2;
+        return {
+            x: values[0],
+            y: values[1],
+            width: values[2],
+            height: values[3]
+        };
+    }
+
+    // Keep the map inside its original boundaries.
+    function setViewBox(x, y, width, height) {
+        width = Math.max(minWidth, Math.min(maxWidth, width));
+        height = original.height * (width / original.width);
+
+        x = Math.max(original.x, Math.min(
+            original.x + original.width - width,
+            x
+        ));
+
+        y = Math.max(original.y, Math.min(
+            original.y + original.height - height,
+            y
+        ));
 
         map.setAttribute(
             "viewBox",
             `${x} ${y} ${width} ${height}`
         );
+    }
+
+    // Zoom around the center of the map.
+    function setZoom(newWidth) {
+        const current = getViewBox();
+        const width = Math.max(minWidth, Math.min(maxWidth, newWidth));
+        const height = original.height * (width / original.width);
+
+        const x = current.x + (current.width - width) / 2;
+        const y = current.y + (current.height - height) / 2;
+
+        setViewBox(x, y, width, height);
     }
 
     // Handle zoom button clicks.
@@ -60,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!button) return;
 
-        const current = map.viewBox.baseVal;
+        const current = getViewBox();
 
         switch (button.dataset.mapAction) {
             case "zoom-in":
@@ -72,11 +101,67 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
 
             case "reset":
-                map.setAttribute(
-                    "viewBox",
-                    `${original.x} ${original.y} ${original.width} ${original.height}`
+                setViewBox(
+                    original.x,
+                    original.y,
+                    original.width,
+                    original.height
                 );
                 break;
         }
     });
+
+    // Allow dragging the map on free areas.
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startViewBox = null;
+
+    map.addEventListener("pointerdown", (event) => {
+        // Preserve clicks on interactive map regions.
+        if (event.target.closest("a")) return;
+
+        if (event.button !== 0) return;
+
+        isDragging = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        startViewBox = getViewBox();
+
+        map.style.cursor = "grabbing";
+        map.setPointerCapture(event.pointerId);
+    });
+
+    map.addEventListener("pointermove", (event) => {
+        if (!isDragging || !startViewBox) return;
+
+        const rect = map.getBoundingClientRect();
+
+        if (!rect.width || !rect.height) return;
+
+        const scaleX = startViewBox.width / rect.width;
+        const scaleY = startViewBox.height / rect.height;
+
+        const deltaX = (event.clientX - startX) * scaleX;
+        const deltaY = (event.clientY - startY) * scaleY;
+
+        setViewBox(
+            startViewBox.x - deltaX,
+            startViewBox.y - deltaY,
+            startViewBox.width,
+            startViewBox.height
+        );
+    });
+
+    function stopDragging() {
+        if (!isDragging) return;
+
+        isDragging = false;
+        startViewBox = null;
+        map.style.cursor = "";
+    }
+
+    map.addEventListener("pointerup", stopDragging);
+    map.addEventListener("pointercancel", stopDragging);
+    map.addEventListener("lostpointercapture", stopDragging);
 });
