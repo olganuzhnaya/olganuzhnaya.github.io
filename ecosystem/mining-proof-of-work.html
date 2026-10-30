@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mining & Proof of Work | Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="Explore Bitcoin mining, Proof of Work, SHA-256, mining hardware, difficulty adjustment, block production, rewards and network security."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/ecosystem.css">
+</head>
+
+<body>
+
+    <header class="ecosystem-header">
+        <nav class="ecosystem-nav" aria-label="Main navigation">
+
+            <a class="ecosystem-brand" href="../index.html">
+                CRYPTO ATLAS
+            </a>
+
+            <div class="ecosystem-nav-links">
+                <a href="../index.html">HOME</a>
+                <a href="../news.html">NEWS</a>
+                <a href="../education/index.html">EDUCATION</a>
+                <a href="index.html">ECOSYSTEM</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main class="bitcoin-mining-page">
+
+        <!-- INTRODUCTION -->
+
+        <section class="bitcoin-mining-intro">
+
+            <p class="bitcoin-mining-label">
+                CRYPTO ATLAS ECOSYSTEM / BITCOIN WORLD
+            </p>
+
+            <h1>MINING & PROOF OF WORK</h1>
+
+            <h2>
+                The Computational Foundation of Bitcoin
+            </h2>
+
+            <p>
+                Explore how Bitcoin miners construct candidate
+                blocks, perform computational work and compete
+                to add new blocks to the blockchain.
+                Understand the relationship between Proof of
+                Work, network consensus, mining incentives
+                and security.
+            </p>
+
+            <div class="bitcoin-mining-meta">
+                <span>PROOF OF WORK</span>
+                <span>SHA-256</span>
+                <span>MINING HARDWARE</span>
+                <span>ECONOMICS</span>
+            </div>
+
+        </section>
+
+
+        <!-- RESEARCH CONTENT -->
+
+        <section class="bitcoin-mining-content">
+
+
+            <!-- SECTION 1 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>1. What Is Bitcoin Mining?</h2>
+
+                <p>
+                    Bitcoin mining is the process through
+                    which specialised participants compete
+                    to produce new blocks for the Bitcoin
+                    blockchain.
+                </p>
+
+                <p>
+                    Miners collect eligible transactions,
+                    construct candidate blocks and perform
+                    computational work to find a valid
+                    Proof of Work result.
+                </p>
+
+                <p>
+                    When a miner finds a valid result and
+                    broadcasts its block, other validating
+                    nodes independently check whether the
+                    block follows Bitcoin's consensus rules.
+                </p>
+
+                <p>
+                    Mining therefore serves two important
+                    functions: it provides a mechanism
+                    for proposing new blocks and makes
+                    rewriting the transaction history
+                    computationally costly.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 2 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>2. Proof of Work</h2>
+
+                <p>
+                    Proof of Work is a system in which
+                    producing a valid result requires
+                    computational effort, while checking
+                    that result is relatively inexpensive.
+                </p>
+
+                <p>
+                    Bitcoin miners repeatedly calculate
+                    hashes of candidate block headers.
+                    They are searching for a hash that
+                    satisfies the current network
+                    difficulty target.
+                </p>
+
+                <p>
+                    A miner cannot predict which input
+                    will produce a suitable hash.
+                    It must perform repeated calculations
+                    using different nonce values and,
+                    when necessary, other changeable
+                    block-header data.
+                </p>
+
+                <p>
+                    A valid Proof of Work can be checked
+                    independently by other nodes.
+                    However, a valid hash alone does
+                    not make a block acceptable:
+                    the block must also satisfy all
+                    applicable consensus rules.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 3 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>3. Hash Functions and SHA-256</h2>
+
+                <p>
+                    A cryptographic hash function takes
+                    input data of arbitrary length and
+                    produces a fixed-length output.
+                    Bitcoin uses the SHA-256 hash
+                    function in several parts of its
+                    protocol.
+                </p>
+
+                <p>
+                    A small change in the input produces
+                    a different hash output. This makes
+                    hash functions useful for checking
+                    data integrity and constructing
+                    Proof of Work.
+                </p>
+
+                <p>
+                    Bitcoin's block-header Proof of Work
+                    uses two consecutive applications
+                    of SHA-256, commonly described as
+                    double SHA-256.
+                </p>
+
+                <p>
+                    The mining process does not involve
+                    solving a conventional mathematical
+                    equation with a known shortcut.
+                    Miners search through candidate
+                    inputs until they find a hash
+                    below the required target.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 4 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>4. Mining Hardware</h2>
+
+                <p>
+                    Bitcoin mining has evolved from
+                    general-purpose computing to
+                    specialised hardware designed
+                    to perform hash calculations
+                    efficiently.
+                </p>
+
+                <h3>CPUs</h3>
+
+                <p>
+                    Central Processing Units were used
+                    in the early period of Bitcoin
+                    mining. They are general-purpose
+                    processors rather than devices
+                    optimised specifically for Bitcoin
+                    Proof of Work.
+                </p>
+
+                <h3>GPUs</h3>
+
+                <p>
+                    Graphics Processing Units can
+                    perform many similar calculations
+                    in parallel. They became an
+                    intermediate stage in the historical
+                    development of mining hardware.
+                </p>
+
+                <h3>ASICs</h3>
+
+                <p>
+                    Application-Specific Integrated
+                    Circuits are designed for particular
+                    computational tasks. Bitcoin ASIC
+                    miners are specialised devices
+                    built to perform the hashing
+                    operations used in Bitcoin mining.
+                </p>
+
+                <p>
+                    Hardware efficiency, electricity
+                    costs, cooling, equipment prices
+                    and operational reliability all
+                    influence mining economics.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 5 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>5. Mining Difficulty</h2>
+
+                <p>
+                    Bitcoin adjusts its mining difficulty
+                    to help maintain a predictable
+                    long-term rate of block production.
+                </p>
+
+                <p>
+                    The protocol recalculates the
+                    difficulty target every 2,016 blocks.
+                    The adjustment compares the time
+                    taken to produce those blocks with
+                    the expected period of two weeks.
+                </p>
+
+                <p>
+                    If blocks were produced faster
+                    than expected, the target becomes
+                    more difficult to satisfy.
+                    If they were produced more slowly,
+                    the target becomes easier to satisfy,
+                    subject to the protocol's adjustment
+                    limits.
+                </p>
+
+                <p>
+                    The target is not a guarantee that
+                    every block will take exactly ten
+                    minutes to produce. It is a
+                    mechanism that influences the
+                    average block-production rate
+                    over time.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 6 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>6. Block Production</h2>
+
+                <p>
+                    A miner begins by assembling a
+                    candidate block. It selects
+                    transactions, constructs the block
+                    data and creates a block header.
+                </p>
+
+                <p>
+                    The header contains important
+                    information, including the previous
+                    block hash, a transaction
+                    commitment called the Merkle root,
+                    a timestamp, the difficulty target
+                    representation and a nonce.
+                </p>
+
+                <p>
+                    The miner repeatedly hashes
+                    candidate headers while changing
+                    the nonce and, when necessary,
+                    other available input data.
+                </p>
+
+                <p>
+                    When a suitable hash is found,
+                    the miner broadcasts the candidate
+                    block. Receiving nodes validate
+                    its structure, transactions,
+                    Proof of Work and compliance
+                    with consensus rules.
+                </p>
+
+                <p>
+                    Competing valid blocks can
+                    occasionally be discovered at
+                    similar times. The network
+                    subsequently converges on the
+                    valid chain with the greatest
+                    accumulated Proof of Work.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 7 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>7. Mining Rewards</h2>
+
+                <p>
+                    A miner whose block is accepted
+                    by the network may claim a block
+                    reward through a special
+                    transaction called the coinbase
+                    transaction.
+                </p>
+
+                <p>
+                    The block reward consists of
+                    two components:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Block subsidy:</strong>
+                        newly issued bitcoin created
+                        according to the protocol's
+                        issuance schedule.
+                    </li>
+
+                    <li>
+                        <strong>Transaction fees:</strong>
+                        fees associated with the
+                        transactions included in
+                        the block.
+                    </li>
+                </ul>
+
+                <p>
+                    The block subsidy is reduced
+                    through periodic halving events.
+                    The protocol reduces the subsidy
+                    by half every 210,000 blocks.
+                </p>
+
+                <p>
+                    Transaction fees are separate
+                    from the block subsidy. They
+                    depend on the transactions
+                    included in a block and the
+                    fee market.
+                </p>
+
+                <p>
+                    A miner does not receive a
+                    guaranteed payment merely for
+                    performing calculations.
+                    The reward depends on successfully
+                    producing a block that is accepted
+                    by the network.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 8 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>8. Mining Pools</h2>
+
+                <p>
+                    Mining pools allow multiple
+                    miners to combine their
+                    computational resources and
+                    coordinate their participation
+                    in mining.
+                </p>
+
+                <p>
+                    Instead of relying entirely
+                    on the uncertain possibility
+                    of finding a block independently,
+                    participants contribute work
+                    to a shared mining operation.
+                </p>
+
+                <p>
+                    When the pool successfully
+                    finds a block, its distribution
+                    arrangement determines how
+                    rewards are allocated among
+                    participants.
+                </p>
+
+                <p>
+                    Mining pools can make income
+                    distribution more predictable
+                    for participants, but they
+                    introduce additional
+                    organisational and operational
+                    dependencies.
+                </p>
+
+                <p>
+                    A pool's coordination power
+                    should not be confused with
+                    ownership of every miner's
+                    hardware or control over
+                    independently validating nodes.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 9 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>9. Energy and Mining Economics</h2>
+
+                <p>
+                    Bitcoin mining requires
+                    electricity and specialised
+                    equipment. Its economics
+                    depend on the relationship
+                    between expected revenue
+                    and operating costs.
+                </p>
+
+                <p>
+                    Important factors include:
+                </p>
+
+                <ul>
+                    <li>Electricity prices and availability.</li>
+                    <li>Mining hardware purchase costs.</li>
+                    <li>Hardware efficiency and useful lifetime.</li>
+                    <li>Cooling and facility expenses.</li>
+                    <li>Network difficulty and total hash rate.</li>
+                    <li>Block subsidies and transaction fees.</li>
+                    <li>Bitcoin market price and operating risks.</li>
+                </ul>
+
+                <p>
+                    Energy consumption alone does
+                    not establish whether a mining
+                    operation is profitable or
+                    economically sustainable.
+                    These questions require
+                    additional information about
+                    equipment, energy sources,
+                    costs, revenue and the period
+                    being examined.
+                </p>
+
+            </article>
+
+
+            <!-- SECTION 10 -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>10. Mining, Risks and Network Security</h2>
+
+                <p>
+                    Proof of Work makes the
+                    production of alternative
+                    blockchain histories costly.
+                    An attacker attempting to
+                    reorganise recent blocks
+                    would need to compete with
+                    the accumulated work of
+                    the accepted chain.
+                </p>
+
+                <p>
+                    One frequently discussed
+                    scenario is a majority
+                    hash-rate attack. An entity
+                    controlling a sufficiently
+                    large share of mining power
+                    could attempt certain
+                    chain reorganisations or
+                    transaction double-spending
+                    attacks.
+                </p>
+
+                <p>
+                    Such control does not
+                    automatically allow an
+                    attacker to create valid
+                    signatures for other
+                    people's bitcoin or to
+                    make independently
+                    validating nodes accept
+                    transactions that violate
+                    their consensus rules.
+                </p>
+
+                <p>
+                    Other important risks
+                    include mining concentration,
+                    pool coordination, hardware
+                    supply dependencies,
+                    electricity disruptions
+                    and software vulnerabilities.
+                </p>
+
+                <p>
+                    Bitcoin security therefore
+                    depends on the interaction
+                    between Proof of Work,
+                    independent validation,
+                    cryptographic rules,
+                    economic incentives and
+                    the distribution of
+                    network participants.
+                </p>
+
+            </article>
+
+
+            <!-- OFFICIAL SOURCES -->
+
+            <article class="bitcoin-mining-section">
+
+                <h2>11. Official Sources and Further Reading</h2>
+
+                <p>
+                    The following resources provide
+                    primary technical documentation
+                    and references for independent
+                    research.
+                </p>
+
+                <ul class="bitcoin-mining-sources">
+
+                    <li>
+                        <a
+                            href="https://developer.bitcoin.org/devguide/mining.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Bitcoin Developer Guide —
+                            Mining
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://developer.bitcoin.org/devguide/block_chain.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Bitcoin Developer Guide —
+                            Block Chain
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://developer.bitcoin.org/reference/block_chain.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Bitcoin Developer Reference —
+                            Block Chain
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://bitcoincore.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Bitcoin Core —
+                            Official Project
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://github.com/bitcoin/bitcoin"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Bitcoin Core —
+                            Source Code Repository
+                        </a>
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </section>
+
+
+        <!-- RESEARCH NOTE -->
+
+        <section class="bitcoin-mining-note">
+
+            <h2>CRYPTO ATLAS RESEARCH NOTE</h2>
+
+            <p>
+                Bitcoin mining is not simply a process
+                of creating new coins. It is a
+                computational and economic mechanism
+                involved in block production,
+                transaction ordering and the security
+                of the blockchain.
+            </p>
+
+            <p>
+                Proof of Work, consensus rules,
+                independent node validation and
+                mining incentives must be understood
+                together to analyse the system.
+            </p>
+
+            <p>
+                This page is an educational research
+                resource. It does not constitute
+                financial or investment advice.
+            </p>
+
+        </section>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="bitcoin-mining-navigation"
+             aria-label="Bitcoin World navigation">
+
+            <a href="bitcoin-world.html">
+                ← BACK TO BITCOIN WORLD
+            </a>
+
+            <a href="bitcoin-network.html">
+                EXPLORE BITCOIN NETWORK →
+            </a>
+
+        </nav>
+
+    </main>
+
+
+    <footer class="ecosystem-footer">
+        <p>
+            Crypto Atlas — information, sources and data.
+        </p>
+    </footer>
+
+</body>
+</html>
