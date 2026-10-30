@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Save the original map dimensions.
+    // Original map dimensions.
     const original = {
         x: 0,
         y: 0,
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxWidth = original.width;
     const zoomFactor = 1.2;
 
-    // Create map controls.
+    // Create zoom controls.
     const controls = document.createElement("div");
     controls.className = "ecosystem-map-controls";
     controls.setAttribute("aria-label", "Map zoom controls");
@@ -65,10 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             y
         ));
 
-        map.setAttribute(
-            "viewBox",
-            `${x} ${y} ${width} ${height}`
-        );
+        map.setAttribute("viewBox", `${x} ${y} ${width} ${height}`);
     }
 
     // Zoom around the center of the map.
@@ -111,16 +108,96 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Allow dragging the map on free areas.
+    // Map region descriptions.
+    const regionDescriptions = {
+        "#bitcoin-world":
+            "Explore Bitcoin, its network, transactions, mining and development.",
+
+        "#blockchain-continents":
+            "Discover blockchain networks, their technologies, consensus models and ecosystems.",
+
+        "#exchange-continent":
+            "Explore cryptocurrency exchanges, trading services and digital asset markets.",
+
+        "#defi-ocean":
+            "Discover decentralised finance, lending, borrowing, staking and liquidity protocols.",
+
+        "#web3-gaming-islands":
+            "Explore Web3 games, digital ownership, virtual worlds and blockchain-based rewards.",
+
+        "#digital-infrastructure":
+            "Discover the infrastructure supporting the digital economy, including data, security and development tools.",
+
+        "#digital-economy":
+            "Explore stablecoins, tokenised real-world assets, digital payments and financial applications."
+    };
+
+    // Create the information tooltip.
+    const tooltip = document.createElement("div");
+    tooltip.className = "ecosystem-map-tooltip";
+    tooltip.setAttribute("role", "status");
+    tooltip.setAttribute("aria-live", "polite");
+    tooltip.hidden = true;
+
+    mapContainer.insertBefore(tooltip, map);
+
+    function showTooltip(link) {
+        const description = regionDescriptions[link.getAttribute("href")];
+
+        if (!description) return;
+
+        tooltip.textContent = description;
+        tooltip.hidden = false;
+    }
+
+    function hideTooltip() {
+        tooltip.hidden = true;
+        tooltip.textContent = "";
+    }
+
+    // Mouse interaction with map regions.
+    map.addEventListener("pointerover", (event) => {
+        const link = event.target.closest("a[href^='#']");
+
+        if (link && map.contains(link)) {
+            showTooltip(link);
+        }
+    });
+
+    map.addEventListener("pointerout", (event) => {
+        const link = event.target.closest("a[href^='#']");
+
+        if (link && !link.contains(event.relatedTarget)) {
+            hideTooltip();
+        }
+    });
+
+    // Keyboard accessibility.
+    map.addEventListener("focusin", (event) => {
+        const link = event.target.closest("a[href^='#']");
+
+        if (link) {
+            showTooltip(link);
+        }
+    });
+
+    map.addEventListener("focusout", (event) => {
+        const nextLink = event.relatedTarget?.closest?.("a[href^='#']");
+
+        if (!nextLink || !map.contains(nextLink)) {
+            hideTooltip();
+        }
+    });
+
+    // Drag the map on free areas.
     let isDragging = false;
     let startX = 0;
     let startY = 0;
     let startViewBox = null;
 
     map.addEventListener("pointerdown", (event) => {
-        // Preserve clicks on interactive map regions.
+        // Do not interfere with clickable map regions.
         if (event.target.closest("a")) return;
-
         if (event.button !== 0) return;
 
         isDragging = true;
