@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bitcoin Transactions & UTXO | Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="Explore Bitcoin transactions, inputs, outputs, the UTXO model, transaction fees, digital signatures and validation."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/ecosystem.css">
+</head>
+
+<body>
+
+<main class="bitcoin-network-page">
+
+    <section class="bitcoin-network-intro">
+        <span class="territory-status">BITCOIN WORLD · TERRITORY 03</span>
+
+        <h1>Bitcoin Transactions & UTXO</h1>
+
+        <p>
+            How Bitcoin records transfers of value through transaction
+            inputs, outputs and the Unspent Transaction Output model.
+        </p>
+    </section>
+
+    <div class="bitcoin-network-content">
+
+        <section class="bitcoin-network-section">
+            <h2>1. What Is a Bitcoin Transaction?</h2>
+
+            <p>
+                A Bitcoin transaction is a digitally signed data structure
+                that describes how previously created outputs are spent
+                and how new outputs are created.
+            </p>
+
+            <p>
+                Unlike a conventional bank transfer, a Bitcoin transaction
+                does not simply subtract an amount from one account and
+                add it to another. It consumes existing unspent transaction
+                outputs and creates new outputs according to the rules
+                of the Bitcoin protocol.
+            </p>
+
+            <p>
+                Transactions are broadcast to the peer-to-peer network.
+                Nodes independently check whether they satisfy the
+                applicable consensus rules before accepting them into
+                their view of the network.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>2. Inputs and Outputs</h2>
+
+            <p>
+                A Bitcoin transaction is primarily composed of inputs
+                and outputs.
+            </p>
+
+            <p>
+                An input references an output created by an earlier
+                transaction. It also provides the information required
+                to satisfy the spending conditions associated with that
+                output.
+            </p>
+
+            <p>
+                An output specifies an amount of bitcoin, denominated
+                in satoshis, and a locking condition that determines
+                how the output may be spent.
+            </p>
+
+            <p>
+                A transaction can contain multiple inputs and multiple
+                outputs. This structure allows a wallet to combine
+                previously received outputs and distribute value among
+                several destinations.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>3. The UTXO Model</h2>
+
+            <p>
+                UTXO stands for Unspent Transaction Output. It describes
+                an output from an earlier transaction that has not yet
+                been spent.
+            </p>
+
+            <p>
+                The Bitcoin system tracks which transaction outputs
+                remain unspent. These outputs form the set of funds
+                that can be referenced by future transactions.
+            </p>
+
+            <p>
+                A wallet's available balance is calculated from the
+                unspent outputs it can control. The balance is therefore
+                not stored as a single account value directly on the
+                blockchain.
+            </p>
+
+            <p>
+                Each UTXO has an amount and a spending condition.
+                To use it, a new transaction must reference that
+                specific output and satisfy its conditions.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>4. How Bitcoin Transactions Work</h2>
+
+            <p>
+                Consider a wallet that controls an unspent output
+                worth 1 BTC. Its owner wants to send 0.3 BTC to
+                another person.
+            </p>
+
+            <p>
+                The wallet creates a transaction that references
+                the existing output as an input. It then creates
+                an output worth 0.3 BTC for the recipient and,
+                if necessary, another output returning the remaining
+                value to an address controlled by the sender.
+            </p>
+
+            <p>
+                The transaction must also account for the network
+                fee. Once signed, it can be broadcast to the network
+                for validation and possible inclusion in a block.
+            </p>
+
+            <p>
+                This example illustrates the UTXO process. Actual
+                transactions may use multiple inputs and outputs,
+                and the values depend on the available outputs
+                and the transaction fee.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>5. Transaction IDs and Outpoints</h2>
+
+            <p>
+                A transaction is identified by a transaction ID,
+                commonly called a TXID. It is derived from the
+                transaction's serialized data using the hashing
+                rules defined by Bitcoin.
+            </p>
+
+            <p>
+                An individual output is identified by combining
+                the transaction ID with the output's index within
+                that transaction. This reference is called an
+                outpoint.
+            </p>
+
+            <p>
+                A future transaction uses the outpoint to identify
+                precisely which earlier output it intends to spend.
+                This allows the network to distinguish between
+                different outputs created by the same transaction.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>6. Change Outputs</h2>
+
+            <p>
+                Bitcoin transactions generally spend entire UTXOs.
+                They do not divide an existing output by simply
+                subtracting a smaller amount from it.
+            </p>
+
+            <p>
+                When the value of an input exceeds the amount
+                intended for the recipient and the transaction fee,
+                a wallet may create an additional output called
+                a change output.
+            </p>
+
+            <p>
+                The change output returns the remaining value
+                to an address controlled by the sender's wallet.
+                It becomes a new UTXO and can be spent in a
+                future transaction.
+            </p>
+
+            <p>
+                Change is not a separate type of Bitcoin protocol
+                transaction. It is an ordinary transaction output
+                that the wallet recognizes as belonging to the sender.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>7. Transaction Fees</h2>
+
+            <p>
+                A Bitcoin transaction fee is the difference between
+                the total value of its inputs and the total value
+                of its outputs.
+            </p>
+
+            <p>
+                In simplified form:
+            </p>
+
+            <p>
+                <strong>Transaction Fee = Total Inputs − Total Outputs</strong>
+            </p>
+
+            <p>
+                Fees are generally expressed in satoshis per virtual
+                byte (sat/vB). The transaction's virtual size and
+                the fee rate influence the total fee paid.
+            </p>
+
+            <p>
+                Users can choose a fee rate when creating a transaction.
+                Miners select transactions for inclusion in blocks,
+                taking account of their expected fee revenue and
+                other relevant considerations.
+            </p>
+
+            <p>
+                A higher fee rate can improve a transaction's
+                competitiveness for block inclusion, but it does
+                not guarantee confirmation at a particular time.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>8. Digital Signatures and Scripts</h2>
+
+            <p>
+                Bitcoin uses scripts and cryptographic signatures
+                to define and verify the conditions under which
+                transaction outputs may be spent.
+            </p>
+
+            <p>
+                An output contains a locking script, also known
+                as a scriptPubKey. A later transaction provides
+                the required unlocking data or witness information
+                to satisfy those conditions.
+            </p>
+
+            <p>
+                Digital signatures demonstrate authorization to
+                spend an output under the rules defined by its
+                spending conditions. They do not reveal the
+                private key itself.
+            </p>
+
+            <p>
+                Bitcoin supports different script and signature
+                mechanisms. Their details depend on the output
+                type and the applicable protocol rules.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>9. Validation and Double Spending</h2>
+
+            <p>
+                Before accepting a transaction, Bitcoin nodes
+                independently check its structure and compliance
+                with the consensus rules.
+            </p>
+
+            <p>
+                Among other checks, nodes verify that referenced
+                outputs exist, remain unspent, and that the
+                transaction satisfies the conditions required
+                to spend them.
+            </p>
+
+            <p>
+                The UTXO model helps prevent double spending:
+                the same output cannot be spent twice in the
+                same valid chain of transactions.
+            </p>
+
+            <p>
+                Conflicting transactions may nevertheless be
+                broadcast before confirmation. Nodes and miners
+                must resolve which transaction, if any, becomes
+                part of the accepted blockchain history.
+            </p>
+
+            <p>
+                A transaction appearing in a wallet or being
+                relayed by the network does not by itself mean
+                that it has been confirmed in a block.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>10. Official Sources and Further Reading</h2>
+
+            <p>
+                The following technical documentation provides
+                further information about Bitcoin transactions,
+                inputs, outputs, UTXOs and validation.
+            </p>
+
+            <ul class="bitcoin-network-sources">
+                <li>
+                    <a href="https://developer.bitcoin.org/devguide/transactions.html"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Developer Guide — Transactions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://developer.bitcoin.org/devguide/block_chain.html"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Developer Guide — Block Chain
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://developer.bitcoin.org/reference/transactions.html"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Developer Reference — Transactions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://bitcoincore.org/"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Core — Official Project
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/bitcoin/bitcoin"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Core — Source Code
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <aside class="bitcoin-network-note">
+            <h3>Research Note</h3>
+
+            <p>
+                The UTXO model is a fundamental part of Bitcoin's
+                transaction architecture. Understanding inputs,
+                outputs and spending conditions helps explain
+                how value is transferred, validated and recorded
+                without relying on a conventional account-balance
+                model.
+            </p>
+
+            <p>
+                This material is educational and does not constitute
+                investment advice or a recommendation to use any
+                particular wallet or service.
+            </p>
+        </aside>
+
+        <nav class="bitcoin-network-navigation">
+            <a href="bitcoin-world.html">
+                ← Back to Bitcoin World
+            </a>
+
+            <a href="index.html">
+                Back to Ecosystem Index
+            </a>
+        </nav>
+
+    </div>
+</main>
+
+</body>
+</html>
