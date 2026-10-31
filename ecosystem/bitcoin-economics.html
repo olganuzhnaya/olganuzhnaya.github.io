@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bitcoin Economics | Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="Explore Bitcoin's monetary model, issuance schedule, block subsidy, halving, supply limit, transaction fees and mining incentives."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/ecosystem.css">
+</head>
+
+<body>
+
+<main class="bitcoin-network-page">
+
+    <section class="bitcoin-network-intro">
+        <span class="territory-status">BITCOIN WORLD · TERRITORY 05</span>
+
+        <h1>Bitcoin Economics</h1>
+
+        <p>
+            The monetary architecture of Bitcoin:
+            issuance, scarcity, mining incentives,
+            transaction fees and long-term security.
+        </p>
+    </section>
+
+    <div class="bitcoin-network-content">
+
+        <section class="bitcoin-network-section">
+            <h2>1. Bitcoin's Monetary Model</h2>
+
+            <p>
+                Bitcoin has a monetary issuance schedule defined
+                by the protocol. New bitcoin enter circulation
+                through mining, while the amount that can be
+                created in each block follows predetermined rules.
+            </p>
+
+            <p>
+                Unlike a conventional monetary system managed
+                by a central bank, Bitcoin does not have a central
+                institution responsible for adjusting its issuance
+                schedule in response to economic conditions.
+            </p>
+
+            <p>
+                The rules governing issuance are implemented
+                in Bitcoin software and independently checked
+                by full nodes.
+            </p>
+
+            <p>
+                This design establishes a predictable monetary
+                issuance process. It does not, by itself,
+                determine the market price or purchasing power
+                of bitcoin.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>2. Bitcoin Supply and Issuance</h2>
+
+            <p>
+                Bitcoin's supply increases gradually as miners
+                produce valid blocks and receive the permitted
+                block subsidy.
+            </p>
+
+            <p>
+                At launch in January 2009, the initial block
+                subsidy was 50 BTC. The subsidy is reduced
+                by half after every 210,000 blocks.
+            </p>
+
+            <p>
+                Because the network targets an average block
+                interval of approximately ten minutes, 210,000
+                blocks correspond to roughly four years.
+                The actual calendar interval can vary.
+            </p>
+
+            <p>
+                The issuance schedule is therefore determined
+                by block height rather than by a fixed calendar
+                date.
+            </p>
+
+            <p>
+                The supply limit commonly described as
+                21 million bitcoin is a consequence of the
+                repeated reduction in the block subsidy.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>3. Block Subsidy and Mining Rewards</h2>
+
+            <p>
+                When a miner successfully produces a valid block,
+                the block may contain a special coinbase transaction
+                that claims the permitted block subsidy and
+                transaction fees.
+            </p>
+
+            <p>
+                The block subsidy is the amount of newly created
+                bitcoin that a miner is allowed to claim under
+                the rules applicable to that block height.
+            </p>
+
+            <p>
+                Transaction fees are separate. They are the
+                difference between the total value of transaction
+                inputs and outputs, and they are collected from
+                the transactions included in the block.
+            </p>
+
+            <p>
+                The miner's total block reward can therefore
+                be described as:
+            </p>
+
+            <p>
+                <strong>
+                    Block Reward = Block Subsidy + Transaction Fees
+                </strong>
+            </p>
+
+            <p>
+                A miner cannot simply choose to claim more
+                bitcoin than the consensus rules permit.
+                Full nodes independently validate the block
+                and reject an excessive coinbase reward.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>4. Bitcoin Halving</h2>
+
+            <p>
+                A halving is an automatic reduction of the
+                block subsidy by 50 percent. It occurs every
+                210,000 blocks.
+            </p>
+
+            <p>
+                The subsidy has changed through the following
+                historical stages:
+            </p>
+
+            <ul>
+                <li>2009: 50 BTC per block.</li>
+                <li>2012: 25 BTC per block.</li>
+                <li>2016: 12.5 BTC per block.</li>
+                <li>2020: 6.25 BTC per block.</li>
+                <li>April 2024: 3.125 BTC per block.</li>
+            </ul>
+
+            <p>
+                The next halving is expected around 2028,
+                at block height 1,050,000. The subsidy will
+                then become 1.5625 BTC per block.
+            </p>
+
+            <p>
+                These calendar dates are estimates. The
+                protocol specifies block heights, not
+                exact dates.
+            </p>
+
+            <p>
+                Halving reduces the rate at which new bitcoin
+                enter circulation. It does not directly set
+                the market price of bitcoin.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>5. The 21 Million Supply Limit</h2>
+
+            <p>
+                Bitcoin is commonly described as having a
+                maximum supply of 21 million BTC.
+                This figure follows from the initial subsidy
+                and the repeated halving schedule.
+            </p>
+
+            <p>
+                Each subsidy era lasts 210,000 blocks.
+                The first era begins with 50 BTC per block,
+                and each following era receives half the
+                subsidy of the previous one.
+            </p>
+
+            <p>
+                The resulting issuance schedule forms
+                a geometric series:
+            </p>
+
+            <p>
+                <strong>
+                    210,000 × 50 × (1 + 1/2 + 1/4 + ...)
+                    = 21,000,000 BTC
+                </strong>
+            </p>
+
+            <p>
+                In actual Bitcoin implementation, amounts
+                are represented in whole satoshis. Fractional
+                satoshis are discarded when the subsidy
+                is divided, so the theoretical total issued
+                is slightly below 21 million BTC.
+            </p>
+
+            <p>
+                Full nodes enforce the permitted subsidy
+                through block validation. A block that
+                claims more than the allowed amount is
+                invalid under those consensus rules.
+            </p>
+
+            <p>
+                The commonly quoted supply limit describes
+                the issuance schedule. It should not be
+                confused with the amount of bitcoin currently
+                available for trading or the amount that
+                individual holders can access.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>6. Transaction Fees</h2>
+
+            <p>
+                Bitcoin transaction fees compensate miners
+                for including transactions in blocks.
+                They are paid by transaction creators
+                through the difference between inputs
+                and outputs.
+            </p>
+
+            <p>
+                Fees are commonly expressed as satoshis
+                per virtual byte (sat/vB). The total fee
+                depends on the transaction's virtual size
+                and the fee rate selected.
+            </p>
+
+            <p>
+                Block space is limited. When demand for
+                transaction inclusion increases, users
+                may compete by offering higher fee rates.
+            </p>
+
+            <p>
+                Miners can consider the fees offered by
+                transactions when selecting transactions
+                for a block, subject to the applicable
+                consensus and policy rules.
+            </p>
+
+            <p>
+                A higher fee rate can make a transaction
+                more attractive for inclusion, but it
+                does not guarantee confirmation at a
+                particular time.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>7. Mining Economics and Incentives</h2>
+
+            <p>
+                Bitcoin mining involves economic decisions
+                as well as technical work. Miners commit
+                computing resources and incur operating
+                costs in an attempt to produce valid blocks.
+            </p>
+
+            <p>
+                Relevant costs can include electricity,
+                mining hardware, cooling, facilities,
+                maintenance, personnel and financing.
+            </p>
+
+            <p>
+                Mining revenue depends on the block subsidy,
+                transaction fees, the miner's share of
+                network computing power and the method
+                used to participate in mining.
+            </p>
+
+            <p>
+                Solo miners receive the proceeds of a
+                successfully mined block but face greater
+                variability in the timing of rewards.
+                Mining pools combine computing resources
+                and distribute proceeds according to
+                their payout arrangements.
+            </p>
+
+            <p>
+                Mining profitability is not guaranteed.
+                Changes in bitcoin's market price, network
+                difficulty, electricity costs, hardware
+                efficiency and transaction fees can
+                influence the economic outcome.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>8. The Long-Term Security Model</h2>
+
+            <p>
+                Mining helps secure Bitcoin by making the
+                production of blocks require computational
+                work. This makes it costly to rewrite
+                transaction history.
+            </p>
+
+            <p>
+                The block subsidy currently provides a
+                significant part of the incentive available
+                to miners. Because it decreases over time,
+                transaction fees are expected to become
+                increasingly important as a source of
+                miner revenue.
+            </p>
+
+            <p>
+                Once the subsidy eventually reaches zero,
+                miners will rely on transaction fees
+                rather than newly issued bitcoin for
+                block revenue.
+            </p>
+
+            <p>
+                This future transition raises important
+                economic questions about block-space demand,
+                fee-market behaviour, mining costs and
+                the security incentives of the network.
+            </p>
+
+            <p>
+                The long-term outcome cannot be determined
+                from the issuance schedule alone. It will
+                also depend on future network usage,
+                market conditions and the economic
+                behaviour of participants.
+            </p>
+        </section>
+
+        <section class="bitcoin-network-section">
+            <h2>9. Official Sources and Further Reading</h2>
+
+            <p>
+                The following resources provide technical
+                information about Bitcoin mining, issuance,
+                block rewards and the monetary rules
+                implemented by the protocol.
+            </p>
+
+            <ul class="bitcoin-network-sources">
+
+                <li>
+                    <a href="https://developer.bitcoin.org/devguide/mining.html"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Developer Guide — Mining
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://developer.bitcoin.org/devguide/block_chain.html"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Developer Guide — Block Chain
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://bitcoin.org/en/halving"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin.org — Bitcoin Halving
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/src/kernel/chainparams.cpp"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Core — Chain Parameters
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/bitcoin/bitcoin/blob/master/src/validation.cpp"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Core — Block and Transaction Validation
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/bitcoin/bitcoin"
+                       target="_blank" rel="noopener noreferrer">
+                        Bitcoin Core — Source Code
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+
+        <aside class="bitcoin-network-note">
+            <h3>Research Note</h3>
+
+            <p>
+                Bitcoin's monetary architecture combines
+                a predetermined issuance schedule,
+                a declining block subsidy and a fee-based
+                incentive for transaction processing.
+            </p>
+
+            <p>
+                The relationship between issuance,
+                mining costs, transaction demand and
+                network security is an important subject
+                of ongoing economic research.
+            </p>
+
+            <p>
+                A predictable supply schedule does not
+                guarantee a particular market valuation
+                or investment outcome.
+            </p>
+
+            <p>
+                This material is educational and does
+                not constitute investment advice.
+            </p>
+        </aside>
+
+        <nav class="bitcoin-network-navigation">
+            <a href="bitcoin-world.html">
+                ← Back to Bitcoin World
+            </a>
+
+            <a href="index.html">
+                Back to Ecosystem Index
+            </a>
+        </nav>
+
+    </div>
+</main>
+
+</body>
+</html>
