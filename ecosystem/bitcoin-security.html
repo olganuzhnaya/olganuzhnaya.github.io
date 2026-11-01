@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bitcoin Security | Crypto Atlas</title>
+
+    <meta
+        name="description"
+        content="Explore Bitcoin network security, cryptographic keys, addresses, wallets, self-custody, recovery phrases, transaction signing and security risks."
+    >
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/ecosystem.css">
+</head>
+
+<body>
+
+<main class="bitcoin-network-page">
+
+    <section class="bitcoin-network-intro">
+        <span class="territory-status">BITCOIN WORLD · TERRITORY 06</span>
+
+        <h1>Bitcoin Security</h1>
+
+        <p>
+            Understanding the security of the Bitcoin network,
+            cryptographic keys, wallets and personal responsibility.
+        </p>
+    </section>
+
+    <div class="bitcoin-network-content">
+
+<section class="bitcoin-network-section">
+<h2>1. What Is Bitcoin Security?</h2>
+<p>Bitcoin security is not a single mechanism. It is a combination of cryptographic techniques, network rules, independent validation and practices used by people and organizations to protect their access to bitcoin.</p>
+<p>Three areas should be distinguished:</p>
+<ul>
+<li><strong>Network security</strong> concerns the operation of the Bitcoin protocol, the validation of transactions and blocks, and the resistance of the network to attacks.</li>
+<li><strong>Wallet security</strong> concerns the protection of private keys and the systems used to create and sign transactions.</li>
+<li><strong>Operational security</strong> concerns the everyday practices that protect users against theft, fraud, device compromise and accidental loss.</li>
+</ul>
+<p>These areas are connected, but they are not interchangeable. A network can continue operating according to its rules while an individual loses access to a wallet through a stolen private key or a damaged backup.</p>
+<p>Bitcoin uses cryptographic signatures to authorize the spending of funds. Its network participants independently validate transactions and blocks according to consensus rules. However, the protocol cannot guarantee that a user will protect their keys or correctly identify a fraudulent request.</p>
+<p>Understanding Bitcoin security therefore requires looking at both the technology and the responsibilities of the people who use it.</p>
+</section>
+
+<section class="bitcoin-network-section">
+<h2>2. Private Keys and Public Keys</h2>
+<p>Public-key cryptography is fundamental to Bitcoin ownership and transaction authorization.</p>
+<p>A <strong>private key</strong> is a secret cryptographic value used to create digital signatures. In Bitcoin, a private key is associated with a corresponding public key through elliptic-curve cryptography using the secp256k1 curve.</p>
+<p>A <strong>public key</strong> is mathematically derived from the private key. It can be used by other participants to verify a signature created with the corresponding private key.</p>
+<p>The relationship can be simplified as follows:</p>
+<p><strong>Private key → Public key → Address or payment destination</strong></p>
+<p>The private key must remain secret. The public key is not secret in the same way, although publishing or reusing payment information can have privacy implications.</p>
+<p>A digital signature demonstrates that a transaction was authorized by someone controlling the relevant private key. It does not reveal the private key itself.</p>
+<p>This distinction is essential: a Bitcoin user does not need to disclose a private key to receive funds or to allow others to verify a valid signature.</p>
+<p>Private keys should never be shared with websites, support representatives, strangers or services claiming that they need the key to verify ownership.</p>
+</section>
+<section class="bitcoin-network-section">
+<h2>3. Bitcoin Addresses</h2>
+<p>A Bitcoin address is a payment identifier that can be shared with someone who wants to send bitcoin.</p>
+<p>An address is not the same thing as a private key or a public key. It represents a payment destination, usually through information that allows a Bitcoin transaction output to be associated with a particular spending condition.</p>
+<p>When a wallet generates an address, it prepares information that can be used to create a transaction output. The relevant conditions are represented in the transaction's output script, often called <code>scriptPubKey</code>.</p>
+<p>Different address formats correspond to different Bitcoin output types and spending conditions. Common formats include:</p>
+<ul>
+<li>Legacy addresses, beginning with <code>1</code>.</li>
+<li>Pay-to-Script-Hash addresses, beginning with <code>3</code>.</li>
+<li>Native SegWit addresses, beginning with <code>bc1q</code>.</li>
+<li>Taproot addresses, beginning with <code>bc1p</code>.</li>
+</ul>
+<p>An address can be shared publicly to receive payments. However, address reuse can make it easier to link transactions and reduce financial privacy.</p>
+<p>A Bitcoin address does not contain bitcoin in the way that a physical wallet contains banknotes. The blockchain records transaction outputs, and a wallet identifies the outputs that can be spent using the keys and scripts it controls.</p>
+</section>
+
+<section class="bitcoin-network-section">
+<h2>4. Wallets and Self-Custody</h2>
+<p>A Bitcoin wallet is software, hardware or another system that manages the information required to receive and spend bitcoin.</p>
+<p>A wallet does not literally store coins inside a device. Bitcoin exists as transaction outputs recorded on the blockchain. The wallet manages keys, monitors relevant transactions and creates or signs transactions when funds are spent.</p>
+<p>Wallet systems can be organized in different ways.</p>
+
+<h3>Hot Wallets</h3>
+<p>A hot wallet operates on a device connected to the internet, such as a smartphone or computer.</p>
+<p>Hot wallets are convenient for frequent transactions. However, an internet-connected device may be exposed to malware, phishing, unauthorized access or software vulnerabilities.</p>
+
+<h3>Cold Storage</h3>
+<p>Cold storage keeps private keys in an environment that is not continuously connected to the internet.</p>
+<p>An offline wallet can reduce exposure to certain online attacks. Transactions can be prepared on an internet-connected device, signed in an offline environment and then broadcast through a connected device.</p>
+<p>Cold storage does not eliminate every risk. Physical theft, damage, poor backup practices, compromised devices during setup and mistakes when signing transactions remain possible.</p>
+
+<h3>Hardware Wallets</h3>
+<p>A hardware wallet is a specialized device designed to protect private keys and perform signing operations in a more isolated environment.</p>
+<p>The private key is generally intended to remain inside the device. The user reviews transaction information and authorizes signing through the hardware wallet.</p>
+<p>The level of protection depends on the device, its implementation, the software used with it and the user's operating practices.</p>
+
+<h3>Self-Custody</h3>
+<p>Self-custody means that the user controls the private keys needed to authorize transactions, rather than relying on a third party to hold them.</p>
+<p>This provides direct control over transaction authorization, but it also transfers responsibility for key protection and recovery to the user.</p>
+<p>Custodial services work differently: the provider controls the relevant keys on behalf of customers. Users therefore depend on the provider's security, operational practices and ability to provide access.</p>
+<p>Neither model removes all risk. They distribute control and responsibility differently.</p>
+</section>
+<section class="bitcoin-network-section">
+<h2>5. Seed Phrases and Wallet Recovery</h2>
+
+<p>Many modern wallets use deterministic key-generation systems. A wallet can derive multiple private keys and addresses from an initial seed.</p>
+
+<p>Some wallets represent the recovery information as a sequence of words commonly called a <strong>seed phrase</strong> or <strong>recovery phrase</strong>.</p>
+
+<p>BIP 39 specifies a method for encoding computer-generated entropy as a mnemonic sentence and converting it into a binary seed. BIP 32 describes hierarchical deterministic wallets, which derive a tree of keys from a single seed.</p>
+
+<p>These standards are related, but they are not identical:</p>
+
+<ul>
+<li><strong>BIP 32</strong> describes hierarchical deterministic key derivation.</li>
+<li><strong>BIP 39</strong> describes a mnemonic format for representing entropy and deriving a seed.</li>
+</ul>
+
+<p>Not every Bitcoin wallet uses BIP 39. Recovery procedures and compatibility depend on the wallet's design and supported standards.</p>
+
+<p>A recovery phrase can provide access to the wallet's derived keys. Anyone who obtains the phrase may be able to restore the wallet elsewhere and spend its funds.</p>
+
+<p>For this reason:</p>
+
+<ul>
+<li>Keep recovery information private.</li>
+<li>Store backups securely and offline where appropriate.</li>
+<li>Do not send recovery phrases through email or messaging services.</li>
+<li>Do not enter a recovery phrase into an unfamiliar website.</li>
+<li>Check the wallet's official recovery instructions.</li>
+<li>Consider how physical damage, theft or loss could affect backup access.</li>
+</ul>
+
+<p>A recovery phrase is not a password-reset mechanism operated by a central authority. If the necessary recovery information is lost and no other valid backup exists, access to the funds may become permanently impossible.</p>
+</section>
+
+<section class="bitcoin-network-section">
+<h2>6. Transaction Signing</h2>
+
+<p>A Bitcoin transaction is authorized through digital signatures that satisfy the spending conditions of the outputs being used.</p>
+
+<p>When a user wants to spend bitcoin, the wallet constructs a transaction. It identifies available unspent transaction outputs, specifies new outputs and calculates the transaction fee.</p>
+
+<p>The wallet then uses the relevant private key or keys to produce the required signatures.</p>
+
+<p>A simplified process is:</p>
+
+<ol>
+<li>The wallet selects the outputs to spend.</li>
+<li>It creates the transaction and specifies the destination outputs.</li>
+<li>The relevant private key or keys authorize the transaction by producing digital signatures.</li>
+<li>The signed transaction is broadcast to the Bitcoin peer-to-peer network.</li>
+<li>Network participants independently check whether the transaction satisfies the applicable rules.</li>
+<li>A miner may include a valid transaction in a block.</li>
+<li>The transaction gains confirmation when the block is accepted into the blockchain.</li>
+</ol>
+
+<p>Signing and broadcasting are separate operations. A signed transaction has been authorized, but it has not necessarily been confirmed.</p>
+
+<p>An offline signing arrangement can separate transaction preparation from private-key control. An internet-connected device prepares an unsigned transaction, while an offline device signs it. The signed transaction is then transferred back to a connected device for broadcasting.</p>
+
+<p>Before signing, users should verify the destination address, amount and other transaction details. A compromised online device could attempt to display misleading information or prepare a transaction with an unintended destination.</p>
+</section>
+<section class="bitcoin-network-section">
+<h2>7. Security Risks</h2>
+
+<p>Bitcoin's cryptographic design does not protect users from every threat involving devices, people or physical access.</p>
+
+<p>Common risks include:</p>
+
+<h3>Phishing</h3>
+<p>Phishing attempts use fraudulent websites, emails, messages or applications to persuade users to reveal sensitive information or authorize unintended transactions.</p>
+<p>A website that imitates a legitimate wallet service may attempt to obtain a recovery phrase or private key.</p>
+
+<h3>Malware and Device Compromise</h3>
+<p>Malicious software can monitor activity, capture information, modify displayed addresses or interfere with transaction preparation.</p>
+<p>Keeping operating systems and wallet software updated can reduce exposure to known vulnerabilities, but updates do not guarantee complete protection.</p>
+
+<h3>Theft of Private Keys</h3>
+<p>If an attacker obtains the private keys or recovery information required to spend funds, the attacker may be able to create valid transactions.</p>
+<p>Bitcoin's protocol does not provide a general mechanism for reversing a valid transaction simply because the key was stolen.</p>
+
+<h3>Fake Support and Recovery Services</h3>
+<p>Fraudsters may impersonate wallet developers, exchanges or technical support representatives. They may claim that a wallet is compromised and request a recovery phrase to fix the problem.</p>
+<p>A legitimate support process should not require users to disclose their private keys or recovery phrases.</p>
+
+<h3>Physical Risks</h3>
+<p>Devices, paper backups and hardware wallets can be lost, stolen or damaged. A backup stored in only one place may create a single point of failure.</p>
+
+<h3>Transaction and Address Errors</h3>
+<p>Sending funds to an incorrect address or signing an unintended transaction can result in loss of control over the funds.</p>
+<p>Users should verify transaction details before authorization. The exact recovery possibilities depend on the transaction and the recipient; there is no general guarantee that a mistaken payment can be reversed.</p>
+
+<h3>Privacy Risks</h3>
+<p>Bitcoin transactions are publicly recorded. Addresses do not automatically reveal a person's real-world identity, but transaction patterns and information from external services can sometimes be used to link activity.</p>
+<p>Bitcoin should therefore not be described as automatically anonymous. Privacy depends on how wallets, addresses, services and transactions are used.</p>
+</section>
+
+<section class="bitcoin-network-section">
+<h2>8. Official Sources and Further Reading</h2>
+
+<p>The following sources provide technical documentation and specifications relevant to Bitcoin security.</p>
+
+<ul>
+<li>
+<a href="https://developer.bitcoin.org/devguide/wallets.html" target="_blank" rel="noopener noreferrer">
+<strong>Bitcoin Developer Guide — Wallets</strong>
+</a>
+<p>Explains wallet architecture, private keys, signing-only wallets and wallet files.</p>
+</li>
+
+<li>
+<a href="https://developer.bitcoin.org/devguide/transactions.html" target="_blank" rel="noopener noreferrer">
+<strong>Bitcoin Developer Guide — Transactions</strong>
+</a>
+<p>Describes transaction structure, digital signatures and validation.</p>
+</li>
+
+<li>
+<a href="https://bitcoin.org/en/secure-your-wallet" target="_blank" rel="noopener noreferrer">
+<strong>Bitcoin.org — Securing Your Wallet</strong>
+</a>
+<p>Provides practical guidance on backups, encryption, offline storage, software updates and multisignature arrangements.</p>
+</li>
+
+<li>
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener noreferrer">
+<strong>BIP 32 — Hierarchical Deterministic Wallets</strong>
+</a>
+<p>Defines a method for deriving a hierarchy of keys from a single seed.</p>
+</li>
+
+<li>
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank" rel="noopener noreferrer">
+<strong>BIP 39 — Mnemonic Code for Generating Deterministic Keys</strong>
+</a>
+<p>Describes the mnemonic format and conversion process used by wallets that implement this standard.</p>
+</li>
+
+<li>
+<a href="https://github.com/bitcoin/bips" target="_blank" rel="noopener noreferrer">
+<strong>Bitcoin Improvement Proposals (BIPs)</strong>
+</a>
+<p>The repository of Bitcoin Improvement Proposals and related technical specifications.</p>
+</li>
+
+<li>
+<a href="https://bitcoincore.org/" target="_blank" rel="noopener noreferrer">
+<strong>Bitcoin Core</strong>
+</a>
+<p>Official project website for Bitcoin Core software and development information.</p>
+</li>
+</ul>
+</section>
+<aside class="bitcoin-network-note">
+    <h3>Research Note</h3>
+
+    <p>Bitcoin security is based on multiple layers of protection. Cryptographic signatures authorize spending, consensus rules govern the acceptance of transactions and blocks, and independent validation allows network participants to enforce those rules.</p>
+
+    <p>However, protocol security and personal security are different questions.</p>
+
+    <p>The Bitcoin network can validate a transaction according to its rules without determining whether the person who authorized it was deceived, whether a private key was stolen or whether a backup was stored safely.</p>
+
+    <p>The practical security of bitcoin therefore depends not only on the protocol, but also on wallet design, key management, software integrity and human decisions.</p>
+
+    <p><strong>Understanding these distinctions is essential to understanding Bitcoin as both a technical system and a form of digital self-custody.</strong></p>
+</aside>
+<nav class="bitcoin-network-navigation">
+    <a href="bitcoin-world.html">← Back to Bitcoin World</a>
+    <a href="index.html">Back to Ecosystem Index</a>
+</nav>
+
+    </div>
+</main>
+
+</body>
+</html>
