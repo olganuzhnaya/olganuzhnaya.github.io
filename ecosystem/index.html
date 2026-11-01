@@ -148,7 +148,7 @@
 
     <path d="M310 300 Q330 280 350 300 Q345 320 325 320 Z"/>
 
-    <path d="M650 275 Q670 255 690 275 Q685 295 665 295 Z"/>
+    <path d="M745 275 Q765 255 785 275 Q780 295 760 295 Z"/>
 
     <path d="M285 535 Q305 515 325 535 Q320 555 300 555 Z"/>
 
@@ -481,16 +481,41 @@
 
         </g>
 
-            <!-- Compass -->
+            <!-- Animated Compass -->
 
-            <g transform="translate(925 565)">
-                <circle r="42" fill="none"
-                    stroke="#e3c17d" stroke-width="3"/>
-                <path d="M0 -32 L9 0 L0 32 L-9 0 Z"
-                    fill="#e3c17d"/>
-                <text x="0" y="-48" text-anchor="middle"
-                    fill="#f4e8cb" font-size="17">N</text>
-            </g>
+<g transform="translate(925 565)">
+
+    <circle
+        r="42"
+        fill="none"
+        stroke="#e3c17d"
+        stroke-width="3"
+    />
+
+    <!-- Gently moving compass needle -->
+
+    <path
+        d="M0 -32 L9 0 L0 32 L-9 0 Z"
+        fill="#e3c17d"
+    >
+        <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 0 0; 3 0 0; 0 0 0; -3 0 0; 0 0 0"
+            dur="6s"
+            repeatCount="indefinite"
+        />
+    </path>
+
+    <text
+        x="0"
+        y="-48"
+        text-anchor="middle"
+        fill="#f4e8cb"
+        font-size="17"
+    >N</text>
+
+</g>
 
         </svg>
 
