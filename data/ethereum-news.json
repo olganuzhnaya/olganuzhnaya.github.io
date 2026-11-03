@@ -1,5 +1,15 @@
 [
   {
+    "title": "Designing for sovereignty: Ethereum for digital public infrastructure",
+    "url": "https://blog.ethereum.org/en/2026/11/03/digital-pub-infra",
+    "published_at": "Tue, 03 Nov 2026 00:00:00 GMT",
+    "description": "Public services increasingly rely on digital systems that enable institutions to collaborate across organizational and national boundaries. Such cooperation may involve government agencies verifying documents issued by other authorities, or humanitarian organizations coordinating assistance while safeguarding sensitive personal information. Yet technical interoperability alone does not resolve a more fundamental question:...",
+    "category": "Ecosystem Development",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_d1805a5e41e5b947df38abbec662b443.jpg",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
     "title": "Glamsterdam on Hoodi Postponed",
     "url": "https://blog.ethereum.org/en/2026/10/22/glamsterdam-hoodi-delay",
     "published_at": "Thu, 22 Oct 2026 00:00:00 GMT",
@@ -186,16 +196,6 @@
     "description": "An Ethereum Working Group consisting of wallet developers, security firms and the Ethereum Foundation’s Trillion Dollar Security Initiative today launched an open standard designed to end blind signing — a structural flaw that has contributed to billions in user losses, including the Bybit hack. Ethereum Foundation’s Trillion Dollar Security Initiative...",
     "category": "Security",
     "image": "",
-    "source": "Ethereum Foundation",
-    "source_url": "https://blog.ethereum.org/en/feed.xml"
-  },
-  {
-    "title": "Protocol Cluster Updates: May 2026",
-    "url": "https://blog.ethereum.org/en/2026/05/11/protocol-update-may-26",
-    "published_at": "Mon, 11 May 2026 00:00:00 GMT",
-    "description": "A semi-regular gathering of Ethereum core devs from various client teams, or interop, recently took place in Svalbard, Norway. Over the week-long event, teams focused on hardening and preparation for the next upgrade, Glamsterdam. Several important milestones came out of the week, including: 200M gas limit floor established:...",
-    "category": "Research & Development",
-    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_270c7c873d5994bd4e47958030e3599c.png",
     "source": "Ethereum Foundation",
     "source_url": "https://blog.ethereum.org/en/feed.xml"
   }
