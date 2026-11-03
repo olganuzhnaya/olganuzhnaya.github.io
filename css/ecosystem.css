@@ -1225,3 +1225,248 @@
         text-align: center;
     }
 }
+
+/* =========================================
+   BLOCKCHAIN FOUNDATIONS
+========================================= */
+
+.blockchain-foundations-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #e5eeee;
+}
+
+.blockchain-foundations-intro {
+    padding: 55px 35px;
+    text-align: center;
+    border: 1px solid #c69b55;
+    border-radius: 14px;
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(45, 126, 116, .3),
+            transparent 60%
+        ),
+        linear-gradient(
+            135deg,
+            #173b3d,
+            #0c1b2b 70%,
+            #142b35
+        );
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+}
+
+.blockchain-foundations-label {
+    color: #d6b775;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.blockchain-foundations-intro h1 {
+    margin: 20px 0;
+    color: #f2d49a;
+    font-size: clamp(30px, 5vw, 48px);
+    letter-spacing: 3px;
+}
+
+.blockchain-foundations-intro h2 {
+    color: #ffffff;
+    font-size: clamp(19px, 3vw, 25px);
+    font-weight: 400;
+}
+
+.blockchain-foundations-intro > p:not(.blockchain-foundations-label) {
+    max-width: 780px;
+    margin: 25px auto;
+    color: #c2d2d3;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.blockchain-foundations-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.blockchain-foundations-meta span {
+    padding: 9px 15px;
+    border: 1px solid #b99a61;
+    border-radius: 4px;
+    color: #f2d49a;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.blockchain-foundations-content {
+    display: grid;
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.blockchain-foundations-section {
+    padding: 30px;
+    border: 1px solid rgba(198, 155, 85, .65);
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #173b3d,
+        #102a32
+    );
+    box-shadow: 0 7px 20px rgba(0, 0, 0, .13);
+    text-align: left;
+}
+
+.blockchain-foundations-section h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #f2d49a;
+    font-size: 23px;
+    line-height: 1.4;
+}
+
+.blockchain-foundations-section h3 {
+    margin-top: 25px;
+    color: #d6b775;
+    font-size: 18px;
+}
+
+.blockchain-foundations-section p,
+.blockchain-foundations-section li {
+    color: #d0dddd;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.blockchain-foundations-section p {
+    margin: 14px 0;
+}
+
+.blockchain-foundations-section ul {
+    padding-left: 24px;
+}
+
+.blockchain-foundations-section li {
+    margin-bottom: 12px;
+}
+
+.blockchain-foundations-section strong {
+    color: #f2d49a;
+}
+
+.blockchain-foundations-sources {
+    list-style: none;
+    padding: 0 !important;
+}
+
+.blockchain-foundations-sources li {
+    margin: 12px 0;
+    padding: 13px 16px;
+    border-left: 3px solid #c69b55;
+    background: rgba(255, 255, 255, .04);
+}
+
+.blockchain-foundations-sources a {
+    color: #83d9cf;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.blockchain-foundations-sources a:hover {
+    color: #f2d49a;
+    text-decoration: underline;
+}
+
+.blockchain-foundations-note {
+    margin-top: 40px;
+    padding: 35px;
+    border: 1px solid #b99a61;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #e9d6ad,
+        #f4e8cb
+    );
+    color: #263b3b;
+    text-align: left;
+}
+
+.blockchain-foundations-note h2 {
+    color: #80602d;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.blockchain-foundations-note p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.blockchain-foundations-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 35px 0;
+}
+
+.blockchain-foundations-navigation a {
+    display: inline-block;
+    padding: 13px 18px;
+    border: 1px solid #c69b55;
+    border-radius: 5px;
+    background: #173b3d;
+    color: #f2d49a;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.blockchain-foundations-navigation a:hover {
+    background: #285b58;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 650px) {
+    .blockchain-foundations-page {
+        margin: 25px auto;
+        padding: 12px;
+    }
+
+    .blockchain-foundations-intro {
+        padding: 35px 20px;
+    }
+
+    .blockchain-foundations-intro h1 {
+        letter-spacing: 1.5px;
+    }
+
+    .blockchain-foundations-section {
+        padding: 22px 18px;
+    }
+
+    .blockchain-foundations-section h2 {
+        font-size: 20px;
+    }
+
+    .blockchain-foundations-section p,
+    .blockchain-foundations-section li {
+        font-size: 14px;
+    }
+
+    .blockchain-foundations-note {
+        padding: 25px 20px;
+    }
+
+    .blockchain-foundations-navigation {
+        flex-direction: column;
+    }
+
+    .blockchain-foundations-navigation a {
+        text-align: center;
+    }
+}
