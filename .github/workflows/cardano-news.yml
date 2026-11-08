@@ -3,9 +3,6 @@ name: Crypto Atlas - Cardano News Collection
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "37 */6 * * *"
-
 permissions:
   contents: write
 
