@@ -1,0 +1,321 @@
+
+name: Crypto Atlas - Cardano News Collection
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cardano-news-collection
+  cancel-in-progress: false
+
+jobs:
+  collect-cardano-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Collect Cardano RSS publications
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          from datetime import datetime, timezone
+          from email.utils import parsedate_to_datetime
+          from html import unescape
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse, urldefrag
+
+          OUTPUT = Path("data/cardano-news-review.json")
+
+          SOURCES = [
+              {
+                  "name": "Cardano Blog",
+                  "type": "official",
+                  "url": "https://cardano.org/news/rss.xml",
+              },
+              {
+                  "name": "Cardano Forum",
+                  "type": "community",
+                  "url": "https://forum.cardano.org/c/english/announcements/13.rss",
+              },
+              {
+                  "name": "Cardano Journal",
+                  "type": "independent",
+                  "url": "https://cardanojournal.com/rss.xml",
+              },
+              {
+                  "name": "Intersect Cardano Updates",
+                  "type": "technical",
+                  "url": "https://updates.cardano.intersectmbo.org/rss.xml",
+              },
+          ]
+
+          class TextExtractor(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.parts = []
+
+              def handle_data(self, data):
+                  self.parts.append(data)
+
+          def clean_text(value):
+              parser = TextExtractor()
+              parser.feed(value or "")
+              return re.sub(
+                  r"\s+", " ",
+                  unescape(" ".join(parser.parts))
+              ).strip()
+
+          def repair_xml(data):
+              # Fix raw ampersands without changing valid XML entities.
+              return re.sub(
+                  rb"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]+;)",
+                  b"&amp;",
+                  data
+              )
+
+          def fetch_feed(url):
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "User-Agent": "CryptoAtlasNews/1.0",
+                      "Accept": "application/rss+xml, application/xml, text/xml"
+                  }
+              )
+
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  data = response.read(5_000_000)
+
+              try:
+                  return ET.fromstring(data)
+              except ET.ParseError:
+                  return ET.fromstring(repair_xml(data))
+
+          def get_date(item):
+              raw = item.findtext("pubDate", "").strip()
+
+              if not raw:
+                  return "", 0
+
+              try:
+                  parsed = parsedate_to_datetime(raw)
+
+                  if parsed.tzinfo is None:
+                      parsed = parsed.replace(tzinfo=timezone.utc)
+
+                  return (
+                      parsed.astimezone(timezone.utc).isoformat(),
+                      parsed.timestamp()
+                  )
+              except (ValueError, TypeError, OverflowError):
+                  return raw, 0
+
+          def get_category(title, description, source_type):
+              text = (title + " " + description).lower()
+
+              governance_words = [
+                  "governance", "treasury", "proposal",
+                  "voting", "vote", "cip-", "regulation",
+                  "mica", "compliance", "policy"
+              ]
+
+              technology_words = [
+                  "protocol", "node", "consensus", "leios",
+                  "hydra", "mithril", "plutus", "scaling",
+                  "upgrade", "development", "security",
+                  "mainnet", "testnet"
+              ]
+
+              if any(word in text for word in governance_words):
+                  return "governance"
+
+              if (
+                  source_type == "technical"
+                  or any(word in text for word in technology_words)
+              ):
+                  return "technology"
+
+              if source_type == "official":
+                  return "official"
+
+              return "ecosystem"
+
+          def normalize_url(url):
+              url = url.strip()
+
+              if not url.startswith("https://"):
+                  return ""
+
+              return urldefrag(url)[0].rstrip("/")
+
+          def collect_source(source):
+              root = fetch_feed(source["url"])
+              collected = []
+
+              for item in root.findall(".//item"):
+                  title = clean_text(item.findtext("title", ""))
+                  description = clean_text(
+                      item.findtext("description", "")
+                  )
+                  link = normalize_url(
+                      item.findtext("link", "")
+                  )
+
+                  if not title or not link:
+                      continue
+
+                  parsed = urlparse(link)
+
+                  if not parsed.hostname:
+                      continue
+
+                  date, sort_date = get_date(item)
+
+                  categories = [
+                      clean_text(category.text or "")
+                      for category in item.findall("category")
+                  ]
+
+                  collected.append({
+                      "title": title,
+                      "url": link,
+                      "date": date,
+                      "source": source["name"],
+                      "sourceType": source["type"],
+                      "category": get_category(
+                          title, description, source["type"]
+                      ),
+                      "description": description,
+                      "feedCategories": categories,
+                      "status": "pending",
+                      "published": False,
+                      "_sort_date": sort_date
+                  })
+
+              return collected
+
+          previous = []
+
+          if OUTPUT.exists():
+              try:
+                  old_data = json.loads(
+                      OUTPUT.read_text(encoding="utf-8")
+                  )
+                  previous = old_data.get("items", [])
+              except (json.JSONDecodeError, AttributeError):
+                  raise RuntimeError(
+                      "Existing review file is invalid. "
+                      "Stopping to protect editorial decisions."
+                  )
+
+          existing = {
+              item["url"]: item
+              for item in previous
+              if item.get("url")
+          }
+
+          successful_feeds = 0
+          new_count = 0
+
+          for source in SOURCES:
+              try:
+                  articles = collect_source(source)
+                  successful_feeds += 1
+
+                  print(
+                      f'{source["name"]}: '
+                      f'{len(articles)} publications collected.'
+                  )
+
+              except Exception as error:
+                  print(
+                      f'WARNING: {source["name"]} failed: {error}'
+                  )
+                  continue
+
+              for article in articles:
+                  url = article["url"]
+
+                  if url in existing:
+                      old = existing[url]
+
+                      # Preserve editorial decisions and notes.
+                      for field in (
+                          "status", "published",
+                          "reviewed_at", "review_note"
+                      ):
+                          if field in old:
+                              article[field] = old[field]
+
+                      existing[url] = article
+                  else:
+                      article["collected_at"] = (
+                          datetime.now(timezone.utc).isoformat()
+                      )
+                      existing[url] = article
+                      new_count += 1
+
+          if successful_feeds == 0:
+              raise RuntimeError(
+                  "All Cardano RSS sources failed. "
+                  "Existing review data was not changed."
+              )
+
+          results = list(existing.values())
+
+          results.sort(
+              key=lambda article: article.get("_sort_date", 0),
+              reverse=True
+          )
+
+          for article in results:
+              article.pop("_sort_date", None)
+
+          data = {
+              "source": "Crypto Atlas Cardano News Review",
+              "updated_at": datetime.now(timezone.utc).isoformat(),
+              "successful_feeds": successful_feeds,
+              "items": results
+          }
+
+          OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+
+          OUTPUT.write_text(
+              json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+
+          print(f"Successful feeds: {successful_feeds}")
+          print(f"New publications: {new_count}")
+          print(f"Total review records: {len(results)}")
+          print(f"Saved to {OUTPUT}")
+
+          PY
+
+      - name: Save collected publications
+        run: |
+          if [ -n "$(git status --porcelain -- data/cardano-news-review.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/cardano-news-review.json
+            git commit -m "Update Cardano news review queue"
+            git push
+          else
+            echo "No changes in Cardano review queue."
+          fi
