@@ -79,10 +79,11 @@ jobs:
                   unescape(" ".join(parser.parts))
               ).strip()
 
-          def repair_xml(data):
-              # Fix raw ampersands without changing valid XML entities.
+                    def repair_xml(data):
+              # Preserve standard XML entities and numeric references.
+              # Escape raw ampersands and unsupported named entities.
               return re.sub(
-                  rb"&(?!#\d+;|#x[0-9a-fA-F]+;|[A-Za-z][A-Za-z0-9]+;)",
+                  rb"&(?!amp;|lt;|gt;|apos;|quot;|#\d+;|#x[0-9a-fA-F]+;)",
                   b"&amp;",
                   data
               )
@@ -253,14 +254,14 @@ jobs:
                       old = existing[url]
 
                       # Preserve editorial decisions and notes.
-                      for field in (
-    "status",
-    "published",
-    "category",
-    "collected_at",
-    "reviewed_at",
-    "review_note"
-):
+                                            for field in (
+                          "status",
+                          "published",
+                          "category",
+                          "collected_at",
+                          "reviewed_at",
+                          "review_note"
+                      ):
                           if field in old:
                               article[field] = old[field]
 
