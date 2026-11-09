@@ -79,7 +79,7 @@ jobs:
                   unescape(" ".join(parser.parts))
               ).strip()
 
-                    def repair_xml(data):
+          def repair_xml(data):
               # Preserve standard XML entities and numeric references.
               # Escape raw ampersands and unsupported named entities.
               return re.sub(
@@ -254,7 +254,7 @@ jobs:
                       old = existing[url]
 
                       # Preserve editorial decisions and notes.
-                                            for field in (
+                      for field in (
                           "status",
                           "published",
                           "category",
