@@ -254,9 +254,13 @@ jobs:
 
                       # Preserve editorial decisions and notes.
                       for field in (
-                          "status", "published",
-                          "reviewed_at", "review_note"
-                      ):
+    "status",
+    "published",
+    "category",
+    "collected_at",
+    "reviewed_at",
+    "review_note"
+):
                           if field in old:
                               article[field] = old[field]
 
