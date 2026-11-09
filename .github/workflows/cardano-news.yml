@@ -125,91 +125,91 @@ jobs:
                   return raw, 0
 
           def get_category(title, description, source_type):
-    # Determine the category primarily from the publication title.
-    # Long descriptions may mention unrelated topics and should not
-    # override the main subject of an article.
+              # Determine the category primarily from the publication title.
+              # Long descriptions may mention unrelated topics and should not
+              # override the main subject of an article.
 
-    text = title.lower()
+              text = title.lower()
 
-    governance_words = [
-        "governance",
-        "treasury",
-        "proposal",
-        "voting",
-        "vote",
-        "drep",
-        "delegation",
-        "constitution",
-        "committee",
-        "election",
-        "referendum",
-        "regulation",
-        "regulatory",
-        "mica",
-        "compliance",
-        "legislation",
-        "policy",
-    ]
+              governance_words = [
+                  "governance",
+                  "treasury",
+                  "proposal",
+                  "voting",
+                  "vote",
+                  "drep",
+                  "delegation",
+                  "constitution",
+                  "committee",
+                  "election",
+                  "referendum",
+                  "regulation",
+                  "regulatory",
+                  "mica",
+                  "compliance",
+                  "legislation",
+                  "policy",
+              ]
 
-    technology_words = [
-        "protocol",
-        "node",
-        "consensus",
-        "leios",
-        "hydra",
-        "mithril",
-        "plutus",
-        "scaling",
-        "upgrade",
-        "development",
-        "security",
-        "mainnet",
-        "testnet",
-        "developer",
-        "software",
-        "release",
-        "performance",
-        "ledger",
-        "validator",
-        "cryptography",
-        "smart contract",
-    ]
+              technology_words = [
+                  "protocol",
+                  "node",
+                  "consensus",
+                  "leios",
+                  "hydra",
+                  "mithril",
+                  "plutus",
+                  "scaling",
+                  "upgrade",
+                  "development",
+                  "security",
+                  "mainnet",
+                  "testnet",
+                  "developer",
+                  "software",
+                  "release",
+                  "performance",
+                  "ledger",
+                  "validator",
+                  "cryptography",
+                  "smart contract",
+              ]
 
-    ecosystem_words = [
-        "ecosystem",
-        "community",
-        "defi",
-        "dapp",
-        "application",
-        "partnership",
-        "adoption",
-        "event",
-        "wallet",
-        "exchange",
-        "stablecoin",
-        "tokenization",
-        "tokenisation",
-        "tokenized",
-        "tokenised",
-        "project",
-    ]
+              ecosystem_words = [
+                  "ecosystem",
+                  "community",
+                  "defi",
+                  "dapp",
+                  "application",
+                  "partnership",
+                  "adoption",
+                  "event",
+                  "wallet",
+                  "exchange",
+                  "stablecoin",
+                  "tokenization",
+                  "tokenisation",
+                  "tokenized",
+                  "tokenised",
+                  "project",
+              ]
 
-    if any(word in text for word in governance_words):
-        return "governance"
+              if any(word in text for word in governance_words):
+                  return "governance"
 
-    if any(word in text for word in technology_words):
-        return "technology"
+              if any(word in text for word in technology_words):
+                  return "technology"
 
-    if any(word in text for word in ecosystem_words):
-        return "ecosystem"
+              if any(word in text for word in ecosystem_words):
+                  return "ecosystem"
 
-    if source_type == "technical":
-        return "technology"
+              if source_type == "technical":
+                  return "technology"
 
-    if source_type == "official":
-        return "official"
+              if source_type == "official":
+                  return "official"
 
-    return "ecosystem"
+              return "ecosystem"
 
           def normalize_url(url):
               url = url.strip()
@@ -314,7 +314,6 @@ jobs:
                       for field in (
                           "status",
                           "published",
-                          "category",
                           "collected_at",
                           "reviewed_at",
                           "review_note"
@@ -322,7 +321,16 @@ jobs:
                           if field in old:
                               article[field] = old[field]
 
+                      # Recalculate categories for pending articles.
+                      # Preserve manually reviewed categories.
+                      if (
+                          old.get("status", "pending") != "pending"
+                          and "category" in old
+                      ):
+                          article["category"] = old["category"]
+
                       existing[url] = article
+
                   else:
                       article["collected_at"] = (
                           datetime.now(timezone.utc).isoformat()
