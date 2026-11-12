@@ -219,6 +219,23 @@ jobs:
 
               return urldefrag(url)[0].rstrip("/")
 
+
+          def get_description(item):
+              descriptions = []
+
+              for field in item:
+                  field_name = field.tag.rsplit("}", 1)[-1]
+
+                  if field_name in ("description", "encoded", "summary", "content"):
+                      value = clean_text("".join(field.itertext()))
+
+                      if value and value not in descriptions:
+                          descriptions.append(value)
+
+              if not descriptions:
+                  return ""
+
+              return max(descriptions, key=len)
           
           def collect_source(source):
               root = fetch_feed(source["url"])
@@ -249,9 +266,7 @@ jobs:
               for item in root.findall(".//item"):
 
                   title = clean_text(item.findtext("title", ""))
-                  description = clean_text(
-                      item.findtext("description", "")
-                  )
+                  description = get_description(item)
                   link = normalize_url(
                       item.findtext("link", "")
                   )
