@@ -240,29 +240,7 @@ jobs:
           def collect_source(source):
               root = fetch_feed(source["url"])
               collected = []
-
-              # Temporary diagnostics: inspect RSS fields without changing the data.
-              sample_items = root.findall(".//item")[:2]
-
-              print(f'\n--- RSS diagnostics: {source["name"]} ---')
-
-              for sample_index, sample in enumerate(sample_items, start=1):
-                  sample_title = clean_text(sample.findtext("title", ""))
-                  print(f"Sample {sample_index}: {sample_title}")
-
-                  for field in sample:
-                      field_name = field.tag.rsplit("}", 1)[-1]
-
-                      if field_name in ("description", "encoded", "summary", "content"):
-                          field_text = clean_text("".join(field.itertext()))
-
-                          print(
-                              f"  {field_name}: "
-                              f"{field_text[:350]}"
-                          )
-
-              print("--- End RSS diagnostics ---\n")
-
+           
               for item in root.findall(".//item"):
 
                   title = clean_text(item.findtext("title", ""))
