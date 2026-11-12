@@ -1,8 +1,100 @@
 {
   "source": "Crypto Atlas Cardano News Review",
-  "updated_at": "2026-11-09T16:24:09.502003+00:00",
+  "updated_at": "2026-11-12T15:48:51.465394+00:00",
   "successful_feeds": 4,
   "items": [
+    {
+      "title": "Cardano Prototype Explores Trustless Swaps With Shielded Zcash",
+      "url": "https://cardanojournal.com/article/cardano-prototype-explores-trustless-swaps-with-shielded-zcash",
+      "date": "2026-11-12T08:24:00+00:00",
+      "source": "Cardano Journal",
+      "sourceType": "independent",
+      "category": "ecosystem",
+      "description": "Cardano developer open-sources zeUTXO, a simulator-only prototype for trustless ADA-to-shielded Zcash atomic swaps without bridges, oracles, relays or light clients. The unaudited project seeks community review and development while highlighting the gap between cryptographic design and live network testing.",
+      "feedCategories": [
+        "News",
+        "Ecosystem"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:50.923587+00:00"
+    },
+    {
+      "title": "What Is Cardano, and Why Should You Care?",
+      "url": "https://cardanojournal.com/article/what-is-cardano-and-why-should-you-care",
+      "date": "2026-11-11T20:45:48+00:00",
+      "source": "Cardano Journal",
+      "sourceType": "independent",
+      "category": "ecosystem",
+      "description": "A beginner-friendly guide to Cardano, ADA, Midnight, blockchain, digital identity, zero-knowledge privacy, and the potential real-world applications that could make decentralized technology useful beyond cryptocurrency speculation.",
+      "feedCategories": [
+        "Education",
+        "Ecosystem"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:50.923595+00:00"
+    },
+    {
+      "title": "Digest November 11: UniHack 2026 | Linear Leios and Ouroboros Peras | Cardano's 2027 Events Proposal | New CIP Updates | Petrobras on Cardano | DijkstraNet Upgrade, and more",
+      "url": "https://forum.cardano.org/t/digest-november-11-unihack-2026-linear-leios-and-ouroboros-peras-cardanos-2027-events-proposal-new-cip-updates-petrobras-on-cardano-dijkstranet-upgrade-and-more/158024",
+      "date": "2026-11-11T14:21:08+00:00",
+      "source": "Cardano Forum",
+      "sourceType": "community",
+      "category": "governance",
+      "description": "Welcome to the Cardano Community Digest! Published by the Cardano Foundation Community Team every two weeks, this Digest will provide you with news, updates and events about the project and ecosystem! If you are interested in receiving the Community Digest in the future directly via email, please sign-up here ! In this edition of the Community Digest, we highlight: UniHack 2026 & Developer Survey: Registrations are open for Sri Lanka’s UniHack, while the Cardano Developer Ecosystem Survey remains open until November 30. Leios & SPO Updates: The latest SPO discussions look ahead to Node 11.3 and the gradual rollout of Linear Leios. Ouroboros Peras: TWEAG has completed nine of twelve mainnet roadmap milestones, with a recent demo showcasing progress. Cardano Treasury Proposal: The Cardano Foundation submitted its 2027 Global Events proposal, requesting USD 4.99 million for activities across twelve cities. CIP Updates: New proposals cover Dynamic Rewards, governance role declarations and a Dijkstra-era Web-Wallet Bridge, while three others move into active review. Cardano Foundation Updates: From Petrobras tokenizing sustainable aviation fuel certificates to new case studies, UCLA collaboration, zero-knowledge research and the latest Accelerator cohort. Intersect & Governance Updates: Updates cover the proposed 2027 budget process, Dijkstra readiness, constitutional amendments, DRep activity and the upcoming Annual Members Meeting. All this and more in today’s Digest. CTA: UniHack 2026: Registrations Are Open For Sri Lanka’s Student Builders Calling the next generation of builders in Sri Lanka. CoinCeylon’s UniHack 2026 brings students from 20+ universities together to learn and build on Cardano and Midnight, with this year’s theme set as Blockchain for Real-World Adoption. Registrations close on 17 November, the building phase and workshops run to 15 December, and the finale lands on 17 December. There is a LKR 500,000 prize pool split LKR 250,000, LKR 150,000 and LKR 100,000 across the top three, five challenge categories from digital finance and real-world assets to privacy and governance, and judging weighted towards viability and adoption rather than polish. Submissions must be open source under Apache 2.0 with a two-to-four-minute demo. It is organised with the University of Kelaniya Faculty of Computing and Technology, the Centre for Data Science and Artificial Intelligence, and CSSA. Register here . Oh, and while we’re on the topic of developers, here are two other things worth a few minutes of your time. The developer survey. The 2026 State of the Cardano Developer Ecosystem survey stays open until 30 November: 15 minutes, nine languages, and this year the responses are recorded on-chain and linked to an Info Action. If you build on Cardano, it is the cheapest way to influence the next round of engineering priorities. Take it at devsurvey.cardano.org . ** The 2027 budget process.** Intersect and ecosystem partners want feedback on the proposed Cardano Ecosystem Budget Process before a first info action, targeted for 10 November, with a second round in December or January. Read the proposal and comment on DRepTalk or the Cardano Forum thread . Latest Updates on Ouroboros Peras + Product Demo From TWEAG Peras does not shout, it ships. And the latest update from the TWEAG team shows that things are moving along nicely. The Ouroboros Peras work, focused on speeding up settlement on Cardano, has now reached nine of the twelve milestones on its mainnet roadmap , according to the team’s tracker. So far, 76 pull requests have been merged, with a handful more still under review. On 2 November, the team shared a demo covering two months of progress across protocol design, consensus and testing. Definitely worth a look if you want to see what’s taking shape: the recording and slides are available here , alongside the video shared on X the following day. The weekly report from 6 November also offers a closer look at some of the technical work. One area the team is addressing is how to persist volatile certificates to disk, ensuring that certificates are never lost, while also working through how the volatile and immutable certificate sets overlap. Previous updates have covered voting rules, certificate sharing between nodes and local test network setup. If you enjoy following protocol development as it happens, CIP-0140 and the Peras tracker are two good places to keep an eye on. Cardano Global Events 2027 Treasury Proposal, by Cardano Foundation The Cardano Foundation has submitted a Treasury proposal for its 2027 global events programme, outlining plans for a shared Cardano presence at twelve conferences across twelve cities. Published on 4 November, the proposal requests USD 4,999,155 to support the execution of the global events programme, including a funded side event or hackathon at each stop and travel support for selected builders. The proposal also makes clear that the Cardano Foundation will not charge for staff time or take a cut of the requested funds. The proposal includes an overview of previous event activities, covering 20 events from Blockchain.RIO in August 2025 to WebX Asia in July 2026. The reported figures include 219 collaborations, 50 of which involved government and regulatory bodies, 8,191 booth contacts, 1,169 developers engaged and 79 projects given a stage. With the proposal now up for consideration, two AMA sessions were held on 9 November, giving DReps an opportunity to raise questions and discuss the plans. The recording of Session 2 is available on YouTube , while the consolidated Q&A from both sessions has also been published on the Cardano Forum. November SPO Call Summary, by Rick McCracken Community member Rick McCracken shared a summary of the 5 November SPO call , with one update in particular worth keeping an eye on: node 11.3, expected in December, will include Linear Leios capability. There is still some testing and tuning to do on testnet, so the rollout is taking a gradual approach. Performance will be monitored as the ecosystem works towards the throughput improvements Leios is expected to bring. In a follow-up post , Rick shared another interesting detail: Linear Leios will initially run at a lower setting, with capacity gradually increased as the balance between performance and costs is assessed. Want to stay in the loop for upcoming SPO calls? You can sign up via the Luma page to receive an update as soon as a new session is scheduled. The Hard Fork Working Group also publishes minutes from every session for those who prefer to keep up with the discussions in writing. Cardano Improvement Proposals (CIP) Updates Robert Phair ’s latest CIP snapshot zooms in on the mechanics behind Cardano’s next chapter. Dynamic Rewards, on-chain governance role declarations and a Dijkstra-era web-wallet bridge join the pipeline as new candidates, while three substantial proposals move into active review and no CIPs reached completion. New Proposals CIP-0207 candidate: Dynamic Rewards - a re-formulation of this CIP-0163 component as a separate proposition (see discussion ): of great interest to stake pool operators and those following potential changes to Cardano’s proof-of-stake and reward mechanisms. CIP-0208 candidate: Disclosure of Governance Roles - a means of producing & interpreting machine-readable, on-chain declarations for governance actors (stake pools, DReps, or Constitutional Committee members), providing an alternative to error-prone social media and web sites. CIP-0209 candidate: Web-Wallet Bridge - Dijkstra era - including a “Balance, sign and submit” extension for improved developer experience and user efficiency - with a potentially expanded scope of new wallet primitives taking advantage of Cardano features in the new Ledger era. Active review Three new proposals representing substantial development effort, though not yet confirmed: DRep Groups - higher-level structure for creating and managing membership groups of DReps: headed for current implementation while seeking confirmation from governance / analytics tooling providers and community members. Layer 1 Data Availability - a CPS outlining a solution scope for integrated large-data handling systems on the Cardano chain: including native authenticity proofs and security guarantees. Nested Transactions - Service Layer - Light Clients - an expansion of the proposed Service Layer ( candidate CIP-0198 ) to provide detailed knowledge of partial transactions as they are submitted for conditional execution. Completed None this period. Cardanians: Weekly Ecosystem Updates The latest Cardanians ecosystem newsletter, Cardano Newsletter #148 , went out on X on 9 November. Here’s a taste of what’s inside: Cardano PRIME has begun onboarding DeFi projects with a goal of $200M+ in DeFi TVL over twelve months through grants, incentives and integrations; the ecosystem passed 127 million mainnet transactions; and Carlos Lopez de Lara shared a video on the Leios rollout. All this and more in their Ecosystem update. Check it out! Cardano Newsletter: Weekly Cardano Digest #151 Lucas’ Weekly Cardano Digest also landed on 9 November, with Issue #151 covering a few interesting developments. Midnight’s Ledger 9 went live on mainnet on 6 November, bringing native ECDSA and Keccak-256 support alongside direct contract-to-contract interaction. Input Output also took the privacy conversation to institutional audiences at SALT, while Lace 2.5 introduced the ability to generate DUST from the cNIGHT held in users’ Cardano accounts, all within one wallet. There’s more to explore in the full issue, so head over to Lucas’ website to catch up and also subscribe. Spotlight on Cardano Content Creators Two explainers caught my attention this fortnight, both offering a closer look at developments that are worth keeping an eye on. On 5 November, Pete Bui, better known as astroboysoup, published an eight-minute walkthrough of the entire PRIME cohort . He goes through the participating teams, what they’re building and some of the gaps that still exist across Cardano DeFi. Along the way, he also touches on an important distinction: while funding helps get projects off the ground, building sustainable products, delivering on the technical side and attracting liquidity are very different challenges. Another topic getting attention is the upcoming Dijkstra era. On 4 November, Carlos Lopez de Lara shared a Dijkstra era explainer , aimed at Constitutional Committee members, DReps and SPOs. It walks through the rollout, the different roles involved and the steps that need to be taken along the way, including the constitutional amendment. Carlos also outlines three calls to action: join the discussion in the Constitutional Amendment Portal, vote yes on the constitution update when it comes to a vote, and vote yes on the hard fork action. For anyone following the preparations for Dijkstra, it’s a useful overview alongside the underlying governance discussions and CAP-12. Community Learning & Developer Engagement Moving over to the developer side, Developers Office Hours #86 took place on 6 November, with BlockSign founder Dennis Mittmann joining the session. The discussion covered BlockSign’s experience implementing CIP-0113, institutional asset operations, regulated stablecoins and the role of MCP in controlled agentic payments. The session thread includes the outline, with the recording to follow on the Cardano Developers playlist. There’s another session coming up on 13 November. Developers Office Hours #87 will feature Yano X, exploring the topic of trust you can verify. You can find the session details here . There’s also a Governance Hour worth catching up on. On 5 November, Nicolas Cerny sat down with Rahul Konudula, founder of Trivolve Tech, for Governance Hour #13: Deep Dive Into PFMS – Bringing Government Scale Adoption to Cardano . The discussion looks at the proposed Police Force Management System (PFMS), including its technical implementation, expected network activity, funding milestones and independent oversight. Building on Trivolve Tech’s existing forensic management system in Uttar Pradesh, the proposal looks at extending evidence tracking across different stages of the police and judicial process, with an initial deployment planned in Telangana, India. The proposal requests 9.6 million ada from the Treasury, with voting scheduled to end on 20 November 2026 (start of Epoch 669) . And there’s more on the governance calendar this week. The Intersect Product Committee meets on 11 November, followed by the CAP Review on 12 November, where editors work through proposals and review their progress in the open. Both sessions are listed on the Cardano Events calendar . Updates from the Cardano Foundation There’s been quite a bit happening across the ecosystem over the past ten days, with developments in tokenized assets, real-world applications, university partnerships, zero-knowledge research and a new group of teams joining the Cardano Accelerator. Let’s start with Switzerland. On 29 October, the Cardano Foundation became a member of CMTA , the Geneva-based association setting standards for tokenized capital markets. This follows CMTA’s recognition of CIP-0113 as equivalent to its CMTAT framework. In practical terms, issuers can now use Cardano’s standard for certifiable shares, while the Foundation gets a seat at the table where these standards are being shaped. The committee decision is publicly available for those interested in the finer details. Moving across the Atlantic, Latin America brought another interesting development. On 4 November, the Foundation shared that Petrobras is tokenizing sustainable aviation fuel certificates on Cardano. LATAM Business Development Lead Rafael Fraga also joined Petrobras on CNN Brasil to discuss how blockchain-based traceability works in practice, including how retiring a token helps prevent the same sustainability claim from being counted twice. There’s also a SAF case study that goes into the technical side of the implementation. And speaking of real-world applications, there are two more case studies worth a look, alongside some activity on the education front. The TrivolveTech FMS case study looks at how Uttar Pradesh police replaced a shared case ID with individual identifiers for each handler. Every scan and lab result is hashed to Cardano, helping maintain accountability and traceability throughout the chain of custody. Education is also part of that picture. During the week of 19 October, the Foundation’s partnership with UCLA moved into the classroom, with a masterclass, a four-hour session, a five-hour accelerator workshop and the Draper Innovation Showcase , sponsored by the Foundation. There’s more to come, too, with curriculum content expected to follow in 2027. On the technical side, there’s some reading to catch up on. On 10 November, Pawel Jakubas published Zero Knowledge Proof from First Principles to Production , the first instalment in a five-part series. It starts with the intuition behind zk-SNARKs and works its way towards generating and verifying a Groth16 proof inside a Plutus script, without relying on black boxes. The next instalments will cover optimisation, key ownership, selective disclosure and lattice-based systems. A slightly shorter read, if you’re more interested in the institutional side of programmable tokens, is The Rules Guiding Your Financial Assets , which takes about five minutes. And a couple of other things before we move on. Reeve shipped release 1.8, bringing improvements to project lifecycle reporting. Meanwhile, the Fall 2026 Cardano Accelerator cohort kicked off in Dublin. Eight teams are now working on projects spanning verification, identity and traceability, with Demo Day scheduled for 3 February 2027. Intersect Updates Intersect has also been busy over the past two weeks, with quite a bit happening around the 2027 budget process, Dijkstra readiness and ongoing governance discussions. Let’s start with the 2027 budget. In update #135, Shaping 2027 , Intersect outlined a proposed Cardano Ecosystem Budget Process (CEBP), developed together with the Cardano Foundation and other ecosystem stakeholders. The idea is to organise treasury requests around seven budget domains, each with a designated steward responsible for developing a strategy, suggesting a budget cap and helping bring comparable proposals to DReps. There’s also an Open Contributions domain, which allows anyone to submit proposals directly to DReps without going through a steward. DReps retain the final say on all funding decisions, and any domains that don’t receive approval would fall under Open Contributions. The proposed process would run as a trial in 2027, with feedback currently being gathered through DRepTalk or the Cardano Forum thread . On the technical side, DijkstraNet has now made the move to protocol version 12. The hard fork took place on 2 November, opening up testing of the Dijkstra-era features for developers, wallet providers and infrastructure teams. Intersect followed this up with Upgrade Bulletin #41 on 4 November, covering the network upgrade and the release of DB-Sync 13.8.0.0, which operators across Preview, Preprod and Mainnet are advised to update to. Node 11.2 is currently intended for DijkstraNet testing, while 11.2.1 is expected to bring mainnet clearance and a fix for a memory usage regression. Node 11.3 is planned to bring the full Dijkstra feature set, including Linear Leios. The Hard Fork Working Group minutes from 3 and 10 November provide a closer look at the ongoing discussions around releases, readiness, scope and node diversity. There’s also been some movement on the constitutional side. Intersect’s update #136 reports that CAP-12, covering Dijkstra-era parameters, has reached version 5, with around thirty parameter values still awaiting feedback from the Parameter Committee. Other amendments are progressing at different speeds: CAP-10 reached version 4, CAP-9 reached version 3, while CAP-3 has seen no new version since 21 October. CAP-1, CAP-2, CIS-4 and CIS-11 are also waiting for responses to outstanding reviewer questions. The next CAP Review takes place on 12 November, and all proposals and discussions can be followed through the Constitutional Amendment Portal . A couple of things are worth keeping in mind if you’re involved in Cardano governance. Intersect’s Civics Committee is encouraging ada holders to check whether their current DRep is still active and whether their voting record reflects their views. Tools such as DRepTalk , CGOV and Learn Cardano can help with that. The Intersect Annual Members Meeting is also coming up in the week of 7 December. This year’s meeting will be spread across three online sessions: 7 December for the Board, leadership and committee updates, 9 December for member questions and discussion, and 10 December for a global community connect day across different time zones. Finally, Intersect Executive Director Jack Briggs also spoke with NIKKEI Financial about the convergence of traditional finance and DeFi, and how trust, resilience and security fit into the next phase of institutional blockchain adoption. Fred Tanaka shared the interview on X . Cardano Forum Top 10 Referred Topics Topics that have received the most clicks from external sources. (last 10 Days) Cardano Global Events 2027: A Proposal for the Ecosystem Cardano Global Events 2027: Q&A from the DRep AMA sessions Peras Weekly Update: 6 November 2026 Hoskinson on founder responsibility: the 7 November AMA From Indonesia to the World: 10 Cardano educational books completed in 2026 Cardano at the UNLOCK University Tour in Mexico: results and lessons Help us break GenWealth: a public testnet for crypto inheritance and recovery Pay-per-call APIs for AI agents, settled on Cardano (x402) You found your place in Cardano. Where would you send someone to find theirs? Stellaris Build Upcoming Community Events 11-11: Intersect Product Committee call. Open call on Google Meet, repeating on 18-11, 25-11 and 02-12. Event link 12-11: CAP Review. Intersect’s review session for Constitutional Amendment Portal proposals, with another on 26-11. Event link 14-11: Cardano First Steps in North-Kivu pour les francophones. A beginner session for French speakers. Event link 14-11: Cardano Indonesian Town Hall #10-2026 . Community town hall on Zoom, with #11 on 21-11. Event link 19-11: DB-Sync TWG Open Session. Open session of the DB-Sync technical working group. Event link 21-11: Mini-Summit_2026: Cardano premiers pas à Beni. An in-person mini-summit in Beni, DR Congo. Event link 25-11: DRep Monthly Call. The monthly call for DReps, hosted with Intersect. Event link 28-11: Cardano Nigeria Townhall, 1st Edition. The first townhall from the Cardano Nigeria community. Event link For more weekly events, visit Cardano Events Many thanks and greetings from the Community Team! 1 post - 1 participant Read full topic",
+      "feedCategories": [
+        "News and Announcements"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:49.815603+00:00"
+    },
+    {
+      "title": "Cardano Foundation Maps a Route From Plutus V3 to Production ZK Proofs",
+      "url": "https://cardanojournal.com/article/cardano-foundation-maps-a-route-from-plutus-v3-to-production-zk-proofs",
+      "date": "2026-11-11T08:24:00+00:00",
+      "source": "Cardano Journal",
+      "sourceType": "independent",
+      "category": "technology",
+      "description": "Cardano Foundation’s new technical guide shows how Groth16 zero-knowledge proofs can be generated off-chain and verified in Plutus V3 smart contracts, while outlining the performance, trusted-setup and production challenges ahead.",
+      "feedCategories": [
+        "Education"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:50.923598+00:00"
+    },
+    {
+      "title": "Ledger Team Update",
+      "url": "https://updates.cardano.intersectmbo.org/2026-11-11-ledger",
+      "date": "2026-11-11T00:00:00+00:00",
+      "source": "Intersect Cardano Updates",
+      "sourceType": "technical",
+      "category": "technology",
+      "description": "High level summary",
+      "feedCategories": [
+        "ledger"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:51.465295+00:00"
+    },
+    {
+      "title": "Mithril Team Update",
+      "url": "https://updates.cardano.intersectmbo.org/2026-11-11-mithril",
+      "date": "2026-11-11T00:00:00+00:00",
+      "source": "Intersect Cardano Updates",
+      "sourceType": "technical",
+      "category": "technology",
+      "description": "High level overview",
+      "feedCategories": [
+        "mithril"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:51.465302+00:00"
+    },
     {
       "title": "EMURGO’s DRep Exit Tests Cardano’s Delegation System",
       "url": "https://cardanojournal.com/article/emurgo-s-drep-exit-tests-cardano-s-delegation-system",
@@ -59,7 +151,7 @@
       "source": "Cardano Forum",
       "sourceType": "community",
       "category": "governance",
-      "description": "Conferences are where builders, enterprises, investors, and regulators decide which ecosystems to work with. In 2025-2026, one shared Cardano presence at these events started 219 collaborations, including 50 with government and regulatory bodies, engaged 1,169 developers, and gave 79 Cardano projects a stage most could not afford on their own. Cardano Global Events 2027 is the proposal to keep that presence in place for 2027. In September, the Cardano Foundation outlined its plans for Cardano Global Events 2027 in the catch-up post on the Cardano Forum . Based on community feedback, those plans have now become a full Treasury withdrawal proposal, shaped by a year of results from the first unified events program. The proposal requests US$4,999,155 to give Cardano one shared presence at 12 major industry conferences between January and December 2027. Each conference comes with a funded side event or hackathon, and the budget pays for selected builders to travel and take part. The request stays within the US$5 million upper limit proposed in September, and the Foundation will not charge for its staff time or make any profit from the proposal. Cardano Global Events 2027 seeks to renew the 2025-2026 Unified Global Events Marketing Strategy that met or exceeded every target . The full proposal is available here: https://ucarecdn.com/bf2042db-6907-430c-9efb-33281147e486/ Why It Matters Conferences are where Cardano builders do business. A shared booth gives projects a place to demonstrate their products, meet partners and investors, and speak to regulators, at events many could not attend alone. Unlike broad awareness campaigns, each activation reports against its own targets, so DReps can see what every event delivered. Without a funded program, Cardano would return to a fragmented presence: fewer projects at the events that matter, and no shared space for builders to do business from, at conferences where other layer 1 ecosystems are present. A Year of Results to Build On The 2025-2026 Unified Global Events Marketing Strategy was the first time Cardano took one coordinated presence to the world’s major industry events. Delivered by the Cardano Foundation, EMURGO, and Rare Network, and approved with nearly 70% support from delegated representatives (DReps), the program ran from Blockchain.RIO in August 2025 to WebX Asia in Tokyo in July 2026. Across 20 activities, it gave 79 Cardano projects a stage. The Treasury-funded program met or exceeded every target in its proposal, with 8,191 booth contacts and 1,169 developers engaged. The final results for each event are published here: https://ucarecdn.com/58a248dc-2003-4731-ba17-68979fb30d5a/EXT_BoothProposal2025KPIS3_September_2026_FINAL_CardanoBoothResults.pdf The 2027 Program The 2027 program takes the same model into a full calendar year, with more support for the builders who make each booth worth visiting. Every activation includes: a Cardano-branded booth shared with participating ecosystem projects, a funded side event: a hackathon, workshop, or networking session (four hackathons across the year, plus Dev Gov Day at Rare Evo), a speaking slot for Cardano content, where the sponsorship package includes one and subject to availability, media outreach before and during the event. Quarter Event Location Dates Side event Q1 Africa Tech Summit 2027 Nairobi, Kenya 10-11 February 2027 Hackathon Q2 TEAMZ Summit 2027 Tokyo, Japan 6-7 April 2027 Workshop Q2 Money20/20 Asia 2027 Bangkok, Thailand 27-29 April 2027 Networking Q2 Consensus Miami 2027 Miami, United States 4-6 May 2027 Workshop Q2 TOKEN2049 New York 2027 New York, United States 16-17 June 2027 Hackathon Q3 Signal Week 2027 (formerly Paris Blockchain Week) Paris, France 6-7 July 2027 Networking Q3 Rare Evo 2027 San Francisco, United States 13-15 August 2027 Dev Gov Day Q4 TOKEN2049 Singapore 2027 Singapore October 2027 Networking Q4 LABITCONF 2027 Buenos Aires, Argentina November 2027 Hackathon Q4 Australian Crypto Convention 2027 Sydney, Australia November 2027 Workshop Q4 Web Summit 2027 Lisbon, Portugal November 2027 Networking Q4 India Blockchain Week 2027 Bangalore, India December 2027 Hackathon A few changes to note from the last catch-up post, following ecosystem feedback and changes in locations from event organizers. The calendar has grown from 11 to 12 conferences: Web Summit in Lisbon joins the program, TOKEN2049 New York replaces Digital Asset Summit NYC, TEAMZ Summit takes the Tokyo slot, and Rare Evo moves to San Francisco in August. Why Now With the first program complete, the window to secure 2027 is already open. Major conferences sell sponsorship packages and the best booth positions months in advance, and events of this size typically need at least six months of preparation. Africa Tech Summit in Nairobi opens the calendar on 10-11 February 2027, less than four months away. If the community approve this proposal only in 2027, it could cover only half of the events planned in the same calendar year. Advance planning is needed and will lead to better negotiation, early pricing, and bulk vendor deals for the most cost-effective option. Approving the proposal now lets us lock in sponsorship packages and booth space for Cardano while they are still available, and gives builders time to apply for travel support, visas and plan their launches around the calendar. If ratification comes later, early activations such as Nairobi in February may need to be dropped or replaced, and any funds not spent return to the Treasury under the proposal’s withdrawal terms. How This Fits the 2027 Ecosystem Budget Process On 28 October 2026, Intersect published a concept for how treasury funding could work for 2027: the Cardano Ecosystem Budget Process (CEBP) . It groups ecosystem needs into funding domains, each with a steward, a strategy and a budget cap that DReps approve before withdrawals are submitted. Events, such as those covered by this proposal, would sit in the Marketing, Analysis & Events domain. We have worked on this concept together with Intersect and other ecosystem stakeholders and have put ourselves forward as a potential steward of the Marketing, Analysis & Events domain. We believe we have experience and a track record to deliver on a strategy for this domain, working with other ecosystem partners to establish a cohesive Cardano presence around the globe. If DReps approve the CEBP direction and the Foundation as a potential steward, we will share a comprehensive strategy for DRep approval in Stage 3 of CEBP (see the Intersect post for more information). We envision that the CEBP and this Global Events 2027 proposal could run in parallel. This is necessitated by timing concerns, with 2027 fast approaching and the need to plan events in advance, as outlined above. Waiting would mean higher prices and, for the first events of the year, no Cardano presence at all. These are opportunities the ecosystem should not give up while a new process is being set up. If this proposal is approved, we envision that it would fall under the Marketing, Analysis & Events domain and be deducted from the budget cap DReps approve for that domain. This could apply even if a different steward is chosen for this domain. The ecosystem would pay for these events once and it would be fully consistent with the new CEBP. If the CEBP is not approved, this Global Events 2027 proposal could still operate standalone, similarly to the 2026 round of treasury withdrawals. Four Core Principles The following principles underpin the entire Cardano Global Events 2027 strategy: 1. Builders come first. The program exists to put Cardano projects in front of developers, users, partners, and investors at conferences many could not afford to attend alone, with space to showcase at the booth and their travel paid for. 2. Clear accountability, local delivery. The Cardano Foundation remains responsible for delivery and results. In Africa, Latin America, the United States, and Australia, it works with local ecosystem partners and Cardano Ambassadors who know those regions. Where a local partner delivers an activation, the partner’s fee of 10% of event costs is shown in that event’s budget. 3. Aligned with the Cardano 2030 Strategy. The program serves three aims of the Strategy. It reaches Latin America, Africa, and East Asia, the priority markets named in Pillar 4 , through events in Buenos Aires, Nairobi, and Tokyo. It shows Cardano’s value in public, building on 147 articles and broadcast interviews in 2025-2026. The program also helps grow a skilled developer base, after engaging 1,169 developers last year, through four hackathons and a route into the Cardano Developer Portal and the Cardano Academy. 4. A calendar the ecosystem can plan around. Twelve activations run from January to December, with dates published a year ahead, so projects can time launches and announcements to the events where their audiences will be. Support for Builders Ecosystem Travel Support is for builders who would not otherwise be able to attend. The Cardano Foundation will open calls on the Forum ahead of each quarter’s events, and any team building on Cardano with a product live on mainnet may apply. Availability for demonstration slots at the booth and ability to report on outcomes afterward are key criteria for applicants. The Foundation will run the selection process in consultation with the Intersect Growth and Marketing Committee. Support covers economy travel and accommodation, booked directly by the Foundation or reimbursed against receipts. Projects must accept the Foundation’s terms and conditions, including identity checks (KYC), to receive support. The final report names every project supported and the amount paid. Selection does not constitute an endorsement by the Cardano Foundation of any project, product, or token. Budget and Safeguards The total request is US$4,999,155 (24,995,775 ada at an assumed rate of US$0.20 per ada), including audit fees and taxes. The full draft proposal sets out the cost of every event. This is an estimate based on current planning and dependencies, as set out more fully in the full draft proposal. What it pays for US$ Side events at all 12 conferences, including four hackathons 695,000 Sponsorship packages: speaking slots, tickets, and floor space 1,989,000 Booth build and audio-visual (AV) 1,060,000 Travel for participating builders and staff 702,000 Merchandise 82,000 Local partner fees at six events 233,100 Taxes, Audit & other fees (5%) 238,055 Total 4,999,155 The 2027 targets include 9,520 booth contacts, 137 workshops and builder presentations, and 4,750 side-event registrations. The full set of KPIs is in the draft proposal, and the final report will set results against every target. Importantly, this budget and the list of planned events is dependent on the timing of approval of the proposal and final pricing from vendors. If the treasury withdrawal for events is approved later than the end of December 2026, then the final list of events may need to be adjusted to obtain best value-for-money and exposure within the original intent of the program. What the Community Gets Builders gain a stage, paid travel, and an audience many could not reach on their own budgets. The Treasury gets published spend for every event and the return of any funds that go unused. Local Cardano communities get a funded side event in their region, with targets of 860 Cardano community attendees and 1,290 people from outside the ecosystem, and Cardano Ambassadors help deliver activations in the regions they know. The wider ecosystem gets a consistent Cardano presence at the conferences where developers, partners, and investors already gather, with a yearly record of what that presence achieved. Next Steps Major conferences book space and sponsorships months in advance, so we respectfully present this proposal to DReps for your consideration and vote, in hopes of securing the 2027 calendar. The first activation is Africa Tech Summit in Nairobi on 10-11 February 2027, and the governance action is planned to go on-chain in November 2026. Questions and feedback are welcome in this thread. The Foundation will host two DRep sessions on Monday 9 November 2026, so DReps in every time zone can join: 10:00 to 11:00 CET: https://www.addevent.com/event/kg7fq2gbl2bq 17:00 to 18:00 CET: https://www.addevent.com/event/pwkl3964x67m Each link adds the session to your calendar with the joining details. We ask DReps to vote yes, and we ask community members who support the proposal to tell their DRep. Please also read the full Draft of the Treasury Withdrawal: https://ucarecdn.com/bf2042db-6907-430c-9efb-33281147e486/ The Cardano Foundation 5 posts - 5 participants Read full topic",
+      "description": "Conferences are where builders, enterprises, investors, and regulators decide which ecosystems to work with. In 2025-2026, one shared Cardano presence at these events started 219 collaborations, including 50 with government and regulatory bodies, engaged 1,169 developers, and gave 79 Cardano projects a stage most could not afford on their own. Cardano Global Events 2027 is the proposal to keep that presence in place for 2027. In September, the Cardano Foundation outlined its plans for Cardano Global Events 2027 in the catch-up post on the Cardano Forum . Based on community feedback, those plans have now become a full Treasury withdrawal proposal, shaped by a year of results from the first unified events program. The proposal requests US$4,999,155 to give Cardano one shared presence at 12 major industry conferences between January and December 2027. Each conference comes with a funded side event or hackathon, and the budget pays for selected builders to travel and take part. The request stays within the US$5 million upper limit proposed in September, and the Foundation will not charge for its staff time or make any profit from the proposal. Cardano Global Events 2027 seeks to renew the 2025-2026 Unified Global Events Marketing Strategy that met or exceeded every target . The full proposal is available here: https://ucarecdn.com/bf2042db-6907-430c-9efb-33281147e486/ Why It Matters Conferences are where Cardano builders do business. A shared booth gives projects a place to demonstrate their products, meet partners and investors, and speak to regulators, at events many could not attend alone. Unlike broad awareness campaigns, each activation reports against its own targets, so DReps can see what every event delivered. Without a funded program, Cardano would return to a fragmented presence: fewer projects at the events that matter, and no shared space for builders to do business from, at conferences where other layer 1 ecosystems are present. A Year of Results to Build On The 2025-2026 Unified Global Events Marketing Strategy was the first time Cardano took one coordinated presence to the world’s major industry events. Delivered by the Cardano Foundation, EMURGO, and Rare Network, and approved with nearly 70% support from delegated representatives (DReps), the program ran from Blockchain.RIO in August 2025 to WebX Asia in Tokyo in July 2026. Across 20 activities, it gave 79 Cardano projects a stage. The Treasury-funded program met or exceeded every target in its proposal, with 8,191 booth contacts and 1,169 developers engaged. The final results for each event are published here: https://ucarecdn.com/58a248dc-2003-4731-ba17-68979fb30d5a/EXT_BoothProposal2025KPIS3_September_2026_FINAL_CardanoBoothResults.pdf The 2027 Program The 2027 program takes the same model into a full calendar year, with more support for the builders who make each booth worth visiting. Every activation includes: a Cardano-branded booth shared with participating ecosystem projects, a funded side event: a hackathon, workshop, or networking session (four hackathons across the year, plus Dev Gov Day at Rare Evo), a speaking slot for Cardano content, where the sponsorship package includes one and subject to availability, media outreach before and during the event. Quarter Event Location Dates Side event Q1 Africa Tech Summit 2027 Nairobi, Kenya 10-11 February 2027 Hackathon Q2 TEAMZ Summit 2027 Tokyo, Japan 6-7 April 2027 Workshop Q2 Money20/20 Asia 2027 Bangkok, Thailand 27-29 April 2027 Networking Q2 Consensus Miami 2027 Miami, United States 4-6 May 2027 Workshop Q2 TOKEN2049 New York 2027 New York, United States 16-17 June 2027 Hackathon Q3 Signal Week 2027 (formerly Paris Blockchain Week) Paris, France 6-7 July 2027 Networking Q3 Rare Evo 2027 San Francisco, United States 13-15 August 2027 Dev Gov Day Q4 TOKEN2049 Singapore 2027 Singapore October 2027 Networking Q4 LABITCONF 2027 Buenos Aires, Argentina November 2027 Hackathon Q4 Australian Crypto Convention 2027 Sydney, Australia November 2027 Workshop Q4 Web Summit 2027 Lisbon, Portugal November 2027 Networking Q4 India Blockchain Week 2027 Bangalore, India December 2027 Hackathon A few changes to note from the last catch-up post, following ecosystem feedback and changes in locations from event organizers. The calendar has grown from 11 to 12 conferences: Web Summit in Lisbon joins the program, TOKEN2049 New York replaces Digital Asset Summit NYC, TEAMZ Summit takes the Tokyo slot, and Rare Evo moves to San Francisco in August. Why Now With the first program complete, the window to secure 2027 is already open. Major conferences sell sponsorship packages and the best booth positions months in advance, and events of this size typically need at least six months of preparation. Africa Tech Summit in Nairobi opens the calendar on 10-11 February 2027, less than four months away. If the community approve this proposal only in 2027, it could cover only half of the events planned in the same calendar year. Advance planning is needed and will lead to better negotiation, early pricing, and bulk vendor deals for the most cost-effective option. Approving the proposal now lets us lock in sponsorship packages and booth space for Cardano while they are still available, and gives builders time to apply for travel support, visas and plan their launches around the calendar. If ratification comes later, early activations such as Nairobi in February may need to be dropped or replaced, and any funds not spent return to the Treasury under the proposal’s withdrawal terms. How This Fits the 2027 Ecosystem Budget Process On 28 October 2026, Intersect published a concept for how treasury funding could work for 2027: the Cardano Ecosystem Budget Process (CEBP) . It groups ecosystem needs into funding domains, each with a steward, a strategy and a budget cap that DReps approve before withdrawals are submitted. Events, such as those covered by this proposal, would sit in the Marketing, Analysis & Events domain. We have worked on this concept together with Intersect and other ecosystem stakeholders and have put ourselves forward as a potential steward of the Marketing, Analysis & Events domain. We believe we have experience and a track record to deliver on a strategy for this domain, working with other ecosystem partners to establish a cohesive Cardano presence around the globe. If DReps approve the CEBP direction and the Foundation as a potential steward, we will share a comprehensive strategy for DRep approval in Stage 3 of CEBP (see the Intersect post for more information). We envision that the CEBP and this Global Events 2027 proposal could run in parallel. This is necessitated by timing concerns, with 2027 fast approaching and the need to plan events in advance, as outlined above. Waiting would mean higher prices and, for the first events of the year, no Cardano presence at all. These are opportunities the ecosystem should not give up while a new process is being set up. If this proposal is approved, we envision that it would fall under the Marketing, Analysis & Events domain and be deducted from the budget cap DReps approve for that domain. This could apply even if a different steward is chosen for this domain. The ecosystem would pay for these events once and it would be fully consistent with the new CEBP. If the CEBP is not approved, this Global Events 2027 proposal could still operate standalone, similarly to the 2026 round of treasury withdrawals. Four Core Principles The following principles underpin the entire Cardano Global Events 2027 strategy: 1. Builders come first. The program exists to put Cardano projects in front of developers, users, partners, and investors at conferences many could not afford to attend alone, with space to showcase at the booth and their travel paid for. 2. Clear accountability, local delivery. The Cardano Foundation remains responsible for delivery and results. In Africa, Latin America, the United States, and Australia, it works with local ecosystem partners and Cardano Ambassadors who know those regions. Where a local partner delivers an activation, the partner’s fee of 10% of event costs is shown in that event’s budget. 3. Aligned with the Cardano 2030 Strategy. The program serves three aims of the Strategy. It reaches Latin America, Africa, and East Asia, the priority markets named in Pillar 4 , through events in Buenos Aires, Nairobi, and Tokyo. It shows Cardano’s value in public, building on 147 articles and broadcast interviews in 2025-2026. The program also helps grow a skilled developer base, after engaging 1,169 developers last year, through four hackathons and a route into the Cardano Developer Portal and the Cardano Academy. 4. A calendar the ecosystem can plan around. Twelve activations run from January to December, with dates published a year ahead, so projects can time launches and announcements to the events where their audiences will be. Support for Builders Ecosystem Travel Support is for builders who would not otherwise be able to attend. The Cardano Foundation will open calls on the Forum ahead of each quarter’s events, and any team building on Cardano with a product live on mainnet may apply. Availability for demonstration slots at the booth and ability to report on outcomes afterward are key criteria for applicants. The Foundation will run the selection process in consultation with the Intersect Growth and Marketing Committee. Support covers economy travel and accommodation, booked directly by the Foundation or reimbursed against receipts. Projects must accept the Foundation’s terms and conditions, including identity checks (KYC), to receive support. The final report names every project supported and the amount paid. Selection does not constitute an endorsement by the Cardano Foundation of any project, product, or token. Budget and Safeguards The total request is US$4,999,155 (24,995,775 ada at an assumed rate of US$0.20 per ada), including audit fees and taxes. The full draft proposal sets out the cost of every event. This is an estimate based on current planning and dependencies, as set out more fully in the full draft proposal. What it pays for US$ Side events at all 12 conferences, including four hackathons 695,000 Sponsorship packages: speaking slots, tickets, and floor space 1,989,000 Booth build and audio-visual (AV) 1,060,000 Travel for participating builders and staff 702,000 Merchandise 82,000 Local partner fees at six events 233,100 Taxes, Audit & other fees (5%) 238,055 Total 4,999,155 The 2027 targets include 9,520 booth contacts, 137 workshops and builder presentations, and 4,750 side-event registrations. The full set of KPIs is in the draft proposal, and the final report will set results against every target. Importantly, this budget and the list of planned events is dependent on the timing of approval of the proposal and final pricing from vendors. If the treasury withdrawal for events is approved later than the end of December 2026, then the final list of events may need to be adjusted to obtain best value-for-money and exposure within the original intent of the program. What the Community Gets Builders gain a stage, paid travel, and an audience many could not reach on their own budgets. The Treasury gets published spend for every event and the return of any funds that go unused. Local Cardano communities get a funded side event in their region, with targets of 860 Cardano community attendees and 1,290 people from outside the ecosystem, and Cardano Ambassadors help deliver activations in the regions they know. The wider ecosystem gets a consistent Cardano presence at the conferences where developers, partners, and investors already gather, with a yearly record of what that presence achieved. Next Steps Major conferences book space and sponsorships months in advance, so we respectfully present this proposal to DReps for your consideration and vote, in hopes of securing the 2027 calendar. The first activation is Africa Tech Summit in Nairobi on 10-11 February 2027, and the governance action is planned to go on-chain in November 2026. Questions and feedback are welcome in this thread. The Foundation will host two DRep sessions on Monday 9 November 2026, so DReps in every time zone can join: 10:00 to 11:00 CET: https://www.addevent.com/event/kg7fq2gbl2bq 17:00 to 18:00 CET: https://www.addevent.com/event/pwkl3964x67m Each link adds the session to your calendar with the joining details. We ask DReps to vote yes, and we ask community members who support the proposal to tell their DRep. Please also read the full Draft of the Treasury Withdrawal: https://ucarecdn.com/bf2042db-6907-430c-9efb-33281147e486/ The Cardano Foundation 6 posts - 6 participants Read full topic",
       "feedCategories": [
         "News and Announcements"
       ],
@@ -269,6 +361,21 @@
       "status": "pending",
       "published": false,
       "collected_at": "2026-11-09T15:16:09.446570+00:00"
+    },
+    {
+      "title": "Ledger Team Update",
+      "url": "https://updates.cardano.intersectmbo.org/2026-10-28-ledger",
+      "date": "2026-10-28T00:00:00+00:00",
+      "source": "Intersect Cardano Updates",
+      "sourceType": "technical",
+      "category": "technology",
+      "description": "High level summary",
+      "feedCategories": [
+        "ledger"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-12T15:48:51.465315+00:00"
     },
     {
       "title": "Intersect Returns 115,172 ADA to Cardano Treasury in First Mainnet Sweep",
@@ -965,21 +1072,6 @@
       "collected_at": "2026-11-09T15:16:09.446595+00:00"
     },
     {
-      "title": "Plutus Core Team Update",
-      "url": "https://updates.cardano.intersectmbo.org/2026-09-23-plutus-core",
-      "date": "2026-09-23T00:00:00+00:00",
-      "source": "Intersect Cardano Updates",
-      "sourceType": "technical",
-      "category": "technology",
-      "description": "High level summary",
-      "feedCategories": [
-        "plutus-core"
-      ],
-      "status": "pending",
-      "published": false,
-      "collected_at": "2026-11-09T15:16:09.446597+00:00"
-    },
-    {
       "title": "Cardano’s Van Rossem Fork Puts the Upgrade Vote Inside the Protocol",
       "url": "https://cardanojournal.com/article/cardano-s-van-rossem-fork-puts-the-upgrade-vote-inside-the-protocol",
       "date": "2026-09-22T13:25:00+00:00",
@@ -995,21 +1087,6 @@
       "status": "pending",
       "published": false,
       "collected_at": "2026-11-09T15:16:09.225426+00:00"
-    },
-    {
-      "title": "Consensus Team Update",
-      "url": "https://updates.cardano.intersectmbo.org/2026-09-22-consensus",
-      "date": "2026-09-22T00:00:00+00:00",
-      "source": "Intersect Cardano Updates",
-      "sourceType": "technical",
-      "category": "technology",
-      "description": "High level summary",
-      "feedCategories": [
-        "consensus"
-      ],
-      "status": "pending",
-      "published": false,
-      "collected_at": "2026-11-09T15:16:09.446599+00:00"
     },
     {
       "title": "Midnight’s NIGHT Rollout Tests Cardano’s Privacy Strategy",
@@ -1147,21 +1224,6 @@
       "status": "pending",
       "published": false,
       "collected_at": "2026-11-09T15:16:07.170343+00:00"
-    },
-    {
-      "title": "Ledger Team Update",
-      "url": "https://updates.cardano.intersectmbo.org/2026-09-16-ledger",
-      "date": "2026-09-16T00:00:00+00:00",
-      "source": "Intersect Cardano Updates",
-      "sourceType": "technical",
-      "category": "technology",
-      "description": "High level summary",
-      "feedCategories": [
-        "ledger"
-      ],
-      "status": "pending",
-      "published": false,
-      "collected_at": "2026-11-09T15:16:09.446600+00:00"
     },
     {
       "title": "Cardano Global Events 2027: The Catch-up",
@@ -1658,22 +1720,6 @@
       "collected_at": "2026-11-09T15:16:09.225466+00:00"
     },
     {
-      "title": "Cardano’s Polkadotization Risk: Governance Strength or a Slow-Burning Liability?",
-      "url": "https://cardanojournal.com/article/cardanos-polkadotization-risk-governance-strength-or-a-slow-burning-liability",
-      "date": "2026-04-29T11:04:30+00:00",
-      "source": "Cardano Journal",
-      "sourceType": "independent",
-      "category": "governance",
-      "description": "For years, Cardano has positioned itself as the methodical alternative in crypto, a network that prioritizes research, formal verification, and long-term sustainability over hype cycles. Its latest evolution, centered around on-chain governance and decentralized treasury control, is meant to solidify",
-      "feedCategories": [
-        "News",
-        "Governance"
-      ],
-      "status": "pending",
-      "published": false,
-      "collected_at": "2026-11-09T15:16:09.225468+00:00"
-    },
-    {
       "title": "Digest April 28, 2026: Cardano becomes Official x402 Chain • Blockfrost Integrates Filecoin Premium Storage • Intersect MBO Governance & Technical Updates • Cardano at JCON 2026 in Cologne • Spotlight on Cardano Content Creators",
       "url": "https://forum.cardano.org/t/digest-april-28-2026-cardano-becomes-official-x402-chain-blockfrost-integrates-filecoin-premium-storage-intersect-mbo-governance-technical-updates-cardano-at-jcon-2026-in-cologne-spotlight-on-cardano-content-creators/154318",
       "date": "2026-04-28T08:20:12+00:00",
@@ -1687,38 +1733,6 @@
       "status": "pending",
       "published": false,
       "collected_at": "2026-11-09T15:16:08.278605+00:00"
-    },
-    {
-      "title": "The Sunset of JPG Store: What Cardano’s Biggest NFT Marketplace Collapse Really Means",
-      "url": "https://cardanojournal.com/article/the-sunset-of-jpg-store-what-cardanos-biggest-nft-marketplace-collapse-really-means",
-      "date": "2026-04-24T12:31:31+00:00",
-      "source": "Cardano Journal",
-      "sourceType": "independent",
-      "category": "ecosystem",
-      "description": "The announcement landed with the quiet weight of inevitability, but its implications are anything but small. After years of serving as the beating heart of Cardano’s NFT economy, JPG Store is shutting down. Alongside it, Comet, its companion platform, will also go offline, marking the end of one of the",
-      "feedCategories": [
-        "News",
-        "Ecosystem"
-      ],
-      "status": "pending",
-      "published": false,
-      "collected_at": "2026-11-09T15:16:09.225470+00:00"
-    },
-    {
-      "title": "Cardano Governance Tension Builds: $3.5M Treasury Proposal Faces Strong Resistance",
-      "url": "https://cardanojournal.com/article/cardano-governance-tension-builds-3-5m-treasury-proposal-faces-strong-resistance",
-      "date": "2026-04-15T13:29:09+00:00",
-      "source": "Cardano Journal",
-      "sourceType": "independent",
-      "category": "governance",
-      "description": "The vote isn’t over, but the signal is already loud. A controversial treasury proposal within the Cardano ecosystem is facing overwhelming resistance from Delegated Representatives (DReps), with early voting trends showing roughly 93% opposition. While the final outcome remains undecided, the directi",
-      "feedCategories": [
-        "News",
-        "Governance"
-      ],
-      "status": "pending",
-      "published": false,
-      "collected_at": "2026-11-09T15:16:09.225472+00:00"
     },
     {
       "title": "Digest April 14, 2026: Applications Open For New PRAGMA Projects • Buidler Fest 2026 Recap • The State of Cardano DeFi / Governance Hour: Pebble + Gerolamo • Ambassador Stories, with Randy • Content Creators Peter Bui & Linda",
@@ -1764,6 +1778,99 @@
       "status": "pending",
       "published": false,
       "collected_at": "2026-11-09T15:16:08.278612+00:00"
+    },
+    {
+      "title": "Plutus Core Team Update",
+      "url": "https://updates.cardano.intersectmbo.org/2026-09-23-plutus-core",
+      "date": "2026-09-23T00:00:00+00:00",
+      "source": "Intersect Cardano Updates",
+      "sourceType": "technical",
+      "category": "technology",
+      "description": "High level summary",
+      "feedCategories": [
+        "plutus-core"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-09T15:16:09.446597+00:00"
+    },
+    {
+      "title": "Consensus Team Update",
+      "url": "https://updates.cardano.intersectmbo.org/2026-09-22-consensus",
+      "date": "2026-09-22T00:00:00+00:00",
+      "source": "Intersect Cardano Updates",
+      "sourceType": "technical",
+      "category": "technology",
+      "description": "High level summary",
+      "feedCategories": [
+        "consensus"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-09T15:16:09.446599+00:00"
+    },
+    {
+      "title": "Ledger Team Update",
+      "url": "https://updates.cardano.intersectmbo.org/2026-09-16-ledger",
+      "date": "2026-09-16T00:00:00+00:00",
+      "source": "Intersect Cardano Updates",
+      "sourceType": "technical",
+      "category": "technology",
+      "description": "High level summary",
+      "feedCategories": [
+        "ledger"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-09T15:16:09.446600+00:00"
+    },
+    {
+      "title": "Cardano’s Polkadotization Risk: Governance Strength or a Slow-Burning Liability?",
+      "url": "https://cardanojournal.com/article/cardanos-polkadotization-risk-governance-strength-or-a-slow-burning-liability",
+      "date": "2026-04-29T11:04:30+00:00",
+      "source": "Cardano Journal",
+      "sourceType": "independent",
+      "category": "governance",
+      "description": "For years, Cardano has positioned itself as the methodical alternative in crypto, a network that prioritizes research, formal verification, and long-term sustainability over hype cycles. Its latest evolution, centered around on-chain governance and decentralized treasury control, is meant to solidify",
+      "feedCategories": [
+        "News",
+        "Governance"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-09T15:16:09.225468+00:00"
+    },
+    {
+      "title": "The Sunset of JPG Store: What Cardano’s Biggest NFT Marketplace Collapse Really Means",
+      "url": "https://cardanojournal.com/article/the-sunset-of-jpg-store-what-cardanos-biggest-nft-marketplace-collapse-really-means",
+      "date": "2026-04-24T12:31:31+00:00",
+      "source": "Cardano Journal",
+      "sourceType": "independent",
+      "category": "ecosystem",
+      "description": "The announcement landed with the quiet weight of inevitability, but its implications are anything but small. After years of serving as the beating heart of Cardano’s NFT economy, JPG Store is shutting down. Alongside it, Comet, its companion platform, will also go offline, marking the end of one of the",
+      "feedCategories": [
+        "News",
+        "Ecosystem"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-09T15:16:09.225470+00:00"
+    },
+    {
+      "title": "Cardano Governance Tension Builds: $3.5M Treasury Proposal Faces Strong Resistance",
+      "url": "https://cardanojournal.com/article/cardano-governance-tension-builds-3-5m-treasury-proposal-faces-strong-resistance",
+      "date": "2026-04-15T13:29:09+00:00",
+      "source": "Cardano Journal",
+      "sourceType": "independent",
+      "category": "governance",
+      "description": "The vote isn’t over, but the signal is already loud. A controversial treasury proposal within the Cardano ecosystem is facing overwhelming resistance from Delegated Representatives (DReps), with early voting trends showing roughly 93% opposition. While the final outcome remains undecided, the directi",
+      "feedCategories": [
+        "News",
+        "Governance"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-09T15:16:09.225472+00:00"
     },
     {
       "title": "Cardano x Draper Dragon: Orion Fund - FAQ",
