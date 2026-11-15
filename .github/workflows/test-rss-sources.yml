@@ -1,0 +1,163 @@
+
+name: RSS Source Diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-rss:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check RSS feeds
+        run: |
+          python - <<'PY'
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          import re
+          import html
+          import sys
+
+          feeds = [
+              {
+                  "name": "Ethereum Blog",
+                  "url": "https://blog.ethereum.org/feed.xml"
+              },
+              {
+                  "name": "Bitcoin Optech",
+                  "url": "https://bitcoinops.org/feed.xml"
+              },
+              {
+                  "name": "Celestia Blog",
+                  "url": "https://blog.celestia.org/rss/"
+              }
+          ]
+
+          def local_name(tag):
+              return tag.split("}")[-1].lower()
+
+          def child_text(element, names):
+              for child in list(element):
+                  if local_name(child.tag) in names:
+                      value = "".join(child.itertext()).strip()
+                      if value:
+                          return value
+              return ""
+
+          def clean_text(value):
+              value = html.unescape(value)
+              value = re.sub(r"<[^>]+>", " ", value)
+              return re.sub(r"\s+", " ", value).strip()
+
+          def get_entries(root):
+              root_name = local_name(root.tag)
+
+              if root_name == "rss":
+                  channel = next(
+                      (x for x in list(root)
+                       if local_name(x.tag) == "channel"),
+                      root
+                  )
+                  return [
+                      x for x in list(channel)
+                      if local_name(x.tag) == "item"
+                  ]
+
+              if root_name == "feed":
+                  return [
+                      x for x in list(root)
+                      if local_name(x.tag) == "entry"
+                  ]
+
+              raise ValueError(
+                  f"Unsupported XML root: {root_name}"
+              )
+
+          def get_link(entry):
+              for child in list(entry):
+                  if local_name(child.tag) == "link":
+                      href = child.attrib.get("href")
+                      if href:
+                          return href
+                      value = "".join(child.itertext()).strip()
+                      if value:
+                          return value
+              return ""
+
+          failures = 0
+
+          for feed in feeds:
+              print("\n" + "=" * 60)
+              print("SOURCE:", feed["name"])
+              print("URL:", feed["url"])
+
+              try:
+                  request = urllib.request.Request(
+                      feed["url"],
+                      headers={
+                          "User-Agent": "CryptoAtlas-RSS-Diagnostic/1.0",
+                          "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml"
+                      }
+                  )
+
+                  with urllib.request.urlopen(
+                      request, timeout=30
+                  ) as response:
+                      status = response.status
+                      content_type = response.headers.get(
+                          "Content-Type", "unknown"
+                      )
+                      data = response.read()
+
+                  print("HTTP STATUS:", status)
+                  print("CONTENT TYPE:", content_type)
+                  print("RESPONSE SIZE:", len(data), "bytes")
+
+                  root = ET.fromstring(data)
+                  entries = get_entries(root)
+
+                  print("XML: VALID")
+                  print("RECORDS FOUND:", len(entries))
+
+                  if not entries:
+                      raise ValueError("No entries found")
+
+                  for index, entry in enumerate(entries[:3], 1):
+                      title = child_text(entry, {"title"})
+                      date = child_text(
+                          entry,
+                          {"pubdate", "published", "updated", "date"}
+                      )
+                      description = child_text(
+                          entry,
+                          {"description", "summary", "content", "encoded"}
+                      )
+                      link = get_link(entry)
+
+                      print(f"\nENTRY {index}")
+                      print("TITLE:", title or "Not found")
+                      print("DATE:", date or "Not found")
+                      print("LINK:", link or "Not found")
+                      print(
+                          "DESCRIPTION:",
+                          clean_text(description)[:350] or "Not found"
+                      )
+
+                  print("\nRESULT: SUCCESS")
+
+              except Exception as error:
+                  failures += 1
+                  print("RESULT: FAILED")
+                  print("ERROR:", str(error))
+
+          print("\n" + "=" * 60)
+          print("FAILED SOURCES:", failures, "of", len(feeds))
+
+          if failures:
+              sys.exit(1)
+
+          print("ALL RSS SOURCES PASSED")
+          PY
