@@ -366,7 +366,9 @@ jobs:
                       continue
 
                   # Refresh pending feed data, but preserve editorial notes.
-                  for field in (
+                                    for field in (
+                      "atlasCategory",
+                      "materialType",
                       "status",
                       "published",
                       "collected_at",
