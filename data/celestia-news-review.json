@@ -16,7 +16,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371489+00:00"
+      "collected_at": "2026-11-16T15:28:46.371489+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Research / Benchmark"
     },
     {
       "title": "Introducing Voyager: Hyperscale Payments for Agentic Commerce",
@@ -32,7 +34,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371502+00:00"
+      "collected_at": "2026-11-16T15:28:46.371502+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Product / Architecture Announcement"
     },
     {
       "title": "Derive: Scaling the Largest Onchain Options Exchange with Celestia",
@@ -47,7 +51,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371506+00:00"
+      "collected_at": "2026-11-16T15:28:46.371506+00:00",
+      "atlasCategory": "Digital Economy",
+      "materialType": "Case Study"
     },
     {
       "title": "Celestia Fibre Hits 3 Tb/s",
@@ -63,7 +69,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371508+00:00"
+      "collected_at": "2026-11-16T15:28:46.371508+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Technical Benchmark"
     },
     {
       "title": "Midnight Network: A Case Study in Using Data Availability for Peer-to-Peer Networking",
@@ -78,7 +86,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371510+00:00"
+      "collected_at": "2026-11-16T15:28:46.371510+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Case Study"
     },
     {
       "title": "Celestia Labs Acquires Sovereign Labs To Build High-Performance Custom Blockchains",
@@ -93,7 +103,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371512+00:00"
+      "collected_at": "2026-11-16T15:28:46.371512+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Business Announcement"
     },
     {
       "title": "Why Blockchain Benchmarks Are Usually Deceiving",
@@ -108,7 +120,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371514+00:00"
+      "collected_at": "2026-11-16T15:28:46.371514+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Research / Technical Analysis"
     },
     {
       "title": "Relay Chain: A Case Study in Product-Centric Chain Architecture",
@@ -123,7 +137,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371516+00:00"
+      "collected_at": "2026-11-16T15:28:46.371516+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Case Study"
     },
     {
       "title": "Upcoming Celestia Upgrade: Hibiscus (V7)",
@@ -138,7 +154,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371518+00:00"
+      "collected_at": "2026-11-16T15:28:46.371518+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Engineering Update"
     },
     {
       "title": "The Best Networks Will Continue Leveraging the Layer 2 Model",
@@ -153,7 +171,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371520+00:00"
+      "collected_at": "2026-11-16T15:28:46.371520+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Technical Analysis / Opinion"
     },
     {
       "title": "OnchainDB: A Case Study in Celestia's \"Everything Markets\" Vision",
@@ -168,7 +188,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371522+00:00"
+      "collected_at": "2026-11-16T15:28:46.371522+00:00",
+      "atlasCategory": "Digital Economy",
+      "materialType": "Case Study"
     },
     {
       "title": "Introducing Celestia Private Blockspace: confidential onchain finance",
@@ -184,7 +206,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371524+00:00"
+      "collected_at": "2026-11-16T15:28:46.371524+00:00",
+      "atlasCategory": "Development & Security",
+      "materialType": "Privacy / Technology Announcement"
     },
     {
       "title": "Celestia Vision 2.0: every market onchain",
@@ -199,7 +223,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371526+00:00"
+      "collected_at": "2026-11-16T15:28:46.371526+00:00",
+      "atlasCategory": "Digital Economy",
+      "materialType": "Strategic Vision"
     },
     {
       "title": "Introducing Fibre: 1Tb/s of blockspace",
@@ -214,7 +240,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371528+00:00"
+      "collected_at": "2026-11-16T15:28:46.371528+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Technology Announcement / Benchmark"
     },
     {
       "title": "Introducing the Matcha upgrade: towards 128MB blocks",
@@ -229,7 +257,9 @@
       ],
       "status": "pending",
       "published": false,
-      "collected_at": "2026-11-16T15:28:46.371530+00:00"
+      "collected_at": "2026-11-16T15:28:46.371530+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Engineering Update"
     }
   ]
 }
