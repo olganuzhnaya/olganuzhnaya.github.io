@@ -1,4 +1,3 @@
-
 name: Crypto Atlas - Celestia News Collection
 
 on:
@@ -24,14 +23,11 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Collect Celestia RSS publications
+      - name: Collect Celestia sources for editorial review
         run: |
           python - <<'PY'
-          import json
-          import re
-          import urllib.request
+          import json, re, urllib.request, urllib.error
           import xml.etree.ElementTree as ET
-
           from datetime import datetime, timezone
           from email.utils import parsedate_to_datetime
           from html import unescape
@@ -39,384 +35,206 @@ jobs:
           from pathlib import Path
           from urllib.parse import urldefrag, urlsplit, urlunsplit
 
-          OUTPUT = Path("data/celestia-news-review.json")
-
-          SOURCE = {
-              "name": "Celestia Blog",
-              "type": "official",
-              "url": "https://blog.celestia.org/rss/",
-          }
+          OUTPUT = Path('data/celestia-news-review.json')
+          API = 'https://api.github.com'
+          NOW = lambda: datetime.now(timezone.utc).isoformat()
 
           class TextExtractor(HTMLParser):
-              def __init__(self):
-                  super().__init__()
-                  self.parts = []
-
-              def handle_data(self, data):
-                  self.parts.append(data)
+              def __init__(self): super().__init__(); self.parts=[]
+              def handle_data(self, data): self.parts.append(data)
 
           def clean_text(value):
-              parser = TextExtractor()
-              parser.feed(value or "")
-              return re.sub(
-                  r"\s+",
-                  " ",
-                  unescape(" ".join(parser.parts))
-              ).strip()
-
-          def local_name(element):
-              return element.tag.rsplit("}", 1)[-1].lower()
-
-          def child_text(element, names):
-              names = {name.lower() for name in names}
-
-              for child in element:
-                  if local_name(child) in names:
-                      value = "".join(child.itertext()).strip()
-                      if value:
-                          return value
-
-              return ""
-
-          def get_link(entry):
-              links = []
-
-              for child in entry:
-                  if local_name(child) != "link":
-                      continue
-
-                  href = child.attrib.get("href", "").strip()
-                  rel = child.attrib.get("rel", "alternate").lower()
-                  text = (child.text or "").strip()
-
-                  if href:
-                      links.append((rel, href))
-                  elif text:
-                      links.append(("alternate", text))
-
-              for preferred_rel in ("alternate", ""):
-                  for rel, url in links:
-                      if rel == preferred_rel:
-                          return url
-
-              return links[0][1] if links else ""
-
+              p=TextExtractor(); p.feed(value or '')
+              return re.sub(r'\s+', ' ', unescape(' '.join(p.parts))).strip()
+          def local_name(e): return e.tag.rsplit('}',1)[-1].lower()
+          def child_text(e,names):
+              names={x.lower() for x in names}
+              for c in e:
+                  if local_name(c) in names:
+                      v=''.join(c.itertext()).strip()
+                      if v: return v
+              return ''
           def normalize_url(url):
-              url = url.strip()
-
-              if not url:
-                  return ""
-
-              url, _ = urldefrag(url)
-              parts = urlsplit(url)
-
-              if parts.scheme.lower() != "https" or not parts.hostname:
-                  return ""
-
-              return urlunsplit((
-                  "https",
-                  parts.netloc,
-                  parts.path,
-                  parts.query,
-                  ""
-              ))
-
+              url,_=urldefrag((url or '').strip()); p=urlsplit(url)
+              if p.scheme.lower()!='https' or not p.hostname: return ''
+              return urlunsplit(('https',p.netloc,p.path,p.query,''))
           def parse_date(raw):
-              if not raw:
-                  return "", 0
-
+              if not raw: return ''
               try:
-                  try:
-                      parsed = parsedate_to_datetime(raw)
-                  except (ValueError, TypeError, OverflowError):
-                      parsed = datetime.fromisoformat(
-                          raw.replace("Z", "+00:00")
-                      )
+                  try: d=parsedate_to_datetime(raw)
+                  except (ValueError,TypeError,OverflowError): d=datetime.fromisoformat(raw.replace('Z','+00:00'))
+                  if d.tzinfo is None: d=d.replace(tzinfo=timezone.utc)
+                  return d.astimezone(timezone.utc).isoformat()
+              except (ValueError,TypeError,OverflowError): return raw
 
-                  if parsed.tzinfo is None:
-                      parsed = parsed.replace(tzinfo=timezone.utc)
-
-                  parsed = parsed.astimezone(timezone.utc)
-
-                  return parsed.isoformat(), parsed.timestamp()
-
-              except (ValueError, TypeError, OverflowError):
-                  return raw, 0
-
-          def get_entry_date(entry):
-              raw = child_text(
-                  entry,
-                  ("pubDate", "published", "updated", "date")
-              )
-              return parse_date(raw)
-
-          def get_description(entry):
-              descriptions = []
-
-              for child in entry:
-                  if local_name(child) in (
-                      "description",
-                      "encoded",
-                      "summary",
-                      "content"
-                  ):
-                      value = clean_text(
-                          "".join(child.itertext())
-                      )
-
-                      if value and value not in descriptions:
-                          descriptions.append(value)
-
-              if not descriptions:
-                  return ""
-
-              return max(descriptions, key=len)
-
-          def get_categories(entry):
-              categories = []
-
-              for child in entry:
-                  if local_name(child) == "category":
-                      value = (
-                          child.attrib.get("term")
-                          or "".join(child.itertext())
-                      )
-                      value = clean_text(value)
-
-                      if value and value not in categories:
-                          categories.append(value)
-
-              return categories
-
-          def get_category(title):
-              text = title.lower()
-
-              research_words = (
-                  "research",
-                  "benchmark",
-                  "tps",
-                  "cryptography",
-                  "proof",
-                  "security",
-                  "sampling",
-                  "erasure coding",
-              )
-
-              technology_words = (
-                  "protocol",
-                  "scaling",
-                  "data availability",
-                  "modular",
-                  "blockspace",
-                  "rollup",
-                  "network",
-                  "node",
-                  "validator",
-                  "consensus",
-                  "architecture",
-                  "upgrade",
-                  "mainnet",
-                  "testnet",
-                  "developer",
-                  "integration",
-                  "interoperability",
-              )
-
-              ecosystem_words = (
-                  "ecosystem",
-                  "partnership",
-                  "partner",
-                  "launch",
-                  "project",
-                  "case study",
-                  "application",
-                  "payments",
-                  "stablecoin",
-                  "exchange",
-                  "builder",
-              )
-
-              if any(word in text for word in research_words):
-                  return "research"
-
-              if any(word in text for word in technology_words):
-                  return "technology"
-
-              if any(word in text for word in ecosystem_words):
-                  return "ecosystem"
-
-              return "official"
-
-          def fetch_feed(url):
-              request = urllib.request.Request(
-                  url,
-                  headers={
-                      "User-Agent": "CryptoAtlasNews/1.0",
-                      "Accept": (
-                          "application/rss+xml, "
-                          "application/atom+xml, "
-                          "application/xml, text/xml"
-                      ),
-                  }
-              )
-
-              with urllib.request.urlopen(
-                  request,
-                  timeout=30
-              ) as response:
-                  data = response.read(5_000_000)
-
-              try:
-                  return ET.fromstring(data)
+          def request_json(url):
+              req=urllib.request.Request(url,headers={'User-Agent':'CryptoAtlasNews/1.0','Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+              with urllib.request.urlopen(req,timeout=30) as r: return json.loads(r.read(8_000_000))
+          def request_bytes(url,accept='application/rss+xml, application/atom+xml, application/xml, text/xml'):
+              req=urllib.request.Request(url,headers={'User-Agent':'CryptoAtlasNews/1.0','Accept':accept})
+              with urllib.request.urlopen(req,timeout=30) as r: return r.read(5_000_000)
+          def parse_feed(data):
+              try: return ET.fromstring(data)
               except ET.ParseError:
-                  repaired = re.sub(
-                      rb"&(?!amp;|lt;|gt;|apos;|quot;|#\d+;|#x[0-9a-fA-F]+;)",
-                      b"&amp;",
-                      data
-                  )
-                  return ET.fromstring(repaired)
+                  data=re.sub(rb'&(?!amp;|lt;|gt;|apos;|quot;|#\d+;|#x[0-9a-fA-F]+;)',b'&amp;',data)
+                  return ET.fromstring(data)
+          def blog_category(title):
+              t=title.lower()
+              if any(w in t for w in ('research','benchmark','tps','cryptography','proof','security','sampling','erasure coding')): return 'research'
+              if any(w in t for w in ('protocol','scaling','data availability','modular','blockspace','rollup','network','node','validator','consensus','architecture','upgrade','mainnet','testnet','developer','integration','interoperability')): return 'technology'
+              if any(w in t for w in ('ecosystem','partnership','partner','launch','project','case study','application','payments','stablecoin','exchange','builder')): return 'ecosystem'
+              return 'official'
+          def collect_blog():
+              root=parse_feed(request_bytes('https://blog.celestia.org/rss/'))
+              out=[]
+              for e in root.iter():
+                  if local_name(e) not in ('item','entry'): continue
+                  title=clean_text(child_text(e,('title',)))
+                  links=[]
+                  for c in e:
+                      if local_name(c)=='link':
+                          href=c.attrib.get('href','').strip(); rel=c.attrib.get('rel','alternate').lower(); txt=(c.text or '').strip()
+                          if href: links.append((rel,href))
+                          elif txt: links.append(('alternate',txt))
+                  link=next((u for rel,u in links if rel=='alternate'), links[0][1] if links else '')
+                  url=normalize_url(link)
+                  if not title or not url: continue
+                  desc=[]; cats=[]
+                  for c in e:
+                      n=local_name(c)
+                      if n in ('description','encoded','summary','content'):
+                          v=clean_text(''.join(c.itertext()))
+                          if v and v not in desc: desc.append(v)
+                      if n=='category':
+                          v=clean_text(c.attrib.get('term') or ''.join(c.itertext()))
+                          if v and v not in cats: cats.append(v)
+                  out.append(dict(title=title,url=url,date=parse_date(child_text(e,('pubDate','published','updated','date'))),source='Celestia Blog',sourceType='official',category=blog_category(title),description=max(desc,key=len) if desc else '',feedCategories=cats))
+              if not out: raise RuntimeError('Celestia Blog RSS returned no usable entries')
+              return out
 
-          def collect_publications():
-              root = fetch_feed(SOURCE["url"])
-              entries = [
-                  element
-                  for element in root.iter()
-                  if local_name(element) in ("item", "entry")
-              ]
+          def collect_releases(repo, label):
+              releases=request_json(f'{API}/repos/{repo}/releases?per_page=100')
+              if not isinstance(releases,list): raise RuntimeError(f'Unexpected releases response for {repo}')
+              stable=[r for r in releases if not r.get('draft') and not r.get('prerelease') and r.get('tag_name')]
+              stable.sort(key=lambda r: r.get('published_at') or r.get('created_at') or '', reverse=True)
+              return [dict(title=f"{label} {r['tag_name']}",url=r.get('html_url',''),date=parse_date(r.get('published_at') or r.get('created_at')),source=label,sourceType='official',category='technology',description=clean_text(r.get('body','')),feedCategories=['GitHub Release'],_release_tag=r['tag_name'],_release_repo=repo) for r in stable if normalize_url(r.get('html_url',''))]
 
-              collected = []
+          def parse_cip_metadata(content):
+              meta={}
+              for line in content.splitlines():
+                  m=re.match(r'^\s*\|\s*([^|]+?)\s*\|\s*([^|]*?)\s*\|\s*$',line)
+                  if m:
+                      k=m.group(1).strip().lower().replace(' ','-'); v=m.group(2).strip()
+                      if k in ('title','description','author','status','type','category','created','withdrawal-reason') and v: meta[k]=v
+              return meta
 
-              for entry in entries:
-                  title = clean_text(
-                      child_text(entry, ("title",))
-                  )
+          def cip_item(path, sha, content):
+              m=re.fullmatch(r'cips/cip-(\d+)\.md',path)
+              if not m: return None
+              meta=parse_cip_metadata(content)
+              num=int(m.group(1)); title=meta.get('title',f'CIP-{num}')
+              return dict(title=f"CIP-{num}: {title}",url=f'https://github.com/celestiaorg/CIPs/blob/{sha}/{path}',date=parse_date(meta.get('created','')),source='Celestia Improvement Proposals',sourceType='official',category='technology',description=meta.get('description',''),feedCategories=['CIP',meta.get('status','Unknown'),meta.get('type','')],cip_number=num,cip_status=meta.get('status',''),cip_type=meta.get('type',''),cip_category=meta.get('category',''),_cip_path=path,_cip_sha=sha)
 
-                  link = normalize_url(get_link(entry))
+          def collect_cips(state):
+              repo='celestiaorg/CIPs'
+              head=request_json(f'{API}/repos/{repo}/commits/main')['sha']
+              base=state.get('cip_baseline_sha')
+              if not base:
+                  return [], {'cip_baseline_sha':head}, 'baseline'
+              if base==head: return [], {'cip_baseline_sha':head}, 'unchanged'
+              compare=request_json(f'{API}/repos/{repo}/compare/{base}...{head}')
+              if compare.get('status') not in ('ahead','identical') or compare.get('total_commits',0)>250 or compare.get('total_commits',0)>=250:
+                  raise RuntimeError('CIP compare range is not safely complete; baseline was not advanced')
+              files=compare.get('files')
+              if not isinstance(files,list) or compare.get('total_commits',0)>0 and compare.get('status')=='ahead' and len(files)>=300:
+                  raise RuntimeError('CIP compare response may be truncated; baseline was not advanced')
+              changed={}
+              for f in files:
+                  path=f.get('filename','')
+                  if re.fullmatch(r'cips/cip-\d+\.md',path) and f.get('status')!='removed': changed[path]=f.get('sha')
+              items=[]
+              for path, blob_sha in changed.items():
+                  if not blob_sha: continue
+                  # Read the current file at the compared head, not an intermediate revision.
+                  raw=request_bytes(f'https://raw.githubusercontent.com/{repo}/{head}/{path}',accept='text/plain')
+                  item=cip_item(path,head,raw.decode('utf-8','replace'))
+                  if item: items.append(item)
+              return items, {'cip_baseline_sha':head}, 'updated'
 
-                  if not title or not link:
-                      continue
-
-                  date, sort_date = get_entry_date(entry)
-                  description = get_description(entry)
-
-                  collected.append({
-                      "title": title,
-                      "url": link,
-                      "date": date,
-                      "source": SOURCE["name"],
-                      "sourceType": SOURCE["type"],
-                      "category": get_category(title),
-                      "description": description,
-                      "feedCategories": get_categories(entry),
-                      "status": "pending",
-                      "published": False,
-                      "_sort_date": sort_date,
-                  })
-
-              return collected
-
-          def existing_sort_date(article):
-              _, timestamp = parse_date(article.get("date", ""))
-              return timestamp
-
-          previous = []
-
-          if OUTPUT.exists():
+          def main():
+              if OUTPUT.exists():
+                  old_data=json.loads(OUTPUT.read_text(encoding='utf-8'))
+                  if not isinstance(old_data,dict) or not isinstance(old_data.get('items'),list): raise RuntimeError('Existing review JSON is invalid; stopping without overwrite')
+              else: old_data={'items':[]}
+              previous=old_data['items']; existing={x.get('url'):x for x in previous if isinstance(x,dict) and x.get('url')}
+              state=old_data.get('source_state',{})
+              if not isinstance(state,dict): state={}
+              source_results=[]; errors=[]; new_items=[]; next_state=dict(state)
+              sources=[('Celestia Blog',collect_blog)]
+              for name,fn in sources:
+                  try: source_results.extend(fn()); print(name+': success')
+                  except Exception as e: errors.append(name); print(name+': FAILED - '+str(e))
+              # Releases: only newest stable on bootstrap; subsequently every unobserved tag in returned window.
+              for repo,label,key in [('celestiaorg/celestia-app','Celestia App','celestia_app_seen_tags'),('celestiaorg/celestia-node','Celestia Node','celestia_node_seen_tags')]:
+                  try:
+                      releases=collect_releases(repo,label); seen=set(state.get(key,[])); tags=[x['_release_tag'] for x in releases]
+                      if key not in state:
+                          chosen=releases[:1]
+                          # Mark the whole fetched history as seen, but import only its newest stable release.
+                          next_state[key]=tags
+                      else:
+                          chosen=[x for x in releases if x['_release_tag'] not in seen]
+                          next_state[key]=list(dict.fromkeys(list(state.get(key,[]))+tags))[-1000:]
+                      source_results.extend(chosen); print(label+': success; new releases='+str(len(chosen)))
+                  except Exception as e: errors.append(label); print(label+': FAILED - '+str(e))
               try:
-                  old_data = json.loads(
-                      OUTPUT.read_text(encoding="utf-8")
-                  )
-
-                  previous = old_data.get("items", [])
-
-                  if not isinstance(previous, list):
-                      raise ValueError("The items field is not a list.")
-
-              except (json.JSONDecodeError, AttributeError, ValueError):
-                  raise RuntimeError(
-                      "Existing Celestia review file is invalid. "
-                      "Stopping to protect editorial decisions."
-                  )
-
-          articles = collect_publications()
-
-          if not articles:
-              raise RuntimeError(
-                  "The Celestia feed returned zero usable publications. "
-                  "Existing review data was not changed."
-              )
-
-          existing = {
-              item["url"]: item
-              for item in previous
-              if isinstance(item, dict) and item.get("url")
-          }
-
-          new_count = 0
-
-          for article in articles:
-              url = article["url"]
-              old = existing.get(url)
-
-              if old:
-                  old_status = old.get("status", "pending")
-
-                  # Preserve every field of an already reviewed article.
-                  if old_status != "pending":
+                  cips, cip_state, cip_mode=collect_cips(state); next_state.update(cip_state); source_results.extend(cips)
+                  if cip_mode=='baseline': print('CIPs: baseline initialized; no historical proposals imported')
+                  else: print('CIPs: success; changed proposals='+str(len(cips)))
+              except Exception as e: errors.append('CIPs'); print('CIPs: FAILED - '+str(e))
+              successful=4-len(errors)
+              if successful==0: raise RuntimeError('All Celestia sources failed; review JSON was not changed')
+              technical={'title','url','date','source','sourceType','category','description','feedCategories','cip_number','cip_status','cip_type','cip_category'}
+              added=0
+              for fresh in source_results:
+                  url=normalize_url(fresh.get('url',''))
+                  if not url: continue
+                  fresh['url']=url
+                  old=existing.get(url)
+                  # CIPs are revisions of one proposal: keep one current review record per CIP number.
+                  if old is None and fresh.get('source')=='Celestia Improvement Proposals':
+                      old=next((x for x in existing.values() if x.get('source')=='Celestia Improvement Proposals' and x.get('cip_number')==fresh.get('cip_number')),None)
+                  if old is not None and old.get('status','pending')!='pending':
+                      # Never rewrite a reviewed/approved/rejected editorial record.
                       continue
+                  if old is None:
+                      item={k:v for k,v in fresh.items() if not k.startswith('_')}
+                      item.update(status='pending',published=False,collected_at=NOW())
+                      # No guessed editorial classification for new blog material.
+                      if item.get('source')=='Celestia Blog':
+                          item.pop('atlasCategory',None); item.pop('materialType',None)
+                      else:
+                          item['atlasCategory']='Crypto & Technology'; item['materialType']='Official Update' if item.get('source')!='Celestia Improvement Proposals' else 'Protocol Proposal'
+                      existing[url]=item; added+=1
+                  else:
+                      merged=dict(old)
+                      for k in technical:
+                          if k in fresh: merged[k]=fresh[k]
+                      # preserve every non-technical/editorial field from old, including unknown future fields
+                      existing.pop(old.get('url'),None)
+                      existing[url]=merged
+              results=list(existing.values())
+              def sort_key(x):
+                  d=parse_date(x.get('date',''))
+                  try: return datetime.fromisoformat(d.replace('Z','+00:00')).timestamp()
+                  except Exception: return 0
+              results.sort(key=sort_key,reverse=True)
+              out=dict(old_data)
+              out.update(source='Crypto Atlas Celestia News Review',updated_at=NOW(),successful_feeds=successful,items=results,source_state=next_state,successful_sources=4-len(errors),failed_sources=errors)
+              OUTPUT.parent.mkdir(parents=True,exist_ok=True); OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              print(f'Successful sources: {successful}/4; new records: {added}; total records: {len(results)}')
 
-                  # Refresh pending feed data, but preserve editorial notes.
-                  for field in (
-                      "atlasCategory",
-                      "materialType",
-                      "status",
-                      "published",
-                      "collected_at",
-                      "reviewed_at",
-                      "review_note",
-                  ):
-                      if field in old:
-                          article[field] = old[field]
-
-                  existing[url] = article
-
-              else:
-                  article["collected_at"] = (
-                      datetime.now(timezone.utc).isoformat()
-                  )
-                  existing[url] = article
-                  new_count += 1
-
-          results = list(existing.values())
-
-          results.sort(
-              key=existing_sort_date,
-              reverse=True
-          )
-
-          for article in results:
-              article.pop("_sort_date", None)
-
-          data = {
-              "source": "Crypto Atlas Celestia News Review",
-              "updated_at": datetime.now(timezone.utc).isoformat(),
-              "successful_feeds": 1,
-              "items": results,
-          }
-
-          OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-
-          OUTPUT.write_text(
-              json.dumps(data, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8"
-          )
-
-          print("Celestia Blog: RSS collection successful.")
-          print(f"Publications collected: {len(articles)}")
-          print(f"New publications: {new_count}")
-          print(f"Total review records: {len(results)}")
-          print(f"Saved to {OUTPUT}")
-
+          if __name__=='__main__': main()
           PY
 
       - name: Save collected publications
