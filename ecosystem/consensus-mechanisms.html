@@ -87,7 +87,7 @@
 <p>In a permissioned system, membership is controlled: participants may be known organisations or approved servers. This can make it practical to use voting protocols among a defined committee. In a permissionless public network, anyone may attempt to participate. The system must therefore address Sybil attacks, in which one actor creates many identities to gain disproportionate influence.</p>
 <p>Proof of Work and Proof of Stake are two prominent ways to make influence costly in an open network. They do not simply count identities. Instead, they connect influence to a resource: computational work in PoW or economic stake in PoS. Permissioned systems may use identity, membership rules and voting committees instead.</p>
 </section>
-<section id="s2">
+<section class="blockchain-foundations-section" id="s2">
 <h2>02. What a Consensus Mechanism Includes</h2>
 <h3>2.1 More Than a Block-Production Method</h3>
 <p>The phrase “consensus mechanism” is often used informally to mean Proof of Work or Proof of Stake. Technically, these are only parts of a broader design. A complete consensus system can include:</p>
@@ -107,7 +107,7 @@
 <h3>2.3 Consensus and Execution</h3>
 <p>In programmable networks, execution determines the result of transactions: balances change, smart contracts run and application state is updated. Consensus coordinates the ordering and acceptance of those operations. Some architectures separate execution and consensus into distinct clients or layers; others integrate these responsibilities more tightly. The distinction is useful even when one software implementation performs both tasks.</p>
 </section>
-<section id="s3">
+<section class="blockchain-foundations-section" id="s3">
 <h2>03. Safety, Liveness and Fault Models</h2>
 <h3>3.1 Safety: Nothing Contradictory Is Final</h3>
 <p><strong>Safety</strong> means that the protocol does not allow conflicting decisions to become final under its stated assumptions. In a replicated ledger, safety is concerned with preventing honest participants from finalising incompatible histories or applying different commands in the same agreed position.</p>
@@ -120,7 +120,7 @@
 <p>For example, a protocol may preserve safety regardless of temporary delays but only guarantee progress after communication becomes sufficiently reliable. The precise guarantee depends on the protocol and its model; “fast” or “secure” without those assumptions is not a meaningful technical description.</p>
 <div class="consensus-note"><h3>Two questions to ask about every protocol</h3><p>1. Under what conditions can honest participants never finalise conflicting results? 2. Under what conditions can they continue to make progress? A sound comparison of consensus systems must answer both questions.</p></div>
 </section>
-<section id="s4">
+<section class="blockchain-foundations-section" id="s4">
 <h2>04. Proof of Work</h2>
 <h3>4.1 Computational Work as a Costly Resource</h3>
 <p>Proof of Work (PoW) uses computational effort to make block production costly. In a typical PoW system, miners repeatedly calculate hashes while changing a nonce or other block data. A valid result must satisfy a target set by the network's difficulty rules. Finding a valid result requires repeated attempts; checking the result is comparatively inexpensive.</p>
@@ -140,7 +140,7 @@
 <li><strong>Probabilistic settlement:</strong> in Nakamoto-style systems, confidence in a transaction generally increases as more work is built on top of its block, rather than appearing as an immediate absolute finality guarantee.</li>
 </ul>
 </section>
-<section id="s5">
+<section class="blockchain-foundations-section" id="s5">
 <h2>05. Nakamoto Consensus and Bitcoin</h2>
 <h3>5.1 The Contribution of the Bitcoin Design</h3>
 <p>Bitcoin's 2008 white paper proposed a peer-to-peer electronic cash system that uses a chain of hash-based Proof-of-Work to create a public record of transaction history. Its design addressed double spending without requiring a central institution to maintain the authoritative ledger.</p>
@@ -154,7 +154,7 @@
 <p>Nakamoto-style security depends on assumptions that include an honest majority of the relevant hash power, sufficiently reliable propagation of information relative to block production, and the security of the underlying cryptographic primitives. The exact formal guarantees depend on the adversary model and network assumptions. A phrase such as “51% attack” is a useful simplification, but real attack capabilities and outcomes depend on details such as timing, mining strategy, transaction selection and the target being attacked.</p>
 <div class="consensus-note"><h3>Bitcoin terminology</h3><p>Bitcoin nodes validate blocks according to consensus rules. Miners propose blocks and perform PoW, but miners cannot unilaterally change the validity rules followed by independently validating nodes. Mining power and rule enforcement are related but distinct roles.</p></div>
 </section>
-<section id="s6">
+<section class="blockchain-foundations-section" id="s6">
 <h2>06. Proof of Stake</h2>
 <h3>6.1 Economic Stake Instead of Competitive Hashing</h3>
 <p>Proof of Stake (PoS) uses economic stake as a basis for Sybil resistance and, in many designs, validator selection or voting weight. Participants lock or otherwise commit assets under protocol rules. The system selects validators to propose blocks, attest to proposals or vote on the state of the network.</p>
@@ -177,7 +177,7 @@
 <li><strong>Protocol-specific risks:</strong> nothing-at-stake concerns, long-range attacks, weak subjectivity and other issues require design-specific mitigations; they should not be treated as identical across all PoS networks.</li>
 </ul>
 </section>
-<section id="s7">
+<section class="blockchain-foundations-section" id="s7">
 <h2>07. Delegated and Nominated Stake Models</h2>
 <h3>7.1 Delegated Proof of Stake</h3>
 <p>Delegated Proof of Stake (DPoS) generally allows token holders to vote for a smaller group of block producers or validators. Those elected participants perform block-production or consensus duties according to the network's rules. The exact voting, rotation, reward and accountability mechanisms differ among implementations.</p>
@@ -187,7 +187,7 @@
 <h3>7.3 What the Labels Do and Do Not Tell Us</h3>
 <p>Names such as DPoS and NPoS provide a first clue about participation and selection, but they do not fully describe security. To evaluate a network, examine the number and independence of active validators, how voting power is distributed, how selection works, what penalties apply, whether users can verify operations, and how governance changes the rules.</p>
 </section>
-<section id="s8">
+<section class="blockchain-foundations-section" id="s8">
 <h2>08. Byzantine Fault Tolerance</h2>
 <h3>8.1 Agreement Despite Arbitrary Faults</h3>
 <p>Byzantine Fault Tolerance (BFT) is a family of techniques and protocols designed to maintain agreement even when some participants behave arbitrarily or maliciously. A BFT protocol must address more than silent failures. A faulty participant may send different messages to different peers, propose conflicting values or attempt to disrupt the voting process.</p>
@@ -211,7 +211,7 @@
 <li><strong>Committee concentration:</strong> a small committee may be efficient but requires careful analysis of membership, independence and governance.</li>
 </ul>
 </section>
-<section id="s9">
+<section class="blockchain-foundations-section" id="s9">
 <h2>09. Practical BFT and Tendermint / CometBFT</h2>
 <h3>9.1 Combining Stake-Based Selection with BFT Voting</h3>
 <p>Tendermint-style systems illustrate how different components can be combined. A stake-based process can determine the validator set or voting power, while a BFT consensus protocol coordinates proposals and votes among those validators. In this design, Proof of Stake and BFT are not competing labels for the same function: they can serve different roles within one architecture.</p>
@@ -223,7 +223,7 @@
 <h3>9.4 Why This Architecture Matters</h3>
 <p>The Tendermint / CometBFT family demonstrates a common design pattern: a network can use an economic mechanism to establish who participates and a separate BFT protocol to agree on the next state transition. This separation helps explain why “PoS versus BFT” is often a false comparison. A PoS network may use BFT-style consensus internally.</p>
 </section>
-<section id="s10">
+<section class="blockchain-foundations-section" id="s10">
 <h2>10. Crash Fault Tolerance and Raft</h2>
 <h3>10.1 A Different Problem: Servers That Stop Responding</h3>
 <p>Raft is a consensus algorithm for replicated logs in distributed systems. It helps a cluster of servers agree on the sequence of commands to apply, even if some servers crash or become unavailable. It is designed to be understandable and practical, and is often used to explain consensus in distributed databases and infrastructure systems.</p>
@@ -234,7 +234,7 @@
 <p>Raft helps distinguish the broad distributed-systems concept of consensus from blockchain consensus specifically. A database cluster may know the identities of its servers and assume they follow the protocol unless they crash. A public blockchain must usually address open participation, Sybil resistance and adversaries who may intentionally manipulate messages or economic incentives. The problem settings are therefore different.</p>
 <div class="consensus-note"><h3>Do not confuse CFT and BFT</h3><p>A system that tolerates two crashed servers in a five-server cluster does not automatically tolerate two malicious servers. Crash tolerance and Byzantine tolerance describe different fault models and cannot be compared by counting failures alone.</p></div>
 </section>
-<section id="s11">
+<section class="blockchain-foundations-section" id="s11">
 <h2>11. Finality, Forks and Confirmation</h2>
 <h3>11.1 What Does Finality Mean?</h3>
 <p>Finality describes the point at which a transaction or state transition is considered irreversible according to a protocol's rules and assumptions. Different networks use the term in different ways. A useful distinction is between probabilistic finality and deterministic or protocol-defined finality.</p>
@@ -247,7 +247,7 @@
 <h3>11.5 Fork Choice and Finality Are Related but Distinct</h3>
 <p>A fork-choice rule helps a node decide which chain head to follow when multiple valid branches exist. A finality gadget or voting protocol may provide stronger guarantees for checkpoints or blocks. Some systems combine both. A description of a consensus mechanism should identify each function rather than assume that one rule performs every task.</p>
 </section>
-<section id="s12">
+<section class="blockchain-foundations-section" id="s12">
 <h2>12. Comparing Consensus Approaches</h2>
 <p>The table below is a high-level comparison. It describes common design patterns, not every implementation. Actual security depends on the full protocol, validator or miner distribution, network assumptions, implementation quality and governance.</p>
 <div class="consensus-scroll"><table class="consensus-table">
@@ -263,7 +263,7 @@
 <h3>12.1 There Is No Single Universal Ranking</h3>
 <p>A system optimised for open participation may make different trade-offs from a private network operated by known organisations. A design with explicit finality may prioritise quorum communication and validator accountability. A probabilistic chain may favour a simple open participation model and tolerate temporary forks. The correct comparison begins with the system's intended use and threat model.</p>
 </section>
-<section id="s13">
+<section class="blockchain-foundations-section" id="s13">
 <h2>13. Security, Incentives and Centralisation Risks</h2>
 <h3>13.1 Security Is a System Property</h3>
 <p>Consensus is only one part of blockchain security. A network can have a well-designed protocol and still be vulnerable through buggy client software, compromised validator keys, poor operational practices, insecure bridges, flawed smart contracts or governance failures. A consensus guarantee applies only within its stated model and does not secure every application built on top of the network.</p>
@@ -277,13 +277,13 @@
 <h3>13.5 Censorship and Transaction Ordering</h3>
 <p>Consensus systems determine how transactions are ordered and included. Validators or miners may have the ability or incentive to delay, exclude or reorder transactions within protocol constraints. The degree of censorship resistance depends on the network's participant distribution, relay paths, proposer selection, governance and the ability of users to reach alternative participants.</p>
 </section>
-<section id="s14">
+<section class="blockchain-foundations-section" id="s14">
 <h2>14. What Consensus Cannot Solve</h2>
 <p>Consensus can coordinate a shared digital record, but it cannot independently establish that every real-world statement entered into that record is true. If a transaction depends on an external price feed, delivery confirmation or legal event, the network needs an oracle, trusted data provider or other mechanism to obtain that information. Consensus can agree on the data it receives; it cannot magically verify facts outside its observation model.</p>
 <p>Nor does consensus guarantee that a network is decentralised in every meaningful sense, that its software is bug-free, that its governance is fair, that its applications are safe, or that its token has economic value. These are separate questions requiring separate evidence.</p>
 <p>A technically sound evaluation should therefore ask: Who can participate? What resource or identity determines influence? What faults are tolerated? What timing assumptions are made? How are conflicting histories resolved? When is a decision final? Who can change the rules? How diverse and independently operated are the clients, validators, miners or authorities?</p>
 </section>
-<section id="s15" class="consensus-takeaways">
+<section id="s15" class="blockchain-foundations-section consensus-takeaways">
 <h2>15. Key Takeaways</h2>
 <ul>
 <li>Consensus is the coordinated process by which distributed participants agree on an accepted ordering or state of a system.</li>
@@ -297,7 +297,7 @@
 </ul>
 <div class="consensus-note"><h3>Research perspective</h3><p>The central question is not simply which consensus mechanism is fastest or cheapest. It is whether the system's assumptions, incentives and failure protections are appropriate for the environment in which it operates—and whether those guarantees can be independently verified.</p></div>
 </section>
-<section id="sources" class="consensus-sources">
+<section id="sources" class="blockchain-foundations-section consensus-sources">
 <h2>RESEARCH SOURCES & FURTHER READING</h2>
 <p>The following sources provide primary technical documentation, original research and institutional analysis. They are included so readers can verify definitions, assumptions and protocol details directly.</p>
 <h3>Primary papers and foundational documents</h3>
