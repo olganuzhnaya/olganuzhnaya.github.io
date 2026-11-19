@@ -18,11 +18,6 @@
 .consensus-toc{margin:24px 0;padding:20px 24px;border:1px solid rgba(198,155,85,.35);background:rgba(255,255,255,.025)}
 .consensus-toc a,.consensus-sources a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .consensus-toc li,.consensus-sources li{margin:7px 0;line-height:1.6}
-.consensus-content{max-width:1100px;margin:0 auto}
-.consensus-content section{scroll-margin-top:24px}
-.consensus-content h2{margin-top:38px}
-.consensus-content h3{margin-top:25px}
-.consensus-content h4{margin-top:18px}
 .consensus-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .consensus-meta span{padding:7px 11px;border:1px solid rgba(198,155,85,.4);font-size:11px;letter-spacing:.08em}
 .consensus-sources{margin-top:42px;padding-top:18px;border-top:1px solid rgba(198,155,85,.45)}
@@ -47,7 +42,7 @@
 <h1>CONSENSUS MECHANISMS</h1>
 <h2>How Blockchain Networks Agree</h2>
 <p>Proof of Work, Proof of Stake, Byzantine Fault Tolerance and the principles that allow independent participants to coordinate a shared digital ledger.</p>
-<div class="consensus-meta"><span>DISTRIBUTED SYSTEMS</span><span>NETWORK AGREEMENT</span><span>CRYPTO-ECONOMIC SECURITY</span><span>FAULT TOLERANCE</span></div>
+<div class="blockchain-foundations-meta"><span>DISTRIBUTED SYSTEMS</span><span>NETWORK AGREEMENT</span><span>CRYPTO-ECONOMIC SECURITY</span><span>FAULT TOLERANCE</span></div>
 </section>
 <section class="blockchain-foundations-section">
 <h2>INTRODUCTION</h2>
@@ -55,7 +50,8 @@
 <p>Consensus is not a single algorithm or a synonym for mining or staking. It is a system of rules, communication procedures, incentives and security assumptions. Depending on the network, it may determine who can propose a block, how participants evaluate competing histories, how votes are counted, when a decision becomes final and what happens when some participants fail or behave dishonestly.</p>
 <p>This study examines several major approaches: Nakamoto-style consensus and Proof of Work; Proof of Stake systems; Byzantine Fault Tolerant protocols; and Crash Fault Tolerant algorithms such as Raft. It also compares their assumptions and limitations. The purpose is not to declare one model universally superior, but to understand what each model is designed to achieve.</p>
 </section>
-<nav class="consensus-toc" aria-label="Article contents">
+<div class="blockchain-foundations-content">
+<nav class="consensus-toc blockchain-foundations-section" aria-label="Article contents">
 <h2>RESEARCH CONTENTS</h2>
 <ol>
 <li><a href="#s1">The Consensus Problem</a></li>
@@ -76,8 +72,8 @@
 <li><a href="#sources">Research Sources</a></li>
 </ol>
 </nav>
-<div class="consensus-content">
-<section id="s1">
+<div class="blockchain-foundations-content">
+<section class="blockchain-foundations-section" id="s1">
 <h2>01. The Consensus Problem</h2>
 <h3>1.1 A Shared Ledger Without a Central Referee</h3>
 <p>Imagine that thousands of computers maintain copies of the same transaction history. A participant broadcasts a transaction, but messages do not arrive everywhere at the same instant. Some computers may be offline. Others may receive conflicting proposals. A malicious participant may send different information to different peers or attempt to spend the same digital asset twice.</p>
@@ -326,6 +322,7 @@
 </ol>
 <p><strong>Source note:</strong> Protocols evolve. The links above are intended as research starting points, not a substitute for checking the current specification and implementation version of a network. Where a protocol-specific guarantee is discussed, readers should consult the relevant specification for its exact assumptions and thresholds.</p>
 </section>
+</div>
 </div>
 <nav class="blockchain-foundations-navigation" aria-label="Blockchain Continents navigation">
 <a href="blockchain-continents.html">← BACK TO BLOCKCHAIN CONTINENTS</a>
