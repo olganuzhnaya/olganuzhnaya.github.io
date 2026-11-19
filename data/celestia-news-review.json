@@ -1,8 +1,42 @@
 {
   "source": "Crypto Atlas Celestia News Review",
-  "updated_at": "2026-11-19T15:08:34.906757+00:00",
-  "successful_feeds": 1,
+  "updated_at": "2026-11-19T15:48:53.738857+00:00",
+  "successful_feeds": 4,
   "items": [
+    {
+      "title": "Celestia Node v0.36.0",
+      "url": "https://github.com/celestiaorg/celestia-node/releases/tag/v0.36.0",
+      "date": "2026-11-19T13:13:04+00:00",
+      "source": "Celestia Node",
+      "sourceType": "official",
+      "category": "technology",
+      "description": "This release adds support for celestia-app v11. ## Highlights - **celestia-app v11 support:** DA nodes accept headers with app version 11. Nodes on v0.35.x and earlier reject them and stop syncing once v11 activates, so **upgrading before the v11 activation height is required**. ## Requirements & notes Requires a configured core endpoint running celestia-app v11 by the v11 activation height. This release contains only the celestia-app v11 support and version bump on top of v0.35.0: config and storage are unchanged and no `config-update` is needed. ## What's Changed * chore(deps): [high] support celestia-app v11 by @vgonkivs in https://github.com/celestiaorg/celestia-node/pull/5411 * chore(deps): [low] bump celestia-app to v11.0.0 by @vgonkivs in https://github.com/celestiaorg/celestia-node/pull/5421 **Full Changelog**: https://github.com/celestiaorg/celestia-node/compare/v0.35.0...v0.36.0",
+      "feedCategories": [
+        "GitHub Release"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-19T15:48:53.738533+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Official Update"
+    },
+    {
+      "title": "Celestia App v11.0.0",
+      "url": "https://github.com/celestiaorg/celestia-app/releases/tag/v11.0.0",
+      "date": "2026-11-19T10:46:17+00:00",
+      "source": "Celestia App",
+      "sourceType": "official",
+      "category": "technology",
+      "description": "## Upgrade Notice This release is intended for **Mainnet (`celestia`)** and is built from the same `v11.x` commit as `v11.0.0-corto` and `v11.0.0-mocha`. It is an **emergency release cut from v10.x** that introduces app version **11**, which requires a coordinated upgrade. All validators must install it and signal for version 11. App version 11 restricts a fixed list of 41,963 accounts whose keys were exposed in the Keplr/Web3Auth social-login incident: from v11, these accounts can only move funds to Web3Auth's recovery address, `celestia1atuap9kfnt6y8ykvn3437e7j3z8qffh33pzt53`. The same rules have been active on Corto since 16 Nov 2026 and on Mocha since 19 Nov 2026. ### Upgrade existing nodes Download the `celestia-app` archive for your platform and verify it against `checksums.txt`. Validators should also download the matching `fibre` archive. Source builds use Go 1.26.10; the Makefile now downloads it when another Go version is installed. The multiplexer embeds v10.6.0 to serve heights before the upgrade. Stop the node and, for validators, Fibre. Replace both binaries and restart with the existing homes and database. The node keeps running app version 10 until the upgrade activates. ### Activating v11 Each validator signals for version 11: ```sh celestia-appd tx signal signal 11 ``` Once at least 5/6 of the voting power has signalled, anyone can submit: ```sh celestia-appd tx signal try-upgrade ``` `try-upgrade` needs about 300,000 gas; set `--gas 1000000`. The upgrade activates 232,616 blocks later (about 7.6 days at Mainnet's current block time of ~2.84 s). ### Configuration No configuration changes are required. ### Notable changes See [docs/release-notes/release-notes.md](https://github.com/celestiaorg/celestia-app/blob/main/docs/release-notes/release-notes.md) for breaking changes. ## Supported operating systems See the [canonical matrix in the release README](https://github.com/celestiaorg/celestia-app/blob/v11.0.0/README.md#supported-operating-systems). - **Tested in CI:** Ubuntu 24.04 LTS (Noble Numbat) on x86_64. - **Prebuilt binaries provided:** Linux (`amd64`, `arm64`), macOS (`amd64`, `arm64`), including the separate Fibre server. arm64 binaries are cross-compiled and are not executed in CI. - **Minimum glibc:** **2.38** for Linux multiplexer builds. Ubuntu 22.04 and older are unsupported for these builds. The separate Fibre binary requires glibc **2.34**. - **Changes since v10.6.0:** none. ## What's Changed * fix(proof): [medium] validate proof query requests before decoding the block (backport #8532) by @mergify[bot] in https://github.com/celestiaorg/celestia-app/pull/8537 * fix(grpc): [medium] bound TxStatusBatch tx ids while decoding (backport #8534) by @mergify[bot] in https://github.com/celestiaorg/celestia-app/pull/8538 * fix(app): [high] bound MsgModuleQuerySafe requests at mempool admission (v10.x) by @rootulp in https://github.com/celestiaorg/celestia-app/pull/8535 * fix(multiplexer): [high] answer ABCI Info from the previous app until the new app commits (backport #8530) by @mergify[bot] in https://github.com/celestiaorg/celestia-app/pull/8555 * build: [high] build with -trimpath and a pinned Go toolchain everywhere (backport #8630) by @rootulp in https://github.com/celestiaorg/celestia-app/pull/8637 * feat!: [high] bump v10.x to app version 11 (emergency release) by @rach-id in https://github.com/celestiaorg/celestia-app/pull/8617 * feat!: [high] restrict accounts with exposed keys to a whitehat address from v11 by @rach-id in https://github.com/celestiaorg/celestia-app/pull/8618 * feat!: [high] shorten corto unbonding to 10 minutes at v11 by @rach-id in https://github.com/celestiaorg/celestia-app/pull/8621 **Full Changelog**: https://github.com/celestiaorg/celestia-app/compare/v10.6.0...v11.0.0",
+      "feedCategories": [
+        "GitHub Release"
+      ],
+      "status": "pending",
+      "published": false,
+      "collected_at": "2026-11-19T15:48:53.738506+00:00",
+      "atlasCategory": "Crypto & Technology",
+      "materialType": "Official Update"
+    },
     {
       "title": "Scaling Voyager to 21M TPS",
       "url": "https://blog.celestia.org/scaling-voyager-to-21m-tps/",
@@ -261,5 +295,51 @@
       "materialType": "Engineering Update",
       "collected_at": "2026-11-16T15:28:46.371530+00:00"
     }
-  ]
+  ],
+  "source_state": {
+    "celestia_app_seen_tags": [
+      "v11.0.0",
+      "v10.6.0",
+      "v10.5.0",
+      "v10.4.0",
+      "v3.13.0",
+      "v9.0.8",
+      "v9.0.6",
+      "v9.0.4",
+      "v8.0.8",
+      "v8.0.3",
+      "v3.12.0",
+      "v3.11.0",
+      "v6.4.10",
+      "v6.4.5",
+      "v6.4.4",
+      "v6.4.2",
+      "v6.3.0",
+      "v6.2.5",
+      "v5.0.12",
+      "v6.2.4",
+      "v6.2.3"
+    ],
+    "celestia_node_seen_tags": [
+      "v0.36.0",
+      "v0.35.0",
+      "v0.34.4",
+      "v0.34.3",
+      "v0.33.2",
+      "v0.33.0",
+      "v0.32.1",
+      "v0.31.4",
+      "v0.31.3",
+      "v0.30.2",
+      "v0.28.4",
+      "v0.28.2",
+      "v0.26.4",
+      "v0.25.3",
+      "v0.24.1",
+      "v0.23.5"
+    ],
+    "cip_baseline_sha": "6a565fdd4a2308ecfb77207877cefae3ee60edca"
+  },
+  "successful_sources": 4,
+  "failed_sources": []
 }
