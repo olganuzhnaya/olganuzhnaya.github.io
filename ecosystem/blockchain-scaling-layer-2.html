@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blockchain Scaling &amp; Layer 2 | Crypto Atlas Ecosystem</title>
+<meta name="description" content="A research study of blockchain scalability, Layer 1 and Layer 2 architectures, rollups, payment channels, data availability, security assumptions and the economics of scaling.">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../css/ecosystem.css">
+<style>
+.scaling-table{width:100%;border-collapse:collapse;margin:18px 0;color:#d0dddd;font-size:14px}
+.scaling-table th,.scaling-table td{padding:12px;border:1px solid rgba(198,155,85,.45);text-align:left;vertical-align:top;line-height:1.65}
+.scaling-table th{color:#f2d49a;background:rgba(255,255,255,.06)}
+.scaling-scroll{overflow-x:auto}
+.scaling-note{margin:25px 0;padding:22px;border-left:3px solid #c69b55;background:rgba(255,255,255,.045)}
+.scaling-note h3{margin-top:0;color:#f2d49a}
+.scaling-formula{padding:12px 18px;border-left:3px solid #c69b55;background:rgba(255,255,255,.05);font-size:16px;overflow-wrap:anywhere}
+.scaling-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.scaling-meta span{padding:7px 11px;border:1px solid rgba(198,155,85,.4);font-size:11px;letter-spacing:.08em}
+.scaling-toc{margin:24px 0;padding:20px 24px;border:1px solid rgba(198,155,85,.35);background:rgba(255,255,255,.025)}
+.scaling-toc a,.scaling-sources a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.scaling-toc li,.scaling-sources li{margin:7px 0;line-height:1.6}
+.scaling-takeaways,.scaling-sources{margin-top:28px;padding-top:18px;border-top:1px solid rgba(198,155,85,.45)}
+.scaling-takeaways h3,.scaling-sources h3{color:#d6b775}
+@media(max-width:700px){.scaling-table{font-size:12px}.scaling-table th,.scaling-table td{padding:8px}}
+</style>
+</head>
+<body>
+<header class="ecosystem-header">
+<nav class="ecosystem-nav" aria-label="Main navigation">
+<a class="ecosystem-brand" href="../index.html">CRYPTO ATLAS</a>
+<div class="ecosystem-nav-links">
+<a href="../index.html">HOME</a><a href="../news.html">NEWS</a><a href="../education/index.html">EDUCATION</a><a href="index.html">ECOSYSTEM</a>
+</div>
+</nav>
+</header>
+<main class="blockchain-foundations-page">
+<section class="blockchain-foundations-intro">
+<p class="blockchain-foundations-label">CRYPTO ATLAS ECOSYSTEM · BLOCKCHAIN CONTINENTS · TERRITORY 05</p>
+<h1>BLOCKCHAIN SCALING &amp; LAYER 2</h1>
+<h2>Increasing Capacity While Preserving Verifiability</h2>
+<p>How blockchain systems expand transaction capacity through base-layer improvements, rollups, payment channels and modular architectures — and what each approach asks users to trust.</p>
+<div class="blockchain-foundations-meta"><span>SCALABILITY</span><span>LAYER 2 ARCHITECTURE</span><span>DATA AVAILABILITY</span><span>SECURITY &amp; ECONOMICS</span></div>
+</section>
+<section class="blockchain-foundations-section">
+<h2>INTRODUCTION</h2>
+<p>A blockchain is not simply a database that can be made faster by adding more servers. Its participants must agree on an ordered history, independently check the rules that govern valid state changes and retain enough information to verify the system. In an open network, these requirements place limits on how much computation, communication and data every participant may be expected to handle. When demand grows, users may compete for scarce blockspace, transaction fees can rise, and applications may become slower or more expensive to use.</p>
+<p><strong>Scaling</strong> describes the technical and organisational methods used to increase a blockchain system's useful capacity. Some methods change the base protocol. Others move selected work away from the base chain, compress activity into batches, or let participants transact repeatedly before settling a result on-chain. These designs do not all provide the same security guarantees. A system can be faster while relying on a different validator set, a committee, an operator, an external data provider or a more complex bridge.</p>
+<p>This study examines the scaling problem from first principles. It distinguishes base-layer changes from Layer 2 protocols; explains optimistic and validity rollups; explores data availability, payment channels, sidechains and validiums; and evaluates the roles of sequencers, provers, infrastructure and economic incentives. Ethereum rollups and Bitcoin's Lightning Network provide important examples, but the analysis does not assume that every network uses the same definition of layers or the same security model.</p>
+<div class="scaling-note"><h3>Four distinctions guide this research</h3>
+<p><strong>More transactions ≠ unlimited scalability.</strong> Every architecture faces constraints in computation, bandwidth, storage, coordination or data publication.</p>
+<p><strong>Layer 2 ≠ any secondary blockchain.</strong> The term is most useful when the system has a defined relationship with a base layer and a stated method for relying on it. A sidechain with independent consensus does not automatically inherit the base chain's security.</p>
+<p><strong>Validity proof ≠ data availability.</strong> A proof can establish that a state transition follows specified rules; users may still need access to state data to reconstruct balances, verify activity or exit safely.</p>
+<p><strong>Fast confirmation ≠ final settlement.</strong> A user interface may show a transaction quickly while later protocol steps, challenges or base-layer confirmations remain outstanding.</p>
+</div>
+</section>
+<nav class="scaling-toc" aria-label="Research contents"><h2>RESEARCH CONTENTS</h2><ol>
+<li><a href="#territory-section-01">Why Do Blockchains Need Scaling?</a></li>
+<li><a href="#territory-section-02">The Blockchain Scalability Problem</a></li>
+<li><a href="#territory-section-03">Layer 1: Scaling the Base Layer</a></li>
+<li><a href="#territory-section-04">What Is Layer 2?</a></li>
+<li><a href="#territory-section-05">Rollups: Moving Execution Off-Chain</a></li>
+<li><a href="#territory-section-06">Optimistic Rollups</a></li>
+<li><a href="#territory-section-07">Zero-Knowledge and Validity Rollups</a></li>
+<li><a href="#territory-section-08">Data Availability and Modular Blockchains</a></li>
+<li><a href="#territory-section-09">Payment Channels and State Channels</a></li>
+<li><a href="#territory-section-10">Sidechains, Validiums and Other Scaling Approaches</a></li>
+<li><a href="#territory-section-11">Sequencers, Provers and Network Infrastructure</a></li>
+<li><a href="#territory-section-12">Security Risks and Trust Assumptions</a></li>
+<li><a href="#territory-section-13">The Economics of Scaling</a></li>
+<li><a href="#territory-section-14">Measuring Performance and Evaluating Layer 2 Networks</a></li>
+<li><a href="#territory-section-15">Key Takeaways and Research Sources</a></li>
+</ol></nav>
+<div class="blockchain-foundations-content">
+<section class="blockchain-foundations-section" id="territory-section-01">
+<h2>01. Why Do Blockchains Need Scaling?</h2>
+<h3>1.1 Blockspace Is a Limited Shared Resource</h3>
+<p>A public blockchain processes transactions in units of blocks or slots under protocol-defined limits. A block cannot contain unlimited transactions: execution consumes computational resources, data must be propagated across the network, and nodes need time and capacity to validate and store the resulting information. These constraints are deliberate. If operating a fully validating node required extraordinary hardware or network access, fewer independent participants might be able to verify the system.</p>
+<p>When demand is below available capacity, transactions may be included quickly and fees may be modest. When demand exceeds capacity, users compete for inclusion. Depending on the fee mechanism, transactions offering higher fees may be prioritised, while lower-fee transactions wait. This is not necessarily a malfunction. It is a market and scheduling response to scarce blockspace, although congestion can make applications difficult or uneconomical to use.</p>
+<h3>1.2 What “Capacity” Actually Means</h3>
+<p>Capacity is not a single number. A network may be constrained by the amount of data it can publish, the computation needed to execute transactions, the speed at which nodes exchange messages, storage requirements, signature verification, state growth or the time needed to reach agreement. Increasing one limit can move the bottleneck elsewhere. For example, allowing more transactions per block may increase bandwidth and hardware requirements for node operators.</p>
+<p>Transaction complexity also matters. A simple transfer and a transaction that invokes several smart contracts do not consume identical resources. A headline transactions-per-second figure therefore depends on what is counted, how transactions are constructed and what other network conditions apply. Section 14 develops a more rigorous approach to performance measurement.</p>
+<h3>1.3 Why Congestion Affects More Than Speed</h3>
+<p>Congestion can influence application design and economic access. A small payment may become impractical if its fee is large relative to the amount transferred. A decentralised exchange may experience worse execution during periods of heavy demand. Users may delay actions, move activity to another network or rely on custodial services that abstract away blockchain operations. Developers may also need to design around unpredictable inclusion costs.</p>
+<p>These effects are not evenly distributed. Users with high-value transactions may be able to pay more for scarce blockspace than users making small payments. A scaling design is therefore not only a throughput project; it can affect who can participate, which applications remain viable and how much trust users place in intermediaries.</p>
+<h3>1.4 Scaling as a System-Level Objective</h3>
+<p>The goal is not simply to maximise the number of transactions processed by one machine. A blockchain is a distributed system. A useful scaling improvement should be evaluated against the work required from independent verifiers, the availability of transaction data, the ability to recover from operator failure and the security assumptions introduced by the design.</p>
+<div class="scaling-note"><h3>Core question</h3><p>Can the system serve more activity while keeping verification, data access and credible exit paths within reach of the participants whose independence gives the network its security properties?</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-02">
+<h2>02. The Blockchain Scalability Problem</h2>
+<h3>2.1 The Security–Decentralisation–Scalability Tension</h3>
+<p>The expression <em>blockchain trilemma</em> is commonly used to describe a perceived tension among scalability, security and decentralisation. It is a useful design lens, not a formal theorem proving that every system must choose exactly two properties. The three terms also require careful definitions. Security may refer to resistance to consensus attacks, correct execution, asset custody or censorship. Decentralisation may refer to the distribution of block production, validation, governance or infrastructure. Scalability may mean throughput, latency, cost or the ability to add users without increasing verification burdens excessively.</p>
+<p>Nevertheless, the underlying engineering tension is real. If a protocol increases block size or execution demands substantially, node operators may need more bandwidth, storage and processing power. If fewer people can independently run nodes, validation may concentrate. If a system instead relies on a smaller committee to process activity, it may achieve high throughput but introduce additional assumptions about that committee's honesty and availability.</p>
+<h3>2.2 Replication and the Cost of Independent Verification</h3>
+<p>Many blockchains use replicated execution: multiple nodes process the same ordered transactions and independently derive the resulting state. This redundancy is central to verification, but it means that adding transactions can multiply the total computational work performed across the network. A scaling architecture may reduce this repetition by moving execution elsewhere and asking the base layer to verify a compact proof or commitment. The design then needs a trustworthy way to make the underlying inputs available and to resolve incorrect claims.</p>
+<h3>2.3 Different Systems Optimise Different Things</h3>
+<p>A payment network may prioritise low-latency transfers between participants who transact repeatedly. A general-purpose smart-contract platform may prioritise composability and public execution. A settlement-focused chain may intentionally process fewer transactions but provide a strong common reference point for other systems. These are different objectives, not necessarily competing attempts to build the same product.</p>
+<h3>2.4 The Importance of Explicit Assumptions</h3>
+<p>Architecture comparisons should ask who orders transactions, who executes them, who can verify the result, where the data is stored, how disputes are resolved, who can upgrade the contracts and what users can do if an operator disappears. Without these questions, the label “scalable” says very little about the quality or security of a system.</p>
+<div class="scaling-note"><h3>Research principle</h3><p>There is no meaningful claim that one architecture is “the most scalable” without specifying the workload, the security model, the hardware assumptions and the measurement method.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-03">
+<h2>03. Layer 1: Scaling the Base Layer</h2>
+<h3>3.1 What Changes at Layer 1?</h3>
+<p>Layer 1 (L1) is the base blockchain protocol itself: its consensus rules, block or slot structure, transaction format, execution limits, data rules and node requirements. Base-layer scaling changes these rules or improves their implementation so that the underlying network can process or verify more activity. It may involve more efficient cryptography, improved clients, parallel execution where dependencies allow it, state-management changes, better networking or additional capacity for transaction data.</p>
+<h3>3.2 Larger Blocks and Higher Resource Limits</h3>
+<p>One direct approach is to increase the amount of data or computation permitted in each block. This can raise nominal capacity, but it also increases the burden on nodes that must receive, validate and store the chain. If the requirements rise faster than ordinary hardware and network access improve, independent operation may become harder. The question is not whether larger blocks are always wrong; it is whether the resulting resource profile remains compatible with the network's decentralisation goals.</p>
+<h3>3.3 Protocol and Client Optimisation</h3>
+<p>Efficiency improvements can increase useful capacity without simply raising limits. Better transaction encoding, more efficient signature verification, improved execution clients and networking protocols can reduce the cost of processing existing workloads. Protocol upgrades can also reorganise how data is represented or made available. These changes require careful testing because a consensus-critical implementation error can affect the whole network.</p>
+<h3>3.4 Data Capacity and Ethereum Blob Transactions</h3>
+<p>Ethereum's EIP-4844 introduced blob-carrying transactions as a data-availability capacity mechanism intended primarily for rollups. Blob data is committed to by the transaction but is not directly accessible to EVM execution in the same way as ordinary calldata. The design creates a separate fee market for this data and provides a more economical route for rollups to publish batches. Blob data is not intended to be permanent archive storage; systems that need long-term historical access require additional retention and retrieval arrangements.</p>
+<p>This example illustrates that base-layer scaling can support Layer 2 without executing every Layer 2 transaction on the base chain. The L1 protocol changes its data facilities so that secondary execution systems can publish the information needed for verification.</p>
+<h3>3.5 Limits of Base-Layer Scaling</h3>
+<p>Even with more efficient software and protocol upgrades, a base chain must preserve a workable relationship between capacity and the resources required of independent participants. A chain that processes more activity but becomes verifiable only by a small number of industrial operators may have changed its trust model. Base-layer improvements are therefore best understood as one part of a broader scaling strategy rather than a guarantee of unlimited capacity.</p>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-04">
+<h2>04. What Is Layer 2?</h2>
+<h3>4.1 A Secondary Protocol With a Defined Base-Layer Relationship</h3>
+<p><strong>Layer 2 (L2)</strong> is a term for protocols built on top of a base blockchain to expand or specialise its functionality while relying on the base layer for specified security or settlement functions. The exact definition varies across ecosystems. In Ethereum's scaling framework, rollups are designed to use Ethereum for settlement and data availability, while executing transactions outside Ethereum's main execution environment. Bitcoin's Lightning Network uses payment channels that anchor opening and closing states to Bitcoin transactions. These systems are architecturally different, even though both are often described as Layer 2.</p>
+<h3>4.2 Responsibilities Can Be Separated</h3>
+<p>A layered system may divide work among several components:</p>
+<ul><li><strong>Execution:</strong> processing transactions and calculating new application or account state.</li><li><strong>Ordering:</strong> determining the sequence in which transactions are processed.</li><li><strong>Data availability:</strong> making the information needed to reconstruct or verify state accessible under the protocol's assumptions.</li><li><strong>Settlement:</strong> establishing a recognised result on the base layer or resolving disputes through its contracts and consensus.</li><li><strong>Exit:</strong> providing a procedure for users to withdraw or recover assets if an operator or service becomes unavailable.</li></ul>
+<p>One system may combine several responsibilities in one component; another may separate them. The labels are less important than identifying what is actually performed and by whom.</p>
+<h3>4.3 Layer 2 Is Not a Synonym for “Another Chain”</h3>
+<p>A secondary blockchain may communicate with a base chain without inheriting its security. A sidechain, for example, can operate its own consensus mechanism and validator set. A bridge may move representations of assets between networks, but the bridge's security is a separate question. A system should not be called a trust-minimised extension of a base chain merely because it has a connection to that chain.</p>
+<h3>4.4 A Practical Layer Model</h3>
+<p>For this study, a Layer 2 design is evaluated by its relationship to the base layer: what data or commitments it posts, which rules the base layer enforces, how invalid state transitions can be challenged or proven, and whether users have a credible route to exit without relying on a single operator. This functional approach is more informative than relying on branding or a project's chosen category.</p>
+<div class="scaling-note"><h3>Terminology note</h3><p>“Layer 2” is not a universal certification. Different ecosystems use the term differently. Always inspect the actual settlement, data and security mechanisms before comparing two systems.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-05">
+<h2>05. Rollups: Moving Execution Off-Chain</h2>
+<h3>5.1 The Basic Rollup Pattern</h3>
+<p>A rollup processes transactions outside the base layer, groups many transactions into batches and publishes data or commitments about those batches to the base chain. Instead of asking the L1 to execute every application transaction, the rollup uses a separate execution environment. The base layer then performs the role defined by the rollup protocol: for example, storing the relevant data, verifying a validity proof, or providing the contracts through which a disputed state claim can be resolved.</p>
+<p>The word <em>off-chain</em> can be misleading if it suggests that the activity is invisible or entirely disconnected from the base layer. In a rollup, transaction execution occurs away from L1, but the rollup's relationship with L1 is an essential part of its security design. A rollup that publishes sufficient data to L1 allows independent parties to reconstruct its state from that data, subject to the protocol's implementation and availability assumptions.</p>
+<h3>5.2 Batching and Amortised Costs</h3>
+<p>Publishing every user transaction separately to L1 would consume substantial blockspace. A rollup batches many transactions and compresses their representation. The L1 publication cost can then be shared across the batch. Users may pay less per transaction because the rollup aggregates data and computation, although actual fees depend on the L1 data market, batch size, compression, operator policy and other costs.</p>
+<h3>5.3 State Transitions and Commitments</h3>
+<p>A rollup maintains its own state, such as account balances, contract storage or application records. After processing a batch, it can publish a commitment — often a cryptographic hash or state root — representing the resulting state. A commitment is not, by itself, proof that the state is correct. The protocol must define how correctness is established, whether through a challenge mechanism, a validity proof or another method.</p>
+<h3>5.4 What the Base Layer Contributes</h3>
+<p>For an Ethereum rollup, the base layer may provide consensus over published data, contracts that manage deposits and withdrawals, and a place to verify proofs or resolve disputes. The precise security properties depend on the rollup's implementation. For example, the presence of a fraud-proof system in source code does not prove that the system is permissionless or fully operational; the relevant contracts, permissions, upgrade controls and active participants must also be examined.</p>
+<h3>5.5 The Rollup Design Checklist</h3>
+<div class="scaling-scroll"><table class="scaling-table"><thead><tr><th>Question</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Where are transactions executed?</td><td>Identifies which machines perform application computation and which rules govern it.</td></tr>
+<tr><td>What data is published to L1?</td><td>Determines whether independent parties can reconstruct state and verify activity.</td></tr>
+<tr><td>How is correctness established?</td><td>Identifies the fraud-proof, validity-proof or other verification mechanism.</td></tr>
+<tr><td>Who orders transactions?</td><td>Reveals possible censorship, reordering and availability dependencies.</td></tr>
+<tr><td>How can users exit?</td><td>Tests whether recovery depends on the operator's cooperation.</td></tr>
+<tr><td>Who can change the contracts?</td><td>Shows whether upgrade keys or governance can alter security-critical rules.</td></tr>
+</tbody></table></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-06">
+<h2>06. Optimistic Rollups</h2>
+<h3>6.1 The Optimistic Assumption</h3>
+<p>An optimistic rollup generally accepts a proposed state transition unless a participant challenges it within a defined period. The system does not require a validity proof for every batch before it is accepted. Instead, it relies on the possibility that an incorrect claim can be detected and disputed. This approach can reduce the proving work required for ordinary operation, but it creates a challenge process and timing assumptions that users and applications must understand.</p>
+<h3>6.2 Fraud Proofs and Fault Proofs</h3>
+<p>A fraud-proof or fault-proof system provides a way to demonstrate that a proposed state transition is inconsistent with the rollup's rules. In many modern designs, the parties do not ask L1 to re-execute an entire long history. Instead, an interactive dispute game narrows the disagreement until it can be resolved by checking a specific computation step or a succinct on-chain verification procedure. The exact design varies between rollups.</p>
+<p>The terminology is not perfectly uniform. Some specifications use “fault proof” to emphasise that the protocol proves a claim is faulty; others retain “fraud proof.” In either case, the essential question is whether an honest challenger can participate, obtain the necessary data and successfully dispute an invalid state claim within the protocol's rules.</p>
+<h3>6.3 Challenge Windows and Withdrawals</h3>
+<p>Optimistic systems commonly include a challenge period during which a proposed state can be disputed. A withdrawal from L2 to L1 may therefore take longer than an ordinary L2 transaction. Users sometimes encounter faster withdrawal services that advance funds before the native challenge process completes. Such services may provide liquidity, but they introduce a separate provider, market or risk model; they do not erase the underlying protocol's settlement delay.</p>
+<h3>6.4 The Honest-Challenger Assumption</h3>
+<p>Many optimistic rollups are designed so that at least one honest, capable participant can detect and challenge an invalid claim. This assumption is meaningful only if that participant can access the required transaction data, run the relevant software, submit a challenge and do so before the deadline. A challenge mechanism that exists theoretically but cannot be used by independent parties provides weaker practical protection than its design description might suggest.</p>
+<h3>6.5 Sequencer and Validator Are Different Roles</h3>
+<p>A sequencer orders incoming transactions and often provides a fast user-facing confirmation. A validator or challenger independently checks the resulting state and may dispute an incorrect claim. These roles can be performed by different entities. A centralised sequencer can create censorship or ordering risks even where the rollup has a separate fraud-proof mechanism. Conversely, decentralising transaction ordering does not automatically guarantee that the dispute system, data availability or upgrade governance is robust.</p>
+<div class="scaling-note"><h3>What to inspect</h3><p>Do not infer the security of an optimistic rollup from the word “fraud proofs.” Check whether challenges are enabled, who may submit them, what data is available, what permissions remain with administrators and how long withdrawals take under the native protocol.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-07">
+<h2>07. Zero-Knowledge and Validity Rollups</h2>
+<h3>7.1 Validity Proofs</h3>
+<p>A validity rollup uses a cryptographic proof to demonstrate that a batch of transactions follows the specified state-transition rules. A prover performs the computation and generates a proof; a verifier checks that proof according to a verification program or contract. If verification succeeds, the system can accept the state transition without requiring every L1 participant to repeat the entire off-chain computation.</p>
+<p>The phrase <em>zero-knowledge rollup</em> is widely used for this family of systems. However, the proof used for scaling may primarily serve to prove computational validity. The words “zero knowledge” do not mean that the rollup automatically hides transaction details from the public. Privacy depends on what data the system publishes, what cryptographic construction it uses and what information its application reveals.</p>
+<h3>7.2 Prover and Verifier</h3>
+<p>The prover may perform substantial computation to generate a proof. The verifier checks the proof against a public statement, such as a commitment to the previous state, the batch inputs and the proposed new state. The goal is to make verification substantially more efficient than re-running all the original computation. The exact efficiency depends on the proof system, circuit or virtual machine, hardware and workload.</p>
+<h3>7.3 What a Validity Proof Does — and Does Not — Establish</h3>
+<p>A validity proof can establish that a computation conforms to the encoded rules and the inputs committed to by the protocol. It does not establish that the application rules are economically sensible, that an external price feed is truthful, that a user understood a transaction, or that data will remain available indefinitely. Cryptography can verify a formal statement; it cannot make a poorly designed statement correct in the real-world sense.</p>
+<h3>7.4 Data Availability Still Matters</h3>
+<p>Even if a proof establishes that a new state root was computed correctly, users may need the underlying state data to inspect balances, independently reconstruct the state, create transactions or withdraw assets. A validity proof and data availability solve different problems. Some systems publish the data on L1; others use alternative data-availability arrangements and therefore make different trust assumptions. Those distinctions are examined in Section 08.</p>
+<h3>7.5 Engineering Trade-Offs</h3>
+<p>Validity-proof systems can require specialised proving infrastructure, complex circuits, careful verifier implementation and substantial engineering. Proving costs and latency vary by proof system and workload. Hardware requirements may affect who can operate a prover, although proof generation can be distributed or improved through specialised markets and protocols. These details change over time and should be evaluated from current technical specifications rather than broad marketing claims.</p>
+<div class="scaling-note"><h3>Terminology precision</h3><p>In this article, “validity rollup” describes the verification approach. “ZK-rollup” is retained where it is the established name used by a protocol or its documentation. Neither term should be interpreted as a blanket privacy guarantee.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-08">
+<h2>08. Data Availability and Modular Blockchains</h2>
+<h3>8.1 The Data Availability Problem</h3>
+<p>Suppose a system publishes a compact commitment to a large batch of transactions. The commitment may identify the data, but it does not reveal the data itself. If a block producer or operator publishes a commitment while withholding the underlying transaction information, other participants may be unable to reconstruct the state or verify that the claimed transition is correct. This is the data availability problem.</p>
+<p>Data availability asks whether the data required to verify a block or state transition has been published and can be accessed under the protocol's guarantees. It is different from data correctness: available data may still contain invalid transactions, which must be checked against the rules. It is also different from long-term archival storage. A protocol may guarantee availability during a verification window without promising that every historical byte will remain retrievable forever.</p>
+<h3>8.2 On-Chain Data Publication</h3>
+<p>Rollups that publish transaction data to the base chain allow independent parties to obtain the inputs needed to reconstruct their state. This is a central reason such systems can inherit important security properties from the base layer. The base chain's consensus establishes that the data was included and made available according to its rules. The rollup's own verification mechanism then determines whether the resulting state transition is valid.</p>
+<p>On Ethereum, rollups can use calldata or blob transactions, depending on the protocol and implementation. EIP-4844 introduced blobs as a more specialised and separate data space for rollup data. Blob data has a protocol-defined retention period rather than being intended as permanent general-purpose storage. Long-term retrieval therefore depends on archival infrastructure or other data services.</p>
+<h3>8.3 Data Availability Sampling</h3>
+<p>Data availability sampling (DAS) aims to let light clients gain confidence that a larger data set is available without downloading the entire set. In a typical design, data is encoded with redundancy and organised into a structure that supports proofs for randomly sampled pieces. A light client requests selected samples. If the required samples can be retrieved and verified, the client gains probabilistic confidence that the complete encoded data was published.</p>
+<p>DAS does not mean that a light client has downloaded or permanently stored every transaction. Its security depends on the encoding scheme, commitments, sampling procedure, network assumptions and sufficient participation by sampling clients. It is a way to scale data availability verification, not a substitute for every other part of blockchain security.</p>
+<h3>8.4 Modular Blockchain Architecture</h3>
+<p>A modular design separates functions that a monolithic blockchain may combine. Execution can occur in one environment, settlement in another, consensus and data availability in a specialised layer, and application-specific logic elsewhere. This can allow systems to specialise and share infrastructure. It also creates dependencies between layers: an execution environment must know where its data comes from, how its state is settled and what happens if a supporting layer becomes unavailable.</p>
+<h3>8.5 Data Availability Is Not Data Retrievability</h3>
+<div class="scaling-scroll"><table class="scaling-table"><thead><tr><th>Property</th><th>Question answered</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Data availability</td><td>Was the required data published and made accessible for verification?</td><td>Allows participants to validate state transitions and respond to invalid claims.</td></tr>
+<tr><td>Data retrievability</td><td>Can historical data still be obtained later?</td><td>Supports archival queries, historical analysis and syncing from older history.</td></tr>
+<tr><td>Data validity</td><td>Does the data and its execution conform to protocol rules?</td><td>Determines whether a proposed state transition is acceptable.</td></tr>
+</tbody></table></div>
+<p>These properties are related but not interchangeable. A system may guarantee short-term availability while relying on archival providers for long-term access. A data-availability layer may publish data for multiple execution environments, but each environment still needs its own execution and settlement rules.</p>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-09">
+<h2>09. Payment Channels and State Channels</h2>
+<h3>9.1 The Channel Idea</h3>
+<p>A payment channel allows participants to make multiple off-chain payments while using the base blockchain to establish and eventually settle the channel. Instead of publishing every small payment as a separate on-chain transaction, participants exchange signed updates that change the distribution of funds represented by the channel. The latest valid state can later be settled on-chain under the channel's rules.</p>
+<p>A state channel generalises the idea beyond simple payments. Participants can agree on successive states of an application or interaction off-chain, while a smart contract or base-layer mechanism provides the rules for opening, closing and resolving disputes. The channel approach is most useful when a set of participants expects repeated interactions and can manage the channel's lifecycle.</p>
+<h3>9.2 Opening, Updating and Closing</h3>
+<p>A typical channel lifecycle includes an on-chain funding or opening transaction, a series of off-chain signed updates, and a closing or settlement process. Participants must ensure that outdated states cannot be used to claim funds unfairly. Many channel protocols use revocation or penalty mechanisms, time locks and monitoring arrangements to discourage or respond to attempts to settle an obsolete state.</p>
+<h3>9.3 Lightning Network as a Bitcoin Example</h3>
+<p>The Lightning Network is a payment-channel network built on Bitcoin. Users can establish channels and route payments through a network of channel relationships rather than placing every payment directly on Bitcoin's base chain. The Bitcoin blockchain remains important for channel funding, settlement and enforcement of the protocol's on-chain rules.</p>
+<p>Lightning's technical interoperability is described through the Basis of Lightning Technology (BOLT) specifications. These cover areas such as the peer protocol, channel management, transaction and script formats, onion routing, node discovery, transport and invoice formats. Lightning is not an optimistic or validity rollup: it uses channel states and routing rather than batching a general-purpose execution history into a rollup state root.</p>
+<h3>9.4 Routing, Liquidity and Availability</h3>
+<p>In a routed payment, the network must find a path with sufficient available channel liquidity. Liquidity is directional: a channel may have capacity in total while only a portion is currently available to send in a particular direction. Payments can fail if a route cannot be found, channel balances are insufficient, nodes are offline or routing constraints are not met. Channel management and liquidity provisioning are therefore important operational tasks.</p>
+<h3>9.5 Where Channels Fit Best</h3>
+<p>Channels can make repeated interactions efficient, but they are not a universal replacement for on-chain transactions. Opening and closing channels require base-layer activity; participants may need to monitor the chain; liquidity can be fragmented; and routing introduces operational complexity. They are particularly suited to repeated payments or state updates among participants who benefit from keeping most interactions off-chain.</p>
+<div class="scaling-note"><h3>Do not confuse the models</h3><p>Payment channels reduce on-chain activity by keeping a sequence of signed updates between participants and settling later. Rollups execute batches of transactions in a separate environment and use a base layer for data, proofs or dispute resolution. Both can scale activity, but they solve the problem through different mechanisms.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-10">
+<h2>10. Sidechains, Validiums and Other Scaling Approaches</h2>
+<h3>10.1 Sidechains</h3>
+<p>A sidechain is a separate blockchain that operates alongside a main chain and connects to it through a bridge or other communication mechanism. It typically has its own consensus protocol and validator set. This independence can allow different performance parameters, governance and execution rules. However, the sidechain's consensus security is not automatically inherited from the main chain. Users must assess the sidechain's validators, bridge contracts, custody model and recovery procedures.</p>
+<h3>10.2 Validiums</h3>
+<p>A validium uses validity proofs to demonstrate that state transitions follow specified rules, while transaction data is kept outside the base layer, commonly with a separate data-availability committee or service. The proof can protect against an invalid state transition, but users may still be unable to reconstruct state or withdraw if required data is withheld. The design therefore exchanges some on-chain data availability for different cost and throughput characteristics, with additional availability assumptions.</p>
+<h3>10.3 Plasma</h3>
+<p>Plasma is a family of constructions that move transaction execution to child chains while using a parent chain for commitments and dispute or exit mechanisms. Users may need to monitor the system and submit evidence to protect their funds if an operator behaves maliciously or data becomes unavailable. Plasma designs helped shape the history of Ethereum scaling research, but they involve complex exit conditions and are not identical to modern rollups.</p>
+<h3>10.4 Application-Specific Chains and Appchains</h3>
+<p>An application-specific chain is designed around the requirements of a particular application or a narrow class of applications. It may use dedicated execution rules, governance or validator infrastructure. Specialisation can improve control over performance and features, but it can also fragment liquidity, security resources and user experience. Whether an appchain is an L2 depends on its actual settlement and security relationship with a base chain, not simply on its application focus.</p>
+<h3>10.5 Comparing the Main Approaches</h3>
+<div class="scaling-scroll"><table class="scaling-table"><thead><tr><th>Approach</th><th>Where execution occurs</th><th>Data arrangement</th><th>Key security dependency</th></tr></thead><tbody>
+<tr><td>Optimistic rollup</td><td>Separate execution environment</td><td>Typically published to L1</td><td>Challenge mechanism, data availability and base-layer contracts</td></tr>
+<tr><td>Validity rollup</td><td>Separate execution environment</td><td>Published to L1 in a rollup design</td><td>Validity proof, verifier implementation and data availability</td></tr>
+<tr><td>Validium</td><td>Separate execution environment</td><td>Off-chain or external DA system</td><td>Validity proof plus external data availability assumptions</td></tr>
+<tr><td>Sidechain</td><td>Independent blockchain</td><td>Sidechain's own data layer</td><td>Sidechain consensus and bridge or custody design</td></tr>
+<tr><td>Payment channel</td><td>Off-chain between channel participants</td><td>Signed channel updates; settlement data on L1</td><td>Channel rules, monitoring, timelocks and base-layer enforcement</td></tr>
+<tr><td>Plasma construction</td><td>Child chain or off-chain environment</td><td>Varies by design</td><td>Exit game, data availability and parent-chain enforcement</td></tr>
+</tbody></table></div>
+<p>The table is a conceptual guide, not a guarantee about every project. Implementations can combine features, use different data arrangements or change their trust assumptions through upgrades. A careful assessment must examine the deployed system rather than rely on a category label.</p>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-11">
+<h2>11. Sequencers, Provers and Network Infrastructure</h2>
+<h3>11.1 Sequencers and Transaction Ordering</h3>
+<p>A sequencer is a component or service that receives user transactions and determines their order within an L2 system. It may provide quick pre-confirmations, construct blocks or batches, and submit the resulting data to the base layer. A single sequencer can improve responsiveness and simplify coordination, but it also creates a potential point of censorship, outage or transaction reordering.</p>
+<p>Sequencing is distinct from proving. A sequencer decides the order in which transactions are processed; a prover generates a cryptographic proof for a validity system; a challenger disputes a claim in an optimistic system. One organisation may operate several components, but the roles should not be treated as interchangeable.</p>
+<h3>11.2 Provers and Proof Markets</h3>
+<p>In a validity rollup, a prover performs the computation required to generate a proof. Proof generation can be resource-intensive and may involve specialised hardware or distributed computation. A protocol may rely on one prover, multiple competing provers or a market in which operators are paid to produce proofs. The design affects liveness, cost, censorship resistance and the ability to recover if a prover stops working.</p>
+<h3>11.3 Validators, Challengers and Verifiers</h3>
+<p>Validators or verifiers independently execute or inspect the rollup's state transition. In optimistic systems, challengers may submit disputes against incorrect claims. In validity systems, independent parties may verify proofs and check the associated data. The degree to which these activities are permissionless varies. It should be assessed from actual contract permissions, software requirements and operational practice.</p>
+<h3>11.4 RPC Providers, Indexers and Wallet Infrastructure</h3>
+<p>Most users do not connect directly to a full node. Wallets and applications often rely on remote procedure call (RPC) providers, indexers, relayers, explorers and hosted infrastructure. These services can make a system easier to use, but they may become availability or privacy bottlenecks. A user whose wallet depends on one RPC provider may lose access to the interface even when the underlying chain continues to operate.</p>
+<h3>11.5 Upgrade and Emergency Roles</h3>
+<p>Some networks include security councils, guardian roles, pause mechanisms or upgrade administrators. These controls may be intended to respond to critical vulnerabilities. They also create governance and trust assumptions: who holds the keys, whether actions require multiple approvals, whether users receive notice, whether upgrades are delayed and whether users can exit before a change takes effect. Such roles are part of the architecture, not incidental administrative details.</p>
+<div class="scaling-note"><h3>Infrastructure map</h3><p>When evaluating a Layer 2, map each responsibility separately: transaction intake, ordering, execution, proof generation or challenge, data publication, settlement, user access and upgrades. This makes hidden dependencies easier to identify.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-12">
+<h2>12. Security Risks and Trust Assumptions</h2>
+<h3>12.1 Security Is a Stack of Properties</h3>
+<p>A Layer 2 system does not have one single security property. Its safety depends on several components working together: the base chain, rollup contracts, execution software, proof or challenge mechanism, data availability, bridges, sequencer operation, key management and governance. A failure in one component can undermine the user experience or asset safety even if another component works exactly as designed.</p>
+<h3>12.2 Smart Contract and Proof-System Risk</h3>
+<p>Bridge and rollup contracts may contain implementation errors, incorrect assumptions or upgrade paths that create unexpected behaviour. Proof systems may have bugs in circuits, verifiers, compilers or cryptographic libraries. Formal verification, independent audits, bug bounties and reproducible builds can reduce risk, but none provides an absolute guarantee. The scope and date of an audit matter: an audit of one contract version does not automatically cover later upgrades or every component in the system.</p>
+<h3>12.3 Data Withholding and Exit Risk</h3>
+<p>If users cannot obtain the data required to reconstruct their state, they may be unable to verify balances, produce withdrawal proofs or move assets independently. Rollups that publish the required data to a secure base layer are designed to reduce this risk. Systems that use an external data-availability committee, a trusted provider or off-chain storage introduce additional assumptions about those entities and their ability to remain available.</p>
+<h3>12.4 Sequencer Censorship and Ordering</h3>
+<p>A sequencer may delay, exclude or reorder transactions. Depending on the protocol, users may have a forced-inclusion path through L1 or another recovery mechanism. The existence of such a path is not enough by itself: the timing, fee, operational complexity and contract permissions determine whether it is practical. Transaction ordering can also create economic effects, including opportunities for value extraction from transaction order.</p>
+<h3>12.5 Bridges and Cross-Layer Messages</h3>
+<p>Moving assets between L1 and L2 commonly involves bridge contracts or message-passing systems. A bridge must verify that a message or withdrawal is authorised by the source system before releasing or minting assets on the destination. Weak validator assumptions, compromised keys, contract bugs or flawed message verification can put funds at risk. A canonical bridge may have a different trust model from a third-party liquidity bridge that offers faster transfers.</p>
+<h3>12.6 Upgrade Keys and Governance</h3>
+<p>Administrators may be able to upgrade contracts, change parameters, pause operations or replace verification logic. Multisignature controls and timelocks can improve accountability, but the number and independence of signers, emergency powers and governance processes still matter. A system's security can change materially when its contracts are upgraded; assessments should therefore be version-aware.</p>
+<h3>12.7 A Practical Risk Review</h3>
+<ul>
+<li>Can independent users reconstruct the system's state from published data?</li>
+<li>Who can submit or verify fraud proofs or validity proofs?</li>
+<li>Can users withdraw if the sequencer or operator stops responding?</li>
+<li>Are there forced-inclusion or escape mechanisms, and have they been tested?</li>
+<li>Who controls upgrades, pause functions and emergency permissions?</li>
+<li>Which bridges or external committees hold authority over assets or data?</li>
+<li>Does the public documentation match the deployed contracts and current configuration?</li>
+</ul>
+<p>Security is not established by a project's name, total value locked, transaction count or marketing description. It is an assessment of mechanisms, permissions, assumptions and failure responses.</p>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-13">
+<h2>13. The Economics of Scaling</h2>
+<h3>13.1 The Components of a Transaction Fee</h3>
+<p>An L2 transaction fee may include several cost components: execution resources on the L2, the cost of publishing data to L1, proof generation or validation expenses, sequencer operating costs, liquidity or bridging charges and a protocol or service margin. The exact fee formula varies by network and can change through upgrades. A low displayed fee at one moment does not establish the long-term cost of using the system.</p>
+<h3>13.2 Batching and Shared Costs</h3>
+<p>Rollups can distribute the cost of an L1 batch across many user transactions. Larger batches may reduce the average publication cost per transaction, but batch size is constrained by data limits, timing, user experience and the economics of the operator. Compression can lower the amount of data required, but it cannot remove the need to publish sufficient information for the system's security model.</p>
+<h3>13.3 Data Costs and Fee Volatility</h3>
+<p>For rollups that publish data to L1, the underlying data market is a significant input into user fees. When demand for L1 data space rises, the cost of posting batches may increase. Separate data fee markets, such as Ethereum's blob market, can make the cost structure more specialised, but they do not make data capacity unlimited. Operators may absorb some variation, pass it to users or adjust batch policies.</p>
+<h3>13.4 Sequencer Revenue and MEV</h3>
+<p>Sequencers may earn revenue through transaction fees and, depending on the system, value associated with transaction ordering. Maximal extractable value (MEV) describes value that can be captured by controlling inclusion, exclusion or ordering beyond the protocol's ordinary fee schedule. MEV can arise in decentralised exchanges, liquidations and other applications. Sequencer design, auction mechanisms and fair-ordering policies influence who captures this value and whether users face adverse execution.</p>
+<h3>13.5 Proving and Infrastructure Markets</h3>
+<p>Validity rollups incur proof-generation costs. These may be paid to a specialised prover, shared across batches or managed by an internal operator. Decentralising proving can improve resilience and broaden participation, but it may add coordination overhead and require incentive design. Similar economic questions apply to data availability services, sequencers, validators, RPC providers and liquidity providers.</p>
+<h3>13.6 The User's Total Cost</h3>
+<p>The cost of a transaction is not always the fee shown in a wallet. Users may also pay for deposits, withdrawals, bridging, currency conversion, failed transactions, liquidity services or the time value of funds locked during settlement. A realistic economic comparison should consider the complete journey of an asset and the risks taken at each step.</p>
+<div class="scaling-note"><h3>Economic caution</h3><p>Low fees are a useful feature, but they are not a complete measure of efficiency. The relevant question is what users pay in total, what service they receive, and which security or availability assumptions support that price.</p></div>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-14">
+<h2>14. Measuring Performance and Evaluating Layer 2 Networks</h2>
+<h3>14.1 Transactions Per Second Is Not Enough</h3>
+<p>Transactions per second (TPS) is a throughput measure: the number of transactions processed over a period. It is useful only when the workload and counting method are clear. A benchmark based on simple transfers cannot be compared directly with one based on complex smart-contract calls. Some figures count transactions accepted by a sequencer; others count transactions included in batches, settled on L1 or considered final under a particular security model.</p>
+<h3>14.2 Throughput, Latency and Finality</h3>
+<ul>
+<li><strong>Throughput:</strong> how much activity the system processes over time under stated conditions.</li>
+<li><strong>Latency:</strong> how long a user waits for a particular stage, such as sequencer acknowledgement, block inclusion or L1 publication.</li>
+<li><strong>Finality:</strong> when a result is considered irreversible or sufficiently settled under the system's assumptions.</li>
+<li><strong>Availability:</strong> whether users can submit transactions and obtain the information required to use the network.</li>
+<li><strong>Cost:</strong> the fees and other resources required for the measured workload.</li>
+</ul>
+<p>These measures describe different aspects of performance. A network can offer fast pre-confirmations but have a longer withdrawal settlement path. Another may provide slower inclusion but stronger guarantees at the moment a transaction is considered final. Comparisons should identify which stage is being measured.</p>
+<h3>14.3 Workload and Test Conditions</h3>
+<p>A meaningful benchmark should state the transaction type, contract complexity, batch size, data volume, network load, software version, hardware, measurement period and treatment of failed or reverted transactions. It should distinguish sustained performance from short bursts. It should also disclose whether the reported result is measured on a live network, a testnet, a simulation or a theoretical maximum.</p>
+<h3>14.4 Security and Decentralisation Metrics</h3>
+<p>Performance should be considered alongside the number and independence of sequencers, validators, provers and data providers; the permissions held by administrators; the ability of ordinary users to verify state; and the existence of working exit routes. These properties are not easily compressed into one score, but they are essential to understanding what a system offers.</p>
+<h3>14.5 A Balanced Evaluation Framework</h3>
+<div class="scaling-scroll"><table class="scaling-table"><thead><tr><th>Dimension</th><th>Questions to ask</th></tr></thead><tbody>
+<tr><td>Performance</td><td>What workload was measured? Is throughput sustained? What are the inclusion and settlement latencies?</td></tr>
+<tr><td>Cost</td><td>Are execution, data, bridge, withdrawal and service fees included?</td></tr>
+<tr><td>Security</td><td>What is the proof or challenge mechanism? What data and base-layer guarantees are available?</td></tr>
+<tr><td>Decentralisation</td><td>Who sequences, validates, proves, stores data and controls upgrades?</td></tr>
+<tr><td>Exit and recovery</td><td>Can users recover assets if an operator disappears or censors them?</td></tr>
+<tr><td>Usability</td><td>How complex are wallets, bridges, liquidity and network selection for ordinary users?</td></tr>
+<tr><td>Maturity</td><td>Are mechanisms deployed and permissionless, or planned, restricted and dependent on administrators?</td></tr>
+</tbody></table></div>
+<h3>14.6 Why Comparisons Must Be Time-Stamped</h3>
+<p>Layer 2 systems evolve through software releases, contract upgrades, governance decisions and changes to decentralisation plans. A statement that was accurate for one version may no longer describe the current deployment. Any public comparison should include an observation date, identify its sources and distinguish present functionality from a roadmap. This article therefore avoids presenting a fixed ranking or unsupported universal TPS figures.</p>
+</section>
+<section class="blockchain-foundations-section" id="territory-section-15">
+<h2>15. Key Takeaways and Research Sources</h2>
+<h3>15.1 Key Takeaways</h3>
+<div class="scaling-takeaways">
+<ul>
+<li>Blockchain scaling is a system-level problem involving computation, data, networking, storage, coordination and independent verification.</li>
+<li>Layer 1 scaling changes the base protocol; Layer 2 approaches move or reorganise activity while relying on a defined relationship with a base layer.</li>
+<li>Rollups execute transactions outside L1 and publish data or proofs that allow the base layer to perform its specified settlement and verification role.</li>
+<li>Optimistic rollups rely on a challenge process; validity rollups use cryptographic proofs to establish that state transitions follow defined rules.</li>
+<li>A validity proof does not automatically provide data availability or transaction privacy.</li>
+<li>Payment channels, including Bitcoin's Lightning Network, scale repeated interactions through off-chain signed updates and later settlement.</li>
+<li>Sidechains and validiums can offer different capacity and cost profiles, but introduce distinct data, consensus or committee assumptions.</li>
+<li>Sequencers, provers, validators, bridges, RPC providers and upgrade administrators are part of the security and operational architecture.</li>
+<li>Fees, TPS and latency should be evaluated together with finality, data availability, censorship resistance, exit paths and decentralisation.</li>
+<li>No scaling architecture removes trade-offs. The right evaluation begins with the system's actual assumptions and the needs of its users.</li>
+</ul>
+</div>
+<h3>15.2 Comparative Summary</h3>
+<div class="scaling-scroll"><table class="scaling-table"><thead><tr><th>Technology</th><th>Primary scaling method</th><th>Main question for users</th></tr></thead><tbody>
+<tr><td>Layer 1 upgrades</td><td>Improve base-chain capacity or efficiency</td><td>Do node requirements remain compatible with independent verification?</td></tr>
+<tr><td>Optimistic rollups</td><td>Off-chain execution with challenge-based verification</td><td>Can an honest challenger access data and dispute an invalid claim?</td></tr>
+<tr><td>Validity rollups</td><td>Off-chain execution with cryptographic validity proofs</td><td>Who can generate proofs, and is the underlying state data available?</td></tr>
+<tr><td>Payment/state channels</td><td>Repeated off-chain updates with on-chain settlement</td><td>Can participants monitor, route and safely close their channels?</td></tr>
+<tr><td>Validiums</td><td>Validity proofs with external data availability</td><td>What happens if the data provider or committee withholds data?</td></tr>
+<tr><td>Sidechains</td><td>Independent chain with a separate consensus system</td><td>What secures the sidechain and the bridge connecting it to the base chain?</td></tr>
+<tr><td>Modular architectures</td><td>Separate execution, settlement, consensus or data availability</td><td>Which layers must remain available and correctly coordinated?</td></tr>
+</tbody></table></div>
+<h3>15.3 A Final Perspective</h3>
+<p>Scaling is not a race toward the largest possible throughput figure. It is the design of systems that can serve more people and more complex applications while keeping their rules understandable, their data verifiable and their failure modes visible. Different approaches make different choices about where computation occurs, who orders transactions, how data is made available and what the base layer guarantees.</p>
+<p>For users, developers and researchers, the most important habit is to look beyond labels. Ask what is executed, what is published, what is proven, who controls the critical components and how a user can recover if something goes wrong. Those questions reveal the real architecture behind the promise of scalability.</p>
+<h3>15.4 Research Sources and Technical Documentation</h3>
+<div class="scaling-sources">
+<ol>
+<li><strong>Ethereum.org — Scaling.</strong> Overview of on-chain and off-chain scaling, rollups, channels, sidechains and related approaches. <a href="https://ethereum.org/developers/docs/scaling/" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Ethereum.org — Optimistic Rollups.</strong> Architecture, data publication, fraud-proof mechanisms, settlement and operational considerations. <a href="https://ethereum.org/developers/docs/scaling/optimistic-rollups/" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Ethereum.org — Zero-Knowledge Rollups.</strong> Validity proofs, off-chain execution, data availability and settlement. <a href="https://ethereum.org/developers/docs/scaling/zk-rollups/" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Ethereum.org — Data Availability.</strong> Data availability, rollup data publication and the distinction between availability and retrievability. <a href="https://ethereum.org/developers/docs/data-availability/" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Ethereum Improvement Proposal 4844 — Shard Blob Transactions.</strong> Specification for blob-carrying transactions and the data-availability design. <a href="https://eips.ethereum.org/EIPS/eip-4844" target="_blank" rel="noopener noreferrer">Read EIP-4844</a>.</li>
+<li><strong>Ethereum.org — Danksharding.</strong> Roadmap context for blob data and Ethereum's rollup-oriented scaling direction. <a href="https://ethereum.org/roadmap/danksharding/" target="_blank" rel="noopener noreferrer">Read the roadmap</a>.</li>
+<li><strong>Celestia Docs — Data Availability.</strong> Modular data availability, data availability sampling and Namespaced Merkle Trees. <a href="https://docs.celestia.org/learn/celestia-101/data-availability/" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Celestia Docs — Data Availability FAQ.</strong> Data withholding, sampling and availability assumptions. <a href="https://docs.celestia.org/learn/celestia-101/data-availability-faq/" target="_blank" rel="noopener noreferrer">Read the FAQ</a>.</li>
+<li><strong>Bitcoin Lightning — BOLT Specifications.</strong> Technical specifications for Lightning peer communication, channels, routing, invoices and related protocol features. <a href="https://github.com/lightning/bolts" target="_blank" rel="noopener noreferrer">Read the specifications</a>.</li>
+<li><strong>Arbitrum Documentation — Introduction.</strong> Explanation of Arbitrum's execution, settlement, data availability and validation model. <a href="https://docs.arbitrum.io/get-started/arbitrum-introduction" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Arbitrum Nitro — Inside Arbitrum.</strong> Technical description of optimistic rollup operation and interactive dispute resolution. <a href="https://developer.arbitrum.io/how-arbitrum-works/inside-arbitrum-nitro" target="_blank" rel="noopener noreferrer">Read the technical guide</a>.</li>
+<li><strong>Optimism — OP Stack Fault Proof Specification.</strong> Components of the fault-proof program, virtual machine and interactive dispute game. <a href="https://specs.optimism.io/fault-proof/" target="_blank" rel="noopener noreferrer">Read the specification</a>.</li>
+<li><strong>Ethereum.org — Bridges.</strong> Bridge architecture and smart-contract, counterparty and operational risks. <a href="https://ethereum.org/developers/docs/bridges/" target="_blank" rel="noopener noreferrer">Read the documentation</a>.</li>
+<li><strong>Ethereum.org — Layer 2.</strong> Introductory explanation of Layer 2 and its security considerations. <a href="https://ethereum.org/layer-2/learn/" target="_blank" rel="noopener noreferrer">Read the guide</a>.</li>
+<li><strong>Ethereum.org — Trillion Dollar Security Project.</strong> Broader security challenges, including infrastructure and Layer 2 dependencies. <a href="https://ethereum.org/reports/trillion-dollar-security/" target="_blank" rel="noopener noreferrer">Read the report</a>.</li>
+</ol>
+</div>
+<p><em>Editorial note: Protocol documentation describes particular designs and may change as software and governance evolve. Project documentation is used here to explain technical mechanisms, not as an independent endorsement of any network. Readers should consult current specifications, deployed contract permissions and independent security assessments before relying on a system.</em></p>
+</section>
+</div>
+<nav class="blockchain-foundations-navigation" aria-label="Blockchain Continents navigation">
+<a href="blockchain-continents.html">← BACK TO BLOCKCHAIN CONTINENTS</a>
+<a href="index.html">EXPLORE CRYPTO ATLAS ECOSYSTEM →</a>
+</nav>
+</main>
+<footer class="ecosystem-footer"><p>Crypto Atlas — information, sources and data.</p></footer>
+</body>
+</html>
