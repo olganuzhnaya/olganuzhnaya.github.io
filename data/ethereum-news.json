@@ -1,5 +1,15 @@
 [
   {
+    "title": "PQAI #0: Preparing Ethereum for a post-quantum, post-AI world",
+    "url": "https://blog.ethereum.org/en/2026/11/23/pqai-0",
+    "published_at": "Mon, 23 Nov 2026 00:00:00 GMT",
+    "description": "Coming away from Devcon in Mumbai, one thing was clear across client teams, researchers, and the wider Ethereum community: people are ready to take on Ethereum's next major transition. The EF has been planning mitigations to the threat posed by quantum computers to Ethereum's cryptography for several years, but...",
+    "category": "Research & Development",
+    "image": "",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
     "title": "EIP-8037/EIP-8038 Glamsterdam",
     "url": "https://blog.ethereum.org/en/2026/11/06/glamsterdam-8037-8038",
     "published_at": "Fri, 06 Nov 2026 00:00:00 GMT",
@@ -186,16 +196,6 @@
     "description": "Current global shifts clearly signal a critical need for shared, neutral digital public infrastructure outside the control of any single centralized actor. As a public, programmable network designed to operate without reliance on any single party, Ethereum was built to address precisely these needs. Today, the Ethereum Foundation Global...",
     "category": "Ecosystem Development",
     "image": "https://storage.googleapis.com/ethereum-hackmd/upload_8584695c96f9a8856689d22eed9cec78.png",
-    "source": "Ethereum Foundation",
-    "source_url": "https://blog.ethereum.org/en/feed.xml"
-  },
-  {
-    "title": "The EF’s new structure",
-    "url": "https://blog.ethereum.org/en/2026/06/23/ef-structure",
-    "published_at": "Tue, 23 Jun 2026 00:00:00 GMT",
-    "description": "Today, the EF is changing shape, concluding a months-long process of reorganization as part of the implementation of the Mandate and the Treasury Management Policy. We come out of this process with the structure, activities, and people necessary for execution on the critical tasks ahead of us, but also...",
-    "category": "Organizational",
-    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_558cc2161e0fdd518bbcc61368cd0368.png",
     "source": "Ethereum Foundation",
     "source_url": "https://blog.ethereum.org/en/feed.xml"
   }
