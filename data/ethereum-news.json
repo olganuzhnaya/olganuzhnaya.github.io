@@ -1,5 +1,15 @@
 [
   {
+    "title": "Devcon 8 India Recap: Four Days in Mumbai, and What's Next",
+    "url": "https://blog.ethereum.org/en/2026/11/25/devcon-mumbai-wrap",
+    "published_at": "Wed, 25 Nov 2026 00:00:00 GMT",
+    "description": "Thousands of builders at a global gathering of Ethereum communities and allies building open, secure and verifiable technology. From November 3–6, the Ethereum community gathered at the Jio World Convention Centre (JWCC) in Mumbai for Devcon 8, bringing together developers, researchers, creators, students, and community leaders from India and...",
+    "category": "Events",
+    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_8ecdef046d526e026f90ca3c38b34c2c.png",
+    "source": "Ethereum Foundation",
+    "source_url": "https://blog.ethereum.org/en/feed.xml"
+  },
+  {
     "title": "PQAI #1: One hash to rule them all — Keccak-256 for Ethereum's post-quantum, post-AI era",
     "url": "https://blog.ethereum.org/en/2026/11/24/pqai-1",
     "published_at": "Tue, 24 Nov 2026 00:00:00 GMT",
@@ -186,16 +196,6 @@
     "description": "Devcon 8 tickets are live! 🇮🇳 This November, the Ethereum community will gather in Mumbai for a more focused and intimate Devcon. Devcon gathers minds from across Ethereum and beyond: builders, researchers, maintainers, organizers, and anyone curious about the future of open technology. Across four days, you can...",
     "category": "Events",
     "image": "https://storage.googleapis.com/ethereum-hackmd/upload_8ecdef046d526e026f90ca3c38b34c2c.png",
-    "source": "Ethereum Foundation",
-    "source_url": "https://blog.ethereum.org/en/feed.xml"
-  },
-  {
-    "title": "The triage is the product: running AI agents against Ethereum's protocol code",
-    "url": "https://blog.ethereum.org/en/2026/07/09/triage-is-the-product",
-    "published_at": "Thu, 09 Jul 2026 00:00:00 GMT",
-    "description": "Notes from the Ethereum Foundation's Protocol Security team on running coordinated AI agents against real protocol code, including how we organize the work, what holds up under scrutiny, and what client teams and security researchers can take from it. This post stands on its own; later posts will go deeper...",
-    "category": "Research & Development",
-    "image": "https://storage.googleapis.com/ethereum-hackmd/upload_1308f6baa08e4ef93223642f77ca329f.jpg",
     "source": "Ethereum Foundation",
     "source_url": "https://blog.ethereum.org/en/feed.xml"
   }
